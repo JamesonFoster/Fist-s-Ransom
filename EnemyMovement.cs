@@ -17,6 +17,12 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 dodgeTarget; //The target position the player moves to when dodging
     private Vector2 startPos; //The starting posistion / the position the player returns to after dodging
 
+    public float atkAgro = 0.02f;
+    public float atkWarning = 1f;
+    private float timerAtk = 0f;
+    public bool isAtk = false;
+    public PlayerAtk target;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +33,27 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //attacking
+
+        if (atkAgro >= Random.value && isAtk != true)
+        {
+            Attack();
+        }
+        if (isAtk)
+        {
+            timerAtk += Time.deltaTime;
+            if (timerAtk >= atkWarning)
+            {
+                isAtk = false;
+                timerAtk = 0;
+            }
+        }
+
+
+
+
+
+        //dodging
         stunTimer += Time.deltaTime;
 
         if (isDodging == true)
@@ -84,5 +111,11 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+
+    public void Attack()
+    {
+        isAtk = true;
     }
 }

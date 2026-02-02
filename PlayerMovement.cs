@@ -11,7 +11,9 @@ public class PlayerMovement : MonoBehaviour
     private float stunTimer = 999f; //A tester value to test how long the player has been dodge stunned
     private Vector2 dodgeTarget; //The target position the player moves to when dodging
     private Vector2 startPos; //The starting posistion / the position the player returns to after dodging
-    public bool aimUp = false; //A tester value used to check if the player is hold W / aiming for up punches
+
+
+    
 
     void Start()
     {
@@ -20,16 +22,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.W)) //If W is held check aimUp as true
-        {
-            aimUp = true;
-            Debug.Log("W key is being held down.");
-        }
-        else
-        {
-            aimUp = false;
-        }
-
 
         if (!isDodging && ((dodgeStun + dodgeTime) < stunTimer)) //Allows dodging only if player isn't dodging
         {                                                       //and if dodge stun isn't active
