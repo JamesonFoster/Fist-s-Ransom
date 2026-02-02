@@ -5,17 +5,24 @@ using UnityEngine;
 public class PlayerAtk : MonoBehaviour
 {
     public EnemyMovement target;
+    private PlayerMovement plMove;
 
     public bool aimUp = false; // Holding W aims punches upward
 
     public float atkCooldown = 0.05f;
     private float timeratkCooldown = 0f;
 
-    private bool isAtking = false;
+    public bool isAtking = false;
 
     private Vector2 startPos;
     private Vector2 attackPos;
 
+
+
+    void Awake()
+    {
+        plMove = GetComponent<PlayerMovement>();
+    }
     void Start()
     {
         startPos = transform.position;
@@ -28,7 +35,7 @@ public class PlayerAtk : MonoBehaviour
         aimUp = Input.GetKey(KeyCode.W);
 
         // Attack input
-        if (!isAtking && timeratkCooldown <= 0f)
+        if (!isAtking && timeratkCooldown <= 0f && !plMove.isDodging)
         {
             if (Input.GetKeyDown(KeyCode.Comma))
                 AttackL();

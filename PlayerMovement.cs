@@ -6,15 +6,20 @@ public class PlayerMovement : MonoBehaviour
     public float dodgeTime = 0.4f; //The time it takes for a player to no longer be dodging
     public float dodgeStun = 0.1f; //The time after a complete dodge where a player can't dodge again
 
-    private bool isDodging = false; //Controls if player is dodging
+    public bool isDodging = false; //Controls if player is dodging
     private float dodgeTimer = 0f; //A tester value to test how long the player has been dodging
     private float stunTimer = 999f; //A tester value to test how long the player has been dodge stunned
     private Vector2 dodgeTarget; //The target position the player moves to when dodging
     private Vector2 startPos; //The starting posistion / the position the player returns to after dodging
 
+    private PlayerAtk plAtk;
+
 
     
-
+    void Awake()
+    {
+        plAtk = GetComponent<PlayerAtk>();
+    }
     void Start()
     {
         startPos = transform.position;
@@ -22,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-
-        if (!isDodging && ((dodgeStun + dodgeTime) < stunTimer)) //Allows dodging only if player isn't dodging
+        stunTimer += Time.deltaTime;
+        if (!isDodging && ((dodgeStun + dodgeTime) < stunTimer && !plAtk.isAtking)) //Allows dodging only if player isn't dodging or atk
         {                                                       //and if dodge stun isn't active
             if (Input.GetKeyDown(KeyCode.A))
                 StartDodge(Vector2.left); 
@@ -37,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             dodgeTimer += Time.deltaTime;
-            stunTimer += Time.deltaTime;
+            
             if (dodgeTimer <= dodgeTime / 2f)
             {
                 // Move outward
