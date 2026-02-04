@@ -22,12 +22,15 @@ public class EnemyMovement : MonoBehaviour
     private float timerAtk = 0f;
     public bool isAtk = false;
     public PlayerAtk target;
+    public PlayerMovement target2;
+    public string Atktype = "";
 
 
     // Start is called before the first frame update
     void Start()
     {
         startPos = transform.position;
+        atkAgro /= 100;
     }
 
     // Update is called once per frame
@@ -46,6 +49,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 isAtk = false;
                 timerAtk = 0;
+                SendScore(target2, "normal");
             }
         }
 
@@ -117,5 +121,17 @@ public class EnemyMovement : MonoBehaviour
     public void Attack()
     {
         isAtk = true;
+    }
+
+    public void SendScore(PlayerMovement target2, string Atktype)
+    {
+        if (target2 != null)
+        {
+            target2.ReceiveScore(Atktype);
+        }
+        else
+        {
+            Debug.LogWarning("Target is missing!");
+        }
     }
 }

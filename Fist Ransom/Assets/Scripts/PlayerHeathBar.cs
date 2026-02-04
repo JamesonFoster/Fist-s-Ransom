@@ -1,24 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHeathBar : MonoBehaviour
 {
-    private Vector3 cubStr;
-    private Vector3 cubStrOg;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private Slider _slider;
     void Start()
     {
-        float healpercent = (GlobalPlayerVars.PlayerMaxHealth / GlobalPlayerVars.PlayerHealth) * 100;
-        cubStrOg = transform.localScale;
-        cubStr = transform.localScale;
+        _slider = GetComponent<Slider>();
+        float healpercent = (GlobalPlayerVars.PlayerHealth / GlobalPlayerVars.PlayerMaxHealth) * 100;
+        _slider.value = healpercent;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float healpercent = (GlobalPlayerVars.PlayerHealth / GlobalPlayerVars.PlayerMaxHealth);
-
-        cubStr.x = cubStrOg.x * healpercent;
-
-        transform.localScale = cubStr;
+        float healpercent = (GlobalPlayerVars.PlayerHealth / GlobalPlayerVars.PlayerMaxHealth) * 100;
+        _slider.value = healpercent;
     }
 }

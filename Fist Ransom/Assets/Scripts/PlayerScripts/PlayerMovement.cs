@@ -68,4 +68,12 @@ public class PlayerMovement : MonoBehaviour
         stunTimer = 0f;
         dodgeTarget = (Vector2)transform.position + direction * dodgeDistance;
     }
+
+    public void ReceiveScore(string score)
+    {
+        if (isDodging == false)
+        {
+            GlobalPlayerVars.PlayerHealth -= 5;
+        }
+    }
 }
