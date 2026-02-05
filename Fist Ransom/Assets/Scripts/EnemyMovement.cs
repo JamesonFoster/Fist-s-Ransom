@@ -4,28 +4,39 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [Header("Dodging Chances")]
     public float atkRedyPercent= 0.5f;
     public string score = "headL";
 
+    [Header("Dodging Stats")]
     public float dodgeDistance = 5f; //Distance the Player moves when dodging
     public float dodgeTime = 0.4f; //The time it takes for a player to no longer be dodging
     public float dodgeStun = 0.1f; //The time after a complete dodge where a player can't dodge again
-
     private bool isDodging = false; //Controls if player is dodging
     private float dodgeTimer = 0f; //A tester value to test how long the player has been dodging
     private float stunTimer = 999f; //A tester value to test how long the player has been dodge stunned
     private Vector2 dodgeTarget; //The target position the player moves to when dodging
     private Vector2 startPos; //The starting posistion / the position the player returns to after dodging
 
+    [Header("Attack Basic Stats")]
     public float atkAgro = 0.02f;
     public float atkWarning = 1f;
     private float timerAtk = 0f;
     public bool isAtk = false;
+
+    [Header("Player Connections")]
     public PlayerAtk target;
     public PlayerMovement target2;
-    public string Atktype = "";
 
+    [Header("Attack Damage (temperary for testing)")]
+    [SerializeField] public string Atktype = "";
+    public float atkDamage = 3f;
 
+    private void Awake()
+    {
+        GlobalPlayerVars.EnemyMaxHealth = 25;
+        GlobalPlayerVars.EnemyHealth = 25;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +60,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 isAtk = false;
                 timerAtk = 0;
-                SendScore(target2, "normal");
+                SendScore(target2, "normal", atkDamage);
             }
         }
 
@@ -89,7 +100,7 @@ public class EnemyMovement : MonoBehaviour
         dodgeTarget = (Vector2)transform.position + direction * dodgeDistance;
     }
     // Method to receive data from ScriptA
-    public void ReceiveScore(string score)
+    public void ReceiveScore(string score, float damage)
     {
         if (Random.value <= atkRedyPercent)
         {
@@ -115,6 +126,11 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            GlobalPlayerVars.EnemyHealth -= damage;
+            Debug.Log(GlobalPlayerVars.EnemyHealth);
+        }
     }
 
 
@@ -123,11 +139,11 @@ public class EnemyMovement : MonoBehaviour
         isAtk = true;
     }
 
-    public void SendScore(PlayerMovement target2, string Atktype)
+    public void SendScore(PlayerMovement target2, string Atktype, float damage)
     {
         if (target2 != null)
         {
-            target2.ReceiveScore(Atktype);
+            target2.ReceiveScore(Atktype,damage);
         }
         else
         {
