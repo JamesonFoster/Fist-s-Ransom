@@ -1,0 +1,25 @@
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "BaseEnemyScript", menuName = "Scriptable Objects/BaseEnemyScript")]
+public class BaseEnemyScript : ScriptableObject
+{
+    public string name = "noName";
+    [Header("Dodging Chances")]
+    public float atkRedyPercent = 0.5f;
+
+    [Header("Dodging Stats")]
+    public float dodgeDistance = 5f;
+    public float dodgeTime = 0.4f;
+    public float dodgeStun = 0.1f;
+
+    [Header("Attack Basic Stats")]
+    public float atkAgro = 0.02f;
+    public float atkWarning = 1f;
+
+    [Header("Attack Damage")]
+    public string atkType = "";
+    public float atkDamage = 3f;
+
+    [Header("Health Stats")]
+    public float maxHealth = 25f;
+}

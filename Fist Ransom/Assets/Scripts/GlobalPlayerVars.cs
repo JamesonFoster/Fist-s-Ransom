@@ -13,4 +13,5 @@ public class GlobalPlayerVars : MonoBehaviour
     //EnemyValues
     public static float EnemyHealth;
     public static float EnemyMaxHealth;
+    public static string EnemyName;
 }

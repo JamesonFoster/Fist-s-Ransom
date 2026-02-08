@@ -10,28 +10,28 @@ public class PlayerAtk : MonoBehaviour
 
     [Header("Basic Attack Stats")]
     public bool aimUp = false; // Holding W aims punches upward
-    public float atkCooldown = 0.05f;
-    private float timeratkCooldown = 0f;
+    public float atkCooldown = 0.2f; // Slightly longer cooldown for visibility
+    private float attackTimer = 0f;
     public bool isAtking = false;
 
     private Vector2 startPos;
     private Vector2 attackPos;
+
     [Header("Attack Damage Stats")]
     public float headAtkDama = 3;
     public float bodyAtkDama = 3;
     public float rageHeadAtk = 10;
     public float rageBodyAtk = 10;
 
-
-
     void Awake()
     {
         plMove = GetComponent<PlayerMovement>();
     }
+
     void Start()
     {
         startPos = transform.position;
-        Vector2 attackPos = new Vector2(0, 0);
+        attackPos = startPos + new Vector2(0, 0.17f);
     }
 
     void Update()
@@ -39,36 +39,35 @@ public class PlayerAtk : MonoBehaviour
         // Aim up check
         aimUp = Input.GetKey(KeyCode.W);
 
-        // Attack input
-        if (!isAtking && timeratkCooldown <= 0f && !plMove.isDodging)
-        {
-            if (Input.GetKeyDown(KeyCode.Comma))
-                AttackL();
-
-            if (Input.GetKeyDown(KeyCode.Period))
-                AttackR();
-        }
+        // Attack input (only if not already attacking and player is allowed to move)
+        if (!isAtking && plMove.canMove && Input.GetKeyDown(KeyCode.Comma))
+            AttackL();
+        if (!isAtking && plMove.canMove && Input.GetKeyDown(KeyCode.Period))
+            AttackR();
 
         // Attack movement
         if (isAtking)
         {
-            timeratkCooldown += Time.deltaTime;
-            if (timeratkCooldown <= atkCooldown / 2f)
+            attackTimer += Time.deltaTime;
+            float halfAtk = atkCooldown / 2f;
+
+            if (attackTimer <= halfAtk)
             {
                 // Move outward
-                transform.position = Vector2.MoveTowards(transform.position,attackPos,10f * Time.deltaTime);
+                transform.position = Vector2.Lerp(startPos, attackPos, attackTimer / halfAtk);
             }
-            else if (timeratkCooldown <= atkCooldown)
+            else if (attackTimer <= atkCooldown)
             {
                 // Move back
-                transform.position = Vector2.MoveTowards(transform.position,startPos,10f * Time.deltaTime);
+                transform.position = Vector2.Lerp(attackPos, startPos, (attackTimer - halfAtk) / halfAtk);
             }
             else
             {
-                // Reset
-                isAtking = false;
-                timeratkCooldown = 0f;
+                // Attack finished
                 transform.position = startPos;
+                attackTimer = 0f;
+                isAtking = false;
+                plMove.canMove = true; // Unlock movement after attack
             }
         }
     }
@@ -76,6 +75,7 @@ public class PlayerAtk : MonoBehaviour
     public void AttackL()
     {
         isAtking = true;
+        plMove.canMove = false; // Lock movement while attacking
 
         if (aimUp)
             SendScore(target, "headL", headAtkDama);
@@ -86,6 +86,7 @@ public class PlayerAtk : MonoBehaviour
     public void AttackR()
     {
         isAtking = true;
+        plMove.canMove = false; // Lock movement while attacking
 
         if (aimUp)
             SendScore(target, "headR", headAtkDama);
@@ -104,5 +105,4 @@ public class PlayerAtk : MonoBehaviour
             Debug.LogWarning("Target is missing!");
         }
     }
-    
 }
