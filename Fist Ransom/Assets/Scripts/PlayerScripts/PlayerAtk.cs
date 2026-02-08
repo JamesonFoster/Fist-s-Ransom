@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class PlayerAtk : MonoBehaviour
 {
+    [Header("Enemy Connection")]
     public EnemyMovement target;
     private PlayerMovement plMove;
 
+    [Header("Basic Attack Stats")]
     public bool aimUp = false; // Holding W aims punches upward
-
     public float atkCooldown = 0.05f;
     private float timeratkCooldown = 0f;
-
     public bool isAtking = false;
 
     private Vector2 startPos;
     private Vector2 attackPos;
+    [Header("Attack Damage Stats")]
+    public float headAtkDama = 3;
+    public float bodyAtkDama = 3;
+    public float rageHeadAtk = 10;
+    public float rageBodyAtk = 10;
 
 
 
@@ -73,9 +78,9 @@ public class PlayerAtk : MonoBehaviour
         isAtking = true;
 
         if (aimUp)
-            SendScore(target, "headL");
+            SendScore(target, "headL", headAtkDama);
         else
-            SendScore(target, "bodyL");
+            SendScore(target, "bodyL", bodyAtkDama);
     }
 
     public void AttackR()
@@ -83,16 +88,16 @@ public class PlayerAtk : MonoBehaviour
         isAtking = true;
 
         if (aimUp)
-            SendScore(target, "headR");
+            SendScore(target, "headR", headAtkDama);
         else
-            SendScore(target, "bodyR");
+            SendScore(target, "bodyR", bodyAtkDama);
     }
 
-    public void SendScore(EnemyMovement target, string dir)
+    public void SendScore(EnemyMovement target, string dir, float damage)
     {
         if (target != null)
         {
-            target.ReceiveScore(dir);
+            target.ReceiveScore(dir, damage);
         }
         else
         {
