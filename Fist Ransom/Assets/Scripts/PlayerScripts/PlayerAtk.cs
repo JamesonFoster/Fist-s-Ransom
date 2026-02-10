@@ -31,6 +31,7 @@ public class PlayerAtk : MonoBehaviour
     void Start()
     {
         startPos = transform.position;
+        GlobalPlayerVars.PlayerRage = 0;
         attackPos = startPos + new Vector2(0, 0.17f);
     }
 
@@ -44,6 +45,12 @@ public class PlayerAtk : MonoBehaviour
             AttackL();
         if (!isAtking && plMove.canMove && Input.GetKeyDown(KeyCode.Period))
             AttackR();
+        if (!isAtking && plMove.canMove && Input.GetKeyDown(KeyCode.Slash) && GlobalPlayerVars.PlayerRage == 100)
+            AttackRage();
+        if (Input.GetKeyDown(KeyCode.L))
+            useHeal();
+        if (Input.GetKeyDown(KeyCode.K))
+            useRage();
 
         // Attack movement
         if (isAtking)
@@ -93,6 +100,54 @@ public class PlayerAtk : MonoBehaviour
         else
             SendScore(target, "bodyR", bodyAtkDama);
     }
+    public void AttackRage()
+    {
+        isAtking = true;
+        plMove.canMove = false; // Lock movement while attacking
+
+        if (aimUp)
+        {
+            attackTimer -= atkCooldown;
+            SendScore(target, "headR", rageHeadAtk);
+        }
+        else
+        {
+            attackTimer -= atkCooldown;
+            SendScore(target, "bodyL", rageBodyAtk);
+        }
+    }
+
+    public void useHeal()
+    {
+        if (GlobalPlayerVars.HealCount > 0)
+        {
+            GlobalPlayerVars.HealCount--;
+            if (GlobalPlayerVars.PlayerHealth <= (GlobalPlayerVars.PlayerMaxHealth / 4)*3)
+            {
+                GlobalPlayerVars.PlayerHealth += GlobalPlayerVars.PlayerMaxHealth / 4;
+            }
+            else
+            {
+                GlobalPlayerVars.PlayerHealth = GlobalPlayerVars.PlayerMaxHealth;
+            }
+        }
+    }
+    public void useRage()
+    {
+        if (GlobalPlayerVars.RageCount > 0)
+        {
+            GlobalPlayerVars.RageCount--;
+            if (GlobalPlayerVars.PlayerRage <= 75)
+            {
+                GlobalPlayerVars.PlayerRage += 25;
+            }
+            else
+            {
+                GlobalPlayerVars.PlayerRage = 100;
+            }
+        }
+    }
+
 
     public void SendScore(EnemyMovement target, string dir, float damage)
     {
