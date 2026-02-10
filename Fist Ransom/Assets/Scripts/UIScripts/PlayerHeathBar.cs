@@ -7,18 +7,35 @@ using UnityEngine.UI;
 
 public class PlayerHeathBar : MonoBehaviour
 {
+    public bool isRageMeter = false;
     [SerializeField] private Slider _slider;
     void Start()
     {
         _slider = GetComponent<Slider>();
-        float healpercent = (GlobalPlayerVars.PlayerHealth / GlobalPlayerVars.PlayerMaxHealth) * 100;
-        _slider.value = healpercent;
+        if (isRageMeter == false)
+        {
+            float healpercent = (GlobalPlayerVars.PlayerHealth / GlobalPlayerVars.PlayerMaxHealth) * 100;
+            _slider.value = healpercent;
+        }
+        else
+        {
+            float rage = GlobalPlayerVars.PlayerRage;
+            _slider.value = rage;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        float healpercent = (GlobalPlayerVars.PlayerHealth / GlobalPlayerVars.PlayerMaxHealth) * 100;
-        _slider.value = healpercent;
+        if (isRageMeter == false)
+        {
+            float healpercent = (GlobalPlayerVars.PlayerHealth / GlobalPlayerVars.PlayerMaxHealth) * 100;
+            _slider.value = healpercent;
+        }
+        else
+        {
+            float rage = GlobalPlayerVars.PlayerRage;
+            _slider.value = rage;
+        }
     }
 }

@@ -22,4 +22,9 @@ public class BaseEnemyScript : ScriptableObject
 
     [Header("Health Stats")]
     public float maxHealth = 25f;
+
+    [Header("Sprites")]
+    public Sprite sprStandingStill;
+    public Sprite sprAtkSwing;
+    public Sprite sprAtkWarn;
 }

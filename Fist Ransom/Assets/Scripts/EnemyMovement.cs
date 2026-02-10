@@ -16,6 +16,8 @@ public class EnemyMovement : MonoBehaviour
     [Header("Player Connections")]
     public PlayerAtk target;
     public PlayerMovement target2;
+    private SpriteRenderer sprrend;
+
 
     private void Awake()
     {
@@ -23,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
         GlobalPlayerVars.EnemyMaxHealth = enemyData.maxHealth;
         GlobalPlayerVars.EnemyHealth = enemyData.maxHealth;
         GlobalPlayerVars.EnemyName = enemyData.name;
+        sprrend = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
@@ -43,10 +46,19 @@ public class EnemyMovement : MonoBehaviour
         if (isAtk)
         {
             timerAtk += Time.deltaTime;
+            if (timerAtk < enemyData.atkWarning - 0.1f)
+            {
+                SpriteChange(enemyData.sprAtkWarn);
+            }
+            else
+            {
+                SpriteChange(enemyData.sprAtkSwing);
+            }
             if (timerAtk >= enemyData.atkWarning)
             {
                 isAtk = false;
                 timerAtk = 0;
+                SpriteChange(enemyData.sprStandingStill);
                 SendScore(target2, "normal", enemyData.atkDamage);
             }
         }
@@ -100,6 +112,14 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             GlobalPlayerVars.EnemyHealth -= damage;
+            if (GlobalPlayerVars.PlayerRage + 10 <= 100)
+            {
+                GlobalPlayerVars.PlayerRage += 10;
+            }
+            else
+            {
+                GlobalPlayerVars.PlayerRage = 100;
+            }
             Debug.Log($"Enemy Health: {GlobalPlayerVars.EnemyHealth}");
         }
     }
@@ -115,5 +135,9 @@ public class EnemyMovement : MonoBehaviour
             target2.ReceiveScore(atkType, damage);
         else
             Debug.LogWarning("Target is missing!");
+    }
+    public void SpriteChange(Sprite sprite)
+    {
+        sprrend.sprite = sprite;
     }
 }
