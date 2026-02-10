@@ -22,6 +22,12 @@ MonoBehaviour:
   atkType: Basic
   atkDamage: 3
   maxHealth: 40
+  postAtkStunTime: 0.6
+  stunnedTime: 2
   sprStandingStill: {fileID: 21300000, guid: 354d1cd310982df4284c10245b68726e, type: 3}
   sprAtkSwing: {fileID: 21300000, guid: 8fb9c1d84aa2183498d8e3ec20ca5842, type: 3}
   sprAtkWarn: {fileID: 21300000, guid: 2bc5cc887eb550642b8f9cbafdf88460, type: 3}
+  stunned1: {fileID: 21300000, guid: e11a6d5e8b5c1ee40b12496e1794d704, type: 3}
+  stunned2: {fileID: 21300000, guid: 4deced1e1211cc54b858479cc7100880, type: 3}
+  dead: {fileID: 0}
+  Dodge: {fileID: 0}
