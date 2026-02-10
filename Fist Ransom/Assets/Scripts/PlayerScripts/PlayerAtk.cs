@@ -22,10 +22,18 @@ public class PlayerAtk : MonoBehaviour
     public float bodyAtkDama = 3;
     public float rageHeadAtk = 10;
     public float rageBodyAtk = 10;
+    private SpriteRenderer sprrend;
+    private bool upSprites = false;
+    [Header("Sprites")]
+    public Sprite standingStill;
+    public Sprite upAtkPart1;
+    public Sprite upAtkPart2;
+    
 
     void Awake()
     {
         plMove = GetComponent<PlayerMovement>();
+        sprrend = GetComponent<SpriteRenderer>();
     }
 
     void Start()
@@ -62,11 +70,15 @@ public class PlayerAtk : MonoBehaviour
             {
                 // Move outward
                 transform.position = Vector2.Lerp(startPos, attackPos, attackTimer / halfAtk);
+                if (upSprites)
+                SpriteChange(upAtkPart1);
             }
             else if (attackTimer <= atkCooldown)
             {
                 // Move back
                 transform.position = Vector2.Lerp(attackPos, startPos, (attackTimer - halfAtk) / halfAtk);
+                if (upSprites)
+                SpriteChange(upAtkPart2);
             }
             else
             {
@@ -75,6 +87,8 @@ public class PlayerAtk : MonoBehaviour
                 attackTimer = 0f;
                 isAtking = false;
                 plMove.canMove = true; // Unlock movement after attack
+                SpriteChange(standingStill);
+                sprrend.flipX = false;
             }
         }
     }
@@ -85,9 +99,15 @@ public class PlayerAtk : MonoBehaviour
         plMove.canMove = false; // Lock movement while attacking
 
         if (aimUp)
+        {
             SendScore(target, "headL", headAtkDama);
+            upSprites = true;
+        }
         else
+        {
             SendScore(target, "bodyL", bodyAtkDama);
+            upSprites = false;
+        }
     }
 
     public void AttackR()
@@ -96,9 +116,16 @@ public class PlayerAtk : MonoBehaviour
         plMove.canMove = false; // Lock movement while attacking
 
         if (aimUp)
+        {
+            sprrend.flipX = true;
             SendScore(target, "headR", headAtkDama);
+            upSprites = true;
+        }
         else
+        {
             SendScore(target, "bodyR", bodyAtkDama);
+            upSprites = false;
+        }
     }
     public void AttackRage()
     {
@@ -159,5 +186,9 @@ public class PlayerAtk : MonoBehaviour
         {
             Debug.LogWarning("Target is missing!");
         }
+    }
+    public void SpriteChange(Sprite sprite)
+    {
+        sprrend.sprite = sprite;
     }
 }

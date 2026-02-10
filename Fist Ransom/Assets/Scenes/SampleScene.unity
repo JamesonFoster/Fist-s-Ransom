@@ -644,7 +644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 195, y: -228}
+  m_AnchoredPosition: {x: 195, y: -176}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &296429941
@@ -1482,7 +1482,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 358, y: -183}
+  m_AnchoredPosition: {x: 358, y: -131}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &848377293
@@ -1556,7 +1556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -285.58255, y: -198.08}
+  m_AnchoredPosition: {x: -270, y: -168}
   m_SizeDelta: {x: 324.0446, y: 47.1296}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &892116563
@@ -1695,7 +1695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 364, y: -228}
+  m_AnchoredPosition: {x: 364, y: -176}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1247331076
@@ -2024,7 +2024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 407, y: -137}
+  m_AnchoredPosition: {x: 407, y: -85}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1521011734
@@ -2161,7 +2161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 195, y: -183}
+  m_AnchoredPosition: {x: 195, y: -131}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1596790583
@@ -2309,6 +2309,9 @@ MonoBehaviour:
   bodyAtkDama: 3
   rageHeadAtk: 10
   rageBodyAtk: 10
+  standingStill: {fileID: 21300000, guid: ba2191be68539864185eba07bfb40a6b, type: 3}
+  upAtkPart1: {fileID: 21300000, guid: 87751b4fb2e0a76489b196b39bac1f43, type: 3}
+  upAtkPart2: {fileID: 21300000, guid: b304ff4a7792fb24da5399b02a4aa050, type: 3}
 --- !u!114 &1632614864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2372,7 +2375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 221, y: -137}
+  m_AnchoredPosition: {x: 221, y: -85}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1640548506
@@ -2670,7 +2673,7 @@ GameObject:
   - component: {fileID: 1809466987}
   - component: {fileID: 1809466989}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Skele
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

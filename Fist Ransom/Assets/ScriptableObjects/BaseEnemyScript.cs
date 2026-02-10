@@ -22,6 +22,8 @@ public class BaseEnemyScript : ScriptableObject
 
     [Header("Health Stats")]
     public float maxHealth = 25f;
+    public float postAtkStunTime = 0.6f;
+    public float stunnedTime = 2f;
 
     [Header("Sprites")]
     public Sprite sprStandingStill;

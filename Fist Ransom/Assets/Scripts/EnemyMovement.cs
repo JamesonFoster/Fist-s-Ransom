@@ -17,6 +17,10 @@ public class EnemyMovement : MonoBehaviour
     public PlayerAtk target;
     public PlayerMovement target2;
     private SpriteRenderer sprrend;
+    private bool stunable = false;
+    private float stunableTimer = 0f;
+    private float stunnedTimer = 0f;
+    private bool stunned = false;
 
 
     private void Awake()
@@ -36,11 +40,29 @@ public class EnemyMovement : MonoBehaviour
     {
         HandleAttack();
         HandleDodge();
+        if (stunable)
+        {
+            stunableTimer += Time.deltaTime;
+            if (stunableTimer >= enemyData.postAtkStunTime)
+            {
+                stunableTimer = 0f;
+                stunable = false;
+            }
+        }
+        if (stunned)
+        {
+            stunnedTimer += Time.deltaTime;
+            if (stunnedTimer >= enemyData.stunnedTime)
+            {
+                stunnedTimer = 0f;
+                stunned = false;
+            }
+        }
     }
 
     void HandleAttack()
     {
-        if ((enemyData.atkAgro / 100) >= Random.value && !isAtk)
+        if ((enemyData.atkAgro / 100) >= Random.value && !isAtk && !stunned)
             Attack();
 
         if (isAtk)
@@ -59,6 +81,7 @@ public class EnemyMovement : MonoBehaviour
                 isAtk = false;
                 timerAtk = 0;
                 SpriteChange(enemyData.sprStandingStill);
+                stunable = true;
                 SendScore(target2, "normal", enemyData.atkDamage);
             }
         }
@@ -100,7 +123,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (Random.value <= enemyData.atkRedyPercent)
         {
-            if (!isDodging && ((enemyData.dodgeStun + enemyData.dodgeTime) < stunTimer))
+            if (!isDodging && ((enemyData.dodgeStun + enemyData.dodgeTime) < stunTimer) && !stunned)
             {
                 if (score == "headL" || score == "bodyL")
                     StartDodge(Vector2.right);
@@ -112,6 +135,12 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             GlobalPlayerVars.EnemyHealth -= damage;
+            if (stunable)
+            {
+                stunable = false;
+                stunned = true;
+                stunableTimer = 0f;
+            }
             if (GlobalPlayerVars.PlayerRage + 10 <= 100)
             {
                 GlobalPlayerVars.PlayerRage += 10;
