@@ -17,6 +17,7 @@ public class PlayerAtk : MonoBehaviour
     private Vector2 attackPos;
     private SpriteRenderer sprrend;
     private bool upSprites = false;
+    private bool rageSprites = false;
     [Header("Sprites")]
     public Sprite standingStill;
     public Sprite upAtkPart1;
@@ -67,6 +68,11 @@ public class PlayerAtk : MonoBehaviour
             }
             else if (attackTimer <= GlobalPlayerVars.atkCooldown)
             {
+                if (rageSprites)
+                {
+                    rageSprites = false;
+                    SendScore(target, "headR", GlobalPlayerVars.rageHeadAtk);
+                }
                 // Move back
                 transform.position = Vector2.Lerp(attackPos, startPos, (attackTimer - halfAtk) / halfAtk);
                 if (upSprites)
@@ -127,12 +133,12 @@ public class PlayerAtk : MonoBehaviour
         if (aimUp)
         {
             attackTimer -= GlobalPlayerVars.atkCooldown;
-            SendScore(target, "headR", GlobalPlayerVars.rageHeadAtk);
+            rageSprites = true;
         }
         else
         {
             attackTimer -= GlobalPlayerVars.atkCooldown;
-            SendScore(target, "bodyL", GlobalPlayerVars.rageBodyAtk);
+            rageSprites = true;
         }
     }
 

@@ -88,6 +88,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 isDodging = false;
                 isAtk = false;
+                sprFlip = false;
+
                 stunnedTimer += Time.deltaTime;
                 stunSprTimer += Time.deltaTime;
                 if (stunnedTimer >= enemyData.stunnedTime)
@@ -190,9 +192,21 @@ public class EnemyMovement : MonoBehaviour
 
     public void ReceiveScore(string score, float damage)
     {
-        if (Random.value <= enemyData.atkRedyPercent)
+        bool canDodge =
+            !isDodging &&
+            !stunned &&
+            ((enemyData.dodgeStun + enemyData.dodgeTime) < stunTimer);
+
+        if (canDodge)
         {
-            if (!isDodging && ((enemyData.dodgeStun + enemyData.dodgeTime) < stunTimer) && !stunned)
+            bool dodgeSuccess = false;
+
+            if (damage < 10)
+                dodgeSuccess = Random.value <= enemyData.atkRedyPercent;
+            else
+                dodgeSuccess = Random.value <= (2 * enemyData.atkRedyPercent);
+
+            if (dodgeSuccess)
             {
                 if (score == "headL" || score == "bodyL")
                     StartDodge(Vector2.right);
@@ -202,37 +216,29 @@ public class EnemyMovement : MonoBehaviour
                     sprFlip = true;
                     StartDodge(Vector2.left);
                 }
+
+                return; // VERY IMPORTANT — stop here so no damage is applied
             }
         }
-        else
+
+        // If we reach here → damage always applies
+        GlobalPlayerVars.EnemyHealth -= damage;
+
+        if (stunable)
         {
-            GlobalPlayerVars.EnemyHealth -= damage;
-            if (stunable)
-            {
-                stunable = false;
-                stunned = true;
-                stunableTimer = 0f;
-            }
-            if (GlobalPlayerVars.PlayerRage + 10 <= 100)
-            {
-                GlobalPlayerVars.PlayerRage += 10;
-            }
-            else
-            {
-                GlobalPlayerVars.PlayerRage = 100;
-            }
-            if (score == "headR")
-            {
-                hitDir = "R";
-            }
-            else
-            {
-                hitDir = "L";
-            }
-            hitSprChanger = .1f;
-            Debug.Log($"Enemy Health: {GlobalPlayerVars.EnemyHealth}");
+            stunable = false;
+            stunned = true;
+            stunableTimer = 0f;
         }
+
+        GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+
+        hitDir = (score == "headR") ? "R" : "L";
+        hitSprChanger = .1f;
+
+        Debug.Log($"Enemy Health: {GlobalPlayerVars.EnemyHealth}");
     }
+
 
     public void Attack()
     {

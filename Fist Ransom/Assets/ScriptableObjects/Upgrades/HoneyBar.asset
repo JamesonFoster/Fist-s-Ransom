@@ -15,9 +15,11 @@ MonoBehaviour:
   upgradeName: Honey Bar
   rarity: 0
   icon: {fileID: -4972203168655366716, guid: f0dafe07a1d29fa46aede90d58843521, type: 3}
-  description: 'Made by Yur as A quick snack. Full of honey and nuts.
+  description: 'Honey Bar
 
-    5% Faster
-    Attacks'
+    Made by Yur as A quick snack. Full of honey and nuts.
+
+    5%
+    Faster Attacks'
   attackCoolDec: 0.05
   dodgeStunDec: 0

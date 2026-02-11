@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92e11c4f83abe434aa966423f6c12157, type: 3}
-  m_Name: SeasonedChicken
+  m_Name: DoubChick
   m_EditorClassIdentifier: 
-  upgradeName: Seasoned Chicken
-  rarity: 0
-  icon: {fileID: -3235335232893707942, guid: 2399f572dc5fcce4dae3baab733733ed, type: 3}
-  description: 'Seasoned Chicken
+  upgradeName: Double Chicken Legs
+  rarity: 1
+  icon: {fileID: 6840221948178612228, guid: 5f27f7d023c9de841a1d715ce27d1966, type: 3}
+  description: 'Double Chicken Legs
 
-    FORGED FROM THE FIRES OF YUR''S MOTHER''S OVEN!
+    Because two is better than one.
 
-    +
-    1 Head Damage'
+    +1
+    Head Damage
+
+    +1 Body Damage'
   headDamageIncrease: 1
-  bodyDamageIncrease: 0
+  bodyDamageIncrease: 1

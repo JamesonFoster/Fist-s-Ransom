@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 154b2549792b36f4a8facd075eb989ba, type: 3}
-  m_Name: GoldenApple
+  m_Name: RomanShield
   m_EditorClassIdentifier: 
-  upgradeName: Golden Apple
-  rarity: 0
-  icon: {fileID: 1201277382348029773, guid: 8aaaff38a03f6204a976c5efae3a1749, type: 3}
-  description: 'Golden Apple
+  upgradeName: Roman Shield
+  rarity: 2
+  icon: {fileID: -5985197886803760373, guid: d2f89f19286a8184ba2d33cc892bc9e0, type: 3}
+  description: 'Roman Shield
 
-    A GIFT FROM THE GODS!
+    Yur feels disgusted even looking at it. But it
+    might come in handy.
 
-    +5 Max Health'
-  maxHealthIncrease: 5
+    + 25 Max Health'
+  maxHealthIncrease: 25
