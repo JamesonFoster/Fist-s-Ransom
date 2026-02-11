@@ -29,8 +29,10 @@ public class BaseEnemyScript : ScriptableObject
     public Sprite sprStandingStill;
     public Sprite sprAtkSwing;
     public Sprite sprAtkWarn;
-    public Sprite stunned1;
-    public Sprite stunned2;
-    public Sprite dead;
-    public Sprite Dodge;
+    public Sprite sprStunned1;
+    public Sprite sprStunned2;
+    public Sprite sprDead;
+    public Sprite sprDodge;
+    public Sprite sprHeadHitL;
+    public Sprite sprHeadHitR;
 }

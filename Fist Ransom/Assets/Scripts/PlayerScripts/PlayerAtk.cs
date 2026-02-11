@@ -10,18 +10,11 @@ public class PlayerAtk : MonoBehaviour
 
     [Header("Basic Attack Stats")]
     public bool aimUp = false; // Holding W aims punches upward
-    public float atkCooldown = 0.2f; // Slightly longer cooldown for visibility
     private float attackTimer = 0f;
     public bool isAtking = false;
 
     private Vector2 startPos;
     private Vector2 attackPos;
-
-    [Header("Attack Damage Stats")]
-    public float headAtkDama = 3;
-    public float bodyAtkDama = 3;
-    public float rageHeadAtk = 10;
-    public float rageBodyAtk = 10;
     private SpriteRenderer sprrend;
     private bool upSprites = false;
     [Header("Sprites")]
@@ -39,7 +32,6 @@ public class PlayerAtk : MonoBehaviour
     void Start()
     {
         startPos = transform.position;
-        GlobalPlayerVars.PlayerRage = 0;
         attackPos = startPos + new Vector2(0, 0.17f);
     }
 
@@ -64,7 +56,7 @@ public class PlayerAtk : MonoBehaviour
         if (isAtking)
         {
             attackTimer += Time.deltaTime;
-            float halfAtk = atkCooldown / 2f;
+            float halfAtk = GlobalPlayerVars.atkCooldown / 2f;
 
             if (attackTimer <= halfAtk)
             {
@@ -73,7 +65,7 @@ public class PlayerAtk : MonoBehaviour
                 if (upSprites)
                 SpriteChange(upAtkPart1);
             }
-            else if (attackTimer <= atkCooldown)
+            else if (attackTimer <= GlobalPlayerVars.atkCooldown)
             {
                 // Move back
                 transform.position = Vector2.Lerp(attackPos, startPos, (attackTimer - halfAtk) / halfAtk);
@@ -100,12 +92,12 @@ public class PlayerAtk : MonoBehaviour
 
         if (aimUp)
         {
-            SendScore(target, "headL", headAtkDama);
+            SendScore(target, "headL", GlobalPlayerVars.headAtkDama);
             upSprites = true;
         }
         else
         {
-            SendScore(target, "bodyL", bodyAtkDama);
+            SendScore(target, "bodyL", GlobalPlayerVars.bodyAtkDama);
             upSprites = false;
         }
     }
@@ -118,12 +110,12 @@ public class PlayerAtk : MonoBehaviour
         if (aimUp)
         {
             sprrend.flipX = true;
-            SendScore(target, "headR", headAtkDama);
+            SendScore(target, "headR", GlobalPlayerVars.headAtkDama);
             upSprites = true;
         }
         else
         {
-            SendScore(target, "bodyR", bodyAtkDama);
+            SendScore(target, "bodyR", GlobalPlayerVars.bodyAtkDama);
             upSprites = false;
         }
     }
@@ -134,13 +126,13 @@ public class PlayerAtk : MonoBehaviour
 
         if (aimUp)
         {
-            attackTimer -= atkCooldown;
-            SendScore(target, "headR", rageHeadAtk);
+            attackTimer -= GlobalPlayerVars.atkCooldown;
+            SendScore(target, "headR", GlobalPlayerVars.rageHeadAtk);
         }
         else
         {
-            attackTimer -= atkCooldown;
-            SendScore(target, "bodyL", rageBodyAtk);
+            attackTimer -= GlobalPlayerVars.atkCooldown;
+            SendScore(target, "bodyL", GlobalPlayerVars.rageBodyAtk);
         }
     }
 

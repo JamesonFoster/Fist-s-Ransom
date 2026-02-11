@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba8ef247eab9404f9350be3c49d086c, type: 3}
+  m_Name: HoneyBar
+  m_EditorClassIdentifier: 
+  upgradeName: Honey Bar
+  rarity: 0
+  icon: {fileID: -4972203168655366716, guid: f0dafe07a1d29fa46aede90d58843521, type: 3}
+  description: 'Made by Yur as A quick snack. Full of honey and nuts.
+
+    5% Faster
+    Attacks'
+  attackCoolDec: 0.05
+  dodgeStunDec: 0

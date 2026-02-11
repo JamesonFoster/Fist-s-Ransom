@@ -3,9 +3,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Dodging Stats")]
-    public float dodgeDistance = 5f;
-    public float dodgeTime = 0.4f;
-    public float dodgeStun = 0.1f;
     public bool isDodging = false;
 
     [HideInInspector] public bool canMove = true; // Controls if player can move (used by attacks)
@@ -34,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         stunTimer += Time.deltaTime;
 
         // Only allow dodging if player can move and dodge cooldown passed
-        if (!isDodging && canMove && ((dodgeStun + dodgeTime) < stunTimer))
+        if (!isDodging && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
         {
             if (Input.GetKeyDown(KeyCode.A))
                 StartDodge(Vector2.left);
@@ -48,15 +45,15 @@ public class PlayerMovement : MonoBehaviour
         if (isDodging)
         {
             dodgeTimer += Time.deltaTime;
-            float halfDodge = dodgeTime / 2f;
+            float halfDodge = GlobalPlayerVars.dodgeTime / 2f;
 
             if (dodgeTimer <= halfDodge)
             {
-                transform.position = Vector2.MoveTowards(transform.position, dodgeTarget, (dodgeDistance / halfDodge) * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, dodgeTarget, (GlobalPlayerVars.dodgeDistance / halfDodge) * Time.deltaTime);
             }
-            else if (dodgeTimer <= dodgeTime)
+            else if (dodgeTimer <= GlobalPlayerVars.dodgeTime)
             {
-                transform.position = Vector2.MoveTowards(transform.position, startPos, (dodgeDistance / halfDodge) * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, startPos, (GlobalPlayerVars.dodgeDistance / halfDodge) * Time.deltaTime);
             }
             else
             {
@@ -71,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         isDodging = true;
         dodgeTimer = 0f;
         stunTimer = 0f;
-        dodgeTarget = (Vector2)transform.position + direction * dodgeDistance;
+        dodgeTarget = (Vector2)transform.position + direction * GlobalPlayerVars.dodgeDistance;
     }
 
     public void ReceiveScore(string score, float damage)
