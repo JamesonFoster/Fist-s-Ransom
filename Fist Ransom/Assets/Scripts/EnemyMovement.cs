@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -17,7 +18,15 @@ public class EnemyMovement : MonoBehaviour
     public PlayerAtk target;
     public PlayerMovement target2;
     public GameObject winScreen;
+
+
+    [Header("Attack List")]
+    public List<AtkScriptable> listOfAttacks;
+
+
+    //Private Code Stuff
     private SpriteRenderer sprrend;
+    public AudioSource aS;
     private bool stunable = false;
     private float stunableTimer = 0f;
     private float stunnedTimer = 0f;
@@ -30,6 +39,14 @@ public class EnemyMovement : MonoBehaviour
     private bool isDead = false;
     private float deadTimer = 5f;
     private float deathflicker = 0f;
+    private Sprite sprATKWARN;
+    private Sprite sprATK;
+    private float atkDAMA;
+    private float parTime;
+    private float atkWARN;
+    private int countdownAtk;
+    private AtkScriptable nextAtk;
+    private AtkScriptable atkChoose;
 
 
     private void Awake()
@@ -39,6 +56,7 @@ public class EnemyMovement : MonoBehaviour
         GlobalPlayerVars.EnemyHealth = enemyData.maxHealth;
         GlobalPlayerVars.EnemyName = enemyData.name;
         sprrend = GetComponent<SpriteRenderer>();
+        aS = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -60,16 +78,24 @@ public class EnemyMovement : MonoBehaviour
             hitSprChanger -= Time.deltaTime;
             if (hitSprChanger >= 0f)
             {
-                if (hitDir == "L")
+                if (hitDir == "HL")
                 {
                     SpriteChange(enemyData.sprHeadHitL);
                 }
-                else
+                else if (hitDir == "HR")
                 {
                     SpriteChange(enemyData.sprHeadHitR);
                 }
+                else if (hitDir == "BL")
+                {
+                    SpriteChange(enemyData.sprBodyHitL);
+                }
+                else
+                {
+                    SpriteChange(enemyData.sprBodyHitR);
+                }
             }
-            if (hitSprChanger <= 0f && hitSprChanger >= -.01)
+            if (hitSprChanger <= 0f && hitSprChanger >= -.04)
             {
                 SpriteChange(enemyData.sprStandingStill);
             }
@@ -135,21 +161,38 @@ public class EnemyMovement : MonoBehaviour
         if (isAtk)
         {
             timerAtk += Time.deltaTime;
-            if (timerAtk < enemyData.atkWarning - 0.1f)
+            if (timerAtk < atkWARN - parTime)
             {
-                SpriteChange(enemyData.sprAtkWarn);
+                SpriteChange(sprATKWARN);
             }
             else
             {
-                SpriteChange(enemyData.sprAtkSwing);
+                SpriteChange(sprATK);
             }
-            if (timerAtk >= enemyData.atkWarning)
+            if (timerAtk >= atkWARN && countdownAtk == 0 && nextAtk == null)
             {
                 isAtk = false;
                 timerAtk = 0;
                 SpriteChange(enemyData.sprStandingStill);
-                stunable = true;
-                SendScore(target2, "normal", enemyData.atkDamage);
+                if (!atkChoose.unstunable)
+                    stunable = true;
+                SendScore(target2, "normal", atkDAMA);
+            }
+            else if (timerAtk >= atkWARN && countdownAtk == 0 && nextAtk != null)
+            {
+                timerAtk = 0;
+                if (!atkChoose.unstunable)
+                    stunable = true;
+                SendScore(target2, "normal", atkDAMA);
+                AttackDictate(nextAtk);
+            }
+            else if (timerAtk >= atkWARN && countdownAtk != 0)
+            {
+                countdownAtk -= 1;
+                timerAtk = 0;
+                if (!atkChoose.unstunable)
+                    stunable = true;
+                SendScore(target2, "normal", atkDAMA);
             }
         }
     }
@@ -201,10 +244,10 @@ public class EnemyMovement : MonoBehaviour
         {
             bool dodgeSuccess = false;
 
-            if (damage < 10)
+            if (score != "headR" || score != "bodyR")
                 dodgeSuccess = Random.value <= enemyData.atkRedyPercent;
             else
-                dodgeSuccess = Random.value <= (2 * enemyData.atkRedyPercent);
+                dodgeSuccess = Random.value <= enemyData.atkRageRedyPercent;
 
             if (dodgeSuccess)
             {
@@ -233,8 +276,21 @@ public class EnemyMovement : MonoBehaviour
 
         GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
 
-        hitDir = (score == "headR") ? "R" : "L";
-        hitSprChanger = .1f;
+        if (score == "headR")
+            hitDir = "HR";
+        else if (score == "headL")
+            hitDir = "HL";
+        else if (score == "bodyL")
+            hitDir = "BL";
+        else
+            hitDir = "BR";
+
+        hitSprChanger = .16f;
+
+        if (Random.value >= .5f)
+            aS.PlayOneShot(enemyData.soundHit1);
+        else
+            aS.PlayOneShot(enemyData.soundHit2);
 
         Debug.Log($"Enemy Health: {GlobalPlayerVars.EnemyHealth}");
     }
@@ -242,6 +298,32 @@ public class EnemyMovement : MonoBehaviour
 
     public void Attack()
     {
+        //Get Atk Data
+        int atkIndex = Random.Range( 0, listOfAttacks.Count);
+        atkChoose = listOfAttacks[atkIndex];
+
+        sprATKWARN = atkChoose.sprAttackWarning;
+        sprATK = atkChoose.sprAttack;
+        atkDAMA = atkChoose.atkDamage;
+        parTime = atkChoose.parryTime;
+        atkWARN = atkChoose.atkWarning;
+        countdownAtk = atkChoose.howManyTime;
+        nextAtk = atkChoose.nextAtk;
+        isAtk = true;
+    }
+    public void AttackDictate(AtkScriptable diAtk)
+    {
+        //Get Atk Data
+        atkChoose = diAtk;
+        nextAtk = null;
+
+        sprATKWARN = atkChoose.sprAttackWarning;
+        sprATK = atkChoose.sprAttack;
+        atkDAMA = atkChoose.atkDamage;
+        parTime = atkChoose.parryTime;
+        atkWARN = atkChoose.atkWarning;
+        countdownAtk = atkChoose.howManyTime;
+        nextAtk = atkChoose.nextAtk;
         isAtk = true;
     }
 

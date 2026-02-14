@@ -1,2 +1,22 @@
 fileFormatVersion: 2
 guid: 61c7ae26faaeed745b9b18bcf4c40155
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
+  - soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
+  - sprStandingStill: {instanceID: 0}
+  - sprStunned1: {instanceID: 0}
+  - sprStunned2: {instanceID: 0}
+  - sprDead: {instanceID: 0}
+  - sprDodge: {instanceID: 0}
+  - sprHeadHitL: {instanceID: 0}
+  - sprHeadHitR: {instanceID: 0}
+  - sprBodyHitL: {instanceID: 0}
+  - sprBodyHitR: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
