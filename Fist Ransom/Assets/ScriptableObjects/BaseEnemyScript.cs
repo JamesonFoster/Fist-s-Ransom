@@ -24,6 +24,8 @@ public class BaseEnemyScript : ScriptableObject
     [Header("Sounds")]
     public AudioClip soundHit1;
     public AudioClip soundHit2;
+    public AudioClip soundDeath;
+    public AudioClip soundDodge;
 
     [Header("Sprites")]
     public Sprite sprStandingStill;

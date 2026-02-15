@@ -76,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isDodging)
         {
             GlobalPlayerVars.PlayerHealth -= damage;
+            GlobalPlayerVars.PlayerRage -= ((int)damage) * 2;
         }
     }
 

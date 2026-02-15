@@ -6,6 +6,8 @@ MonoImporter:
   defaultReferences:
   - soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
   - soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
+  - soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
+  - soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
   - sprStandingStill: {instanceID: 0}
   - sprStunned1: {instanceID: 0}
   - sprStunned2: {instanceID: 0}

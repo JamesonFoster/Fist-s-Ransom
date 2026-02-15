@@ -47,6 +47,7 @@ public class EnemyMovement : MonoBehaviour
     private int countdownAtk;
     private AtkScriptable nextAtk;
     private AtkScriptable atkChoose;
+    private bool atkSoundCheck;
 
 
     private void Awake()
@@ -70,6 +71,7 @@ public class EnemyMovement : MonoBehaviour
             if (GlobalPlayerVars.EnemyHealth <= 0)
             {
                 isDead = true;
+                aS.PlayOneShot(enemyData.soundDeath);
             }
             if (sprFlip)
                 sprrend.flipX = true;
@@ -163,10 +165,16 @@ public class EnemyMovement : MonoBehaviour
             timerAtk += Time.deltaTime;
             if (timerAtk < atkWARN - parTime)
             {
+                atkSoundCheck = false;
                 SpriteChange(sprATKWARN);
             }
             else
             {
+                if (!atkSoundCheck)
+                {
+                    aS.PlayOneShot(atkChoose.soundAttack);
+                    atkSoundCheck = true;
+                }
                 SpriteChange(sprATK);
             }
             if (timerAtk >= atkWARN && countdownAtk == 0 && nextAtk == null)
@@ -229,6 +237,7 @@ public class EnemyMovement : MonoBehaviour
     {
         isDodging = true;
         dodgeTimer = 0f;
+        aS.PlayOneShot(enemyData.soundDodge);
         stunTimer = 0f;
         dodgeTarget = (Vector2)transform.position + direction * enemyData.dodgeDistance;
     }
@@ -244,7 +253,7 @@ public class EnemyMovement : MonoBehaviour
         {
             bool dodgeSuccess = false;
 
-            if (score != "headR" || score != "bodyR")
+            if (score != "headR" && score != "bodyR")
                 dodgeSuccess = Random.value <= enemyData.atkRedyPercent;
             else
                 dodgeSuccess = Random.value <= enemyData.atkRageRedyPercent;
