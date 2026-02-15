@@ -25,7 +25,7 @@ MonoBehaviour:
   soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
   soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
   soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
-  soundDodge: {fileID: 8300000, guid: 466aaa3724205e94ca96521e85236c2b, type: 3}
+  soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
   sprStandingStill: {fileID: 21300000, guid: 354d1cd310982df4284c10245b68726e, type: 3}
   sprStunned1: {fileID: 21300000, guid: e11a6d5e8b5c1ee40b12496e1794d704, type: 3}
   sprStunned2: {fileID: 21300000, guid: 4deced1e1211cc54b858479cc7100880, type: 3}
