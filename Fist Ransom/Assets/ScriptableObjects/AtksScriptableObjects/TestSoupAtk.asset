@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atkWarning: 1.5
   parryTime: 0.2
+  postAtkDodgeStun: 0.2
   atkType: 
   attackEffects: []
   atkDamage: 4

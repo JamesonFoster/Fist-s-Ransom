@@ -14,6 +14,7 @@ public class AtkScriptable : ScriptableObject
     [Header("Pre-Attack Timeings")]
     public float atkWarning = 1f;
     public float parryTime = 0.1f;
+    public float postAtkDodgeStun;
 
     [Header("Attack Damage")]
     public string atkType = "";

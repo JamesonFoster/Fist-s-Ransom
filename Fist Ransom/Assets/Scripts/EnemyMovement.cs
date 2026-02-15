@@ -180,6 +180,7 @@ public class EnemyMovement : MonoBehaviour
             if (timerAtk >= atkWARN && countdownAtk == 0 && nextAtk == null)
             {
                 isAtk = false;
+                stunTimer += atkChoose.postAtkDodgeStun;
                 timerAtk = 0;
                 SpriteChange(enemyData.sprStandingStill);
                 if (!atkChoose.unstunable)
@@ -189,6 +190,7 @@ public class EnemyMovement : MonoBehaviour
             else if (timerAtk >= atkWARN && countdownAtk == 0 && nextAtk != null)
             {
                 timerAtk = 0;
+                stunTimer += atkChoose.postAtkDodgeStun;
                 if (!atkChoose.unstunable)
                     stunable = true;
                 SendScore(target2, "normal", atkDAMA);
@@ -198,6 +200,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 countdownAtk -= 1;
                 timerAtk = 0;
+                stunTimer += atkChoose.postAtkDodgeStun;
                 if (!atkChoose.unstunable)
                     stunable = true;
                 SendScore(target2, "normal", atkDAMA);
