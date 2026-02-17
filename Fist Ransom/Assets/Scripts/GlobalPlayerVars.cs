@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class GlobalPlayerVars : MonoBehaviour
 {
+    //PlayerMapInfo
+    public static int playerLocationID = 0;
+
     //PlayerValues
     public static int HealCount = 3;
     public static int RageCount = 1;
