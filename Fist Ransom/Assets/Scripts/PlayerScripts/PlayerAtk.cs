@@ -14,14 +14,19 @@ public class PlayerAtk : MonoBehaviour
     public bool isAtking = false;
 
     private Vector2 startPos;
+    private bool hitStunned;
     private Vector2 attackPos;
     private SpriteRenderer sprrend;
+    public float hitStunnedTimer;
     private bool upSprites = false;
     private bool rageSprites = false;
     [Header("Sprites")]
     public Sprite standingStill;
     public Sprite upAtkPart1;
     public Sprite upAtkPart2;
+    public Sprite bodyAtk1;
+    public Sprite bodyAtk2;
+    public Sprite sprhitStunned;
     
 
     void Awake()
@@ -38,20 +43,35 @@ public class PlayerAtk : MonoBehaviour
 
     void Update()
     {
+        hitStunnedTimer -= Time.deltaTime;
+
+        if (hitStunnedTimer <= 0)
+        {
+            SpriteChange(standingStill);
+            hitStunned = false;
+        }
+        else
+        {
+            hitStunned = true;
+            SpriteChange(sprhitStunned);
+        }
         // Aim up check
         aimUp = Input.GetKey(KeyCode.W);
 
-        // Attack input (only if not already attacking and player is allowed to move)
-        if (!isAtking && plMove.canMove && Input.GetKeyDown(KeyCode.Comma))
-            AttackL();
-        if (!isAtking && plMove.canMove && Input.GetKeyDown(KeyCode.Period))
-            AttackR();
-        if (!isAtking && plMove.canMove && Input.GetKeyDown(KeyCode.Slash) && GlobalPlayerVars.PlayerRage == 100)
-            AttackRage();
-        if (Input.GetKeyDown(KeyCode.L))
-            useHeal();
-        if (Input.GetKeyDown(KeyCode.K))
-            useRage();
+        if (hitStunned == false)
+        {
+            // Attack input (only if not already attacking and player is allowed to move)
+            if (!isAtking && plMove.canMove && Input.GetKeyDown(KeyCode.Comma))
+                AttackL();
+            if (!isAtking && plMove.canMove && Input.GetKeyDown(KeyCode.Period))
+                AttackR();
+            if (!isAtking && plMove.canMove && Input.GetKeyDown(KeyCode.Slash) && GlobalPlayerVars.PlayerRage == 100)
+                AttackRage();
+            if (Input.GetKeyDown(KeyCode.L))
+                useHeal();
+            if (Input.GetKeyDown(KeyCode.K))
+                useRage();
+        }
 
         // Attack movement
         if (isAtking)
@@ -65,6 +85,8 @@ public class PlayerAtk : MonoBehaviour
                 transform.position = Vector2.Lerp(startPos, attackPos, attackTimer / halfAtk);
                 if (upSprites)
                 SpriteChange(upAtkPart1);
+                else
+                SpriteChange(bodyAtk2);
             }
             else if (attackTimer <= GlobalPlayerVars.atkCooldown)
             {
@@ -77,6 +99,8 @@ public class PlayerAtk : MonoBehaviour
                 transform.position = Vector2.Lerp(attackPos, startPos, (attackTimer - halfAtk) / halfAtk);
                 if (upSprites)
                 SpriteChange(upAtkPart2);
+                else
+                SpriteChange(bodyAtk1);
             }
             else
             {
@@ -121,6 +145,7 @@ public class PlayerAtk : MonoBehaviour
         }
         else
         {
+            sprrend.flipX = true;
             SendScore(target, "bodyR", GlobalPlayerVars.bodyAtkDama);
             upSprites = false;
         }

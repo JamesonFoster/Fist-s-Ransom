@@ -9,11 +9,18 @@ public class PlayerMovement : MonoBehaviour
 
     private float dodgeTimer = 0f;
     private float stunTimer = 999f;
+    private int dodgeMode;
     private Vector2 dodgeTarget;
     private Vector2 startPos;
 
     private PlayerAtk plAtk;
     private SpriteRenderer sprrend;
+
+    [Header("Sprites")]
+    public Sprite standingStill;
+    public Sprite dodgeBackSpr;
+    public Sprite dodgeLeftSpr;
+    public Sprite dodgeRightSpr;
 
     void Awake()
     {
@@ -34,16 +41,33 @@ public class PlayerMovement : MonoBehaviour
         if (!isDodging && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
         {
             if (Input.GetKeyDown(KeyCode.A))
+            {
+                dodgeMode = 1;
                 StartDodge(Vector2.left);
+            }
             if (Input.GetKeyDown(KeyCode.D))
+            {
+                dodgeMode = 2;
                 StartDodge(Vector2.right);
+            }
             if (Input.GetKeyDown(KeyCode.S))
+            {
+                dodgeMode = 3;
                 StartDodge(Vector2.down);
+            }
         }
 
         // Dodge movement
         if (isDodging)
         {
+            if (dodgeMode == 1)
+            SpriteChange(dodgeLeftSpr);
+            if (dodgeMode == 2)
+            SpriteChange(dodgeRightSpr);
+            if (dodgeMode == 3)
+            SpriteChange(dodgeBackSpr);
+
+
             dodgeTimer += Time.deltaTime;
             float halfDodge = GlobalPlayerVars.dodgeTime / 2f;
 
@@ -58,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 isDodging = false;
+                SpriteChange(standingStill);
                 transform.position = startPos;
             }
         }
@@ -77,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
         {
             GlobalPlayerVars.PlayerHealth -= damage;
             GlobalPlayerVars.PlayerRage -= ((int)damage) * 2;
+            plAtk.hitStunnedTimer = GlobalPlayerVars.hitStunnedLength;
         }
     }
 

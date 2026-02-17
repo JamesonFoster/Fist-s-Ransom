@@ -4,9 +4,18 @@ using UnityEngine.SceneManagement;
 public class MapLoader : MonoBehaviour
 {
     public GameObject targetObject;
+    private static MapLoader instance;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
         DontDestroyOnLoad(gameObject);
     }
 

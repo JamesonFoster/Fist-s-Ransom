@@ -10,7 +10,7 @@ public class ScreenFading : MonoBehaviour
     public float fadeDuration = 5f;
     public bool isWin = true;
     public bool fadeIn = true;
-    public bool back2Bat = false;
+    public bool back2Map = false;
 
     void Awake()
     {
@@ -52,10 +52,10 @@ public class ScreenFading : MonoBehaviour
 
         if (isWin)
             SceneManager.LoadScene("BasicEnemyVic");
-        if (back2Bat)
+        if (back2Map)
         {
             Debug.Log("LoadingBattle");
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Zone1Map");
         }
     }
 
@@ -78,12 +78,12 @@ public class ScreenFading : MonoBehaviour
         c.a = 0f;
         screen.color = c;
 
-        if (isWin && !back2Bat)
+        if (isWin && !back2Map)
             SceneManager.LoadScene("BasicEnemyVic");
-        if (back2Bat)
+        if (back2Map)
         {
             Debug.Log("LoadingBattle");
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Zone1Map");
         }
     }
 }

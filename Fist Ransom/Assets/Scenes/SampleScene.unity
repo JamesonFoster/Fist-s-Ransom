@@ -1713,7 +1713,7 @@ MonoBehaviour:
   fadeDuration: 5
   isWin: 1
   fadeIn: 1
-  back2Bat: 0
+  back2Map: 0
 --- !u!1 &963731775
 GameObject:
   m_ObjectHideFlags: 0
@@ -2396,6 +2396,9 @@ MonoBehaviour:
   standingStill: {fileID: 21300000, guid: ba2191be68539864185eba07bfb40a6b, type: 3}
   upAtkPart1: {fileID: 21300000, guid: 87751b4fb2e0a76489b196b39bac1f43, type: 3}
   upAtkPart2: {fileID: 21300000, guid: b304ff4a7792fb24da5399b02a4aa050, type: 3}
+  bodyAtk1: {fileID: 21300000, guid: ba3fa8a439df4aa43a44450410ce0196, type: 3}
+  bodyAtk2: {fileID: 21300000, guid: a9013f6ad517b7442bb74cd09dead0ca, type: 3}
+  sprhitStunned: {fileID: 21300000, guid: c0e03ba943169664396a3df2ba200274, type: 3}
 --- !u!114 &1632614864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2410,6 +2413,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDodging: 0
   canMove: 1
+  standingStill: {fileID: 21300000, guid: ba2191be68539864185eba07bfb40a6b, type: 3}
+  dodgeBackSpr: {fileID: 21300000, guid: 5059b66a9fa3da54e82da2b113166dba, type: 3}
+  dodgeLeftSpr: {fileID: 21300000, guid: cda9537da0d94df4697f06d011f812df, type: 3}
+  dodgeRightSpr: {fileID: 21300000, guid: 63b5dd2fd0d6dba458e74bd22ad5549b, type: 3}
 --- !u!1 &1640548504
 GameObject:
   m_ObjectHideFlags: 0

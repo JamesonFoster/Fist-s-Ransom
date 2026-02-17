@@ -9,59 +9,79 @@ public class MapButtons : MonoBehaviour
     public int accessablefromID2;
     private bool interactableButton = false;
     public GameObject playerOn;
+    private SpriteRenderer sprrend;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //sprites
+    public Sprite enemyspr;
+    public Sprite chestspr;
+    public Sprite shopspr;
+    public Sprite minibossspr;
+    public Sprite bossspr;
+
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        if (locatType == "")
+        sprrend = GetComponent<SpriteRenderer>();
+        if (string.IsNullOrEmpty(locatType))
         {
-            int locatChoo = Random.Range(0, 3);
-            if (locatChoo == 0)
+            int locatChoo = Random.Range(0, 10);
+
+            if (locatChoo <= 5)
                 locatType = "enemy";
-            else if (locatChoo == 1)
+            else if (locatChoo == 6)
                 locatType = "chest";
-            else
+            else if (locatChoo == 7)
                 locatType = "miniboss";
+            else
+                locatType = "shop";
         }
     }
 
-    private void Start()
+    void Start()
     {
-        if (GlobalPlayerVars.playerLocationID == accessablefromID1 || GlobalPlayerVars.playerLocationID == accessablefromID2)
+        if (locatType == "enemy")
+        sprrend.sprite = enemyspr;
+        if (locatType == "chest")
+        sprrend.sprite = chestspr;
+        if (locatType == "miniboss")
+        sprrend.sprite = minibossspr;
+        if (locatType == "shop")
+        sprrend.sprite = shopspr;
+        if (locatType == "boss")
+        sprrend.sprite = bossspr;
+    }
+    void Update()
+    {
+        // Show player marker
+        if (GlobalPlayerVars.playerLocationID == mapLocationID)
+            playerOn.SetActive(true);
+        else
+            playerOn.SetActive(false);
+    }
+
+    void OnMouseDown()
+    {
+        if (GlobalPlayerVars.playerLocationID == accessablefromID1 ||
+            GlobalPlayerVars.playerLocationID == accessablefromID2)
         {
             interactableButton = true;
         }
         else
-            { interactableButton = false; }
-        if (GlobalPlayerVars.playerLocationID == mapLocationID)
         {
-            playerOn.SetActive(true);
+            interactableButton = false;
         }
-        else
+
+        if (!interactableButton)
+            return;
+
+        if (locatType == "enemy")
         {
-            playerOn.SetActive(false);
+            GlobalPlayerVars.playerLocationID = mapLocationID;
+            SceneManager.LoadScene("SampleScene");
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void OnClick()
-    {
-        if (interactableButton == true)
+        else if (locatType == "chest")
         {
-            if (locatType == "enemy")
-            {
-                SceneManager.LoadScene("SampleScene");
-            }
-            else if (locatType == "chest")
-            {
-                SceneManager.LoadScene("BasicEnemyVic");
-            }
+            GlobalPlayerVars.playerLocationID = mapLocationID;
+            SceneManager.LoadScene("BasicEnemyVic");
         }
     }
 }

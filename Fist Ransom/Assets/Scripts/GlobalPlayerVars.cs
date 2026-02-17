@@ -19,6 +19,7 @@ public class GlobalPlayerVars : MonoBehaviour
     public static float bodyAtkDama = 3;
     public static float rageHeadAtk = 10;
     public static float rageBodyAtk = 10;
+    public static float hitStunnedLength = 0.5f;
 
     //Dodging Stats
     public static float dodgeDistance = 0.5f;
