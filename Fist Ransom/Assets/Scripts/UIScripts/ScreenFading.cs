@@ -11,6 +11,7 @@ public class ScreenFading : MonoBehaviour
     public bool isWin = true;
     public bool fadeIn = true;
     public bool back2Map = false;
+    public bool toMainMenu = false;
 
     void Awake()
     {
@@ -57,6 +58,11 @@ public class ScreenFading : MonoBehaviour
             Debug.Log("LoadingBattle");
             SceneManager.LoadScene("Zone1Map");
         }
+        if (toMainMenu)
+        {
+            Debug.Log("Going There");
+            SceneManager.LoadScene("TitleScrene");
+        }
     }
 
     IEnumerator FadeOut()
@@ -82,8 +88,12 @@ public class ScreenFading : MonoBehaviour
             SceneManager.LoadScene("BasicEnemyVic");
         if (back2Map)
         {
-            Debug.Log("LoadingBattle");
             SceneManager.LoadScene("Zone1Map");
+        }
+        if (toMainMenu)
+        {
+            Debug.Log("Going There");
+            SceneManager.LoadScene("TitleScrene");
         }
     }
 }
