@@ -30,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
     private bool stunable = false;
     private float stunableTimer = 0f;
     private float stunnedTimer = 0f;
-    private bool stunned = false;
+    public bool stunned = false;
     private bool stunSpr = false;
     private float stunSprTimer = 0f;
     private float hitSprChanger = 0f;
@@ -47,6 +47,7 @@ public class EnemyMovement : MonoBehaviour
     private int countdownAtk;
     private AtkScriptable nextAtk;
     private AtkScriptable atkChoose;
+    private bool isparryable;
     private bool atkSoundCheck;
 
 
@@ -175,6 +176,10 @@ public class EnemyMovement : MonoBehaviour
                     aS.PlayOneShot(atkChoose.soundAttack);
                     atkSoundCheck = true;
                 }
+                if (!atkChoose.unparryable)
+                    isparryable = true;
+                else
+                    isparryable = false;
                 SpriteChange(sprATK);
             }
             if (timerAtk >= atkWARN && countdownAtk == 0 && nextAtk == null)
@@ -251,6 +256,17 @@ public class EnemyMovement : MonoBehaviour
             !isDodging &&
             !stunned &&
             ((enemyData.dodgeStun + enemyData.dodgeTime) < stunTimer);
+
+        if (isparryable && isAtk)
+        {
+            isAtk = false;
+            timerAtk = 0;
+            SpriteChange(enemyData.sprStandingStill);
+            stunable = false;
+            stunned = true;
+            stunableTimer = 0f;
+        }
+
 
         if (canDodge)
         {

@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Dodging Stats")]
     public bool isDodging = false;
+    public string dodgeType;
 
     [HideInInspector] public bool canMove = true; // Controls if player can move (used by attacks)
 
@@ -43,16 +44,19 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A))
             {
                 dodgeMode = 1;
+                dodgeType = "left";
                 StartDodge(Vector2.left);
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
                 dodgeMode = 2;
+                dodgeType = "right";
                 StartDodge(Vector2.right);
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
                 dodgeMode = 3;
+                dodgeType = "down";
                 StartDodge(Vector2.down);
             }
         }
@@ -100,10 +104,39 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isDodging)
         {
-            GlobalPlayerVars.PlayerHealth -= damage;
-            GlobalPlayerVars.PlayerRage -= ((int)damage) * 2;
-            plAtk.hitStunnedTimer = GlobalPlayerVars.hitStunnedLength;
+            takeDamage(damage);
         }
+        else if (isDodging && score == "hitleft" && dodgeType == "left")
+        {
+            takeDamage(damage);
+        }
+        else if (isDodging && score == "hitright" && dodgeType == "right")
+        {
+            takeDamage(damage);
+        }
+        else if (isDodging && score == "hitdown" && dodgeType == "down")
+        {
+            takeDamage(damage);
+        }
+        else if (isDodging && score == "hitfullleft" && (dodgeType == "left" || dodgeType == "down"))
+        {
+            takeDamage(damage);
+        }
+        else if (isDodging && score == "hitfullright" && (dodgeType == "right" || dodgeType == "down"))
+        {
+            takeDamage(damage);
+        }
+        else if (isDodging && score == "hitfullsides" && (dodgeType == "right" || dodgeType == "left"))
+        {
+            takeDamage(damage);
+        }
+    }
+
+    public void takeDamage(float damage)
+    {
+        GlobalPlayerVars.PlayerHealth -= damage;
+        GlobalPlayerVars.PlayerRage -= ((int)damage) * 2;
+        plAtk.hitStunnedTimer = GlobalPlayerVars.hitStunnedLength;
     }
 
     public void SpriteChange(Sprite sprite)
