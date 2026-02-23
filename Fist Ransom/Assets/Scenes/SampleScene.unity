@@ -1716,6 +1716,7 @@ MonoBehaviour:
   fadeIn: 1
   back2Map: 0
   toMainMenu: 0
+  toTutorial: 0
 --- !u!1 &963731775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,7 +1771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1151327128
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1842,6 +1843,7 @@ MonoBehaviour:
   fadeIn: 0
   back2Map: 0
   toMainMenu: 0
+  toTutorial: 0
 --- !u!1 &1247331074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,6 +2507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDodging: 0
+  dodgeType: 
   canMove: 1
   standingStill: {fileID: 21300000, guid: ba2191be68539864185eba07bfb40a6b, type: 3}
   dodgeBackSpr: {fileID: 21300000, guid: 5059b66a9fa3da54e82da2b113166dba, type: 3}
@@ -2996,6 +2999,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d766118c490b21743aa415abc0b58499, type: 2}
   - {fileID: 11400000, guid: 7fb0e29b6ceca964db4db92e3a1d8c14, type: 2}
   aS: {fileID: 0}
+  stunned: 0
 --- !u!82 &1809466990
 AudioSource:
   m_ObjectHideFlags: 0
