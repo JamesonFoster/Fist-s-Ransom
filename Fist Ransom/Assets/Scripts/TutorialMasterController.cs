@@ -14,6 +14,7 @@ public class TutorialMasterController : MonoBehaviour
     public GameObject keya;
     public GameObject keys;
     public GameObject keyd;
+    public GameObject leaves;
 
 
     public EnemyMovement enemyconn;
@@ -129,9 +130,10 @@ public class TutorialMasterController : MonoBehaviour
         else if (tStage == 9)
         {
             txt.text = "You are finished. Press Enter to leave.";
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-            }
+        }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            leaves.SetActive(true);
         }
     }
 }

@@ -12,6 +12,7 @@ public class ScreenFading : MonoBehaviour
     public bool fadeIn = true;
     public bool back2Map = false;
     public bool toMainMenu = false;
+    public bool toTutorial = false;
 
     void Awake()
     {
@@ -63,6 +64,10 @@ public class ScreenFading : MonoBehaviour
             Debug.Log("Going There");
             SceneManager.LoadScene("TitleScrene");
         }
+        if (toTutorial)
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
     }
 
     IEnumerator FadeOut()
@@ -94,6 +99,10 @@ public class ScreenFading : MonoBehaviour
         {
             Debug.Log("Going There");
             SceneManager.LoadScene("TitleScrene");
+        }
+        if (toTutorial)
+        {
+            SceneManager.LoadScene("Tutorial");
         }
     }
 }

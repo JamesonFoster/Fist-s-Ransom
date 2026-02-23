@@ -936,7 +936,9 @@ MonoBehaviour:
   fadeDuration: 3
   isWin: 0
   fadeIn: 1
-  back2Map: 1
+  back2Map: 0
+  toMainMenu: 0
+  toTutorial: 1
 --- !u!1 &1622853269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,6 +1115,8 @@ MonoBehaviour:
   isWin: 0
   fadeIn: 0
   back2Map: 0
+  toMainMenu: 0
+  toTutorial: 0
 --- !u!1 &1982463209
 GameObject:
   m_ObjectHideFlags: 0
