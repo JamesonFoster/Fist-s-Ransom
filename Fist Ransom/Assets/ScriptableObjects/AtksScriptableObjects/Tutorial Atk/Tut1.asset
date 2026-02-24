@@ -18,8 +18,8 @@ MonoBehaviour:
   atkType: hitfullright
   attackEffects: []
   atkDamage: 2
-  sprAttackWarning: {fileID: 21300000, guid: f4613acaef1952a469bb1d661efcb94f, type: 3}
-  sprAttack: {fileID: 21300000, guid: a32291db75a86ee48bbd0d9fb8db0f98, type: 3}
+  sprAttackWarning: {fileID: 21300000, guid: 63cff0dd24af4af48b099ff33600e343, type: 3}
+  sprAttack: {fileID: 21300000, guid: b7fe776caaf26704bbdb1aefd706280d, type: 3}
   soundAttack: {fileID: 8300000, guid: d514d1a7b84f83e4980684f160ebeabf, type: 3}
   unstunable: 0
   unparryable: 0

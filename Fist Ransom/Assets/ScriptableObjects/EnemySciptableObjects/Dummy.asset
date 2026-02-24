@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Dummy
   atkRedyPercent: 0.1
   atkRageRedyPercent: 0.2
-  dodgeDistance: 0.5
+  dodgeDistance: 0.1
   dodgeTime: 0.4
   dodgeStun: 0.1
   atkAgro: 0.02
@@ -26,12 +26,12 @@ MonoBehaviour:
   soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
   soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
   soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
-  sprStandingStill: {fileID: -977629786764310311, guid: 7e40b8a777bb2a640a9be7c8ce2a8915, type: 3}
-  sprStunned1: {fileID: -977629786764310311, guid: 7e40b8a777bb2a640a9be7c8ce2a8915, type: 3}
-  sprStunned2: {fileID: -977629786764310311, guid: 7e40b8a777bb2a640a9be7c8ce2a8915, type: 3}
-  sprDead: {fileID: -977629786764310311, guid: 7e40b8a777bb2a640a9be7c8ce2a8915, type: 3}
-  sprDodge: {fileID: -977629786764310311, guid: 7e40b8a777bb2a640a9be7c8ce2a8915, type: 3}
-  sprHeadHitL: {fileID: -977629786764310311, guid: 7e40b8a777bb2a640a9be7c8ce2a8915, type: 3}
-  sprHeadHitR: {fileID: -977629786764310311, guid: 7e40b8a777bb2a640a9be7c8ce2a8915, type: 3}
-  sprBodyHitL: {fileID: -977629786764310311, guid: 7e40b8a777bb2a640a9be7c8ce2a8915, type: 3}
-  sprBodyHitR: {fileID: -977629786764310311, guid: 7e40b8a777bb2a640a9be7c8ce2a8915, type: 3}
+  sprStandingStill: {fileID: 21300000, guid: 92599ddc27d208942abd59fc4b4a421a, type: 3}
+  sprStunned1: {fileID: 21300000, guid: bdbc01bd2fdde50499a6175f6482df55, type: 3}
+  sprStunned2: {fileID: 21300000, guid: 5dc4e2757b4fffb43abcb8490f3eee64, type: 3}
+  sprDead: {fileID: 21300000, guid: 92599ddc27d208942abd59fc4b4a421a, type: 3}
+  sprDodge: {fileID: 21300000, guid: bdbc01bd2fdde50499a6175f6482df55, type: 3}
+  sprHeadHitL: {fileID: 21300000, guid: 21a004a73bc3e3b48be2caa5ea1e9c30, type: 3}
+  sprHeadHitR: {fileID: 21300000, guid: 35d3ee9cb8bdd20469e917c588596534, type: 3}
+  sprBodyHitL: {fileID: 21300000, guid: bdbc01bd2fdde50499a6175f6482df55, type: 3}
+  sprBodyHitR: {fileID: 21300000, guid: 5dc4e2757b4fffb43abcb8490f3eee64, type: 3}

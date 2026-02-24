@@ -722,7 +722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6375819186370086168, guid: f367dcf6df3cbec4cbcc4eb4c7f4b201, type: 3}
       propertyPath: locatType
-      value: 
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6375819186370086168, guid: f367dcf6df3cbec4cbcc4eb4c7f4b201, type: 3}
       propertyPath: mapLocationID
@@ -1838,7 +1838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6375819186370086168, guid: f367dcf6df3cbec4cbcc4eb4c7f4b201, type: 3}
       propertyPath: locatType
-      value: 
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6375819186370086168, guid: f367dcf6df3cbec4cbcc4eb4c7f4b201, type: 3}
       propertyPath: mapLocationID
@@ -3615,7 +3615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1369880995
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3687,6 +3687,7 @@ MonoBehaviour:
   fadeIn: 0
   back2Map: 0
   toMainMenu: 0
+  toTutorial: 0
 --- !u!1001 &1389200655
 PrefabInstance:
   m_ObjectHideFlags: 0
