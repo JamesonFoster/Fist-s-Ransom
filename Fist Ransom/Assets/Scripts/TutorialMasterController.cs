@@ -110,7 +110,7 @@ public class TutorialMasterController : MonoBehaviour
         }
         else if (tStage == 7)
         {
-            txt.text = "Press L to eat food.";
+            txt.text = "Press L to eat food and heal some health.";
             if (Input.GetKeyDown(KeyCode.L))
             {
                 tStage = 8;
@@ -120,7 +120,7 @@ public class TutorialMasterController : MonoBehaviour
         }
         else if (tStage == 8)
         {
-            txt.text = "Press K to drink ale.";
+            txt.text = "Press K to drink ale and raise your rage.";
             if (Input.GetKeyDown(KeyCode.K))
             {
                 tStage = 9;
