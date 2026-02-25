@@ -14,4 +14,8 @@ public class MusicPlayer : MonoBehaviour
         audioSource.playOnAwake = false;
         audioSource.Play();
     }
+    public void SetVolume(float value) 
+    { 
+        audioSource.volume = Mathf.Clamp01(value) * maxVolume; 
+    }
 }

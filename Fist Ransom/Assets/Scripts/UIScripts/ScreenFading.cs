@@ -13,9 +13,11 @@ public class ScreenFading : MonoBehaviour
     public bool back2Map = false;
     public bool toMainMenu = false;
     public bool toTutorial = false;
+    private MusicPlayer musplay;
 
     void Awake()
     {
+        musplay = GameObject.Find("MusicPlayer");
         screen = GetComponent<RawImage>();
     }
 
@@ -26,6 +28,7 @@ public class ScreenFading : MonoBehaviour
         // Set starting alpha depending on fade type
         c.a = fadeIn ? 0f : 1f;
         screen.color = c;
+        musplay.SetVolume(1f - c.a);
 
         if (fadeIn)
             StartCoroutine(FadeIn());
@@ -45,6 +48,7 @@ public class ScreenFading : MonoBehaviour
 
             c.a = Mathf.Lerp(0f, 1f, t);
             screen.color = c;
+            musplay.SetVolume(1f - c.a);
 
             yield return null;
         }
@@ -82,12 +86,14 @@ public class ScreenFading : MonoBehaviour
 
             c.a = Mathf.Lerp(1f, 0f, t);
             screen.color = c;
+            musplay.SetVolume(1f - c.a);
 
             yield return null;
         }
 
         c.a = 0f;
         screen.color = c;
+        musplay.SetVolume(1f - c.a);
 
         if (isWin && !back2Map)
             SceneManager.LoadScene("BasicEnemyVic");
