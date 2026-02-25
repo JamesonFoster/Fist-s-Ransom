@@ -10,19 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
-  m_Name: SycllaLeftAtk
+  m_Name: SucllaLeftPre
   m_EditorClassIdentifier: 
-  atkWarning: 1
-  parryTime: 0.1
+  atkWarning: 0.5
+  parryTime: 0.4
   postAtkDodgeStun: 0
-  atkType: hitleft
+  atkType: 
   attackEffects: []
-  atkDamage: 10
-  sprAttackWarning: {fileID: 21300000, guid: 9537ed2960a82254893e05a2ae4b11c1, type: 3}
-  sprAttack: {fileID: 21300000, guid: fcc80f211b887f449950f1487634ef65, type: 3}
-  soundAttack: {fileID: 8300000, guid: d514d1a7b84f83e4980684f160ebeabf, type: 3}
-  unstunable: 0
+  atkDamage: 0
+  sprAttackWarning: {fileID: 21300000, guid: ef28081614ff2e249afafedc62f360aa, type: 3}
+  sprAttack: {fileID: 21300000, guid: d3dee661c33640040945bb5e7fc189a6, type: 3}
+  soundAttack: {fileID: 0}
+  unstunable: 1
   unparryable: 0
-  atkChaining: 0
+  isntAtker: 1
+  atkChaining: 2
   howManyTime: 0
-  nextAtk: {fileID: 0}
+  nextAtk: {fileID: 11400000, guid: 25fed4d9c7a845e4e8a8172905f15c98, type: 2}

@@ -313,8 +313,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In the light of victory yur heard his crew's spirits chearing him on...
-    pick a memory
+  m_text: "Inside the chest, you see memories. You can only remember one\u2026 choose
+    wisely."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
   m_sharedMaterial: {fileID: -941586921063194482, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
@@ -597,11 +597,11 @@ MonoBehaviour:
   descriptionText: {fileID: 1304817942}
   rarityWeights:
   - rarity: 0
-    weight: 70
-  - rarity: 1
     weight: 30
+  - rarity: 1
+    weight: 65
   - rarity: 2
-    weight: 0
+    weight: 5
 --- !u!4 &739475531
 Transform:
   m_ObjectHideFlags: 0
@@ -1343,7 +1343,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7470009882526115701, guid: f29698ec449c1464b8bb175fc830557d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8227148, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

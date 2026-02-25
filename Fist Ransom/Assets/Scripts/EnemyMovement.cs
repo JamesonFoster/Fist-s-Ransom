@@ -62,6 +62,7 @@ public class EnemyMovement : MonoBehaviour
         GlobalPlayerVars.EnemyMaxHealth = enemyData.maxHealth;
         GlobalPlayerVars.EnemyHealth = enemyData.maxHealth;
         GlobalPlayerVars.EnemyName = enemyData.name;
+        GlobalPlayerVars.goldvalue = enemyData.baseGoldWorth;
         curstandspr = enemyData.sprStandingStill;
         sprrend = GetComponent<SpriteRenderer>();
         aS = GetComponent<AudioSource>();
@@ -93,6 +94,7 @@ public class EnemyMovement : MonoBehaviour
             if (GlobalPlayerVars.EnemyHealth <= 0)
             {
                 isDead = true;
+                GlobalPlayerVars.gold += GlobalPlayerVars.goldvalue;
                 aS.PlayOneShot(enemyData.soundDeath);
             }
             if (sprFlip)
@@ -226,16 +228,8 @@ public class EnemyMovement : MonoBehaviour
                 SpriteChange(curstandspr);
                 if (!atkChoose.unstunable)
                     stunable = true;
-                SendScore(target2, atkChoose.atkType, atkDAMA);
-            }
-            else if (timerAtk >= atkWARN && countdownAtk == 0 && nextAtk != null)
-            {
-                timerAtk = 0;
-                stunTimer += atkChoose.postAtkDodgeStun;
-                if (!atkChoose.unstunable)
-                    stunable = true;
-                SendScore(target2, atkChoose.atkType, atkDAMA);
-                AttackDictate(nextAtk);
+                if (!atkChoose.isntAtker)
+                    SendScore(target2, atkChoose.atkType, atkDAMA);
             }
             else if (timerAtk >= atkWARN && countdownAtk != 0)
             {
@@ -244,7 +238,18 @@ public class EnemyMovement : MonoBehaviour
                 stunTimer += atkChoose.postAtkDodgeStun;
                 if (!atkChoose.unstunable)
                     stunable = true;
-                SendScore(target2, atkChoose.atkType, atkDAMA);
+                if (!atkChoose.isntAtker)
+                    SendScore(target2, atkChoose.atkType, atkDAMA);
+            }
+            else if (timerAtk >= atkWARN && countdownAtk == 0 && nextAtk != null)
+            {
+                timerAtk = 0;
+                stunTimer += atkChoose.postAtkDodgeStun;
+                if (!atkChoose.unstunable)
+                    stunable = true;
+                if (!atkChoose.isntAtker)
+                    SendScore(target2, atkChoose.atkType, atkDAMA);
+                AttackDictate(nextAtk);
             }
         }
     }
@@ -280,6 +285,7 @@ public class EnemyMovement : MonoBehaviour
     void StartDodge(Vector2 direction)
     {
         isDodging = true;
+        GlobalPlayerVars.goldvalue -= 5;
         dodgeTimer = 0f;
         aS.PlayOneShot(enemyData.soundDodge);
         stunTimer = 0f;
@@ -331,11 +337,13 @@ public class EnemyMovement : MonoBehaviour
 
         // If we reach here → damage always applies
         GlobalPlayerVars.EnemyHealth -= damage;
+        GlobalPlayerVars.goldvalue += 2;
 
         if (stunable && !stunned && !stunImmune)
         {
             stunable = false;   // consume window
             stunned = true;
+            GlobalPlayerVars.goldvalue += 3;
             aS.PlayOneShot(enemyData.soundStunned);
             stunnedTimer = 0f;
         }

@@ -27,10 +27,12 @@ public class GlobalPlayerVars : MonoBehaviour
     public static float dodgeTime = 0.4f;
     public static float dodgeStun = 0.1f;
 
-
+    //Coins
+    public static int gold = 0;
 
     //EnemyValues
     public static float EnemyHealth;
     public static float EnemyMaxHealth;
     public static string EnemyName;
+    public static int goldvalue;
 }

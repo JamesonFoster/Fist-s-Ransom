@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c7ae26faaeed745b9b18bcf4c40155, type: 3}
   m_Name: Scylla
   m_EditorClassIdentifier: 
-  name: noName
+  name: Scylla
   atkRedyPercent: 0.5
   atkRageRedyPercent: 0.5
   dodgeDistance: 0.2
@@ -26,7 +26,10 @@ MonoBehaviour:
   soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
   soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
   soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
+  soundStunned: {fileID: 8300000, guid: d5ed4282adebbcd44a79da24058c8b75, type: 3}
+  idlespeed: 0.8
   sprStandingStill: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: d6ad1ef594045f24aa129e38ac3ec8cf, type: 3}
   sprStunned1: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}
   sprStunned2: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}
   sprDead: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}

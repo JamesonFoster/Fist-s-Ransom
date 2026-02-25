@@ -13,6 +13,7 @@ public class ScreenFading : MonoBehaviour
     public bool back2Map = false;
     public bool toMainMenu = false;
     public bool toTutorial = false;
+    public bool resetGobl = false;
 
     void Awake()
     {
@@ -51,7 +52,13 @@ public class ScreenFading : MonoBehaviour
 
         c.a = 1f;
         screen.color = c;
-
+        if (resetGobl)
+        {
+            GlobalPlayerVars.RageCount = 1;
+            GlobalPlayerVars.HealCount = 3;
+            GlobalPlayerVars.PlayerHealth = GlobalPlayerVars.PlayerMaxHealth;
+            GlobalPlayerVars.PlayerRage = 0;
+        }
         if (isWin)
             SceneManager.LoadScene("BasicEnemyVic");
         if (back2Map)

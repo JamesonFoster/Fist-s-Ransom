@@ -81,7 +81,7 @@ public class MapButtons : MonoBehaviour
         else if (locatType == "chest")
         {
             GlobalPlayerVars.playerLocationID = mapLocationID;
-            SceneManager.LoadScene("BasicEnemyVic");
+            SceneManager.LoadScene("ChestReward");
         }
     }
 }
