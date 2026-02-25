@@ -2267,7 +2267,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicClip: {fileID: 8300000, guid: 5182c8cdae58c8845a17644ad40ffe85, type: 3}
-  maxVolume: 1
 --- !u!82 &815978792
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3331,9 +3330,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 960, y: 540}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.097
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3769,14 +3768,14 @@ RectTransform:
   m_GameObject: {fileID: 1369880994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.26306984}
-  m_LocalScale: {x: 2.105295, y: 2.105295, z: 2.105295}
+  m_LocalScale: {x: 4.39754, y: 8.970982, z: 4.39754}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1196027936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.78186, y: 16.226013}
+  m_AnchoredPosition: {x: 15.782, y: 16.226013}
   m_SizeDelta: {x: 1023.9958, y: 452.5602}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1369880996
@@ -3826,14 +3825,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92782fa2533abfa4988857615d7e1e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicPlayer: {fileID: 815978791}
   fadeDuration: 1
   isWin: 0
   fadeIn: 0
   back2Map: 0
   toMainMenu: 0
   toTutorial: 0
-  resetGobl: 0
 --- !u!1001 &1389200655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4978,6 +4975,7 @@ GameObject:
   - component: {fileID: 1676726659}
   - component: {fileID: 1676726658}
   - component: {fileID: 1676726657}
+  - component: {fileID: 1676726662}
   m_Layer: 0
   m_Name: Main Camera (1)
   m_TagString: MainCamera
@@ -5118,6 +5116,19 @@ MonoBehaviour:
   dragSpeed: 1
   minX: -0.37843
   maxX: 1.383563
+--- !u!114 &1676726662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676726656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97df5d81bb78f94db883256eaeecd54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAspect: 1.7777778
 --- !u!1 &1702116832
 GameObject:
   m_ObjectHideFlags: 0

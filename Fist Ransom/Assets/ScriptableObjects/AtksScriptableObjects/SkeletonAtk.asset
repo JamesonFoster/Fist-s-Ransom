@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atkWarning: 1
   parryTime: 0.1
-  postAtkDodgeStun: 0.4
+  postAtkDodgeStun: 0.7
   atkType: 
   attackEffects: []
   atkDamage: 3
@@ -23,6 +23,7 @@ MonoBehaviour:
   soundAttack: {fileID: 8300000, guid: 6ac9a2feed4ced6498bcbc66308b116a, type: 3}
   unstunable: 0
   unparryable: 0
+  isntAtker: 0
   atkChaining: 0
   howManyTime: 0
   nextAtk: {fileID: 0}

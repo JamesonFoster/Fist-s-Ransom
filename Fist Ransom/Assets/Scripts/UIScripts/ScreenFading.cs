@@ -13,11 +13,13 @@ public class ScreenFading : MonoBehaviour
     public bool back2Map = false;
     public bool toMainMenu = false;
     public bool toTutorial = false;
+    private GameObject onJe;
     private MusicPlayer musplay;
 
     void Awake()
     {
-        musplay = GameObject.Find("MusicPlayer");
+        onJe = GameObject.Find("MusicPlayer");
+        musplay = onJe.GetComponent<MusicPlayer>();
         screen = GetComponent<RawImage>();
     }
 

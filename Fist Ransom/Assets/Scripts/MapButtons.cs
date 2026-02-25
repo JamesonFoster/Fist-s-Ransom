@@ -25,9 +25,9 @@ public class MapButtons : MonoBehaviour
         {
             int locatChoo = Random.Range(0, 10);
 
-            if (locatChoo <= 5)
+            if (locatChoo <= 7)
                 locatType = "enemy";
-            else if (locatChoo == 6)
+            else if (locatChoo >= 7)
                 locatType = "chest";
             else if (locatChoo == 7)
                 locatType = "miniboss";
@@ -82,6 +82,11 @@ public class MapButtons : MonoBehaviour
         {
             GlobalPlayerVars.playerLocationID = mapLocationID;
             SceneManager.LoadScene("ChestReward");
+        }
+        else if (locatType == "boss")
+        {
+            GlobalPlayerVars.playerLocationID = mapLocationID;
+            SceneManager.LoadScene("Boss1");
         }
     }
 }
