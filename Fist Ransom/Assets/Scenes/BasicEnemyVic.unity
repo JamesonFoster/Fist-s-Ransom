@@ -313,7 +313,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In the light of victory yur heard his crew chearing him on... pick a memory
+  m_text: In the light of victory yur heard his crew's spirits chearing him on...
+    pick a memory
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
   m_sharedMaterial: {fileID: -941586921063194482, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
@@ -340,8 +341,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.96
-  m_fontSizeBase: 28.96
+  m_fontSize: 25.64
+  m_fontSizeBase: 25.64
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
