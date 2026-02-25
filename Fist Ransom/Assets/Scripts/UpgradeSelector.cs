@@ -14,12 +14,19 @@ public class UpgradeSelector : MonoBehaviour
     [Header("Optional Description Text")]
     public TextMeshProUGUI descriptionText;
 
-    private Dictionary<Rarity, int> rarityWeights = new Dictionary<Rarity, int>
+    // -------- RARITY WEIGHTS --------
+
+    [System.Serializable]
+    public class RarityWeight
     {
-        { Rarity.Common, 60 },
-        { Rarity.Rare, 25 },
-        { Rarity.Legendary, 10 }
-    };
+        public Rarity rarity;
+        public int weight = 0;
+    }
+
+    [Header("Rarity Weights")]
+    public List<RarityWeight> rarityWeights = new List<RarityWeight>();
+
+    // --------------------------------
 
     private void Start()
     {
@@ -29,14 +36,13 @@ public class UpgradeSelector : MonoBehaviour
             return;
         }
 
-        // Auto-assign description text to buttons
+        // Assign references to buttons
         foreach (var btn in buttons)
         {
             if (descriptionText != null)
                 btn.descriptionText = descriptionText;
 
-            if (upgradeManager != null)
-                btn.upgradeManager = upgradeManager;
+            btn.upgradeManager = upgradeManager;
         }
 
         ShowUpgradeChoices();
@@ -44,40 +50,71 @@ public class UpgradeSelector : MonoBehaviour
 
     private void ShowUpgradeChoices()
     {
+        List<Upgrade> alreadyChosen = new List<Upgrade>();
+
         foreach (var btn in buttons)
         {
-            Upgrade upgrade = GetRandomUpgrade();
+            Upgrade upgrade = GetRandomUpgrade(alreadyChosen);
+            alreadyChosen.Add(upgrade);
             btn.SetUpgrade(upgrade);
         }
     }
 
-    private Upgrade GetRandomUpgrade()
+    private Upgrade GetRandomUpgrade(List<Upgrade> excludeList)
     {
         List<Upgrade> validUpgrades = new List<Upgrade>();
 
         foreach (var u in database.allUpgrades)
         {
-            if (!upgradeManager.HasUpgrade(u))
+            if (!upgradeManager.HasUpgrade(u) && !excludeList.Contains(u))
                 validUpgrades.Add(u);
         }
 
         if (validUpgrades.Count == 0)
             return null;
 
-        // Weighted random by rarity
         int totalWeight = 0;
+
         foreach (var u in validUpgrades)
-            totalWeight += rarityWeights[u.rarity];
+        {
+            totalWeight += GetWeight(u.rarity);
+        }
+
+        if (totalWeight <= 0)
+            return validUpgrades[Random.Range(0, validUpgrades.Count)];
 
         int roll = Random.Range(0, totalWeight);
 
         foreach (var u in validUpgrades)
         {
-            roll -= rarityWeights[u.rarity];
-            if (roll <= 0)
+            roll -= GetWeight(u.rarity);
+            if (roll < 0)
                 return u;
         }
 
-        return validUpgrades[0]; // fallback
+        return validUpgrades[0];
+    }
+
+    private int GetWeight(Rarity rarity)
+    {
+        foreach (var rw in rarityWeights)
+        {
+            if (rw.rarity == rarity)
+                return Mathf.Max(0, rw.weight);
+        }
+
+        return 0;
+    }
+
+    // Automatically ensure every rarity exists in the list
+    private void OnValidate()
+    {
+        foreach (Rarity r in System.Enum.GetValues(typeof(Rarity)))
+        {
+            if (!rarityWeights.Exists(x => x.rarity == r))
+            {
+                rarityWeights.Add(new RarityWeight { rarity = r, weight = 0 });
+            }
+        }
     }
 }

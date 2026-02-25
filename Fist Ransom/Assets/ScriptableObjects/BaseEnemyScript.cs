@@ -4,6 +4,7 @@ using UnityEngine;
 public class BaseEnemyScript : ScriptableObject
 {
     public string name = "noName";
+    public int baseGoldWorth = 100;
     [Header("Dodging Chances")]
     public float atkRedyPercent = 0.5f;
     public float atkRageRedyPercent = 0.5f;
@@ -26,9 +27,12 @@ public class BaseEnemyScript : ScriptableObject
     public AudioClip soundHit2;
     public AudioClip soundDeath;
     public AudioClip soundDodge;
+    public AudioClip soundStunned;
 
     [Header("Sprites")]
+    public float idlespeed = 0.5f;
     public Sprite sprStandingStill;
+    public Sprite sprStandingStill2;
     public Sprite sprStunned1;
     public Sprite sprStunned2;
     public Sprite sprDead;

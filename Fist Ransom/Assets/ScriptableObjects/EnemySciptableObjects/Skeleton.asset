@@ -26,7 +26,10 @@ MonoBehaviour:
   soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
   soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
   soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
+  soundStunned: {fileID: 8300000, guid: d5ed4282adebbcd44a79da24058c8b75, type: 3}
+  idlespeed: 0.4
   sprStandingStill: {fileID: 21300000, guid: 354d1cd310982df4284c10245b68726e, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: 8199d00d92472b04398b4d4b42a0f165, type: 3}
   sprStunned1: {fileID: 21300000, guid: e11a6d5e8b5c1ee40b12496e1794d704, type: 3}
   sprStunned2: {fileID: 21300000, guid: 4deced1e1211cc54b858479cc7100880, type: 3}
   sprDead: {fileID: 21300000, guid: 254c2417dea757b45a6574b164efe9a5, type: 3}

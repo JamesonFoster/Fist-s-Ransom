@@ -31,6 +31,7 @@ public class AtkScriptable : ScriptableObject
     [Header("Attack Special Values")]
     public bool unstunable = false;
     public bool unparryable = false;
+    public bool isntAtker = false;
 
     public AtkChaining atkChaining;
 

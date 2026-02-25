@@ -269,6 +269,7 @@ MonoBehaviour:
   fadeIn: 0
   back2Map: 0
   toMainMenu: 0
+  toTutorial: 0
 --- !u!224 &468064548
 RectTransform:
   m_ObjectHideFlags: 0
@@ -348,8 +349,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press Any Key to Skip
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
+  m_sharedMaterial: {fileID: -941586921063194482, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -529,6 +530,7 @@ MonoBehaviour:
   fadeIn: 1
   back2Map: 0
   toMainMenu: 1
+  toTutorial: 0
 --- !u!1 &1181668417
 GameObject:
   m_ObjectHideFlags: 0

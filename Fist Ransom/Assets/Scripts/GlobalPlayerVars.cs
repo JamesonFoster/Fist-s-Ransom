@@ -11,6 +11,7 @@ public class GlobalPlayerVars : MonoBehaviour
     public static float PlayerHealth = 100;
     public static float PlayerMaxHealth = 100;
     public static int PlayerRage = 0;
+    public static float PlayerRageSpeed = 1f;
 
 
     //Attacking Stats
@@ -26,10 +27,12 @@ public class GlobalPlayerVars : MonoBehaviour
     public static float dodgeTime = 0.4f;
     public static float dodgeStun = 0.1f;
 
-
+    //Coins
+    public static int gold = 0;
 
     //EnemyValues
     public static float EnemyHealth;
     public static float EnemyMaxHealth;
     public static string EnemyName;
+    public static int goldvalue;
 }
