@@ -102,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void ReceiveScore(string score, float damage)
     {
+        Debug.Log("Score received: " + score + " | DodgeType: " + dodgeType);
         if (!isDodging)
         {
             takeDamage(damage);

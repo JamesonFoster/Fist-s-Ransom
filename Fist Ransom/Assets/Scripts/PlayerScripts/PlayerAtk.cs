@@ -7,6 +7,7 @@ public class PlayerAtk : MonoBehaviour
     [Header("Enemy Connection")]
     public EnemyMovement target;
     private PlayerMovement plMove;
+    public AudioSource aS;
 
     [Header("Basic Attack Stats")]
     public bool aimUp = false; // Holding W aims punches upward
@@ -27,6 +28,17 @@ public class PlayerAtk : MonoBehaviour
     public Sprite bodyAtk1;
     public Sprite bodyAtk2;
     public Sprite sprhitStunned;
+    public Sprite sprRageAtk1;
+    public Sprite sprRageAtk2;
+    [Header("Sounds")]
+    public AudioClip rageSlash;
+
+
+
+
+    private bool damageApplied = false;
+    private string currentDir;
+    private float currentDamage;
     
 
     void Awake()
@@ -85,84 +97,111 @@ public class PlayerAtk : MonoBehaviour
                 transform.position = Vector2.Lerp(startPos, attackPos, attackTimer / halfAtk);
                 if (upSprites)
                 SpriteChange(upAtkPart1);
-                else
+                if (!upSprites && !rageSprites)
                 SpriteChange(bodyAtk2);
+                if (rageSprites)
+                SpriteChange(sprRageAtk1);
             }
             else if (attackTimer <= GlobalPlayerVars.atkCooldown)
             {
-                if (rageSprites)
+                // Apply damage ONCE when swing reaches halfway point
+                if (!damageApplied)
                 {
-                    rageSprites = false;
-                    SendScore(target, "headR", GlobalPlayerVars.rageHeadAtk);
+                    damageApplied = true;
+                    SendScore(target, currentDir, currentDamage);
+                    if (rageSprites)
+                    {
+                        aS.PlayOneShot(rageSlash);
+                    }
                 }
+
                 // Move back
-                transform.position = Vector2.Lerp(attackPos, startPos, (attackTimer - halfAtk) / halfAtk);
+                transform.position = Vector2.Lerp(
+                    attackPos,
+                    startPos,
+                    (attackTimer - halfAtk) / halfAtk
+                );
+
                 if (upSprites)
-                SpriteChange(upAtkPart2);
-                else
-                SpriteChange(bodyAtk1);
+                    SpriteChange(upAtkPart2);
+                if (!upSprites && !rageSprites)
+                    SpriteChange(bodyAtk1);
+                if (rageSprites)
+                SpriteChange(sprRageAtk2);
             }
             else
             {
-                // Attack finished
                 transform.position = startPos;
                 attackTimer = 0f;
                 isAtking = false;
-                plMove.canMove = true; // Unlock movement after attack
+                plMove.canMove = true;
                 SpriteChange(standingStill);
                 sprrend.flipX = false;
+                rageSprites = false;
             }
-        }
-    }
-
-    public void AttackL()
-    {
-        isAtking = true;
-        plMove.canMove = false; // Lock movement while attacking
-
-        if (aimUp)
-        {
-            SendScore(target, "headL", GlobalPlayerVars.headAtkDama);
-            upSprites = true;
-        }
-        else
-        {
-            SendScore(target, "bodyL", GlobalPlayerVars.bodyAtkDama);
-            upSprites = false;
         }
     }
 
     public void AttackR()
-    {
-        isAtking = true;
-        plMove.canMove = false; // Lock movement while attacking
+{
+    isAtking = true;
+    plMove.canMove = false;
+    damageApplied = false;
 
-        if (aimUp)
-        {
-            sprrend.flipX = true;
-            SendScore(target, "headR", GlobalPlayerVars.headAtkDama);
-            upSprites = true;
-        }
-        else
-        {
-            sprrend.flipX = true;
-            SendScore(target, "bodyR", GlobalPlayerVars.bodyAtkDama);
-            upSprites = false;
-        }
+    sprrend.flipX = true;
+
+    if (aimUp)
+    {
+        currentDir = "headR";
+        currentDamage = GlobalPlayerVars.headAtkDama;
+        upSprites = true;
     }
+    else
+    {
+        currentDir = "bodyR";
+        currentDamage = GlobalPlayerVars.bodyAtkDama;
+        upSprites = false;
+    }
+}
+
+    public void AttackL()
+{
+    isAtking = true;
+    plMove.canMove = false;
+    damageApplied = false;
+
+    sprrend.flipX = false;
+
+    if (aimUp)
+    {
+        currentDir = "headL";
+        currentDamage = GlobalPlayerVars.headAtkDama;
+        upSprites = true;
+    }
+    else
+    {
+        currentDir = "bodyL";
+        currentDamage = GlobalPlayerVars.bodyAtkDama;
+        upSprites = false;
+    }
+}
     public void AttackRage()
     {
         isAtking = true;
-        plMove.canMove = false; // Lock movement while attacking
+        plMove.canMove = false;
+        damageApplied = false;
+        attackTimer = 0f;
 
-        if (aimUp)
-        {
-            attackTimer -= GlobalPlayerVars.atkCooldown;
-            rageSprites = true;
-        }
-        else
-        {
-            attackTimer -= GlobalPlayerVars.atkCooldown;
+        if (aimUp) 
+        { 
+            attackTimer -= GlobalPlayerVars.PlayerRageSpeed; 
+            currentDamage = GlobalPlayerVars.rageHeadAtk;
+            rageSprites = true; 
+        } 
+        else 
+        { 
+            attackTimer -= GlobalPlayerVars.PlayerRageSpeed; 
+            currentDamage = GlobalPlayerVars.rageBodyAtk;
             rageSprites = true;
         }
     }

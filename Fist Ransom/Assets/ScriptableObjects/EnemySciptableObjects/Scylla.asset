@@ -18,7 +18,7 @@ MonoBehaviour:
   dodgeDistance: 0.2
   dodgeTime: 0.4
   dodgeStun: 0.05
-  atkAgro: 0.2
+  atkAgro: 0.6
   maxHealth: 254
   postAtkStunTime: 1
   stunnedTime: 0.8

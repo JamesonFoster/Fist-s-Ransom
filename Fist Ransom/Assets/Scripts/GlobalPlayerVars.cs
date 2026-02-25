@@ -11,6 +11,7 @@ public class GlobalPlayerVars : MonoBehaviour
     public static float PlayerHealth = 100;
     public static float PlayerMaxHealth = 100;
     public static int PlayerRage = 0;
+    public static float PlayerRageSpeed = 1f;
 
 
     //Attacking Stats
