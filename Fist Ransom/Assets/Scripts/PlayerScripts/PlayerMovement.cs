@@ -102,7 +102,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void ReceiveScore(string score, float damage)
     {
-        Debug.Log("Score received: " + score + " | DodgeType: " + dodgeType);
         if (!isDodging)
         {
             takeDamage(damage);
@@ -131,16 +130,11 @@ public class PlayerMovement : MonoBehaviour
         {
             takeDamage(damage);
         }
-        else
-        {
-            GlobalPlayerVars.goldvalue += 4;
-        }
     }
 
     public void takeDamage(float damage)
     {
         GlobalPlayerVars.PlayerHealth -= damage;
-        GlobalPlayerVars.goldvalue -= 2;
         GlobalPlayerVars.PlayerRage -= ((int)damage) * 2;
         plAtk.hitStunnedTimer = GlobalPlayerVars.hitStunnedLength;
     }
