@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Honey Bar
   rarity: 0
   icon: {fileID: -4972203168655366716, guid: f0dafe07a1d29fa46aede90d58843521, type: 3}
+  Value: 85
   description: 'Honey Bar
 
     Made by Yur as A quick snack. Full of honey and nuts.

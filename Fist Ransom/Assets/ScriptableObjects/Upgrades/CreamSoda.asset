@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Cream Soda
   rarity: 0
   icon: {fileID: -7044314099922986942, guid: b14ff4c3cadee1c4fba9f6217fa40431, type: 3}
+  Value: 125
   description: 'Cream Soda
 
     Because its better than root beer.

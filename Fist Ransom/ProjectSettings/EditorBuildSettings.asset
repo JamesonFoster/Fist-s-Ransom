@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ChestReward.unity
     guid: 21e379124d55fd8438b6e645ff52c5b1
   - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: e3d60344851e6564fbd5688aff9d55cf
+  - enabled: 1
     path: Assets/Scenes/Boss1.unity
     guid: e58dbe2ebdb143e4da8d814add0443da
   - enabled: 1
