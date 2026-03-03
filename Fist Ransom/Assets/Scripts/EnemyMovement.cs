@@ -302,12 +302,32 @@ public class EnemyMovement : MonoBehaviour
         // Only allow parry during exact parry window
         if (isAtk && isparryable && timerAtk >= atkWARN - parTime && timerAtk <= atkWARN)
         {
-            isAtk = false;
-            timerAtk = 0f;
-            stunned = true;
-            aS.PlayOneShot(enemyData.soundStunned);
-            stunnedTimer = 0f;
+            Debug.Log("Perrying (FAIL?)");
+            if (score == "rage")
+            {
+            ParrySet();
             return; // stop further processing
+            }
+            else if (atkChoose.parryableR == true && score == "bodyR")
+            {
+            ParrySet();
+            return; // stop further processing
+            }
+            else if (atkChoose.parryableUpR == true && score == "headR")
+            {
+            ParrySet();
+            return; // stop further processing
+            }
+            else if (atkChoose.parryableUpL == true && score == "headL")
+            {
+            ParrySet();
+            return; // stop further processing
+            }
+            else if (atkChoose.parryableL == true && score == "bodyL")
+            {
+            ParrySet();
+            return; // stop further processing
+            }
         }
 
 
@@ -367,6 +387,15 @@ public class EnemyMovement : MonoBehaviour
             aS.PlayOneShot(enemyData.soundHit2);
 
         Debug.Log($"Enemy Health: {GlobalPlayerVars.EnemyHealth}");
+    }
+
+    public void ParrySet()
+    {
+            isAtk = false;
+            timerAtk = 0f;
+            stunned = true;
+            aS.PlayOneShot(enemyData.soundStunned);
+            stunnedTimer = 0f;
     }
 
 

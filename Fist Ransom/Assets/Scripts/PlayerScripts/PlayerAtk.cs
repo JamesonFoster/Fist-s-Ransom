@@ -187,6 +187,7 @@ public class PlayerAtk : MonoBehaviour
 }
     public void AttackRage()
     {
+        currentDir = "rage";
         isAtking = true;
         plMove.canMove = false;
         damageApplied = false;

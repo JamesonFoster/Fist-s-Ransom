@@ -1648,7 +1648,10 @@ MonoBehaviour:
   target: {fileID: 1632614863}
   target2: {fileID: 1632614864}
   winScreen: {fileID: 956122067}
-  listOfAttacks: []
+  listOfAttacks:
+  - {fileID: 11400000, guid: 2685787875d1c794096ea767ccfadc87, type: 2}
+  - {fileID: 11400000, guid: dd1e63ad2c2b64842a9400c4cb806fa4, type: 2}
+  - {fileID: 11400000, guid: 5a3d67cfa7220ef42ad588640944f6a7, type: 2}
   aS: {fileID: 0}
   stunned: 0
 --- !u!82 &1809466990
