@@ -16,7 +16,7 @@ public class ShopButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private Upgrade upgrade;
     private Button button;
     private Image buttonImage;
-    private bool activated = false;
+    private bool activated = true;
 
 
     private void Awake()
@@ -67,7 +67,7 @@ public class ShopButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     /// </summary>
     public void OnClick()
     {
-        if (upgrade == null || upgradeManager == null || upgrade.Value > GlobalPlayerVars.gold)
+        if (upgrade == null || upgradeManager == null || upgrade.Value > GlobalPlayerVars.gold || activated == false)
         {
             return;
         }
