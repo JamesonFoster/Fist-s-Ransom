@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Seasoned Chicken
   rarity: 0
   icon: {fileID: -3235335232893707942, guid: 2399f572dc5fcce4dae3baab733733ed, type: 3}
+  Value: 75
   description: 'Seasoned Chicken
 
     FORGED FROM THE FIRES OF YUR''S MOTHER''S OVEN!
@@ -23,3 +24,5 @@ MonoBehaviour:
     1 Head Damage'
   headDamageIncrease: 1
   bodyDamageIncrease: 0
+  headRageIncrease: 0
+  bodyRageIncrease: 0

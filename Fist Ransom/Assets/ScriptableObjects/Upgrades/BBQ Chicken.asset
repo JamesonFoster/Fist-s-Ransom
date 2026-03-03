@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: BBQ Chicken
   rarity: 0
   icon: {fileID: 3858046523345560482, guid: c3c851d6bb766aa4688978899a96b989, type: 3}
+  Value: 75
   description: 'BBQ Chicken
 
     *Enter Joke Here*
@@ -22,3 +23,5 @@ MonoBehaviour:
     +1 Body Damage'
   headDamageIncrease: 0
   bodyDamageIncrease: 1
+  headRageIncrease: 0
+  bodyRageIncrease: 0

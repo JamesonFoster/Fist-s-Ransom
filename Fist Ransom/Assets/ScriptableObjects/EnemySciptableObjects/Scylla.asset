@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Scylla
   m_EditorClassIdentifier: 
   name: Scylla
+  baseGoldWorth: 100
   atkRedyPercent: 0.5
   atkRageRedyPercent: 0.5
   dodgeDistance: 0.2
   dodgeTime: 0.4
   dodgeStun: 0.05
-  atkAgro: 0.6
-  maxHealth: 254
+  atkAgro: 0
+  maxHealth: 9999
   postAtkStunTime: 1
   stunnedTime: 0.8
   soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
@@ -28,13 +29,13 @@ MonoBehaviour:
   soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
   soundStunned: {fileID: 8300000, guid: d5ed4282adebbcd44a79da24058c8b75, type: 3}
   idlespeed: 0.8
-  sprStandingStill: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}
-  sprStandingStill2: {fileID: 21300000, guid: d6ad1ef594045f24aa129e38ac3ec8cf, type: 3}
-  sprStunned1: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}
-  sprStunned2: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}
+  sprStandingStill: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: 5305c5551772d044ea7b7a07e981e6b3, type: 3}
+  sprStunned1: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
+  sprStunned2: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
   sprDead: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}
-  sprDodge: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}
-  sprHeadHitL: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}
-  sprHeadHitR: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}
-  sprBodyHitL: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}
-  sprBodyHitR: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}
+  sprDodge: {fileID: 21300000, guid: b446392f20638a441a38fd5ff54ed76d, type: 3}
+  sprHeadHitL: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
+  sprHeadHitR: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
+  sprBodyHitL: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
+  sprBodyHitR: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}

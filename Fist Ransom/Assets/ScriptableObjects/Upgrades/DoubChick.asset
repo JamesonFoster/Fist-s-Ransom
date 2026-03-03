@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Double Chicken Legs
   rarity: 1
   icon: {fileID: 6840221948178612228, guid: 5f27f7d023c9de841a1d715ce27d1966, type: 3}
+  Value: 230
   description: 'Double Chicken Legs
 
     Because two is better than one.
@@ -25,3 +26,5 @@ MonoBehaviour:
     +1 Body Damage'
   headDamageIncrease: 1
   bodyDamageIncrease: 1
+  headRageIncrease: 0
+  bodyRageIncrease: 0

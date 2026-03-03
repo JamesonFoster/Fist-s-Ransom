@@ -13,6 +13,7 @@ public abstract class Upgrade : ScriptableObject
     public string upgradeName;
     public Rarity rarity;
     public Sprite icon;
+    public int Value;
 
     [TextArea]
     public string description;

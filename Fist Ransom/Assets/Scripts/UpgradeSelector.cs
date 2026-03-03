@@ -11,6 +11,9 @@ public class UpgradeSelector : MonoBehaviour
     [Header("UI Buttons")]
     public List<UpgradeButton> buttons = new List<UpgradeButton>();
 
+    [Header("Shop Buttons")]
+    public List<ShopButtons> shopbuttons = new List<ShopButtons>();
+
     [Header("Optional Description Text")]
     public TextMeshProUGUI descriptionText;
 
@@ -30,7 +33,7 @@ public class UpgradeSelector : MonoBehaviour
 
     private void Start()
     {
-        if (database == null || upgradeManager == null || buttons.Count == 0)
+        if (database == null || upgradeManager == null || buttons.Count == 0 && shopbuttons.Count == 0)
         {
             Debug.LogError("UpgradeSelector missing references or buttons!");
             return;
@@ -39,6 +42,15 @@ public class UpgradeSelector : MonoBehaviour
         // Assign references to buttons
         foreach (var btn in buttons)
         {
+            if (btn == null) continue;
+            if (descriptionText != null)
+                btn.descriptionText = descriptionText;
+
+            btn.upgradeManager = upgradeManager;
+        }
+        foreach (var btn in shopbuttons)
+        {
+            if (btn == null) continue;
             if (descriptionText != null)
                 btn.descriptionText = descriptionText;
 
@@ -54,6 +66,14 @@ public class UpgradeSelector : MonoBehaviour
 
         foreach (var btn in buttons)
         {
+            if (btn == null) continue;
+            Upgrade upgrade = GetRandomUpgrade(alreadyChosen);
+            alreadyChosen.Add(upgrade);
+            btn.SetUpgrade(upgrade);
+        }
+        foreach (var btn in shopbuttons)
+        {
+            if (btn == null) continue;
             Upgrade upgrade = GetRandomUpgrade(alreadyChosen);
             alreadyChosen.Add(upgrade);
             btn.SetUpgrade(upgrade);

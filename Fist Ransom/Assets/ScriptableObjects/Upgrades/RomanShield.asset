@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Roman Shield
   rarity: 2
   icon: {fileID: -5985197886803760373, guid: d2f89f19286a8184ba2d33cc892bc9e0, type: 3}
+  Value: 500
   description: 'Roman Shield
 
     Yur feels disgusted even looking at it. But it
