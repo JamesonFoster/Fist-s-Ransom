@@ -73,15 +73,15 @@ public class PlayerAtk : MonoBehaviour
         if (hitStunned == false)
         {
             // Attack input (only if not already attacking and player is allowed to move)
-            if (!isAtking && plMove.canMove && Input.GetKeyDown(KeyCode.Comma))
+            if (!isAtking && plMove.canMove && (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0)))
                 AttackL();
-            if (!isAtking && plMove.canMove && Input.GetKeyDown(KeyCode.Period))
+            if (!isAtking && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1)))
                 AttackR();
-            if (!isAtking && plMove.canMove && Input.GetKeyDown(KeyCode.Slash) && GlobalPlayerVars.PlayerRage == 100)
+            if (!isAtking && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == 100)
                 AttackRage();
-            if (Input.GetKeyDown(KeyCode.L))
+            if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Q))
                 useHeal();
-            if (Input.GetKeyDown(KeyCode.K))
+            if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.E))
                 useRage();
         }
 

@@ -29,12 +29,12 @@ MonoBehaviour:
   soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
   soundStunned: {fileID: 8300000, guid: d5ed4282adebbcd44a79da24058c8b75, type: 3}
   idlespeed: 0.8
-  sprStandingStill: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
-  sprStandingStill2: {fileID: 21300000, guid: 5305c5551772d044ea7b7a07e981e6b3, type: 3}
+  sprStandingStill: {fileID: 21300000, guid: 2f26b01e590fb164daecb9f490f5db06, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: c15493bd107948b4d90bdf9c01bc6cd2, type: 3}
   sprStunned1: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
   sprStunned2: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
   sprDead: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}
-  sprDodge: {fileID: 21300000, guid: b446392f20638a441a38fd5ff54ed76d, type: 3}
+  sprDodge: {fileID: 21300000, guid: 19e3a193f62ee3e4da088008bda73fd4, type: 3}
   sprHeadHitL: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
   sprHeadHitR: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
   sprBodyHitL: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}

@@ -26,8 +26,8 @@ public class TutorialMasterController : MonoBehaviour
     {
         if (tStage == 0)
         {
-            txt.text = "Press , to punch with your left fist.";
-            if (Input.GetKeyDown(KeyCode.Comma))
+            txt.text = "Press , OR click left to punch with your left fist.";
+            if (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0))
             {
                 tStage = 1;
                 keycomma.SetActive(false);
@@ -36,8 +36,8 @@ public class TutorialMasterController : MonoBehaviour
         }
         else if (tStage == 1)
         {
-            txt.text = "Press . to punch with your right fist.";
-            if (Input.GetKeyDown(KeyCode.Period))
+            txt.text = "Press . OR click right to punch with your right fist.";
+            if (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1))
             {
                 tStage = 2;
                 keydot.SetActive(false);
@@ -64,8 +64,8 @@ public class TutorialMasterController : MonoBehaviour
         }
         else if (tStage == 4)
         {
-            txt.text = "Press / to use a Rage Cut.";
-            if (Input.GetKeyDown(KeyCode.Slash))
+            txt.text = "Press / OR space to use a Rage Cut.";
+            if (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space))
             {
                 tStage = 5;
                 keyslash.SetActive(false);
@@ -110,8 +110,8 @@ public class TutorialMasterController : MonoBehaviour
         }
         else if (tStage == 7)
         {
-            txt.text = "Press L to eat food and heal some health.";
-            if (Input.GetKeyDown(KeyCode.L))
+            txt.text = "Press K OR Q to eat food and heal some health.";
+            if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Q))
             {
                 tStage = 8;
                 keyl.SetActive(false);
@@ -120,8 +120,8 @@ public class TutorialMasterController : MonoBehaviour
         }
         else if (tStage == 8)
         {
-            txt.text = "Press K to drink ale and raise your rage.";
-            if (Input.GetKeyDown(KeyCode.K))
+            txt.text = "Press L OR E to drink ale and raise your rage.";
+            if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.E))
             {
                 tStage = 9;
                 keyk.SetActive(false);
