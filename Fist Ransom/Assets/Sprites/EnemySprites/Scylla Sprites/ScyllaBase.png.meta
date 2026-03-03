@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b446392f20638a441a38fd5ff54ed76d
+guid: 2f26b01e590fb164daecb9f490f5db06
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5231950240035731613
-    second: SAtk1-1_0
+      213: -4673644661929995205
+    second: ScyllaBase_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SAtk1-1_0
+      name: ScyllaBase_0
       rect:
         serializedVersion: 2
         x: 6
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 367862c0af06467b0800000000000000
-      internalID: -5231950240035731613
+      spriteID: b34134721f0e32fb0800000000000000
+      internalID: -4673644661929995205
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SAtk1-1_0: -5231950240035731613
+      ScyllaBase_0: -4673644661929995205
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
