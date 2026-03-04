@@ -4,7 +4,8 @@ using System.Collections.Generic;
 public class EnemyMovement : MonoBehaviour
 {
     public BaseEnemyScript enemyData; // Assign ScriptableObject in Inspector
-
+    public int phase = 0;
+    public BossPhaseController BPC;
     private bool isDodging = false;
     private float dodgeTimer = 0f;
     private float stunTimer = 999f;
@@ -53,6 +54,7 @@ public class EnemyMovement : MonoBehaviour
     private float stunImmuneTimer = 0f;
     private bool standsprcont = false;
     private float chanstandtimer = 0f;
+    private float phaseTimer = 0f;
     private Sprite curstandspr;
 
 
@@ -182,7 +184,14 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            winScreen.SetActive(true);
+            if (phase == 0)
+            {
+                winScreen.SetActive(true);
+            }
+            else
+            {
+                phaseTimer += Time.deltaTime;
+            }
             deadTimer -= Time.deltaTime;
             deathflicker += Time.deltaTime;
             SpriteChange(enemyData.sprDead);
@@ -190,6 +199,12 @@ public class EnemyMovement : MonoBehaviour
             {
                 sprrend.enabled = !sprrend.enabled;
                 deathflicker = 0f;
+            }
+            if (phaseTimer >= 3f)
+            {
+                sprrend.enabled = sprrend.enabled;
+                deathflicker = 0f;
+                BPC.changePhase(phase);
             }
         }
     }

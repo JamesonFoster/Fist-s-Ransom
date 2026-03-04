@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAtk : MonoBehaviour
 {
     [Header("Enemy Connection")]
-    public EnemyMovement target;
+    [SerializeField] public EnemyMovement target;
     private PlayerMovement plMove;
     public AudioSource aS;
 
