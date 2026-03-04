@@ -20,7 +20,7 @@ MonoBehaviour:
   dodgeTime: 0.4
   dodgeStun: 0.05
   atkAgro: 0.6
-  maxHealth: 165
+  maxHealth: 225
   postAtkStunTime: 1
   stunnedTime: 0.8
   soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
