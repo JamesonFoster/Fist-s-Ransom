@@ -2535,6 +2535,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: b308ffb71932799479965f13cf262083, type: 2}
+  phase: 0
+  BPC: {fileID: 0}
+  damageTextPrefab: {fileID: 6748693807688384644, guid: c4b2884cc3be77245b04149f72a33998, type: 3}
+  canvasTransform: {fileID: 420830528}
   target: {fileID: 1632614863}
   target2: {fileID: 1632614864}
   winScreen: {fileID: 956122067}

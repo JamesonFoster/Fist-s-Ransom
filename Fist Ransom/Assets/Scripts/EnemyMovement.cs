@@ -6,6 +6,8 @@ public class EnemyMovement : MonoBehaviour
     public BaseEnemyScript enemyData; // Assign ScriptableObject in Inspector
     public int phase = 0;
     public BossPhaseController BPC;
+    public GameObject damageTextPrefab;
+    public Transform canvasTransform;
     private bool isDodging = false;
     private float dodgeTimer = 0f;
     private float stunTimer = 999f;
@@ -350,14 +352,14 @@ public class EnemyMovement : MonoBehaviour
         {
             bool dodgeSuccess = false;
 
-            if (score != "headR" && score != "bodyR")
+            if (score != "rage")
                 dodgeSuccess = Random.value <= enemyData.atkRedyPercent;
             else
                 dodgeSuccess = Random.value <= enemyData.atkRageRedyPercent;
 
             if (dodgeSuccess)
             {
-                if (score == "headL" || score == "bodyL")
+                if (score == "headL" || score == "bodyL" || score == "rage")
                     StartDodge(Vector2.right);
 
                 if (score == "headR" || score == "bodyR")
@@ -372,6 +374,7 @@ public class EnemyMovement : MonoBehaviour
 
         // If we reach here → damage always applies
         GlobalPlayerVars.EnemyHealth -= damage;
+        SpawnHit(((int)damage));
         GlobalPlayerVars.goldvalue += 2;
 
         if (stunable && !stunned && !stunImmune)
@@ -455,5 +458,14 @@ public class EnemyMovement : MonoBehaviour
     public void SpriteChange(Sprite sprite)
     {
         sprrend.sprite = sprite;
+    }
+
+    public void SpawnHit(int amount)
+    {
+        GameObject obj = Instantiate(damageTextPrefab, canvasTransform);
+        RectTransform rect = obj.GetComponent<RectTransform>();
+        rect.anchoredPosition = Vector2.zero;
+
+        obj.GetComponent<DamageNumber>().Init(amount);
     }
 }

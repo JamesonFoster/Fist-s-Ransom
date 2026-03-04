@@ -439,6 +439,8 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: 66d45656654a3964b9856a3482c98884, type: 2}
   phase: 1
   BPC: {fileID: 307317954}
+  damageTextPrefab: {fileID: 6748693807688384644, guid: c4b2884cc3be77245b04149f72a33998, type: 3}
+  canvasTransform: {fileID: 420830528}
   target: {fileID: 1632614863}
   target2: {fileID: 1632614864}
   winScreen: {fileID: 956122067}
@@ -1612,6 +1614,8 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: b8386beaf4441154494829345da22921, type: 2}
   phase: 0
   BPC: {fileID: 307317954}
+  damageTextPrefab: {fileID: 6748693807688384644, guid: c4b2884cc3be77245b04149f72a33998, type: 3}
+  canvasTransform: {fileID: 420830528}
   target: {fileID: 1632614863}
   target2: {fileID: 1632614864}
   winScreen: {fileID: 956122067}
@@ -2087,6 +2091,8 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: 9f7d9db446ea637409e97e5dfc1d6cfe, type: 2}
   phase: 2
   BPC: {fileID: 307317954}
+  damageTextPrefab: {fileID: 6748693807688384644, guid: c4b2884cc3be77245b04149f72a33998, type: 3}
+  canvasTransform: {fileID: 420830528}
   target: {fileID: 1632614863}
   target2: {fileID: 1632614864}
   winScreen: {fileID: 956122067}
