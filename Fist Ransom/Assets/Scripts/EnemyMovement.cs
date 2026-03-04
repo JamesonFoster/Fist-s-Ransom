@@ -4,7 +4,10 @@ using System.Collections.Generic;
 public class EnemyMovement : MonoBehaviour
 {
     public BaseEnemyScript enemyData; // Assign ScriptableObject in Inspector
-
+    public int phase = 0;
+    public BossPhaseController BPC;
+    public GameObject damageTextPrefab;
+    public Transform canvasTransform;
     private bool isDodging = false;
     private float dodgeTimer = 0f;
     private float stunTimer = 999f;
@@ -53,6 +56,7 @@ public class EnemyMovement : MonoBehaviour
     private float stunImmuneTimer = 0f;
     private bool standsprcont = false;
     private float chanstandtimer = 0f;
+    private float phaseTimer = 0f;
     private Sprite curstandspr;
 
 
@@ -182,7 +186,14 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            winScreen.SetActive(true);
+            if (phase == 0)
+            {
+                winScreen.SetActive(true);
+            }
+            else
+            {
+                phaseTimer += Time.deltaTime;
+            }
             deadTimer -= Time.deltaTime;
             deathflicker += Time.deltaTime;
             SpriteChange(enemyData.sprDead);
@@ -190,6 +201,12 @@ public class EnemyMovement : MonoBehaviour
             {
                 sprrend.enabled = !sprrend.enabled;
                 deathflicker = 0f;
+            }
+            if (phaseTimer >= 3f)
+            {
+                sprrend.enabled = sprrend.enabled;
+                deathflicker = 0f;
+                BPC.changePhase(phase);
             }
         }
     }
@@ -302,12 +319,32 @@ public class EnemyMovement : MonoBehaviour
         // Only allow parry during exact parry window
         if (isAtk && isparryable && timerAtk >= atkWARN - parTime && timerAtk <= atkWARN)
         {
-            isAtk = false;
-            timerAtk = 0f;
-            stunned = true;
-            aS.PlayOneShot(enemyData.soundStunned);
-            stunnedTimer = 0f;
+            Debug.Log("Perrying (FAIL?)");
+            if (score == "rage")
+            {
+            ParrySet();
             return; // stop further processing
+            }
+            else if (atkChoose.parryableR == true && score == "bodyR")
+            {
+            ParrySet();
+            return; // stop further processing
+            }
+            else if (atkChoose.parryableUpR == true && score == "headR")
+            {
+            ParrySet();
+            return; // stop further processing
+            }
+            else if (atkChoose.parryableUpL == true && score == "headL")
+            {
+            ParrySet();
+            return; // stop further processing
+            }
+            else if (atkChoose.parryableL == true && score == "bodyL")
+            {
+            ParrySet();
+            return; // stop further processing
+            }
         }
 
 
@@ -315,14 +352,14 @@ public class EnemyMovement : MonoBehaviour
         {
             bool dodgeSuccess = false;
 
-            if (score != "headR" && score != "bodyR")
+            if (score != "rage")
                 dodgeSuccess = Random.value <= enemyData.atkRedyPercent;
             else
                 dodgeSuccess = Random.value <= enemyData.atkRageRedyPercent;
 
             if (dodgeSuccess)
             {
-                if (score == "headL" || score == "bodyL")
+                if (score == "headL" || score == "bodyL" || score == "rage")
                     StartDodge(Vector2.right);
 
                 if (score == "headR" || score == "bodyR")
@@ -337,6 +374,7 @@ public class EnemyMovement : MonoBehaviour
 
         // If we reach here → damage always applies
         GlobalPlayerVars.EnemyHealth -= damage;
+        SpawnHit(((int)damage));
         GlobalPlayerVars.goldvalue += 2;
 
         if (stunable && !stunned && !stunImmune)
@@ -367,6 +405,15 @@ public class EnemyMovement : MonoBehaviour
             aS.PlayOneShot(enemyData.soundHit2);
 
         Debug.Log($"Enemy Health: {GlobalPlayerVars.EnemyHealth}");
+    }
+
+    public void ParrySet()
+    {
+            isAtk = false;
+            timerAtk = 0f;
+            stunned = true;
+            aS.PlayOneShot(enemyData.soundStunned);
+            stunnedTimer = 0f;
     }
 
 
@@ -411,5 +458,14 @@ public class EnemyMovement : MonoBehaviour
     public void SpriteChange(Sprite sprite)
     {
         sprrend.sprite = sprite;
+    }
+
+    public void SpawnHit(int amount)
+    {
+        GameObject obj = Instantiate(damageTextPrefab, canvasTransform);
+        RectTransform rect = obj.GetComponent<RectTransform>();
+        rect.anchoredPosition = Vector2.zero;
+
+        obj.GetComponent<DamageNumber>().Init(amount);
     }
 }

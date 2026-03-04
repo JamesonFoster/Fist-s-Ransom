@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
+  m_Name: SucllaLeftPre
+  m_EditorClassIdentifier: 
+  atkWarning: 0.5
+  parryTime: 0.4
+  postAtkDodgeStun: 0
+  atkType: 
+  attackEffects: []
+  atkDamage: 0
+  sprAttackWarning: {fileID: 21300000, guid: 8b8bc7e722256694082dfa9f85e058dc, type: 3}
+  sprAttack: {fileID: 21300000, guid: 97339535182a71b4b9ef20a91033de2b, type: 3}
+  soundAttack: {fileID: 0}
+  parryableUpL: 0
+  parryableUpR: 0
+  parryableR: 0
+  parryableL: 1
+  unstunable: 1
+  unparryable: 0
+  isntAtker: 1
+  atkChaining: 2
+  howManyTime: 0
+  nextAtk: {fileID: 11400000, guid: 25fed4d9c7a845e4e8a8172905f15c98, type: 2}

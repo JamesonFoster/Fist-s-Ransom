@@ -10,20 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
-  m_Name: SucllaLeftPre
+  m_Name: ScyllaLeftFullPre
   m_EditorClassIdentifier: 
   atkWarning: 0.5
-  parryTime: 0.4
+  parryTime: 0.25
   postAtkDodgeStun: 0
   atkType: 
   attackEffects: []
   atkDamage: 0
-  sprAttackWarning: {fileID: 21300000, guid: ef28081614ff2e249afafedc62f360aa, type: 3}
-  sprAttack: {fileID: 21300000, guid: d3dee661c33640040945bb5e7fc189a6, type: 3}
+  sprAttackWarning: {fileID: 21300000, guid: 408831e78f6f44445b4d9f0a9455b8f3, type: 3}
+  sprAttack: {fileID: 21300000, guid: a7db0a9d2a6a2584aabecc37116b7595, type: 3}
   soundAttack: {fileID: 0}
+  parryableUpL: 1
+  parryableUpR: 1
+  parryableR: 0
+  parryableL: 1
   unstunable: 1
   unparryable: 0
   isntAtker: 1
   atkChaining: 2
   howManyTime: 0
-  nextAtk: {fileID: 11400000, guid: 25fed4d9c7a845e4e8a8172905f15c98, type: 2}
+  nextAtk: {fileID: 11400000, guid: 5c0d5f4d697ff3f4fa8b0499bc292cec, type: 2}
