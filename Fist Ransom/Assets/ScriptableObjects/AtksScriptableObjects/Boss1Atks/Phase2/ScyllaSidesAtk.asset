@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
   m_Name: ScyllaSidesAtk
   m_EditorClassIdentifier: 
-  atkWarning: 1
+  atkWarning: 0.8
   parryTime: 0.1
   postAtkDodgeStun: 0.3
   atkType: hitfullsides

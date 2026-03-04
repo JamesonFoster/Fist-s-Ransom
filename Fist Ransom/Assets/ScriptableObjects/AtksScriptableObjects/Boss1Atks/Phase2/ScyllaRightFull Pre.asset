@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ScyllaRightFull Pre
   m_EditorClassIdentifier: 
   atkWarning: 0.5
-  parryTime: 0.4
+  parryTime: 0.25
   postAtkDodgeStun: 0
   atkType: 
   attackEffects: []
