@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -71,6 +72,12 @@ public class PlayerMovement : MonoBehaviour
             if (dodgeMode == 3)
             SpriteChange(dodgeBackSpr);
 
+            if ((Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0)))
+                isDodging = false;
+            if ((Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1)))
+                isDodging = false;
+            if ((Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == 100)
+                isDodging = false;
 
             dodgeTimer += Time.deltaTime;
             float halfDodge = GlobalPlayerVars.dodgeTime / 2f;
