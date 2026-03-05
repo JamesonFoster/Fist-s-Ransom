@@ -29,10 +29,11 @@ public class GlobalPlayerVars : MonoBehaviour
 
     //Coins
     public static int gold = 0;
+    public static float coinMultiplay = 1f;
 
     //EnemyValues
     public static float EnemyHealth;
     public static float EnemyMaxHealth;
     public static string EnemyName;
-    public static int goldvalue;
+    public static float goldvalue;
 }

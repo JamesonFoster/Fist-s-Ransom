@@ -4,7 +4,7 @@ using UnityEngine;
 public class BaseEnemyScript : ScriptableObject
 {
     public string name = "noName";
-    public int baseGoldWorth = 100;
+    public float baseGoldWorth = 100f;
     [Header("Dodging Chances")]
     public float atkRedyPercent = 0.5f;
     public float atkRageRedyPercent = 0.5f;

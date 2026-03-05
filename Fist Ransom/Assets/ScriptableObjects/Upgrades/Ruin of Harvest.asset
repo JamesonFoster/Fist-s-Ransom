@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cda97052843aee48ab7e15cb26d89e4, type: 3}
+  m_Name: Ruin of Harvest
+  m_EditorClassIdentifier: 
+  upgradeName: Ruin of Jera
+  rarity: 0
+  icon: {fileID: -42836555644134576, guid: bbd266c753052a24d9144de353f3a196, type: 3}
+  Value: 100
+  description: 'Ruin of Jera
+
+    Saga once placed these around our village after
+    a successful harvest. Now it serves as a reminder of those times.
+
+    5% more
+    gold'
+  headDamageIncrease: 0
+  bodyDamageIncrease: 0
+  headRageIncrease: 0
+  bodyRageIncrease: 0
+  maxHealthIncrease: 0
+  dodgeTimeIncrease: 0
+  goldMultiplyier: 0.05
+  attackCoolDec: 0
+  dodgeStunDec: 0

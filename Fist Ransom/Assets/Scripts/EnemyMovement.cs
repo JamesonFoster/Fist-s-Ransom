@@ -66,7 +66,7 @@ public class EnemyMovement : MonoBehaviour
         GlobalPlayerVars.EnemyMaxHealth = enemyData.maxHealth;
         GlobalPlayerVars.EnemyHealth = enemyData.maxHealth;
         GlobalPlayerVars.EnemyName = enemyData.name;
-        GlobalPlayerVars.goldvalue = enemyData.baseGoldWorth;
+        GlobalPlayerVars.goldvalue = enemyData.baseGoldWorth * GlobalPlayerVars.coinMultiplay;
         curstandspr = enemyData.sprStandingStill;
         sprrend = GetComponent<SpriteRenderer>();
         aS = GetComponent<AudioSource>();
@@ -98,7 +98,7 @@ public class EnemyMovement : MonoBehaviour
             if (GlobalPlayerVars.EnemyHealth <= 0)
             {
                 isDead = true;
-                GlobalPlayerVars.gold += GlobalPlayerVars.goldvalue;
+                GlobalPlayerVars.gold += Mathf.RoundToInt(GlobalPlayerVars.goldvalue);
                 aS.PlayOneShot(enemyData.soundDeath);
             }
             if (sprFlip)
@@ -302,7 +302,7 @@ public class EnemyMovement : MonoBehaviour
     void StartDodge(Vector2 direction)
     {
         isDodging = true;
-        GlobalPlayerVars.goldvalue -= 5;
+        GlobalPlayerVars.goldvalue -= 5f * GlobalPlayerVars.coinMultiplay;
         dodgeTimer = 0f;
         aS.PlayOneShot(enemyData.soundDodge);
         stunTimer = 0f;
@@ -375,13 +375,13 @@ public class EnemyMovement : MonoBehaviour
         // If we reach here → damage always applies
         GlobalPlayerVars.EnemyHealth -= damage;
         SpawnHit(((int)damage));
-        GlobalPlayerVars.goldvalue += 2;
+        GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
 
         if (stunable && !stunned && !stunImmune)
         {
             stunable = false;   // consume window
             stunned = true;
-            GlobalPlayerVars.goldvalue += 3;
+            GlobalPlayerVars.goldvalue += 3f * GlobalPlayerVars.coinMultiplay;
             aS.PlayOneShot(enemyData.soundStunned);
             stunnedTimer = 0f;
         }

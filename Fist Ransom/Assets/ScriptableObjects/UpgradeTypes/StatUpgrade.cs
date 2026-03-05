@@ -1,7 +1,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "StatUpgrade", menuName = "Scriptable Objects/StatUpgrade")]
+[CreateAssetMenu(fileName = "StatUpgrade", menuName = "Upgrades/StatUpgrade")]
 public class StatUpgrade : Upgrade
 {
     [Header("Static Upgrades")]
@@ -11,6 +11,7 @@ public class StatUpgrade : Upgrade
     public float bodyRageIncrease = 0f;
     public float maxHealthIncrease = 0f;
     public float dodgeTimeIncrease = 0f;
+    public float goldMultiplyier = 0f;
 
 
     [Header("Multipitive  Upgrades")]
@@ -29,6 +30,7 @@ public class StatUpgrade : Upgrade
         GlobalPlayerVars.PlayerMaxHealth += maxHealthIncrease;
         GlobalPlayerVars.PlayerHealth += maxHealthIncrease;
         GlobalPlayerVars.dodgeTime += dodgeStunDec;
+        GlobalPlayerVars.coinMultiplay += goldMultiplyier;
 
         //Speed Stuff
         float actuatkCool = 1 - attackCoolDec;
