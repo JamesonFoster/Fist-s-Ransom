@@ -12,11 +12,13 @@ public class StatUpgrade : Upgrade
     public float maxHealthIncrease = 0f;
     public float dodgeTimeIncrease = 0f;
     public float goldMultiplyier = 0f;
+    public float rageDodgeNullIncre = 0f;
 
 
     [Header("Multipitive  Upgrades")]
     public float attackCoolDec = 0f;
     public float dodgeStunDec = 0f;
+    public float rageAtkSpeedInc = 0f;
 
 
 
@@ -26,16 +28,19 @@ public class StatUpgrade : Upgrade
         GlobalPlayerVars.headAtkDama += headDamageIncrease;
         GlobalPlayerVars.bodyAtkDama += bodyDamageIncrease;
         GlobalPlayerVars.rageBodyAtk += bodyRageIncrease;
-        GlobalPlayerVars.rageHeadAtk += headDamageIncrease;
+        GlobalPlayerVars.rageHeadAtk += headRageIncrease;
         GlobalPlayerVars.PlayerMaxHealth += maxHealthIncrease;
         GlobalPlayerVars.PlayerHealth += maxHealthIncrease;
         GlobalPlayerVars.dodgeTime += dodgeStunDec;
         GlobalPlayerVars.coinMultiplay += goldMultiplyier;
+        GlobalPlayerVars.dodgingRageNullifier += rageDodgeNullIncre;
 
         //Speed Stuff
         float actuatkCool = 1 - attackCoolDec;
-        float actudodCool = 1 - dodgeStunDec;
+        float actudodCool1 = 1 - dodgeStunDec;
+        float actuatkCool2 = 1 - rageAtkSpeedInc;
         GlobalPlayerVars.atkCooldown *= actuatkCool;
-        GlobalPlayerVars.dodgeStun *= actudodCool;
+        GlobalPlayerVars.dodgeStun *= actudodCool1;
+        GlobalPlayerVars.PlayerRageSpeed *= actuatkCool2;
     }
 }

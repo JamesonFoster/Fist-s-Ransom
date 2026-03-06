@@ -27,6 +27,7 @@ public class GlobalPlayerVars : MonoBehaviour
     public static float dodgeDistance = 0.5f;
     public static float dodgeTime = 0.4f;
     public static float dodgeStun = 0.1f;
+    public static float dodgingRageNullifier = 0f;
 
     //Coins
     public static int gold = 0;

@@ -15,14 +15,16 @@ MonoBehaviour:
   upgradeName: Rune of Lwaz
   rarity: 1
   icon: {fileID: 1088661938785845639, guid: eeefb139acc54e94ea101c5e36483888, type: 3}
-  Value: 0
-  description: 'Rune of Lwaz
+  Value: 125
+  description: 'Saga''s Rune of Lwaz
 
-    Placeholder
+    Saga was a valiant wizard who could poison
+    our enemies with a single strike. Now Yur may wield her strength.
 
-    +50% poison basic hit changes'
+    +5% Chance
+    to poison on basic hits'
   ragePoison: 0
-  basicHitPoisonChanceIncre: 0.5
+  basicHitPoisonChanceIncre: 0.05
   poisonLengthIncre: 0
   poisonHitDamageIncre: 0
   poisonHitTimerDecre: 0

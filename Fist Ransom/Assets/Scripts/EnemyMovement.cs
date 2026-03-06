@@ -356,7 +356,7 @@ public class EnemyMovement : MonoBehaviour
             bool dodgeSuccess = false;
 
             if (score != "rage")
-                dodgeSuccess = Random.value <= enemyData.atkRedyPercent;
+                dodgeSuccess = Random.value <= (enemyData.atkRedyPercent - GlobalPlayerVars.dodgingRageNullifier);
             else
                 dodgeSuccess = Random.value <= enemyData.atkRageRedyPercent;
 
