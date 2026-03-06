@@ -2442,6 +2442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1809466988}
+  - component: {fileID: 1809466991}
   - component: {fileID: 1809466987}
   - component: {fileID: 1809466989}
   - component: {fileID: 1809466990}
@@ -2545,6 +2546,7 @@ MonoBehaviour:
   listOfAttacks: []
   aS: {fileID: 0}
   stunned: 0
+  hitSprChanger: 0
 --- !u!82 &1809466990
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2642,6 +2644,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1809466991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809466986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb39395603051a4cb58af73c2d0bc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aS: {fileID: 1809466990}
+  isPoisoned: 0
+  soundPoisonStart: {fileID: 8300000, guid: a4af3e8d8a51e4046ac9dab47ed81ea1, type: 3}
+  soundPoisonHit: {fileID: 8300000, guid: 666db8938cdb1744a998614d49a7cb0d, type: 3}
+  posionVisual: {fileID: 7839394833284510165, guid: 4e1cae0320c3f6544a1a8a88fd8b37ea, type: 3}
 --- !u!1 &1907157762
 GameObject:
   m_ObjectHideFlags: 0

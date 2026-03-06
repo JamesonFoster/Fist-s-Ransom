@@ -1,9 +1,14 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 public class EnemyEffectsHandler : MonoBehaviour
 {
     // Enemy Code Connection
     private EnemyMovement enemyCode;
+    public AudioSource aS;
+    private SpriteRenderer sr;
+    private Color originalColor;
+    private Color targetColor;
     
     //Effect Bools
     public bool isPoisoned = false;
@@ -12,17 +17,28 @@ public class EnemyEffectsHandler : MonoBehaviour
     private float poisonTimer = 0f;
     private float poisonHitTimer = 0f;
 
+    [Header("Effect Sounds")]
+    public AudioClip soundPoisonStart;
+    public AudioClip soundPoisonHit;
+
+    [Header("Effect Visuals")]
+    public GameObject posionVisual;
+
+
     private void Awake()
     {
         enemyCode = GetComponent<EnemyMovement>();
+        aS = GetComponent<AudioSource>();
+        sr = GetComponent<SpriteRenderer>();
+        originalColor = sr.color;
     }
-
     public void ApplyEffectsBasic(List<string> effectlist)
     {
         foreach (var eff in effectlist)
         {
-            if (eff == "poison" && Random.Range(0f, 1f) < GlobalPlayerVars.poisonBasicHitPoisonChance)
+            if (eff == "poison" && Random.Range(0f, 1f) < GlobalPlayerVars.poisonBasicHitPoisonChance && !isPoisoned)
             {
+                aS.PlayOneShot(soundPoisonStart);
                 poisonTimer = GlobalPlayerVars.poisonPlayerPoisonLength;
                 poisonHitTimer = 0f;
                 isPoisoned = true;
@@ -49,11 +65,27 @@ public class EnemyEffectsHandler : MonoBehaviour
         }
         if (poisonHitTimer >= GlobalPlayerVars.poisonPlayerHitTimer)
         {
-            enemyCode.hitSprChanger = .16f;
-            GlobalPlayerVars.EnemyHealth -= GlobalPlayerVars.poisonPlayerPoisonDamage;
-            enemyCode.CanAtk();
-            poisonHitTimer = 0f;
+            if (poisonHitTimer >= GlobalPlayerVars.poisonPlayerHitTimer)
+            {
+                Instantiate(posionVisual);
+                aS.PlayOneShot(soundPoisonHit);
+                enemyCode.hitSprChanger = .16f;
+
+                targetColor = Color.green;
+                StartCoroutine(EffectFlicker());
+
+                GlobalPlayerVars.EnemyHealth -= GlobalPlayerVars.poisonPlayerPoisonDamage;
+                enemyCode.CanAtk();
+                poisonHitTimer = 0f;
+            }
         }
     }
     
+    IEnumerator EffectFlicker()
+    {
+        sr.color = targetColor;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = originalColor;
+    }
+
 }

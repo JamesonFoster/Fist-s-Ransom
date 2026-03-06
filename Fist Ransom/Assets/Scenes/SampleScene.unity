@@ -895,7 +895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1151327128
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1482,7 +1482,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb39395603051a4cb58af73c2d0bc86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPoisoned: 1
+  aS: {fileID: 1809466990}
+  isPoisoned: 0
+  soundPoisonStart: {fileID: 8300000, guid: a4af3e8d8a51e4046ac9dab47ed81ea1, type: 3}
+  soundPoisonHit: {fileID: 8300000, guid: 666db8938cdb1744a998614d49a7cb0d, type: 3}
+  posionVisual: {fileID: 7839394833284510165, guid: 4e1cae0320c3f6544a1a8a88fd8b37ea, type: 3}
 --- !u!1 &1810816875
 GameObject:
   m_ObjectHideFlags: 0

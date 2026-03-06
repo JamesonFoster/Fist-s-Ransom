@@ -317,6 +317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 242367941}
+  - component: {fileID: 242367942}
   - component: {fileID: 242367940}
   - component: {fileID: 242367939}
   - component: {fileID: 242367938}
@@ -450,6 +451,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a400b7ec54785d94b95030707933f42e, type: 2}
   aS: {fileID: 0}
   stunned: 0
+  hitSprChanger: 0
 --- !u!212 &242367940
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -520,6 +522,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &242367942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242367937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb39395603051a4cb58af73c2d0bc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aS: {fileID: 242367938}
+  isPoisoned: 0
+  soundPoisonStart: {fileID: 8300000, guid: a4af3e8d8a51e4046ac9dab47ed81ea1, type: 3}
+  soundPoisonHit: {fileID: 8300000, guid: 666db8938cdb1744a998614d49a7cb0d, type: 3}
+  posionVisual: {fileID: 7839394833284510165, guid: 4e1cae0320c3f6544a1a8a88fd8b37ea, type: 3}
 --- !u!1 &307317950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,6 +1373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1436239966}
+  - component: {fileID: 1436239967}
   - component: {fileID: 1436239965}
   - component: {fileID: 1436239964}
   - component: {fileID: 1436239963}
@@ -1490,6 +1510,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f212ba24a9200d643bc0b5d6ae844e86, type: 2}
   aS: {fileID: 0}
   stunned: 0
+  hitSprChanger: 0
 --- !u!212 &1436239965
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1560,6 +1581,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1436239967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436239962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb39395603051a4cb58af73c2d0bc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aS: {fileID: 1436239963}
+  isPoisoned: 0
+  soundPoisonStart: {fileID: 8300000, guid: a4af3e8d8a51e4046ac9dab47ed81ea1, type: 3}
+  soundPoisonHit: {fileID: 8300000, guid: 666db8938cdb1744a998614d49a7cb0d, type: 3}
+  posionVisual: {fileID: 7839394833284510165, guid: 4e1cae0320c3f6544a1a8a88fd8b37ea, type: 3}
 --- !u!1 &1632614860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,6 +1896,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1809466988}
+  - component: {fileID: 1809466991}
   - component: {fileID: 1809466987}
   - component: {fileID: 1809466989}
   - component: {fileID: 1809466990}
@@ -1964,6 +2003,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5a3d67cfa7220ef42ad588640944f6a7, type: 2}
   aS: {fileID: 0}
   stunned: 0
+  hitSprChanger: 0
 --- !u!82 &1809466990
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2061,6 +2101,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1809466991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809466986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb39395603051a4cb58af73c2d0bc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aS: {fileID: 1809466990}
+  isPoisoned: 0
+  soundPoisonStart: {fileID: 8300000, guid: a4af3e8d8a51e4046ac9dab47ed81ea1, type: 3}
+  soundPoisonHit: {fileID: 8300000, guid: 666db8938cdb1744a998614d49a7cb0d, type: 3}
+  posionVisual: {fileID: 7839394833284510165, guid: 4e1cae0320c3f6544a1a8a88fd8b37ea, type: 3}
 --- !u!1001 &2125821441
 PrefabInstance:
   m_ObjectHideFlags: 0
