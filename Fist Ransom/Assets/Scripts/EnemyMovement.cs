@@ -36,7 +36,7 @@ public class EnemyMovement : MonoBehaviour
     public bool stunned = false;
     private bool stunSpr = false;
     private float stunSprTimer = 0f;
-    private float hitSprChanger = 0f;
+    public float hitSprChanger = 0f;
     private string hitDir = "L";
     private bool sprFlip = false;
     private bool isDead = false;
@@ -58,6 +58,7 @@ public class EnemyMovement : MonoBehaviour
     private float chanstandtimer = 0f;
     private float phaseTimer = 0f;
     private Sprite curstandspr;
+    private EnemyEffectsHandler enemyEff;
 
 
     private void Awake()
@@ -69,6 +70,7 @@ public class EnemyMovement : MonoBehaviour
         GlobalPlayerVars.goldvalue = enemyData.baseGoldWorth * GlobalPlayerVars.coinMultiplay;
         curstandspr = enemyData.sprStandingStill;
         sprrend = GetComponent<SpriteRenderer>();
+        enemyEff = GetComponent<EnemyEffectsHandler>();
         aS = GetComponent<AudioSource>();
     }
     void Start()
@@ -95,6 +97,7 @@ public class EnemyMovement : MonoBehaviour
         }
         if (isDead != true)
             {
+            enemyEff.EffectCheck();
             if (GlobalPlayerVars.EnemyHealth <= 0)
             {
                 isDead = true;
@@ -309,7 +312,7 @@ public class EnemyMovement : MonoBehaviour
         dodgeTarget = (Vector2)transform.position + direction * enemyData.dodgeDistance;
     }
 
-    public void ReceiveScore(string score, float damage)
+    public void ReceiveScore(string score, float damage, List<string> effectlist)
     {
         bool canDodge =
             !isDodging &&
@@ -389,13 +392,29 @@ public class EnemyMovement : MonoBehaviour
         GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
 
         if (score == "headR")
+        {
+            enemyEff.ApplyEffectsBasic(effectlist);
             hitDir = "HR";
+        }
         else if (score == "headL")
+        {
+            enemyEff.ApplyEffectsBasic(effectlist);
             hitDir = "HL";
+        }
         else if (score == "bodyL")
+        {
+            enemyEff.ApplyEffectsBasic(effectlist);
             hitDir = "BL";
-        else
+        }
+        else if (score == "bodyR")
+        {
+            enemyEff.ApplyEffectsBasic(effectlist);
             hitDir = "BR";
+        }
+        else
+        {
+            hitDir = "BR";
+        }
 
         hitSprChanger = .16f;
 
@@ -467,5 +486,13 @@ public class EnemyMovement : MonoBehaviour
         rect.anchoredPosition = Vector2.zero;
 
         obj.GetComponent<DamageNumber>().Init(amount);
+    }
+
+    public void CanAtk()
+    {
+        isAtk = false;
+        timerAtk = 0;
+        nextAtk = null;
+        countdownAtk = 0;
     }
 }
