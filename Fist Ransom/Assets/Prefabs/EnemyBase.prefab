@@ -49,9 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aS: {fileID: 518469878931419537}
   isPoisoned: 0
+  isBurning: 0
   soundPoisonStart: {fileID: 8300000, guid: a4af3e8d8a51e4046ac9dab47ed81ea1, type: 3}
   soundPoisonHit: {fileID: 8300000, guid: 666db8938cdb1744a998614d49a7cb0d, type: 3}
+  soundBurningStart: {fileID: 8300000, guid: 32b9b17a38edcac42bce96d1a45a4023, type: 3}
+  soundBurningHit: {fileID: 8300000, guid: af2d824b71632ca4cb0368ba756e9eef, type: 3}
   posionVisual: {fileID: 7839394833284510165, guid: 4e1cae0320c3f6544a1a8a88fd8b37ea, type: 3}
+  burningVisual: {fileID: 4378555738075721497, guid: 423c835e02b3fc54dbd167bdf15deea5, type: 3}
 --- !u!212 &988489298619690112
 SpriteRenderer:
   m_ObjectHideFlags: 0

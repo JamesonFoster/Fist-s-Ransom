@@ -49,4 +49,9 @@ public class GlobalPlayerVars : MonoBehaviour
     public static float poisonPlayerPoisonLength = 10f;
     public static float poisonPlayerPoisonDamage = 5f;
     public static float poisonPlayerHitTimer = 2.5f;
+        //Burning Values
+    public static bool burnRageHit = false;
+    public static float burnBasicHitBurnChance = 0f;
+    public static float burnPlayerBurnLength = 3f;
+    public static float burnPlayerBurnDamage = 0.5f;
 }

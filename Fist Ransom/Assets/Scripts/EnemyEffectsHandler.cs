@@ -12,17 +12,23 @@ public class EnemyEffectsHandler : MonoBehaviour
     
     //Effect Bools
     public bool isPoisoned = false;
+    public bool isBurning = false;
 
     // Timers
     private float poisonTimer = 0f;
     private float poisonHitTimer = 0f;
+    private float burningTimer = 0f;
+    private float burningHitTimer = 0f;
 
     [Header("Effect Sounds")]
     public AudioClip soundPoisonStart;
     public AudioClip soundPoisonHit;
+    public AudioClip soundBurningStart;
+    public AudioClip soundBurningHit;
 
     [Header("Effect Visuals")]
     public GameObject posionVisual;
+    public GameObject burningVisual;
 
 
     private void Awake()
@@ -43,15 +49,22 @@ public class EnemyEffectsHandler : MonoBehaviour
                 poisonHitTimer = 0f;
                 isPoisoned = true;
             }
+            if (eff == "burn" && Random.Range(0f, 1f) < GlobalPlayerVars.burnBasicHitBurnChance && !isBurning)
+            {
+                aS.PlayOneShot(soundBurningStart);
+                burningTimer = GlobalPlayerVars.burnPlayerBurnLength;
+                burningHitTimer = 0f;
+                isBurning = true;
+            }
         }
     }
 
     public void EffectCheck()
     {
         if (isPoisoned == true)
-        {
             Poison();
-        }
+        if (isBurning == true)
+            Burn();
     }
 
     public void Poison()
@@ -65,19 +78,34 @@ public class EnemyEffectsHandler : MonoBehaviour
         }
         if (poisonHitTimer >= GlobalPlayerVars.poisonPlayerHitTimer)
         {
-            if (poisonHitTimer >= GlobalPlayerVars.poisonPlayerHitTimer)
-            {
-                Instantiate(posionVisual);
-                aS.PlayOneShot(soundPoisonHit);
-                enemyCode.hitSprChanger = .16f;
+            Instantiate(posionVisual);
+            aS.PlayOneShot(soundPoisonHit);
+            enemyCode.hitSprChanger = .16f;
+            targetColor = Color.green;
+            StartCoroutine(EffectFlicker());
+            GlobalPlayerVars.EnemyHealth -= GlobalPlayerVars.poisonPlayerPoisonDamage;
+            enemyCode.CanAtk();
+            poisonHitTimer = 0f;
+        }
+    }
 
-                targetColor = Color.green;
-                StartCoroutine(EffectFlicker());
+    public void Burn()
+    {
+        burningHitTimer += Time.deltaTime;
+        burningTimer -= Time.deltaTime;
 
-                GlobalPlayerVars.EnemyHealth -= GlobalPlayerVars.poisonPlayerPoisonDamage;
-                enemyCode.CanAtk();
-                poisonHitTimer = 0f;
-            }
+        if (burningTimer <= 0f)
+        {
+            isBurning = false;
+        }
+        if (burningHitTimer >= 0.3)
+        {
+            Instantiate(burningVisual);
+            aS.PlayOneShot(soundBurningHit);
+            targetColor = Color.red;
+            StartCoroutine(EffectFlicker());
+            GlobalPlayerVars.EnemyHealth -= GlobalPlayerVars.burnPlayerBurnDamage;
+            burningHitTimer = 0f;
         }
     }
     

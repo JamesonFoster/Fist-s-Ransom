@@ -12,6 +12,12 @@ public class EffectBasicUpgrade : Upgrade
     public float poisonHitDamageIncre = 0f;
     public float poisonHitTimerDecre = 0f;
 
+    [Header("Burn Upgrades")]
+    public bool rageBurn = false;
+    public float basicHitBurnChanceIncre = 0f;
+    public float burnLengthIncre = 0f;
+    public float burnHitDamageIncre = 0f;
+
 
 
     public override void Apply()
@@ -25,5 +31,14 @@ public class EffectBasicUpgrade : Upgrade
         GlobalPlayerVars.poisonPlayerHitTimer -= poisonHitTimerDecre;
         GlobalPlayerVars.poisonPlayerPoisonDamage += poisonHitDamageIncre;
         GlobalPlayerVars.poisonPlayerPoisonLength += poisonLengthIncre;
+
+        // Burn Applys
+        if ((rageBurn == true || basicHitBurnChanceIncre != 0f) && !GlobalPlayerVars.effectsList.Contains("burn"))
+            GlobalPlayerVars.effectsList.Add("burn");
+        if (rageBurn == true)
+            GlobalPlayerVars.burnRageHit = true;
+        GlobalPlayerVars.burnBasicHitBurnChance += basicHitBurnChanceIncre;
+        GlobalPlayerVars.burnPlayerBurnDamage += burnHitDamageIncre;
+        GlobalPlayerVars.burnPlayerBurnLength += burnLengthIncre;
     }
 }
