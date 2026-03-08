@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d3dee661c33640040945bb5e7fc189a6
+guid: a5a7d33c4561a4146bc6b747721dfa4b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3295298130111796234
-    second: SycllaPlaceholdpreatk2_0
+      213: 2454812454982895125
+    second: CarbPlacehold1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SycllaPlaceholdpreatk2_0
+      name: CarbPlacehold1_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 2
-        width: 232
-        height: 222
+        x: 2
+        y: 0
+        width: 126
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6fb6da55fcfb442d0800000000000000
-      internalID: -3295298130111796234
+      spriteID: 516c571fbee311220800000000000000
+      internalID: 2454812454982895125
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SycllaPlaceholdpreatk2_0: -3295298130111796234
+      CarbPlacehold1_0: 2454812454982895125
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
+  m_Name: CrabBigAtk
+  m_EditorClassIdentifier: 
+  atkWarning: 2
+  parryTime: 0.3
+  postAtkDodgeStun: 0
+  atkType: 
+  attackEffects: []
+  atkDamage: 12
+  sprAttackWarning: {fileID: 7948310373671691468, guid: 96d3ef9e5e491d040a00003a802eada3, type: 3}
+  sprAttack: {fileID: 2454812454982895125, guid: a5a7d33c4561a4146bc6b747721dfa4b, type: 3}
+  soundAttack: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
+  parryableUpL: 1
+  parryableUpR: 1
+  parryableR: 1
+  parryableL: 1
+  unstunable: 1
+  unparryable: 1
+  isntAtker: 0
+  atkChaining: 0
+  howManyTime: 0
+  nextAtk: {fileID: 0}
