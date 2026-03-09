@@ -41,4 +41,9 @@ public class BaseEnemyScript : ScriptableObject
     public Sprite sprHeadHitR;
     public Sprite sprBodyHitL;
     public Sprite sprBodyHitR;
+
+    [Header("Personality Values")]
+    public bool postHitAtker = false;
+    public bool postDodgeAtker = false;
+    public bool isSlippery = false;
 }

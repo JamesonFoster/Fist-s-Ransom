@@ -59,6 +59,9 @@ public class EnemyMovement : MonoBehaviour
     private float phaseTimer = 0f;
     private Sprite curstandspr;
     private EnemyEffectsHandler enemyEff;
+    private float xChanger = 0;
+    private float yChanger = 0;
+    private Vector2 corePos;
 
 
     private void Awake()
@@ -75,7 +78,32 @@ public class EnemyMovement : MonoBehaviour
     }
     void Start()
     {
-        startPos = transform.position;
+        corePos = transform.position;
+        if (enemyData.isSlippery)
+        {
+            if (Random.Range(0, 3) == 0)
+            {
+                xChanger = -0.282f;
+                yChanger = 0f;
+            }
+            else if (Random.Range(0, 3) == 1)
+            {
+                xChanger = 0.282f;
+                yChanger = 0.282f;
+            }
+            else if (Random.Range(0, 3) == 2)
+            {
+                xChanger = -0.282f;
+                yChanger = 0.282f;
+            }
+            else
+            {
+                xChanger = 0.282f;
+                yChanger = 0f;
+            }
+        }
+        Vector2 newVec = new Vector2(xChanger, yChanger);
+        startPos = corePos + newVec;
     }
 
     void Update()
@@ -371,7 +399,38 @@ public class EnemyMovement : MonoBehaviour
                     StartDodge(Vector2.left);
                 }
 
+                if (enemyData.postDodgeAtker)
+                {
+                    Attack();
+                }
+
                 return; // VERY IMPORTANT — stop here so no damage is applied
+            }
+        }
+
+        if (enemyData.isSlippery)
+        {
+            if ((yChanger == 0.282f && xChanger == -0.282f) && (score != "headL" && score != "rage"))
+            {
+            sprFlip = true;
+            StartDodge(Vector2.left);
+            return; // VERY IMPORTANT — stop here so no damage is applied
+            }
+            if ((yChanger == 0.282f && xChanger == 0.282f) && (score != "headR" && score != "rage"))
+            {
+            StartDodge(Vector2.right);
+            return; // VERY IMPORTANT — stop here so no damage is applied
+            }
+            if ((yChanger == 0f && xChanger == -0.282f) && (score != "bodyL" && score != "rage"))
+            {
+            sprFlip = true;
+            StartDodge(Vector2.left);
+            return; // VERY IMPORTANT — stop here so no damage is applied
+            }
+            if ((yChanger == 0f && xChanger == 0.282f) && (score != "bodyR" && score != "rage"))
+            {
+            StartDodge(Vector2.right);
+            return; // VERY IMPORTANT — stop here so no damage is applied
             }
         }
 
@@ -416,12 +475,43 @@ public class EnemyMovement : MonoBehaviour
             hitDir = "BR";
         }
 
+        if (enemyData.postHitAtker)
+        {
+            Attack();
+        }
+
         hitSprChanger = .16f;
 
         if (Random.value >= .5f)
             aS.PlayOneShot(enemyData.soundHit1);
         else
             aS.PlayOneShot(enemyData.soundHit2);
+
+        if (enemyData.isSlippery && !stunned)
+        {
+            if (Random.Range(0, 3) == 0)
+            {
+                xChanger = -0.282f;
+                yChanger = 0f;
+            }
+            else if (Random.Range(0, 3) == 1)
+            {
+                xChanger = 0.282f;
+                yChanger = 0.282f;
+            }
+            else if (Random.Range(0, 3) == 2)
+            {
+                xChanger = -0.282f;
+                yChanger = 0.282f;
+            }
+            else
+            {
+                xChanger = 0.282f;
+                yChanger = 0f;
+            }
+            Vector2 newVec = new Vector2(xChanger, yChanger);
+            startPos = corePos + newVec;
+        }
 
         Debug.Log($"Enemy Health: {GlobalPlayerVars.EnemyHealth}");
     }
