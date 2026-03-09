@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeName: Golden Apple
   rarity: 0
   icon: {fileID: 1201277382348029773, guid: 8aaaff38a03f6204a976c5efae3a1749, type: 3}
-  Value: 0
+  Value: 60
   description: 'Glendr''s Golden Apple
 
     Glendr knew how to heal even plants,

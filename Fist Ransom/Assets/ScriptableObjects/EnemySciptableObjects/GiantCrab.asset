@@ -39,3 +39,6 @@ MonoBehaviour:
   sprHeadHitR: {fileID: -2760147192032020244, guid: 5fd87935c8982704b9502082f7f48226, type: 3}
   sprBodyHitL: {fileID: 7948310373671691468, guid: 96d3ef9e5e491d040a00003a802eada3, type: 3}
   sprBodyHitR: {fileID: 7948310373671691468, guid: 96d3ef9e5e491d040a00003a802eada3, type: 3}
+  postHitAtker: 0
+  postDodgeAtker: 0
+  isSlippery: 0

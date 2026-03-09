@@ -15,9 +15,9 @@ MonoBehaviour:
   upgradeName: Spicy Chicken
   rarity: 1
   icon: {fileID: -3235335232893707942, guid: 2399f572dc5fcce4dae3baab733733ed, type: 3}
-  Value: 0
-  description: "Glendr's Spicy Chicken\nGlendr\u2019s cooking was both wonderful.
-    The spicy chicken, in particular, was Ragnar's favorite, though Tod did not enjoy
+  Value: 150
+  description: "Glendr's Spicy Chicken\nGlendr\u2019s cooking was wonderful. The
+    spicy chicken, in particular, was Ragnar's favorite, though Tod did not enjoy
     it.\n+10 Max Health\n+3% Attack Cool Down\n+1 Punching Head Damage"
   headDamageIncrease: 1
   bodyDamageIncrease: 0
