@@ -3,7 +3,7 @@ using UnityEngine;
 public class RandomMoveAndFade : MonoBehaviour
 {
     public float speed = 3f;
-    public float fadeDuration = 2f;
+    public float fadeDuration = .5f;
 
     private Vector2 moveDirection;
     private SpriteRenderer spriteRenderer;
@@ -14,15 +14,13 @@ public class RandomMoveAndFade : MonoBehaviour
         // Get SpriteRenderer
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Generate random 2D direction
-        moveDirection = Random.insideUnitCircle.normalized;
-
         fadeTimer = fadeDuration;
     }
 
     void Update()
     {
         // Move object
+        Vector2 moveDirection = Vector2.up;
         transform.Translate(moveDirection * speed * Time.deltaTime);
 
         // Fade out

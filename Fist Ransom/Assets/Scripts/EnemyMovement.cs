@@ -36,7 +36,7 @@ public class EnemyMovement : MonoBehaviour
     public bool stunned = false;
     private bool stunSpr = false;
     private float stunSprTimer = 0f;
-    private float hitSprChanger = 0f;
+    public float hitSprChanger = 0f;
     private string hitDir = "L";
     private bool sprFlip = false;
     private bool isDead = false;
@@ -58,6 +58,10 @@ public class EnemyMovement : MonoBehaviour
     private float chanstandtimer = 0f;
     private float phaseTimer = 0f;
     private Sprite curstandspr;
+    private EnemyEffectsHandler enemyEff;
+    private float xChanger = 0;
+    private float yChanger = 0;
+    private Vector2 corePos;
 
 
     private void Awake()
@@ -66,14 +70,40 @@ public class EnemyMovement : MonoBehaviour
         GlobalPlayerVars.EnemyMaxHealth = enemyData.maxHealth;
         GlobalPlayerVars.EnemyHealth = enemyData.maxHealth;
         GlobalPlayerVars.EnemyName = enemyData.name;
-        GlobalPlayerVars.goldvalue = enemyData.baseGoldWorth;
+        GlobalPlayerVars.goldvalue = enemyData.baseGoldWorth * GlobalPlayerVars.coinMultiplay;
         curstandspr = enemyData.sprStandingStill;
         sprrend = GetComponent<SpriteRenderer>();
+        enemyEff = GetComponent<EnemyEffectsHandler>();
         aS = GetComponent<AudioSource>();
     }
     void Start()
     {
-        startPos = transform.position;
+        corePos = transform.position;
+        if (enemyData.isSlippery)
+        {
+            if (Random.Range(0, 3) == 0)
+            {
+                xChanger = -0.282f;
+                yChanger = 0f;
+            }
+            else if (Random.Range(0, 3) == 1)
+            {
+                xChanger = 0.282f;
+                yChanger = 0.282f;
+            }
+            else if (Random.Range(0, 3) == 2)
+            {
+                xChanger = -0.282f;
+                yChanger = 0.282f;
+            }
+            else
+            {
+                xChanger = 0.282f;
+                yChanger = 0f;
+            }
+        }
+        Vector2 newVec = new Vector2(xChanger, yChanger);
+        startPos = corePos + newVec;
     }
 
     void Update()
@@ -95,10 +125,11 @@ public class EnemyMovement : MonoBehaviour
         }
         if (isDead != true)
             {
+            enemyEff.EffectCheck();
             if (GlobalPlayerVars.EnemyHealth <= 0)
             {
                 isDead = true;
-                GlobalPlayerVars.gold += GlobalPlayerVars.goldvalue;
+                GlobalPlayerVars.gold += Mathf.RoundToInt(GlobalPlayerVars.goldvalue);
                 aS.PlayOneShot(enemyData.soundDeath);
             }
             if (sprFlip)
@@ -302,14 +333,14 @@ public class EnemyMovement : MonoBehaviour
     void StartDodge(Vector2 direction)
     {
         isDodging = true;
-        GlobalPlayerVars.goldvalue -= 5;
+        GlobalPlayerVars.goldvalue -= 5f * GlobalPlayerVars.coinMultiplay;
         dodgeTimer = 0f;
         aS.PlayOneShot(enemyData.soundDodge);
         stunTimer = 0f;
         dodgeTarget = (Vector2)transform.position + direction * enemyData.dodgeDistance;
     }
 
-    public void ReceiveScore(string score, float damage)
+    public void ReceiveScore(string score, float damage, List<string> effectlist)
     {
         bool canDodge =
             !isDodging &&
@@ -353,7 +384,7 @@ public class EnemyMovement : MonoBehaviour
             bool dodgeSuccess = false;
 
             if (score != "rage")
-                dodgeSuccess = Random.value <= enemyData.atkRedyPercent;
+                dodgeSuccess = Random.value <= (enemyData.atkRedyPercent - GlobalPlayerVars.dodgingRageNullifier);
             else
                 dodgeSuccess = Random.value <= enemyData.atkRageRedyPercent;
 
@@ -368,20 +399,51 @@ public class EnemyMovement : MonoBehaviour
                     StartDodge(Vector2.left);
                 }
 
+                if (enemyData.postDodgeAtker)
+                {
+                    Attack();
+                }
+
                 return; // VERY IMPORTANT — stop here so no damage is applied
+            }
+        }
+
+        if (enemyData.isSlippery)
+        {
+            if ((yChanger == 0.282f && xChanger == -0.282f) && (score != "headL" && score != "rage"))
+            {
+            sprFlip = true;
+            StartDodge(Vector2.left);
+            return; // VERY IMPORTANT — stop here so no damage is applied
+            }
+            if ((yChanger == 0.282f && xChanger == 0.282f) && (score != "headR" && score != "rage"))
+            {
+            StartDodge(Vector2.right);
+            return; // VERY IMPORTANT — stop here so no damage is applied
+            }
+            if ((yChanger == 0f && xChanger == -0.282f) && (score != "bodyL" && score != "rage"))
+            {
+            sprFlip = true;
+            StartDodge(Vector2.left);
+            return; // VERY IMPORTANT — stop here so no damage is applied
+            }
+            if ((yChanger == 0f && xChanger == 0.282f) && (score != "bodyR" && score != "rage"))
+            {
+            StartDodge(Vector2.right);
+            return; // VERY IMPORTANT — stop here so no damage is applied
             }
         }
 
         // If we reach here → damage always applies
         GlobalPlayerVars.EnemyHealth -= damage;
         SpawnHit(((int)damage));
-        GlobalPlayerVars.goldvalue += 2;
+        GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
 
         if (stunable && !stunned && !stunImmune)
         {
             stunable = false;   // consume window
             stunned = true;
-            GlobalPlayerVars.goldvalue += 3;
+            GlobalPlayerVars.goldvalue += 3f * GlobalPlayerVars.coinMultiplay;
             aS.PlayOneShot(enemyData.soundStunned);
             stunnedTimer = 0f;
         }
@@ -389,13 +451,34 @@ public class EnemyMovement : MonoBehaviour
         GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
 
         if (score == "headR")
+        {
+            enemyEff.ApplyEffectsBasic(effectlist);
             hitDir = "HR";
+        }
         else if (score == "headL")
+        {
+            enemyEff.ApplyEffectsBasic(effectlist);
             hitDir = "HL";
+        }
         else if (score == "bodyL")
+        {
+            enemyEff.ApplyEffectsBasic(effectlist);
             hitDir = "BL";
-        else
+        }
+        else if (score == "bodyR")
+        {
+            enemyEff.ApplyEffectsBasic(effectlist);
             hitDir = "BR";
+        }
+        else
+        {
+            hitDir = "BR";
+        }
+
+        if (enemyData.postHitAtker)
+        {
+            Attack();
+        }
 
         hitSprChanger = .16f;
 
@@ -403,6 +486,32 @@ public class EnemyMovement : MonoBehaviour
             aS.PlayOneShot(enemyData.soundHit1);
         else
             aS.PlayOneShot(enemyData.soundHit2);
+
+        if (enemyData.isSlippery && !stunned)
+        {
+            if (Random.Range(0, 3) == 0)
+            {
+                xChanger = -0.282f;
+                yChanger = 0f;
+            }
+            else if (Random.Range(0, 3) == 1)
+            {
+                xChanger = 0.282f;
+                yChanger = 0.282f;
+            }
+            else if (Random.Range(0, 3) == 2)
+            {
+                xChanger = -0.282f;
+                yChanger = 0.282f;
+            }
+            else
+            {
+                xChanger = 0.282f;
+                yChanger = 0f;
+            }
+            Vector2 newVec = new Vector2(xChanger, yChanger);
+            startPos = corePos + newVec;
+        }
 
         Debug.Log($"Enemy Health: {GlobalPlayerVars.EnemyHealth}");
     }
@@ -467,5 +576,13 @@ public class EnemyMovement : MonoBehaviour
         rect.anchoredPosition = Vector2.zero;
 
         obj.GetComponent<DamageNumber>().Init(amount);
+    }
+
+    public void CanAtk()
+    {
+        isAtk = false;
+        timerAtk = 0;
+        nextAtk = null;
+        countdownAtk = 0;
     }
 }

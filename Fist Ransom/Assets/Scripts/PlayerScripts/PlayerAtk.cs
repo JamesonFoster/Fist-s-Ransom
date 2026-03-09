@@ -243,7 +243,7 @@ public class PlayerAtk : MonoBehaviour
     {
         if (target != null)
         {
-            target.ReceiveScore(dir, damage);
+            target.ReceiveScore(dir, damage, GlobalPlayerVars.effectsList);
         }
         else
         {
