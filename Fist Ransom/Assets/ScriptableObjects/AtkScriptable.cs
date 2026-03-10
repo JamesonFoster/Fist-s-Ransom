@@ -26,7 +26,9 @@ public class AtkScriptable : ScriptableObject
     public Sprite sprAttack;
 
     [Header("Sounds")]
-     public AudioClip soundAttack;
+    public AudioClip soundAttack;
+    public AudioClip warnAttack;
+    public bool playWarning = false;
 
     [Header("Parry Values")]
     public bool parryableUpL = true;

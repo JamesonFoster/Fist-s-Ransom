@@ -62,6 +62,7 @@ public class EnemyMovement : MonoBehaviour
     private float xChanger = 0;
     private float yChanger = 0;
     private Vector2 corePos;
+    private bool soundcheck2 = false;
 
 
     private void Awake()
@@ -81,17 +82,18 @@ public class EnemyMovement : MonoBehaviour
         corePos = transform.position;
         if (enemyData.isSlippery)
         {
-            if (Random.Range(0, 3) == 0)
+        int randran = Random.Range(0, 4);
+            if (randran == 0)
             {
                 xChanger = -0.282f;
                 yChanger = 0f;
             }
-            else if (Random.Range(0, 3) == 1)
+            else if (randran == 1)
             {
                 xChanger = 0.282f;
                 yChanger = 0.282f;
             }
-            else if (Random.Range(0, 3) == 2)
+            else if (randran == 2)
             {
                 xChanger = -0.282f;
                 yChanger = 0.282f;
@@ -104,6 +106,10 @@ public class EnemyMovement : MonoBehaviour
         }
         Vector2 newVec = new Vector2(xChanger, yChanger);
         startPos = corePos + newVec;
+        if (xChanger == -0.282f)
+            StartDodge(Vector2.left);
+        else
+            StartDodge(Vector2.right);
     }
 
     void Update()
@@ -253,10 +259,16 @@ public class EnemyMovement : MonoBehaviour
             if (timerAtk < atkWARN - parTime)
             {
                 atkSoundCheck = false;
+                if (atkChoose.playWarning && !soundcheck2)
+                {
+                    aS.PlayOneShot(atkChoose.warnAttack);
+                    soundcheck2 = true;
+                }
                 SpriteChange(sprATKWARN);
             }
             else
             {
+                soundcheck2 = false;
                 if (!atkSoundCheck)
                 {
                     aS.PlayOneShot(atkChoose.soundAttack);
@@ -342,6 +354,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void ReceiveScore(string score, float damage, List<string> effectlist)
     {
+        Debug.Log(score);
         bool canDodge =
             !isDodging &&
             !stunned &&
@@ -350,7 +363,6 @@ public class EnemyMovement : MonoBehaviour
         // Only allow parry during exact parry window
         if (isAtk && isparryable && timerAtk >= atkWARN - parTime && timerAtk <= atkWARN)
         {
-            Debug.Log("Perrying (FAIL?)");
             if (score == "rage")
             {
             ParrySet();
@@ -377,7 +389,6 @@ public class EnemyMovement : MonoBehaviour
             return; // stop further processing
             }
         }
-
 
         if (canDodge)
         {
@@ -411,27 +422,13 @@ public class EnemyMovement : MonoBehaviour
         if (enemyData.isSlippery)
         {
             if ((yChanger == 0.282f && xChanger == -0.282f) && (score != "headL" && score != "rage"))
-            {
-            sprFlip = true;
-            StartDodge(Vector2.left);
-            return; // VERY IMPORTANT — stop here so no damage is applied
-            }
+                return; // VERY IMPORTANT — stop here so no damage is applied
             if ((yChanger == 0.282f && xChanger == 0.282f) && (score != "headR" && score != "rage"))
-            {
-            StartDodge(Vector2.right);
-            return; // VERY IMPORTANT — stop here so no damage is applied
-            }
+                return; // VERY IMPORTANT — stop here so no damage is applied
             if ((yChanger == 0f && xChanger == -0.282f) && (score != "bodyL" && score != "rage"))
-            {
-            sprFlip = true;
-            StartDodge(Vector2.left);
-            return; // VERY IMPORTANT — stop here so no damage is applied
-            }
+                return; // VERY IMPORTANT — stop here so no damage is applied
             if ((yChanger == 0f && xChanger == 0.282f) && (score != "bodyR" && score != "rage"))
-            {
-            StartDodge(Vector2.right);
-            return; // VERY IMPORTANT — stop here so no damage is applied
-            }
+                return; // VERY IMPORTANT — stop here so no damage is applied
         }
 
         // If we reach here → damage always applies
@@ -489,17 +486,18 @@ public class EnemyMovement : MonoBehaviour
 
         if (enemyData.isSlippery && !stunned)
         {
-            if (Random.Range(0, 3) == 0)
+            int randran = Random.Range(0, 4);
+            if (randran == 0)
             {
                 xChanger = -0.282f;
                 yChanger = 0f;
             }
-            else if (Random.Range(0, 3) == 1)
+            else if (randran == 1)
             {
                 xChanger = 0.282f;
                 yChanger = 0.282f;
             }
-            else if (Random.Range(0, 3) == 2)
+            else if (randran == 2)
             {
                 xChanger = -0.282f;
                 yChanger = 0.282f;
@@ -511,9 +509,11 @@ public class EnemyMovement : MonoBehaviour
             }
             Vector2 newVec = new Vector2(xChanger, yChanger);
             startPos = corePos + newVec;
+            if (xChanger == -0.282f)
+                StartDodge(Vector2.left);
+            else
+                StartDodge(Vector2.right);
         }
-
-        Debug.Log($"Enemy Health: {GlobalPlayerVars.EnemyHealth}");
     }
 
     public void ParrySet()

@@ -330,8 +330,8 @@ MonoBehaviour:
   m_text: In the light of victory yur heard his crew's spirits chearing him on...
     pick a memory
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
-  m_sharedMaterial: {fileID: -941586921063194482, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 62e7118fe2771d8419a48d6c883a69b9, type: 2}
+  m_sharedMaterial: {fileID: -925864883278836615, guid: 62e7118fe2771d8419a48d6c883a69b9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -468,8 +468,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Food#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
-  m_sharedMaterial: {fileID: -941586921063194482, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 62e7118fe2771d8419a48d6c883a69b9, type: 2}
+  m_sharedMaterial: {fileID: -925864883278836615, guid: 62e7118fe2771d8419a48d6c883a69b9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -752,6 +752,7 @@ MonoBehaviour:
   - {fileID: 1958101665}
   - {fileID: 1973710106}
   - {fileID: 2011901159}
+  shopbuttons: []
   descriptionText: {fileID: 1304817942}
   rarityWeights:
   - rarity: 0
@@ -907,8 +908,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ale#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
-  m_sharedMaterial: {fileID: -941586921063194482, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 62e7118fe2771d8419a48d6c883a69b9, type: 2}
+  m_sharedMaterial: {fileID: -925864883278836615, guid: 62e7118fe2771d8419a48d6c883a69b9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1041,8 +1042,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Coin#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
-  m_sharedMaterial: {fileID: -941586921063194482, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 62e7118fe2771d8419a48d6c883a69b9, type: 2}
+  m_sharedMaterial: {fileID: -925864883278836615, guid: 62e7118fe2771d8419a48d6c883a69b9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1296,8 +1297,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
-  m_sharedMaterial: {fileID: -941586921063194482, guid: b24cf8c13b2d6ab49abe82c5d11f53e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 62e7118fe2771d8419a48d6c883a69b9, type: 2}
+  m_sharedMaterial: {fileID: -925864883278836615, guid: 62e7118fe2771d8419a48d6c883a69b9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

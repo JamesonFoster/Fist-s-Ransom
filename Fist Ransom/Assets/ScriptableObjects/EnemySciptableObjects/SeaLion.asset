@@ -23,22 +23,22 @@ MonoBehaviour:
   maxHealth: 75
   postAtkStunTime: 0.6
   stunnedTime: 2
-  soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
-  soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
-  soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
-  soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
-  soundStunned: {fileID: 8300000, guid: d5ed4282adebbcd44a79da24058c8b75, type: 3}
+  soundHit1: {fileID: 8300000, guid: 9d0981ccbdf7dbe418e5eb7039a729b2, type: 3}
+  soundHit2: {fileID: 8300000, guid: ac018d0b700df67469a19b49d67fbd99, type: 3}
+  soundDeath: {fileID: 8300000, guid: f4f528a5ea5ccc145a452436d60fe48b, type: 3}
+  soundDodge: {fileID: 8300000, guid: 9295b53eb6ccc2b47a537eaa199640da, type: 3}
+  soundStunned: {fileID: 8300000, guid: 01723272d5934b04392b4488c98f599e, type: 3}
   idlespeed: 0.25
   sprStandingStill: {fileID: 21300000, guid: 50461f91d2320734f97a5eaeccf9ae69, type: 3}
   sprStandingStill2: {fileID: 21300000, guid: e89d72599ec51e548bb2a3cc9dd723e5, type: 3}
-  sprStunned1: {fileID: 0}
-  sprStunned2: {fileID: 0}
-  sprDead: {fileID: 0}
+  sprStunned1: {fileID: 21300000, guid: f8540265430c6f64fb980ddcd48f8d14, type: 3}
+  sprStunned2: {fileID: 21300000, guid: ac189a0fce8f4884b8a5556bd6bd806f, type: 3}
+  sprDead: {fileID: 21300000, guid: 1bc3188985793254bb7ae41ccd32ae0a, type: 3}
   sprDodge: {fileID: 21300000, guid: 35165ed4d04f9074e8f5daebef207b76, type: 3}
-  sprHeadHitL: {fileID: 0}
-  sprHeadHitR: {fileID: 0}
-  sprBodyHitL: {fileID: 0}
-  sprBodyHitR: {fileID: 0}
+  sprHeadHitL: {fileID: 21300000, guid: 77af7bed10f2454489fea3be58d58ac4, type: 3}
+  sprHeadHitR: {fileID: 21300000, guid: be2811defbf5c4b4a820df2116eec130, type: 3}
+  sprBodyHitL: {fileID: 21300000, guid: eb33b12cf508ed24fa240edcb090f1b7, type: 3}
+  sprBodyHitR: {fileID: 21300000, guid: 8b5878adf67b94342a63b28b32159222, type: 3}
   postHitAtker: 0
   postDodgeAtker: 0
   isSlippery: 1
