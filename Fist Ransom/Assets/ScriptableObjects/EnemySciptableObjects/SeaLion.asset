@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7ae26faaeed745b9b18bcf4c40155, type: 3}
+  m_Name: SeaLion
+  m_EditorClassIdentifier: 
+  name: Sealion
+  baseGoldWorth: 75
+  atkRedyPercent: 0.1
+  atkRageRedyPercent: 0.5
+  dodgeDistance: 0.7
+  dodgeTime: 0.3
+  dodgeStun: 0.2
+  atkAgro: 0.3
+  maxHealth: 75
+  postAtkStunTime: 0.6
+  stunnedTime: 2
+  soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
+  soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
+  soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
+  soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
+  soundStunned: {fileID: 8300000, guid: d5ed4282adebbcd44a79da24058c8b75, type: 3}
+  idlespeed: 0.25
+  sprStandingStill: {fileID: 21300000, guid: 50461f91d2320734f97a5eaeccf9ae69, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: e89d72599ec51e548bb2a3cc9dd723e5, type: 3}
+  sprStunned1: {fileID: 0}
+  sprStunned2: {fileID: 0}
+  sprDead: {fileID: 0}
+  sprDodge: {fileID: 21300000, guid: 35165ed4d04f9074e8f5daebef207b76, type: 3}
+  sprHeadHitL: {fileID: 0}
+  sprHeadHitR: {fileID: 0}
+  sprBodyHitL: {fileID: 0}
+  sprBodyHitR: {fileID: 0}
+  postHitAtker: 0
+  postDodgeAtker: 0
+  isSlippery: 1
