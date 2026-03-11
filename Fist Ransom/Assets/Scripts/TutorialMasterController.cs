@@ -133,6 +133,11 @@ public class TutorialMasterController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            
+            GlobalPlayerVars.HealCount = 3;
+            GlobalPlayerVars.RageCount = 1;
+            GlobalPlayerVars.PlayerHealth = GlobalPlayerVars.PlayerMaxHealth;
+            GlobalPlayerVars.PlayerRage = 0;
             leaves.SetActive(true);
         }
     }

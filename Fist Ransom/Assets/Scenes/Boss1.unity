@@ -1272,11 +1272,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 5
-  isWin: 1
+  isWin: 0
   fadeIn: 1
   back2Map: 0
   toMainMenu: 0
   toTutorial: 0
+  endDemo: 1
 --- !u!1 &1065946547 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8122322208594355292, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
@@ -1384,6 +1385,7 @@ MonoBehaviour:
   back2Map: 0
   toMainMenu: 0
   toTutorial: 0
+  endDemo: 0
 --- !u!1001 &1339056588
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -195,6 +195,10 @@ MonoBehaviour:
   accessablefromID1: 0
   accessablefromID2: 0
   playerOn: {fileID: 65631645820253154}
+  enemyRooms:
+  - SampleScene
+  - BigCrabFight
+  - SeaLionFight
   enemyspr: {fileID: 7473948709863673440, guid: 436aeb92d63f1f240b39df7806f811a1, type: 3}
   chestspr: {fileID: -2499192721388490115, guid: 7ede48035f3f9274ba395dcb02065e9f, type: 3}
   shopspr: {fileID: -2693751201702381197, guid: 96e3e15fda012584c8eb0729ecb10d60, type: 3}

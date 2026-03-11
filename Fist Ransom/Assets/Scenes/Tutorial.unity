@@ -1471,6 +1471,7 @@ MonoBehaviour:
   back2Map: 1
   toMainMenu: 0
   toTutorial: 0
+  endDemo: 0
 --- !u!1 &1023873972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,7 +1720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1151327128
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1792,6 +1793,7 @@ MonoBehaviour:
   back2Map: 0
   toMainMenu: 0
   toTutorial: 0
+  endDemo: 0
 --- !u!1 &1173372172
 GameObject:
   m_ObjectHideFlags: 0

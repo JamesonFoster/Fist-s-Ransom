@@ -83,6 +83,15 @@ public class PlayerAtk : MonoBehaviour
                 useHeal();
             if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.E))
                 useRage();
+            #if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                SendScore(target, "bodyL", 200);
+                SendScore(target, "bodyR", 200);
+                SendScore(target, "headR", 200);
+                SendScore(target, "headL", 200);
+            }
+            #endif
         }
 
         // Attack movement

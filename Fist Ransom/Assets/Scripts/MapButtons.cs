@@ -11,7 +11,11 @@ public class MapButtons : MonoBehaviour
     public GameObject playerOn;
     private SpriteRenderer sprrend;
 
+    [Header("Possible Enemy Rooms")]
+    public string[] enemyRooms;
+
     //sprites
+    [Header("Sprites")]
     public Sprite enemyspr;
     public Sprite chestspr;
     public Sprite shopspr;
@@ -23,7 +27,7 @@ public class MapButtons : MonoBehaviour
         sprrend = GetComponent<SpriteRenderer>();
         if (string.IsNullOrEmpty(locatType))
         {
-            int locatChoo = Random.Range(0, 10);
+            int locatChoo = Random.Range(1, 11);
 
             if (locatChoo <= 6)
                 locatType = "enemy";
@@ -38,7 +42,7 @@ public class MapButtons : MonoBehaviour
 
     void Start()
     {
-        if (locatType == "enemy")
+        if (locatType == "enemy" || locatType == "firstenemy")
         sprrend.sprite = enemyspr;
         if (locatType == "chest")
         sprrend.sprite = chestspr;
@@ -73,25 +77,43 @@ public class MapButtons : MonoBehaviour
         if (!interactableButton)
             return;
 
-        if (locatType == "enemy")
+        switch(locatType)
         {
-            GlobalPlayerVars.playerLocationID = mapLocationID;
-            SceneManager.LoadScene("SampleScene");
-        }
-        else if (locatType == "chest")
-        {
-            GlobalPlayerVars.playerLocationID = mapLocationID;
-            SceneManager.LoadScene("ChestReward");
-        }
-        else if (locatType == "boss")
-        {
-            GlobalPlayerVars.playerLocationID = mapLocationID;
-            SceneManager.LoadScene("Boss1");
-        }
-        else if (locatType == "shop")
-        {
-            GlobalPlayerVars.playerLocationID = mapLocationID;
-            SceneManager.LoadScene("Shop");
+            case "enemy":
+            {
+                GlobalPlayerVars.playerLocationID = mapLocationID;
+
+                int randRoom = Random.Range(0, enemyRooms.Length);
+                string chosenRoom = enemyRooms[randRoom];
+
+                SceneManager.LoadScene(chosenRoom);
+
+                break;
+            }
+            case "chest":
+            {
+                GlobalPlayerVars.playerLocationID = mapLocationID;
+                SceneManager.LoadScene("ChestReward");
+                break;
+            }
+            case "boss":
+            {
+                GlobalPlayerVars.playerLocationID = mapLocationID;
+                SceneManager.LoadScene("Boss1");
+                break;
+            }
+            case "shop":
+            {
+                GlobalPlayerVars.playerLocationID = mapLocationID;
+                SceneManager.LoadScene("Shop");
+                break;
+            }
+            case "firstenemy":
+            {
+                GlobalPlayerVars.playerLocationID = mapLocationID;
+                SceneManager.LoadScene("SampleScene");
+                break;
+            }
         }
     }
 }
