@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
   m_Name: CrabBigAtk
   m_EditorClassIdentifier: 
-  atkWarning: 2
+  atkWarning: 1.6
   parryTime: 0.3
   postAtkDodgeStun: 0
   atkType: 
