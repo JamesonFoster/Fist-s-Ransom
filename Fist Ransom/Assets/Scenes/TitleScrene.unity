@@ -178,8 +178,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start Run
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 62e7118fe2771d8419a48d6c883a69b9, type: 2}
-  m_sharedMaterial: {fileID: -925864883278836615, guid: 62e7118fe2771d8419a48d6c883a69b9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -527,8 +527,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fists Ransom
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 62e7118fe2771d8419a48d6c883a69b9, type: 2}
-  m_sharedMaterial: {fileID: -925864883278836615, guid: 62e7118fe2771d8419a48d6c883a69b9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
