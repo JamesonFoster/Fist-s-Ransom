@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class BossPhaseController : MonoBehaviour
 {
+    public bool isMiniBoss = false;
     public GameObject phase1;
     public GameObject phase2;
     public GameObject phase3;
     public PlayerAtk playerConnection;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
     }
 
@@ -18,6 +19,8 @@ public class BossPhaseController : MonoBehaviour
 
     public void changePhase(int phase)
     {
+        if (!isMiniBoss)
+        {
         phase1.SetActive(false);
         phase2.SetActive(false);
         phase3.SetActive(false);
@@ -33,6 +36,24 @@ public class BossPhaseController : MonoBehaviour
             GlobalPlayerVars.EnemyHealth = em.enemyData.maxHealth;
             selectedPhase.SetActive(true);
             playerConnection.target = em;
+        }
+        }
+        else
+        {
+        phase1.SetActive(false);
+        phase2.SetActive(false);
+
+        GameObject selectedPhase = null;
+
+        if (phase == 2) selectedPhase = phase2;
+
+        if (selectedPhase != null)
+        {
+            EnemyMovement em = selectedPhase.GetComponent<EnemyMovement>();
+            GlobalPlayerVars.EnemyHealth = em.enemyData.maxHealth;
+            selectedPhase.SetActive(true);
+            playerConnection.target = em;
+        }
         }
     }
 }

@@ -1,11 +1,14 @@
 using Unity.VisualScripting;
 using UnityEngine;
-
+using System.Collections.Generic;
+using System.Collections;
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Dodging Stats")]
     public bool isDodging = false;
     public string dodgeType;
+    public bool dodgeAtkLock = false;
 
     [HideInInspector] public bool canMove = true; // Controls if player can move (used by attacks)
 
@@ -14,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private int dodgeMode;
     private Vector2 dodgeTarget;
     private Vector2 startPos;
+    private float dodgeSlower = 1f;
 
     private PlayerAtk plAtk;
     private SpriteRenderer sprrend;
@@ -24,10 +28,20 @@ public class PlayerMovement : MonoBehaviour
     public Sprite dodgeLeftSpr;
     public Sprite dodgeRightSpr;
 
+    //Effects vals
+    private float colorLength = 0.1f;
+    private Color targetColor;
+    private Color originalColor;
+        //song vals
+        public bool isSong = false;
+        private float songTime = 7f;
+        private float songTimer = 0f;
+
     void Awake()
     {
         plAtk = GetComponent<PlayerAtk>();
         sprrend = GetComponent<SpriteRenderer>();
+        originalColor = sprrend.color;
     }
 
     void Start()
@@ -37,7 +51,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (GlobalPlayerVars.PlayerHealth <= 0f)
+        {
+            SceneManager.LoadScene("URDEAD");
+        }
         stunTimer += Time.deltaTime;
+        HandleEffects();
 
         // Only allow dodging if player can move and dodge cooldown passed
         if (!isDodging && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
@@ -80,19 +99,22 @@ public class PlayerMovement : MonoBehaviour
                 isDodging = false;
 
             dodgeTimer += Time.deltaTime;
-            float halfDodge = GlobalPlayerVars.dodgeTime / 2f;
+            float halfDodge = (GlobalPlayerVars.dodgeTime / 2f) * dodgeSlower;
 
             if (dodgeTimer <= halfDodge)
             {
-                transform.position = Vector2.MoveTowards(transform.position, dodgeTarget, (GlobalPlayerVars.dodgeDistance / halfDodge) * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, dodgeTarget, ((GlobalPlayerVars.dodgeDistance * dodgeSlower) / halfDodge) * Time.deltaTime);
             }
-            else if (dodgeTimer <= GlobalPlayerVars.dodgeTime)
+            else if (dodgeTimer <= (GlobalPlayerVars.dodgeTime * dodgeSlower))
             {
-                transform.position = Vector2.MoveTowards(transform.position, startPos, (GlobalPlayerVars.dodgeDistance / halfDodge) * Time.deltaTime);
+                dodgeAtkLock = false;
+                transform.position = Vector2.MoveTowards(transform.position, startPos, ((GlobalPlayerVars.dodgeDistance * dodgeSlower) / halfDodge) * Time.deltaTime);
             }
             else
             {
                 isDodging = false;
+                dodgeAtkLock = false;
+                dodgeSlower = 1f;
                 SpriteChange(standingStill);
                 transform.position = startPos;
             }
@@ -107,34 +129,41 @@ public class PlayerMovement : MonoBehaviour
         dodgeTarget = (Vector2)transform.position + direction * GlobalPlayerVars.dodgeDistance;
     }
 
-    public void ReceiveScore(string score, float damage)
+    public void ReceiveScore(string score, float damage, List<string> effects)
     {
         if (!isDodging)
         {
+            HandleEffectApply(effects);
             takeDamage(damage);
         }
         else if (isDodging && score == "hitleft" && dodgeType == "left")
         {
+            HandleEffectApply(effects);
             takeDamage(damage);
         }
         else if (isDodging && score == "hitright" && dodgeType == "right")
         {
+            HandleEffectApply(effects);
             takeDamage(damage);
         }
         else if (isDodging && score == "hitdown" && dodgeType == "down")
         {
+            HandleEffectApply(effects);
             takeDamage(damage);
         }
         else if (isDodging && score == "hitfullleft" && (dodgeType == "left" || dodgeType == "down"))
         {
+            HandleEffectApply(effects);
             takeDamage(damage);
         }
         else if (isDodging && score == "hitfullright" && (dodgeType == "right" || dodgeType == "down"))
         {
+            HandleEffectApply(effects);
             takeDamage(damage);
         }
         else if (isDodging && score == "hitfullsides" && (dodgeType == "right" || dodgeType == "left"))
         {
+            HandleEffectApply(effects);
             takeDamage(damage);
         }
     }
@@ -149,5 +178,57 @@ public class PlayerMovement : MonoBehaviour
     public void SpriteChange(Sprite sprite)
     {
         sprrend.sprite = sprite;
+    }
+
+    public void HandleEffectApply(List<string> effects)
+    {
+        foreach (var eff in effects)
+        {
+            if (eff == "forDodgeL")
+            {
+                StartDodge(Vector2.left);
+                dodgeSlower = 2f;
+                dodgeAtkLock = true;
+            }
+            if (eff == "forDodgeR")
+            {
+                StartDodge(Vector2.right);
+                dodgeSlower = 2f;
+                dodgeAtkLock = true;
+            }
+            if (eff == "song")
+            {
+                isSong = true;
+                colorLength = 7f;
+                targetColor = new Color(1f, 0.4f, 0.7f);
+                StartCoroutine(EffectFlicker());
+            }
+        }
+    }
+
+    public void HandleEffects()
+    {
+        if (isSong)
+            Song();
+    }
+
+    IEnumerator EffectFlicker()
+    {
+        sprrend.color = targetColor;
+        yield return new WaitForSeconds(colorLength);
+        sprrend.color = originalColor;
+    }
+
+    public void Song()
+    {
+        songTimer += Time.deltaTime;
+        dodgeSlower = 2.5f;
+        if (songTimer >= songTime)
+        {
+            songTimer = 0f;
+            dodgeAtkLock = false;
+            dodgeSlower = 1f;
+            isSong = false;
+        }
     }
 }

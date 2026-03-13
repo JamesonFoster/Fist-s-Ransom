@@ -458,7 +458,7 @@ public class EnemyMovement : MonoBehaviour
     public void SendScore(PlayerMovement target2, string atkType, float damage)
     {
         if (target2 != null)
-            target2.ReceiveScore(atkType, damage);
+            target2.ReceiveScore(atkType, damage, atkChoose.attackEffects);
         else
             Debug.LogWarning("Target is missing!");
     }

@@ -2071,7 +2071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6375819186370086168, guid: f367dcf6df3cbec4cbcc4eb4c7f4b201, type: 3}
       propertyPath: locatType
-      value: 
+      value: shop
       objectReference: {fileID: 0}
     - target: {fileID: 6375819186370086168, guid: f367dcf6df3cbec4cbcc4eb4c7f4b201, type: 3}
       propertyPath: mapLocationID
@@ -2746,7 +2746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6375819186370086168, guid: f367dcf6df3cbec4cbcc4eb4c7f4b201, type: 3}
       propertyPath: locatType
-      value: 
+      value: shop
       objectReference: {fileID: 0}
     - target: {fileID: 6375819186370086168, guid: f367dcf6df3cbec4cbcc4eb4c7f4b201, type: 3}
       propertyPath: mapLocationID
