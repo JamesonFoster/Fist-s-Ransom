@@ -3,42 +3,58 @@ using System.Collections.Generic;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public BaseEnemyScript enemyData; // Assign ScriptableObject in Inspector
+    [Header("Enemy Data")]
+    public BaseEnemyScript enemyData;
+    public int phase = 0;
 
-    private bool isDodging = false;
-    private float dodgeTimer = 0f;
-    private float stunTimer = 999f;
-    private Vector2 dodgeTarget;
-    private Vector2 startPos;
 
-    private float timerAtk = 0f;
-    private bool isAtk = false;
+    [Header("Boss")]
+    public BossPhaseController BPC;
+    public GameObject winScreen;
+
 
     [Header("Connections")]
     public PlayerAtk target;
     public PlayerMovement target2;
-    public GameObject winScreen;
+
+
+    [Header("UI")]
+    public GameObject damageTextPrefab;
+    public Transform canvasTransform;
 
 
     [Header("Attack List")]
     public List<AtkScriptable> listOfAttacks;
 
 
-    //Private Code Stuff
+
+    // Components
     private SpriteRenderer sprrend;
     public AudioSource aS;
-    private bool stunable = false;
-    private float stunableTimer = 0f;
-    private float stunnedTimer = 0f;
-    public bool stunned = false;
-    private bool stunSpr = false;
-    private float stunSprTimer = 0f;
-    private float hitSprChanger = 0f;
-    private string hitDir = "L";
-    private bool sprFlip = false;
-    private bool isDead = false;
-    private float deadTimer = 5f;
-    private float deathflicker = 0f;
+    private EnemyEffectsHandler enemyEff;
+
+
+    // Position
+    private Vector2 dodgeTarget;
+    private Vector2 startPos;
+    private Vector2 corePos;
+
+
+    // Slippery movement
+    private float xChanger = 0;
+    private float yChanger = 0;
+
+
+    // Dodge
+    private bool isDodging = false;
+    private float dodgeTimer = 0f;
+    private float stunTimer = 999f;
+
+
+    // Attack
+    private float timerAtk = 0f;
+    private bool isAtk = false;
+
     private Sprite sprATKWARN;
     private Sprite sprATK;
     private float atkDAMA;
@@ -49,11 +65,43 @@ public class EnemyMovement : MonoBehaviour
     private AtkScriptable atkChoose;
     private bool isparryable;
     private bool atkSoundCheck;
+    private bool soundcheck2 = false;
+
+
+    // Stun
+    private bool stunable = false;
+    private float stunableTimer = 0f;
+    private float stunnedTimer = 0f;
+    public bool stunned = false;
+
     private bool stunImmune = false;
     private float stunImmuneTimer = 0f;
+
+
+    // Sprite / Animation
+    private bool stunSpr = false;
+    private float stunSprTimer = 0f;
+    public float hitSprChanger = 0f;
+    private string hitDir = "L";
+    private bool sprFlip = false;
+
     private bool standsprcont = false;
     private float chanstandtimer = 0f;
     private Sprite curstandspr;
+
+
+    // Death
+    private bool isDead = false;
+    private float deadTimer = 5f;
+    private float deathflicker = 0f;
+
+
+    // Phase
+    private float phaseTimer = 0f;
+
+
+    // Misc
+    private float dT;
 
 
     private void Awake()
@@ -62,153 +110,83 @@ public class EnemyMovement : MonoBehaviour
         GlobalPlayerVars.EnemyMaxHealth = enemyData.maxHealth;
         GlobalPlayerVars.EnemyHealth = enemyData.maxHealth;
         GlobalPlayerVars.EnemyName = enemyData.name;
-        GlobalPlayerVars.goldvalue = enemyData.baseGoldWorth;
+        GlobalPlayerVars.goldvalue = enemyData.baseGoldWorth * GlobalPlayerVars.coinMultiplay;
         curstandspr = enemyData.sprStandingStill;
         sprrend = GetComponent<SpriteRenderer>();
+        enemyEff = GetComponent<EnemyEffectsHandler>();
         aS = GetComponent<AudioSource>();
     }
     void Start()
     {
-        startPos = transform.position;
+        corePos = transform.position;
+        if (enemyData.isSlippery)
+        {
+        HandleSlip();
+        }
+        Vector2 newVec = new Vector2(xChanger, yChanger);
+        startPos = corePos + newVec;
+        if (enemyData.isSlippery)
+        {
+            if (xChanger == -0.282f)
+                StartDodge(Vector2.left);
+            else
+                StartDodge(Vector2.right);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if ((enemyData.atkAgro / 100) >= Random.value && !isAtk && !stunned)
+            Attack();
     }
 
     void Update()
     {
-        chanstandtimer += Time.deltaTime;
-        if (standsprcont && chanstandtimer >= enemyData.idlespeed)
-        {
-            chanstandtimer = 0f;
-            standsprcont = false;
-            curstandspr = enemyData.sprStandingStill;
-            SpriteChange(curstandspr);
-        }
-        if (!standsprcont && chanstandtimer >= enemyData.idlespeed)
-        {
-            chanstandtimer = 0f;
-            standsprcont = true;
-            curstandspr = enemyData.sprStandingStill2;
-            SpriteChange(curstandspr);
-        }
+        dT = Time.deltaTime;
+        HandleIdle();
         if (isDead != true)
             {
+            enemyEff.EffectCheck();
             if (GlobalPlayerVars.EnemyHealth <= 0)
             {
                 isDead = true;
-                GlobalPlayerVars.gold += GlobalPlayerVars.goldvalue;
+                GlobalPlayerVars.gold += Mathf.RoundToInt(GlobalPlayerVars.goldvalue);
                 aS.PlayOneShot(enemyData.soundDeath);
             }
             if (sprFlip)
                 sprrend.flipX = true;
             else
                 sprrend.flipX = false;
-            hitSprChanger -= Time.deltaTime;
-            if (hitSprChanger >= 0f)
-            {
-                if (hitDir == "HL")
-                {
-                    SpriteChange(enemyData.sprHeadHitL);
-                }
-                else if (hitDir == "HR")
-                {
-                    SpriteChange(enemyData.sprHeadHitR);
-                }
-                else if (hitDir == "BL")
-                {
-                    SpriteChange(enemyData.sprBodyHitL);
-                }
-                else
-                {
-                    SpriteChange(enemyData.sprBodyHitR);
-                }
-            }
-            if (hitSprChanger <= 0f && hitSprChanger >= -.04)
-            {
-                SpriteChange(curstandspr);
-            }
+            HandleHit();
             HandleAttack();
             HandleDodge();
-            if (stunImmune)
-            {
-                stunImmuneTimer += Time.deltaTime;
-
-                if (stunImmuneTimer >= 0.4f) // adjust time as needed
-                {
-                    stunImmune = false;
-                    stunImmuneTimer = 0f;
-                }
-            }
-            if (stunable)
-            {
-                stunableTimer += Time.deltaTime;
-                if (stunableTimer >= enemyData.postAtkStunTime)
-                {
-                    stunableTimer = 0f;
-                    stunable = false;
-                }
-            }
-            if (stunned)
-            {
-                isDodging = false;
-                isAtk = false;
-                sprFlip = false;
-
-                stunnedTimer += Time.deltaTime;
-                stunSprTimer += Time.deltaTime;
-                if (stunnedTimer >= enemyData.stunnedTime)
-                {
-                    stunnedTimer = 0f;
-                    stunned = false;
-
-                    // Start temporary immunity
-                    stunImmune = true;
-                    stunImmuneTimer = 0f;
-
-                    SpriteChange(curstandspr);
-                }
-                if (stunSprTimer >= 0.25f && !stunSpr)
-                {
-                    SpriteChange(enemyData.sprStunned1);
-                    stunSpr = true;
-                    stunSprTimer = 0;
-                }
-                if (stunSprTimer >= 0.25f && stunSpr)
-                {
-                    SpriteChange(enemyData.sprStunned2);
-                    stunSpr = false;
-                    stunSprTimer = 0;
-                }
-
-            }
+            HandleStun();
         }
         else
         {
-            winScreen.SetActive(true);
-            deadTimer -= Time.deltaTime;
-            deathflicker += Time.deltaTime;
-            SpriteChange(enemyData.sprDead);
-            if (deathflicker >= .3f)
-            {
-                sprrend.enabled = !sprrend.enabled;
-                deathflicker = 0f;
-            }
+            HandleDeath();
         }
     }
 
     void HandleAttack()
     {
-        if ((enemyData.atkAgro / 100) >= Random.value && !isAtk && !stunned)
-            Attack();
 
         if (isAtk)
         {
-            timerAtk += Time.deltaTime;
+            timerAtk += dT;
             if (timerAtk < atkWARN - parTime)
             {
                 atkSoundCheck = false;
+                if (atkChoose.playWarning && !soundcheck2)
+                {
+                    aS.PlayOneShot(atkChoose.warnAttack);
+                    soundcheck2 = true;
+                }
                 SpriteChange(sprATKWARN);
             }
             else
             {
+                soundcheck2 = false;
                 if (!atkSoundCheck)
                 {
                     aS.PlayOneShot(atkChoose.soundAttack);
@@ -256,21 +234,21 @@ public class EnemyMovement : MonoBehaviour
 
     void HandleDodge()
     {
-        stunTimer += Time.deltaTime;
+        stunTimer += dT;
 
         if (isDodging)
         {
-            dodgeTimer += Time.deltaTime;
+            dodgeTimer += dT;
 
             if (dodgeTimer <= enemyData.dodgeTime / 2f)
             {
                 SpriteChange(enemyData.sprDodge);
-                transform.position = Vector2.MoveTowards(transform.position, dodgeTarget, (enemyData.dodgeDistance / (enemyData.dodgeTime / 2f)) * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, dodgeTarget, (enemyData.dodgeDistance / (enemyData.dodgeTime / 2f)) * dT);
             }
             else if (dodgeTimer <= enemyData.dodgeTime)
             {
                 SpriteChange(enemyData.sprDodge);
-                transform.position = Vector2.MoveTowards(transform.position, startPos, (enemyData.dodgeDistance / (enemyData.dodgeTime / 2f)) * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, startPos, (enemyData.dodgeDistance / (enemyData.dodgeTime / 2f)) * dT);
             }
             else
             {
@@ -285,15 +263,16 @@ public class EnemyMovement : MonoBehaviour
     void StartDodge(Vector2 direction)
     {
         isDodging = true;
-        GlobalPlayerVars.goldvalue -= 5;
+        GlobalPlayerVars.goldvalue -= 5f * GlobalPlayerVars.coinMultiplay;
         dodgeTimer = 0f;
         aS.PlayOneShot(enemyData.soundDodge);
         stunTimer = 0f;
         dodgeTarget = (Vector2)transform.position + direction * enemyData.dodgeDistance;
     }
 
-    public void ReceiveScore(string score, float damage)
+    public void ReceiveScore(string score, float damage, List<string> effectlist)
     {
+        Debug.Log(score);
         bool canDodge =
             !isDodging &&
             !stunned &&
@@ -302,27 +281,45 @@ public class EnemyMovement : MonoBehaviour
         // Only allow parry during exact parry window
         if (isAtk && isparryable && timerAtk >= atkWARN - parTime && timerAtk <= atkWARN)
         {
-            isAtk = false;
-            timerAtk = 0f;
-            stunned = true;
-            aS.PlayOneShot(enemyData.soundStunned);
-            stunnedTimer = 0f;
+            if (score == "rage")
+            {
+            ParrySet();
             return; // stop further processing
+            }
+            else if (atkChoose.parryableR == true && score == "bodyR")
+            {
+            ParrySet();
+            return; // stop further processing
+            }
+            else if (atkChoose.parryableUpR == true && score == "headR")
+            {
+            ParrySet();
+            return; // stop further processing
+            }
+            else if (atkChoose.parryableUpL == true && score == "headL")
+            {
+            ParrySet();
+            return; // stop further processing
+            }
+            else if (atkChoose.parryableL == true && score == "bodyL")
+            {
+            ParrySet();
+            return; // stop further processing
+            }
         }
-
 
         if (canDodge)
         {
             bool dodgeSuccess = false;
 
-            if (score != "headR" && score != "bodyR")
-                dodgeSuccess = Random.value <= enemyData.atkRedyPercent;
+            if (score != "rage")
+                dodgeSuccess = Random.value <= (enemyData.atkRedyPercent - GlobalPlayerVars.dodgingRageNullifier);
             else
                 dodgeSuccess = Random.value <= enemyData.atkRageRedyPercent;
 
             if (dodgeSuccess)
             {
-                if (score == "headL" || score == "bodyL")
+                if (score == "headL" || score == "bodyL" || score == "rage")
                     StartDodge(Vector2.right);
 
                 if (score == "headR" || score == "bodyR")
@@ -331,19 +328,37 @@ public class EnemyMovement : MonoBehaviour
                     StartDodge(Vector2.left);
                 }
 
+                if (enemyData.postDodgeAtker)
+                {
+                    Attack();
+                }
+
                 return; // VERY IMPORTANT — stop here so no damage is applied
             }
         }
 
+        if (enemyData.isSlippery)
+        {
+            if ((yChanger == 0.282f && xChanger == -0.282f) && (score != "headL" && score != "rage"))
+                return; // VERY IMPORTANT — stop here so no damage is applied
+            if ((yChanger == 0.282f && xChanger == 0.282f) && (score != "headR" && score != "rage"))
+                return; // VERY IMPORTANT — stop here so no damage is applied
+            if ((yChanger == 0f && xChanger == -0.282f) && (score != "bodyL" && score != "rage"))
+                return; // VERY IMPORTANT — stop here so no damage is applied
+            if ((yChanger == 0f && xChanger == 0.282f) && (score != "bodyR" && score != "rage"))
+                return; // VERY IMPORTANT — stop here so no damage is applied
+        }
+
         // If we reach here → damage always applies
         GlobalPlayerVars.EnemyHealth -= damage;
-        GlobalPlayerVars.goldvalue += 2;
+        SpawnHit(((int)damage));
+        GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
 
         if (stunable && !stunned && !stunImmune)
         {
             stunable = false;   // consume window
             stunned = true;
-            GlobalPlayerVars.goldvalue += 3;
+            GlobalPlayerVars.goldvalue += 3f * GlobalPlayerVars.coinMultiplay;
             aS.PlayOneShot(enemyData.soundStunned);
             stunnedTimer = 0f;
         }
@@ -351,13 +366,34 @@ public class EnemyMovement : MonoBehaviour
         GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
 
         if (score == "headR")
+        {
+            enemyEff.ApplyEffectsBasic(effectlist);
             hitDir = "HR";
+        }
         else if (score == "headL")
+        {
+            enemyEff.ApplyEffectsBasic(effectlist);
             hitDir = "HL";
+        }
         else if (score == "bodyL")
+        {
+            enemyEff.ApplyEffectsBasic(effectlist);
             hitDir = "BL";
-        else
+        }
+        else if (score == "bodyR")
+        {
+            enemyEff.ApplyEffectsBasic(effectlist);
             hitDir = "BR";
+        }
+        else
+        {
+            hitDir = "BR";
+        }
+
+        if (enemyData.postHitAtker)
+        {
+            Attack();
+        }
 
         hitSprChanger = .16f;
 
@@ -366,7 +402,25 @@ public class EnemyMovement : MonoBehaviour
         else
             aS.PlayOneShot(enemyData.soundHit2);
 
-        Debug.Log($"Enemy Health: {GlobalPlayerVars.EnemyHealth}");
+        if (enemyData.isSlippery && !stunned)
+        {
+            HandleSlip();
+            Vector2 newVec = new Vector2(xChanger, yChanger);
+            startPos = corePos + newVec;
+            if (xChanger == -0.282f)
+                StartDodge(Vector2.left);
+            else
+                StartDodge(Vector2.right);
+        }
+    }
+
+    public void ParrySet()
+    {
+            isAtk = false;
+            timerAtk = 0f;
+            stunned = true;
+            aS.PlayOneShot(enemyData.soundStunned);
+            stunnedTimer = 0f;
     }
 
 
@@ -410,6 +464,173 @@ public class EnemyMovement : MonoBehaviour
     }
     public void SpriteChange(Sprite sprite)
     {
-        sprrend.sprite = sprite;
+        if (sprrend.sprite != sprite)
+            sprrend.sprite = sprite;
+    }
+
+    public void SpawnHit(int amount)
+    {
+        GameObject obj = Instantiate(damageTextPrefab, canvasTransform);
+        RectTransform rect = obj.GetComponent<RectTransform>();
+        rect.anchoredPosition = Vector2.zero;
+
+        obj.GetComponent<DamageNumber>().Init(amount);
+    }
+
+    public void CanAtk()
+    {
+        isAtk = false;
+        timerAtk = 0;
+        nextAtk = null;
+        countdownAtk = 0;
+    }
+
+    public void HandleSlip()
+    {
+        int randran = Random.Range(0, 4);
+        if (randran == 0)
+        {
+            xChanger = -0.282f;
+            yChanger = 0f;
+        }
+        else if (randran == 1)
+        {
+            xChanger = 0.282f;
+            yChanger = 0.282f;
+        }
+        else if (randran == 2)
+        {
+            xChanger = -0.282f;
+            yChanger = 0.282f;
+        }
+        else
+        {
+            xChanger = 0.282f;
+            yChanger = 0f;
+        }
+    }
+
+    public void HandleIdle()
+    {
+        chanstandtimer += dT;
+        if (standsprcont && chanstandtimer >= enemyData.idlespeed)
+        {
+            chanstandtimer = 0f;
+            standsprcont = false;
+            curstandspr = enemyData.sprStandingStill;
+            SpriteChange(curstandspr);
+        }
+        if (!standsprcont && chanstandtimer >= enemyData.idlespeed)
+        {
+            chanstandtimer = 0f;
+            standsprcont = true;
+            curstandspr = enemyData.sprStandingStill2;
+            SpriteChange(curstandspr);
+        }
+    }
+
+    public void HandleHit()
+    {
+        hitSprChanger -= dT;
+            if (hitSprChanger >= 0f)
+            {
+                if (hitDir == "HL")
+                {
+                    SpriteChange(enemyData.sprHeadHitL);
+                }
+                else if (hitDir == "HR")
+                {
+                    SpriteChange(enemyData.sprHeadHitR);
+                }
+                else if (hitDir == "BL")
+                {
+                    SpriteChange(enemyData.sprBodyHitL);
+                }
+                else
+                {
+                    SpriteChange(enemyData.sprBodyHitR);
+                }
+            }
+            if (hitSprChanger <= 0f && hitSprChanger >= -.04)
+            {
+                SpriteChange(curstandspr);
+            }
+    }
+
+    public void HandleDeath()
+    {
+        if (phase == 0)
+        {
+            winScreen.SetActive(true);
+        }
+        else
+        {
+            phaseTimer += dT;
+        }
+        deadTimer -= dT;
+        deathflicker += dT;
+        SpriteChange(enemyData.sprDead);
+        if (deathflicker >= .3f)
+        {
+            sprrend.enabled = !sprrend.enabled;
+            deathflicker = 0f;
+        }
+        if (phaseTimer >= 3f)
+        {
+            sprrend.enabled = sprrend.enabled;
+            deathflicker = 0f;
+            BPC.changePhase(phase);
+        }
+    }
+
+    public void HandleStun()
+    {
+        if (stunImmune)
+        {
+                stunImmuneTimer += dT;
+            if (stunImmuneTimer >= 0.4f) // adjust time as needed
+            {
+                stunImmune = false;
+                stunImmuneTimer = 0f;
+            }
+        }
+        if (stunable)
+        {
+            stunableTimer += dT;
+            if (stunableTimer >= enemyData.postAtkStunTime)
+            {
+                stunableTimer = 0f;
+                stunable = false;
+            }
+        }
+        if (stunned)
+        {
+            isDodging = false;
+            isAtk = false;
+            sprFlip = false;
+            stunnedTimer += dT;
+            stunSprTimer += dT;
+            if (stunnedTimer >= enemyData.stunnedTime)
+            {
+                stunnedTimer = 0f;
+                stunned = false;
+                // Start temporary immunity
+                stunImmune = true;
+                stunImmuneTimer = 0f;
+                SpriteChange(curstandspr);
+            }
+            if (stunSprTimer >= 0.25f && !stunSpr)
+            {
+                SpriteChange(enemyData.sprStunned1);
+                stunSpr = true;
+                stunSprTimer = 0;
+            }
+            if (stunSprTimer >= 0.25f && stunSpr)
+            {
+                SpriteChange(enemyData.sprStunned2);
+                stunSpr = false;
+                stunSprTimer = 0;
+            }
+        }
     }
 }

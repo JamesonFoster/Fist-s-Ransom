@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class GlobalPlayerVars : MonoBehaviour
 {
     //PlayerMapInfo
@@ -21,18 +21,37 @@ public class GlobalPlayerVars : MonoBehaviour
     public static float rageHeadAtk = 10;
     public static float rageBodyAtk = 10;
     public static float hitStunnedLength = 0.5f;
+    public static List<string> effectsList = new List<string>();
 
     //Dodging Stats
     public static float dodgeDistance = 0.5f;
     public static float dodgeTime = 0.4f;
     public static float dodgeStun = 0.1f;
+    public static float dodgingRageNullifier = 0f;
 
     //Coins
     public static int gold = 0;
+    public static float coinMultiplay = 1f;
 
     //EnemyValues
     public static float EnemyHealth;
     public static float EnemyMaxHealth;
     public static string EnemyName;
-    public static int goldvalue;
+    public static float goldvalue;
+
+
+
+
+    // Player Effect Values
+        //Poison Values
+    public static bool poisonRageHit = false;
+    public static float poisonBasicHitPoisonChance = 0f;
+    public static float poisonPlayerPoisonLength = 10f;
+    public static float poisonPlayerPoisonDamage = 5f;
+    public static float poisonPlayerHitTimer = 2.5f;
+        //Burning Values
+    public static bool burnRageHit = false;
+    public static float burnBasicHitBurnChance = 0f;
+    public static float burnPlayerBurnLength = 3f;
+    public static float burnPlayerBurnDamage = 0.5f;
 }

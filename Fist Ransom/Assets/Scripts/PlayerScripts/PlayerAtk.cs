@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAtk : MonoBehaviour
 {
     [Header("Enemy Connection")]
-    public EnemyMovement target;
+    [SerializeField] public EnemyMovement target;
     private PlayerMovement plMove;
     public AudioSource aS;
 
@@ -83,6 +83,15 @@ public class PlayerAtk : MonoBehaviour
                 useHeal();
             if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.E))
                 useRage();
+            #if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                SendScore(target, "bodyL", 200);
+                SendScore(target, "bodyR", 200);
+                SendScore(target, "headR", 200);
+                SendScore(target, "headL", 200);
+            }
+            #endif
         }
 
         // Attack movement
@@ -187,6 +196,7 @@ public class PlayerAtk : MonoBehaviour
 }
     public void AttackRage()
     {
+        currentDir = "rage";
         isAtking = true;
         plMove.canMove = false;
         damageApplied = false;
@@ -242,7 +252,7 @@ public class PlayerAtk : MonoBehaviour
     {
         if (target != null)
         {
-            target.ReceiveScore(dir, damage);
+            target.ReceiveScore(dir, damage, GlobalPlayerVars.effectsList);
         }
         else
         {

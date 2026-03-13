@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -10,6 +11,7 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [Header("Optional, auto-assigned if left empty")]
     public UpgradeManager upgradeManager;
     public TextMeshProUGUI descriptionText;
+    public float buttonEnableDelay = 1f;
 
     private Upgrade upgrade;
     private Button button;
@@ -43,26 +45,31 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
         // Make sure button can receive clicks
         button.interactable = upgrade != null;
+        button.interactable = false;
     }
 
-    /// <summary>
-    /// Assigns an Upgrade to this button
-    /// </summary>
+    void Start()
+    {
+        StartCoroutine(EnableButtonDelay());
+    }
+
+    IEnumerator EnableButtonDelay()
+    {
+        yield return new WaitForSeconds(buttonEnableDelay);
+
+        if (upgrade != null)
+            button.interactable = true;
+    }
+
+
     public void SetUpgrade(Upgrade newUpgrade)
     {
         upgrade = newUpgrade;
 
         if (upgrade != null && buttonImage != null)
             buttonImage.sprite = upgrade.icon;
-
-        // Enable button only if an upgrade is assigned
-        if (button != null)
-            button.interactable = (upgrade != null);
     }
 
-    /// <summary>
-    /// Called automatically when button is clicked
-    /// </summary>
     public void OnClick()
     {
         if (upgrade == null || upgradeManager == null)
@@ -86,18 +93,12 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         winScreen.SetActive(true);
     }
 
-    /// <summary>
-    /// Hover enters
-    /// </summary>
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (upgrade != null && descriptionText != null)
             descriptionText.text = upgrade.description;
     }
 
-    /// <summary>
-    /// Hover exits
-    /// </summary>
     public void OnPointerExit(PointerEventData eventData)
     {
         if (descriptionText != null)

@@ -32,6 +32,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BasicEnemyVic.unity
     guid: baeec2e895d83a041b62311e951cb62b
+  - enabled: 1
+    path: Assets/Scenes/BigCrabFight.unity
+    guid: fc04a201ee0e06e42b0e991531489bb2
+  - enabled: 1
+    path: Assets/Scenes/SeaLionFight.unity
+    guid: ed421d3710bd8514ea1da8a0f8683ace
+  - enabled: 1
+    path: Assets/Scenes/EndDemo.unity
+    guid: 89e9ca0d769843440bc7223f266a39f8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

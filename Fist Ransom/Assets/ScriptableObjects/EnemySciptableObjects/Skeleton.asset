@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Skeleton
   m_EditorClassIdentifier: 
   name: Skeleton
+  baseGoldWorth: 100
   atkRedyPercent: 0.5
   atkRageRedyPercent: 0.9
   dodgeDistance: 0.5
@@ -38,3 +39,6 @@ MonoBehaviour:
   sprHeadHitR: {fileID: 21300000, guid: e461beba7046d8b43a8f7cd7c12913be, type: 3}
   sprBodyHitL: {fileID: 21300000, guid: 46161a74988e7124fb40fff87d1b5906, type: 3}
   sprBodyHitR: {fileID: 21300000, guid: 8d64084342e507e41b49c9981fdf1f00, type: 3}
+  postHitAtker: 1
+  postDodgeAtker: 0
+  isSlippery: 0

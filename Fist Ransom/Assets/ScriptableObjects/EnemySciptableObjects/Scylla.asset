@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Scylla
   m_EditorClassIdentifier: 
   name: Scylla
-  baseGoldWorth: 100
-  atkRedyPercent: 0.5
+  baseGoldWorth: 125
+  atkRedyPercent: 0.3
   atkRageRedyPercent: 0.5
   dodgeDistance: 0.2
   dodgeTime: 0.4
   dodgeStun: 0.05
-  atkAgro: 0
-  maxHealth: 9999
+  atkAgro: 0.6
+  maxHealth: 250
   postAtkStunTime: 1
   stunnedTime: 0.8
   soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
@@ -31,11 +31,11 @@ MonoBehaviour:
   idlespeed: 0.8
   sprStandingStill: {fileID: 21300000, guid: 2f26b01e590fb164daecb9f490f5db06, type: 3}
   sprStandingStill2: {fileID: 21300000, guid: c15493bd107948b4d90bdf9c01bc6cd2, type: 3}
-  sprStunned1: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
-  sprStunned2: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
-  sprDead: {fileID: 21300000, guid: b14451f22083e1b478cdb0cd60b77a52, type: 3}
+  sprStunned1: {fileID: 21300000, guid: 2889b878b71c58f428f3b111c77dd3ed, type: 3}
+  sprStunned2: {fileID: 21300000, guid: 257a918d5a7ffe84ca298189800f72a7, type: 3}
+  sprDead: {fileID: 21300000, guid: 7a65b2f12cb00a84f84c82b577565188, type: 3}
   sprDodge: {fileID: 21300000, guid: 19e3a193f62ee3e4da088008bda73fd4, type: 3}
-  sprHeadHitL: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
-  sprHeadHitR: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
-  sprBodyHitL: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
-  sprBodyHitR: {fileID: 21300000, guid: 065236478fa801b468104a7d3722c240, type: 3}
+  sprHeadHitL: {fileID: 21300000, guid: dd9c5cb609ec31b41ab57e2d802c40ff, type: 3}
+  sprHeadHitR: {fileID: 21300000, guid: 778caaf1e35f2704f9988a0a994afe77, type: 3}
+  sprBodyHitL: {fileID: 21300000, guid: ada0cd50571060c42941c0d3cc09f4c4, type: 3}
+  sprBodyHitR: {fileID: 21300000, guid: 0eb761ca8e61f4e4f8fb59fd7e7c509b, type: 3}
