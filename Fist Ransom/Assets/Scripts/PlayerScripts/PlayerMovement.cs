@@ -5,6 +5,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject loseFade;
     [Header("Dodging Stats")]
     public bool isDodging = false;
     public string dodgeType;
@@ -53,8 +54,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GlobalPlayerVars.PlayerHealth <= 0f)
         {
-            SceneManager.LoadScene("URDEAD");
+            loseFade.SetActive(true);
         }
+        else
+        {
         stunTimer += Time.deltaTime;
         HandleEffects();
 
@@ -119,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
                 SpriteChange(standingStill);
                 transform.position = startPos;
             }
+        }
         }
     }
 

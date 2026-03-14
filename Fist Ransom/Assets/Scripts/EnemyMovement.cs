@@ -142,6 +142,28 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        if (GlobalPlayerVars.PlayerHealth <= 0)
+        {
+            chanstandtimer += Time.deltaTime;
+            if (standsprcont && chanstandtimer >= enemyData.idlespeed)
+            {
+                aS.PlayOneShot(enemyData.soundCele1);
+                chanstandtimer = 0f;
+                standsprcont = false;
+                curstandspr = enemyData.sprPlayerDeath1;
+                SpriteChange(curstandspr);
+            }
+            if (!standsprcont && chanstandtimer >= enemyData.idlespeed)
+            {
+                aS.PlayOneShot(enemyData.soundCele2);
+                chanstandtimer = 0f;
+                standsprcont = true;
+                curstandspr = enemyData.sprPlayerDeath2;
+                SpriteChange(curstandspr);
+            }
+        }
+        else
+        {
         dT = Time.deltaTime;
         HandleIdle();
         if (isDead != true)
@@ -165,6 +187,7 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             HandleDeath();
+        }
         }
     }
 

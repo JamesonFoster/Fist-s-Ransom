@@ -94,6 +94,10 @@ public class PlayerAtk : MonoBehaviour
                 SendScore(target, "headR", 200);
                 SendScore(target, "headL", 200);
             }
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                GlobalPlayerVars.PlayerHealth -= 999;
+            }
             #endif
         }
 

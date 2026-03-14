@@ -28,6 +28,8 @@ MonoBehaviour:
   soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
   soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
   soundStunned: {fileID: 8300000, guid: d5ed4282adebbcd44a79da24058c8b75, type: 3}
+  soundCele1: {fileID: 8300000, guid: 6b7100169887db94ba6379d48868643c, type: 3}
+  soundCele2: {fileID: 8300000, guid: 6b7100169887db94ba6379d48868643c, type: 3}
   idlespeed: 0.5
   sprStandingStill: {fileID: 21300000, guid: a7a34504f0122354eac7ce2948910f43, type: 3}
   sprStandingStill2: {fileID: 21300000, guid: 1b3042a4c82b7fe41b954affb7fc2732, type: 3}
@@ -39,6 +41,8 @@ MonoBehaviour:
   sprHeadHitR: {fileID: 21300000, guid: 0b8b0fd2421530b47a45126795f4967a, type: 3}
   sprBodyHitL: {fileID: 21300000, guid: 1d9aa6de8dfb14d47827c3e050e00fb0, type: 3}
   sprBodyHitR: {fileID: 21300000, guid: 581ec75b03fcfa649b652b534b9f054f, type: 3}
+  sprPlayerDeath1: {fileID: 21300000, guid: 581ec75b03fcfa649b652b534b9f054f, type: 3}
+  sprPlayerDeath2: {fileID: 21300000, guid: 1d9aa6de8dfb14d47827c3e050e00fb0, type: 3}
   postHitAtker: 0
   postDodgeAtker: 0
   isSlippery: 0
