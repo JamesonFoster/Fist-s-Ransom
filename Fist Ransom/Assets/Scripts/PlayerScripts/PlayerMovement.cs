@@ -58,6 +58,9 @@ public class PlayerMovement : MonoBehaviour
         stunTimer += Time.deltaTime;
         HandleEffects();
 
+        if (!isDodging)
+            dodgeAtkLock = false;
+
         // Only allow dodging if player can move and dodge cooldown passed
         if (!isDodging && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
         {
@@ -107,13 +110,11 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (dodgeTimer <= (GlobalPlayerVars.dodgeTime * dodgeSlower))
             {
-                dodgeAtkLock = false;
                 transform.position = Vector2.MoveTowards(transform.position, startPos, ((GlobalPlayerVars.dodgeDistance * dodgeSlower) / halfDodge) * Time.deltaTime);
             }
             else
             {
                 isDodging = false;
-                dodgeAtkLock = false;
                 dodgeSlower = 1f;
                 SpriteChange(standingStill);
                 transform.position = startPos;
@@ -124,6 +125,8 @@ public class PlayerMovement : MonoBehaviour
     void StartDodge(Vector2 direction)
     {
         isDodging = true;
+        plAtk.isAtking = false;
+        plAtk.attackTimer = 0f;
         dodgeTimer = 0f;
         stunTimer = 0f;
         dodgeTarget = (Vector2)transform.position + direction * GlobalPlayerVars.dodgeDistance;

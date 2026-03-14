@@ -242,11 +242,13 @@ public class EnemyMovement : MonoBehaviour
 
             if (dodgeTimer <= enemyData.dodgeTime / 2f)
             {
+                if (!isAtk)
                 SpriteChange(enemyData.sprDodge);
                 transform.position = Vector2.MoveTowards(transform.position, dodgeTarget, (enemyData.dodgeDistance / (enemyData.dodgeTime / 2f)) * dT);
             }
             else if (dodgeTimer <= enemyData.dodgeTime)
             {
+                if (!isAtk)
                 SpriteChange(enemyData.sprDodge);
                 transform.position = Vector2.MoveTowards(transform.position, startPos, (enemyData.dodgeDistance / (enemyData.dodgeTime / 2f)) * dT);
             }
@@ -536,18 +538,22 @@ public class EnemyMovement : MonoBehaviour
             {
                 if (hitDir == "HL")
                 {
+                    if (!isAtk)
                     SpriteChange(enemyData.sprHeadHitL);
                 }
                 else if (hitDir == "HR")
                 {
+                    if (!isAtk)
                     SpriteChange(enemyData.sprHeadHitR);
                 }
                 else if (hitDir == "BL")
                 {
+                    if (!isAtk)
                     SpriteChange(enemyData.sprBodyHitL);
                 }
                 else
                 {
+                    if (!isAtk)
                     SpriteChange(enemyData.sprBodyHitR);
                 }
             }
@@ -607,6 +613,7 @@ public class EnemyMovement : MonoBehaviour
         {
             isDodging = false;
             isAtk = false;
+            timerAtk = 0;
             sprFlip = false;
             stunnedTimer += dT;
             stunSprTimer += dT;

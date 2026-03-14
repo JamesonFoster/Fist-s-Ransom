@@ -11,7 +11,7 @@ public class PlayerAtk : MonoBehaviour
 
     [Header("Basic Attack Stats")]
     public bool aimUp = false; // Holding W aims punches upward
-    private float attackTimer = 0f;
+    public float attackTimer = 0f;
     public bool isAtking = false;
 
     private Vector2 startPos;
@@ -56,6 +56,9 @@ public class PlayerAtk : MonoBehaviour
     void Update()
     {
         hitStunnedTimer -= Time.deltaTime;
+
+        if (!isAtking)
+            plMove.canMove = true;
 
         if (hitStunnedTimer <= 0)
         {

@@ -14,6 +14,9 @@ public class MapButtons : MonoBehaviour
     [Header("Possible Enemy Rooms")]
     public string[] enemyRooms;
 
+    [Header("Possible MiniBoss Rooms")]
+    public string[] miniRooms;
+
     //sprites
     [Header("Sprites")]
     public Sprite enemyspr;
@@ -117,7 +120,12 @@ public class MapButtons : MonoBehaviour
             case "miniboss":
             {
                 GlobalPlayerVars.playerLocationID = mapLocationID;
-                SceneManager.LoadScene("SirenFight");
+
+                int randRoom = Random.Range(0, miniRooms.Length);
+                string chosenRoom = miniRooms[randRoom];
+
+                SceneManager.LoadScene(chosenRoom);
+
                 break;
             }
         }
