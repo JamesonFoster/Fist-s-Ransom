@@ -50,6 +50,15 @@ public class PlayerMovement : MonoBehaviour
         startPos = transform.position;
     }
 
+    private void FixedUpdate()
+    {
+        float regen = (GlobalPlayerVars.PlayerRegenPer / 5) * Time.deltaTime;
+        if (GlobalPlayerVars.PlayerHealth > (GlobalPlayerVars.PlayerMaxHealth - regen))
+        {
+            GlobalPlayerVars.PlayerHealth += regen;
+        }
+    }
+
     void Update()
     {
         if (GlobalPlayerVars.PlayerHealth <= 0f)
