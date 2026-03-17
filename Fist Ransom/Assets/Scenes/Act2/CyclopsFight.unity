@@ -240,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 420830528}
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: listOfAttacks.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: 'listOfAttacks.Array.data[0]'
@@ -249,7 +249,11 @@ PrefabInstance:
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: 'listOfAttacks.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: d766118c490b21743aa415abc0b58499, type: 2}
+      objectReference: {fileID: 11400000, guid: 612d4752c9a10a245b99a600275de8d5, type: 2}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: 'listOfAttacks.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f6ef343b30fae3469b8c62cc2a31541, type: 2}
     - target: {fileID: 8122322208594355292, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_Name
       value: EnemyBase

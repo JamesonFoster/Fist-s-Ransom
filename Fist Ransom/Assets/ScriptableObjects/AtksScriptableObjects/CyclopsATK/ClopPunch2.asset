@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
-  m_Name: CyclopsbigSmash
+  m_Name: ClopPunch2
   m_EditorClassIdentifier: 
-  atkWarning: 0.8
-  parryTime: 0.4
+  atkWarning: 0.75
+  parryTime: 0.3
   postAtkDodgeStun: 0
   atkType: 
   attackEffects: []
-  atkDamage: 12
-  sprAttackWarning: {fileID: 21300000, guid: e0e5354a6252042469e0d797429ff09c, type: 3}
-  sprAttack: {fileID: 21300000, guid: fbeef03216695bf4f9e6428c8aa13dbf, type: 3}
-  soundAttack: {fileID: 8300000, guid: d97dac1dfe8f8d143b107557fb0c705e, type: 3}
+  atkDamage: 7
+  sprAttackWarning: {fileID: 21300000, guid: 1dc192f854f01b54a8387215b1aa6767, type: 3}
+  sprAttack: {fileID: 21300000, guid: c8fb3be3245a01941966533ce4246935, type: 3}
+  soundAttack: {fileID: 8300000, guid: d514d1a7b84f83e4980684f160ebeabf, type: 3}
   warnAttack: {fileID: 8300000, guid: 0b876df4b4544454f9f3acefbbde0f79, type: 3}
   playWarning: 1
   parryableUpL: 1
@@ -28,8 +28,8 @@ MonoBehaviour:
   parryableR: 1
   parryableL: 1
   unstunable: 1
-  unparryable: 0
+  unparryable: 1
   isntAtker: 0
-  atkChaining: 0
+  atkChaining: 2
   howManyTime: 0
-  nextAtk: {fileID: 0}
+  nextAtk: {fileID: 11400000, guid: fb94ef5a19614a249bf2fcb72030660d, type: 2}

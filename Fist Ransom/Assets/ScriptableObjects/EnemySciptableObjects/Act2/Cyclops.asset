@@ -19,13 +19,15 @@ MonoBehaviour:
   dodgeDistance: 0.5
   dodgeTime: 0.4
   dodgeStun: 0.1
-  atkAgro: 0.3
+  atkAgro: 0.6
   maxHealth: 145
   postAtkStunTime: 0.6
   stunnedTime: 5
-  soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
-  soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
-  soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
+  headDamageMultiplier: 2.5
+  bodyDamageMultiplier: 0.75
+  soundHit1: {fileID: 8300000, guid: 29f620f6adb3bac4ba00127fa5bd080a, type: 3}
+  soundHit2: {fileID: 8300000, guid: e64ae215381feb04781928887c4198ea, type: 3}
+  soundDeath: {fileID: 8300000, guid: e174d047b904cf142b6d849cc07386c8, type: 3}
   soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
   soundStunned: {fileID: 0}
   soundCele1: {fileID: 0}
@@ -46,3 +48,4 @@ MonoBehaviour:
   postHitAtker: 0
   postDodgeAtker: 0
   isSlippery: 0
+  unharmableVoidStun: 1
