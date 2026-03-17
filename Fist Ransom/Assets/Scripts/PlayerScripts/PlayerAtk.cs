@@ -11,7 +11,7 @@ public class PlayerAtk : MonoBehaviour
 
     [Header("Basic Attack Stats")]
     public bool aimUp = false; // Holding W aims punches upward
-    private float attackTimer = 0f;
+    public float attackTimer = 0f;
     public bool isAtking = false;
 
     private Vector2 startPos;
@@ -57,6 +57,9 @@ public class PlayerAtk : MonoBehaviour
     {
         hitStunnedTimer -= Time.deltaTime;
 
+        if (!isAtking)
+            plMove.canMove = true;
+
         if (hitStunnedTimer <= 0)
         {
             SpriteChange(standingStill);
@@ -73,11 +76,11 @@ public class PlayerAtk : MonoBehaviour
         if (hitStunned == false)
         {
             // Attack input (only if not already attacking and player is allowed to move)
-            if (!isAtking && plMove.canMove && (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0)))
+            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0)))
                 AttackL();
-            if (!isAtking && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1)))
+            if (!isAtking && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1)))
                 AttackR();
-            if (!isAtking && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == 100)
+            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == 100)
                 AttackRage();
             if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Q))
                 useHeal();
@@ -90,6 +93,10 @@ public class PlayerAtk : MonoBehaviour
                 SendScore(target, "bodyR", 200);
                 SendScore(target, "headR", 200);
                 SendScore(target, "headL", 200);
+            }
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                GlobalPlayerVars.PlayerHealth -= 999;
             }
             #endif
         }

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7ae26faaeed745b9b18bcf4c40155, type: 3}
+  m_Name: Siren Phase2
+  m_EditorClassIdentifier: 
+  name: Siren
+  baseGoldWorth: 100
+  atkRedyPercent: 0.5
+  atkRageRedyPercent: 0.5
+  dodgeDistance: 0.9
+  dodgeTime: 0.4
+  dodgeStun: 0.1
+  atkAgro: 1.1
+  maxHealth: 75
+  postAtkStunTime: 0.6
+  stunnedTime: 1.42
+  soundHit1: {fileID: 8300000, guid: faca6639be49c4c4382c43381795c0ec, type: 3}
+  soundHit2: {fileID: 8300000, guid: 4de2b67dd7d9af44dabd194d687e2f3c, type: 3}
+  soundDeath: {fileID: 8300000, guid: b449c007a5e1a764eb1b3cfa807586fb, type: 3}
+  soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
+  soundStunned: {fileID: 8300000, guid: faca6639be49c4c4382c43381795c0ec, type: 3}
+  soundCele1: {fileID: 8300000, guid: faca6639be49c4c4382c43381795c0ec, type: 3}
+  soundCele2: {fileID: 8300000, guid: faca6639be49c4c4382c43381795c0ec, type: 3}
+  idlespeed: 0.7
+  sprStandingStill: {fileID: 21300000, guid: bb93528a3b99c124ea011879091f0c24, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: c1664d0989e93694ba69d41828fdb41f, type: 3}
+  sprStunned1: {fileID: 21300000, guid: ab9a95a48abcc94409b21b64a33dba0a, type: 3}
+  sprStunned2: {fileID: 21300000, guid: 3c66bd03f0ad4114e94878511be6b0c5, type: 3}
+  sprDead: {fileID: 21300000, guid: 555c407229badcb48ab11f03089c17ee, type: 3}
+  sprDodge: {fileID: 21300000, guid: b8d0806d0c430ac4fbfc1f5b6d93ec3d, type: 3}
+  sprHeadHitL: {fileID: 21300000, guid: eca16d1e99af16a439b774397f8414c0, type: 3}
+  sprHeadHitR: {fileID: 21300000, guid: 549d94e0b065fc84e878cab23a0d8b3f, type: 3}
+  sprBodyHitL: {fileID: 21300000, guid: 3d3f3259f3e58734f8f049f86fa51aa1, type: 3}
+  sprBodyHitR: {fileID: 21300000, guid: d1c8007049a059742bf76256c6815dda, type: 3}
+  sprPlayerDeath1: {fileID: 21300000, guid: 3d3f3259f3e58734f8f049f86fa51aa1, type: 3}
+  sprPlayerDeath2: {fileID: 21300000, guid: d1c8007049a059742bf76256c6815dda, type: 3}
+  postHitAtker: 0
+  postDodgeAtker: 0
+  isSlippery: 0

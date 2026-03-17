@@ -28,6 +28,8 @@ public class BaseEnemyScript : ScriptableObject
     public AudioClip soundDeath;
     public AudioClip soundDodge;
     public AudioClip soundStunned;
+    public AudioClip soundCele1;
+    public AudioClip soundCele2;
 
     [Header("Sprites")]
     public float idlespeed = 0.5f;
@@ -41,6 +43,9 @@ public class BaseEnemyScript : ScriptableObject
     public Sprite sprHeadHitR;
     public Sprite sprBodyHitL;
     public Sprite sprBodyHitR;
+    public Sprite sprPlayerDeath1;
+    public Sprite sprPlayerDeath2;
+
 
     [Header("Personality Values")]
     public bool postHitAtker = false;

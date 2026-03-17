@@ -14,6 +14,9 @@ public class MapButtons : MonoBehaviour
     [Header("Possible Enemy Rooms")]
     public string[] enemyRooms;
 
+    [Header("Possible MiniBoss Rooms")]
+    public string[] miniRooms;
+
     //sprites
     [Header("Sprites")]
     public Sprite enemyspr;
@@ -27,16 +30,16 @@ public class MapButtons : MonoBehaviour
         sprrend = GetComponent<SpriteRenderer>();
         if (string.IsNullOrEmpty(locatType))
         {
-            int locatChoo = Random.Range(1, 11);
+            int locatChoo = Random.Range(1, 19);
 
-            if (locatChoo <= 6)
+            if (locatChoo <= 13)
                 locatType = "enemy";
-            else if (locatChoo == 7 || locatChoo == 8)
+            else if (locatChoo == 15 || locatChoo == 16)
                 locatType = "chest";
-            else if (locatChoo >= 9)
+            else if (locatChoo == 14)
                 locatType = "shop";
             else
-                locatType = "shop";
+                locatType = "miniboss";
         }
     }
 
@@ -112,6 +115,17 @@ public class MapButtons : MonoBehaviour
             {
                 GlobalPlayerVars.playerLocationID = mapLocationID;
                 SceneManager.LoadScene("SampleScene");
+                break;
+            }
+            case "miniboss":
+            {
+                GlobalPlayerVars.playerLocationID = mapLocationID;
+
+                int randRoom = Random.Range(0, miniRooms.Length);
+                string chosenRoom = miniRooms[randRoom];
+
+                SceneManager.LoadScene(chosenRoom);
+
                 break;
             }
         }

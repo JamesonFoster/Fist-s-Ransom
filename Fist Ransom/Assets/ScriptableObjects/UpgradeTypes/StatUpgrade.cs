@@ -10,6 +10,7 @@ public class StatUpgrade : Upgrade
     public float headRageIncrease = 0f;
     public float bodyRageIncrease = 0f;
     public float maxHealthIncrease = 0f;
+    public float regenPer5SecondsInc = 0f;
     public float dodgeTimeIncrease = 0f;
     public float goldMultiplyier = 0f;
     public float rageDodgeNullIncre = 0f;
@@ -31,6 +32,7 @@ public class StatUpgrade : Upgrade
         GlobalPlayerVars.rageHeadAtk += headRageIncrease;
         GlobalPlayerVars.PlayerMaxHealth += maxHealthIncrease;
         GlobalPlayerVars.PlayerHealth += maxHealthIncrease;
+        GlobalPlayerVars.PlayerRegenPer += regenPer5SecondsInc;
         GlobalPlayerVars.dodgeTime += dodgeStunDec;
         GlobalPlayerVars.coinMultiplay += goldMultiplyier;
         GlobalPlayerVars.dodgingRageNullifier += rageDodgeNullIncre;

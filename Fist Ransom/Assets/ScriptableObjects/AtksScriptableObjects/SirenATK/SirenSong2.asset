@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
+  m_Name: SirenSong2
+  m_EditorClassIdentifier: 
+  atkWarning: 0.25
+  parryTime: 0.125
+  postAtkDodgeStun: 0.3
+  atkType: 
+  attackEffects:
+  - song
+  atkDamage: 3
+  sprAttackWarning: {fileID: 21300000, guid: 4ddaf1a9778d4f646bee811c4fc09db7, type: 3}
+  sprAttack: {fileID: 21300000, guid: 7746da0f42a760642beb6c8f6777c88d, type: 3}
+  soundAttack: {fileID: 8300000, guid: 0f43b0e0227d1364bba9dc37936692ca, type: 3}
+  warnAttack: {fileID: 8300000, guid: 7ce7cd21b44a2e74f8418213e5e3af8c, type: 3}
+  playWarning: 1
+  parryableUpL: 1
+  parryableUpR: 1
+  parryableR: 1
+  parryableL: 1
+  unstunable: 0
+  unparryable: 1
+  isntAtker: 0
+  atkChaining: 0
+  howManyTime: 0
+  nextAtk: {fileID: 0}

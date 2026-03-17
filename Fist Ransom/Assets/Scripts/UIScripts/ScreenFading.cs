@@ -14,6 +14,7 @@ public class ScreenFading : MonoBehaviour
     public bool toMainMenu = false;
     public bool toTutorial = false;
     public bool endDemo = false;
+    public bool dead = false;
     private GameObject onJe;
     private MusicPlayer musplay;
 
@@ -79,6 +80,10 @@ public class ScreenFading : MonoBehaviour
         {
             SceneManager.LoadScene("EndDemo");
         }
+        if (dead)
+        {
+            SceneManager.LoadScene("URDEAD");
+        }
     }
 
     IEnumerator FadeOut()
@@ -120,6 +125,10 @@ public class ScreenFading : MonoBehaviour
         if (endDemo)
         {
             SceneManager.LoadScene("EndDemo");
+        }
+        if (dead)
+        {
+            SceneManager.LoadScene("URDEAD");
         }
     }
 }
