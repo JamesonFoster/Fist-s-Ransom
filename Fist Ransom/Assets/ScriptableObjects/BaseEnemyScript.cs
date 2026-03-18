@@ -21,6 +21,8 @@ public class BaseEnemyScript : ScriptableObject
     public float maxHealth = 25f;
     public float postAtkStunTime = 0.6f;
     public float stunnedTime = 2f;
+    public float headDamageMultiplier = 1f;
+    public float bodyDamageMultiplier = 1f;
 
     [Header("Sounds")]
     public AudioClip soundHit1;
@@ -51,4 +53,7 @@ public class BaseEnemyScript : ScriptableObject
     public bool postHitAtker = false;
     public bool postDodgeAtker = false;
     public bool isSlippery = false;
+    public bool unharmableVoidStun = false;
+    public float modeShiftSpeed = 0f;
+    public BaseEnemyScript modeShift;
 }

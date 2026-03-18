@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -98,6 +99,7 @@ public class EnemyMovement : MonoBehaviour
 
     // Phase
     private float phaseTimer = 0f;
+    private float modeShiftTimer = 0f;
 
 
     // Misc
@@ -166,6 +168,8 @@ public class EnemyMovement : MonoBehaviour
         {
         dT = Time.deltaTime;
         HandleIdle();
+            if (enemyData.modeShift != null)
+                HandleModeShift();
         if (isDead != true)
             {
             enemyEff.EffectCheck();
@@ -374,11 +378,6 @@ public class EnemyMovement : MonoBehaviour
                 return; // VERY IMPORTANT — stop here so no damage is applied
         }
 
-        // If we reach here → damage always applies
-        GlobalPlayerVars.EnemyHealth -= damage;
-        SpawnHit(((int)damage));
-        GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
-
         if (stunable && !stunned && !stunImmune)
         {
             stunable = false;   // consume window
@@ -388,38 +387,117 @@ public class EnemyMovement : MonoBehaviour
             stunnedTimer = 0f;
         }
 
-        GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
-
         if (score == "headR")
         {
             enemyEff.ApplyEffectsBasic(effectlist);
+            float dama = damage * enemyData.headDamageMultiplier;
+            if (!enemyData.unharmableVoidStun)
+            {
+                GlobalPlayerVars.EnemyHealth -= dama;
+                SpawnHit(((int)dama));
+                GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+            }
+            else if (stunned)
+            {
+                GlobalPlayerVars.EnemyHealth -= dama;
+                SpawnHit(((int)dama));
+                GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+            }
+            else
+            {
+                SpawnHit(0);
+            }
             hitDir = "HR";
         }
         else if (score == "headL")
         {
             enemyEff.ApplyEffectsBasic(effectlist);
+            float dama = damage * enemyData.headDamageMultiplier;
+            if (!enemyData.unharmableVoidStun)
+            {
+                GlobalPlayerVars.EnemyHealth -= dama;
+                SpawnHit(((int)dama));
+                GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+            }
+            else if (stunned)
+            {
+                GlobalPlayerVars.EnemyHealth -= dama;
+                SpawnHit(((int)dama));
+                GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+            }
+            else
+            {
+                SpawnHit(0);
+            }
             hitDir = "HL";
         }
         else if (score == "bodyL")
         {
             enemyEff.ApplyEffectsBasic(effectlist);
+            float dama = damage * enemyData.bodyDamageMultiplier;
+            if (!enemyData.unharmableVoidStun)
+            {
+                GlobalPlayerVars.EnemyHealth -= dama;
+                SpawnHit(((int)dama));
+                GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+            }
+            else if (stunned)
+            {
+                GlobalPlayerVars.EnemyHealth -= dama;
+                SpawnHit(((int)dama));
+                GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+            }
+            else
+            {
+                SpawnHit(0);
+            }
             hitDir = "BL";
         }
         else if (score == "bodyR")
         {
             enemyEff.ApplyEffectsBasic(effectlist);
+            float dama = damage * enemyData.bodyDamageMultiplier;
+            if (!enemyData.unharmableVoidStun)
+            {
+                GlobalPlayerVars.EnemyHealth -= dama;
+                SpawnHit(((int)dama));
+                GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+            }
+            else if (stunned)
+            {
+                GlobalPlayerVars.EnemyHealth -= dama;
+                SpawnHit(((int)dama));
+                GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+            }
+            else
+            {
+                SpawnHit(0);
+            }
             hitDir = "BR";
         }
         else
         {
             hitDir = "BR";
+            SpawnHit(((int)damage));
+            GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
         }
 
         if (enemyData.postHitAtker)
         {
             Attack();
         }
-
+        
+        if (!enemyData.unharmableVoidStun)
+        hitSprChanger = .16f;
+        else if (stunned)
         hitSprChanger = .16f;
 
         if (Random.value >= .5f)
@@ -661,6 +739,15 @@ public class EnemyMovement : MonoBehaviour
                 stunSpr = false;
                 stunSprTimer = 0;
             }
+        }
+    }
+    public void HandleModeShift()
+    {
+        modeShiftTimer += dT;
+        if (modeShiftTimer >= enemyData.modeShiftSpeed)
+        {
+            modeShiftTimer = 0f;
+            enemyData = enemyData.modeShift;
         }
     }
 }
