@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -98,6 +99,7 @@ public class EnemyMovement : MonoBehaviour
 
     // Phase
     private float phaseTimer = 0f;
+    private float modeShiftTimer = 0f;
 
 
     // Misc
@@ -166,6 +168,8 @@ public class EnemyMovement : MonoBehaviour
         {
         dT = Time.deltaTime;
         HandleIdle();
+            if (enemyData.modeShift != null)
+                HandleModeShift();
         if (isDead != true)
             {
             enemyEff.EffectCheck();
@@ -735,6 +739,15 @@ public class EnemyMovement : MonoBehaviour
                 stunSpr = false;
                 stunSprTimer = 0;
             }
+        }
+    }
+    public void HandleModeShift()
+    {
+        modeShiftTimer += dT;
+        if (modeShiftTimer >= enemyData.modeShiftSpeed)
+        {
+            modeShiftTimer = 0f;
+            enemyData = enemyData.modeShift;
         }
     }
 }

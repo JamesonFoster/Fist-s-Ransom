@@ -54,4 +54,6 @@ public class BaseEnemyScript : ScriptableObject
     public bool postDodgeAtker = false;
     public bool isSlippery = false;
     public bool unharmableVoidStun = false;
+    public float modeShiftSpeed = 0f;
+    public BaseEnemyScript modeShift;
 }

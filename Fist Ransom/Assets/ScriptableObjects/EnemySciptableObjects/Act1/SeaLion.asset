@@ -23,6 +23,8 @@ MonoBehaviour:
   maxHealth: 57
   postAtkStunTime: 0.6
   stunnedTime: 2
+  headDamageMultiplier: 1
+  bodyDamageMultiplier: 1
   soundHit1: {fileID: 8300000, guid: 9d0981ccbdf7dbe418e5eb7039a729b2, type: 3}
   soundHit2: {fileID: 8300000, guid: ac018d0b700df67469a19b49d67fbd99, type: 3}
   soundDeath: {fileID: 8300000, guid: f4f528a5ea5ccc145a452436d60fe48b, type: 3}
@@ -46,3 +48,6 @@ MonoBehaviour:
   postHitAtker: 0
   postDodgeAtker: 0
   isSlippery: 1
+  unharmableVoidStun: 0
+  modeShiftSpeed: 0
+  modeShift: {fileID: 0}
