@@ -25,10 +25,10 @@ MonoBehaviour:
   playWarning: 1
   parryableUpL: 1
   parryableUpR: 1
-  parryableR: 1
-  parryableL: 1
+  parryableR: 0
+  parryableL: 0
   unstunable: 1
-  unparryable: 1
+  unparryable: 0
   isntAtker: 0
   atkChaining: 0
   howManyTime: 0
