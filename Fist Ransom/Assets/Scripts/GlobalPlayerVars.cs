@@ -10,6 +10,7 @@ public class GlobalPlayerVars : MonoBehaviour
     public static int RageCount = 1;
     public static float PlayerHealth = 100;
     public static float PlayerMaxHealth = 100;
+    public static float PlayerRegenPer = 0f;
     public static int PlayerRage = 0;
     public static float PlayerRageSpeed = 1f;
 
