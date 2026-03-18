@@ -64,8 +64,10 @@ public class ScreenFading : MonoBehaviour
             SceneManager.LoadScene("BasicEnemyVic");
         if (back2Map)
         {
-            Debug.Log("LoadingBattle");
-            SceneManager.LoadScene("Zone1Map");
+            if (GlobalPlayerVars.playerAct == 1)
+                SceneManager.LoadScene("Zone1Map");
+            else if (GlobalPlayerVars.playerAct == 2)
+                SceneManager.LoadScene("Zone2Map");
         }
         if (toMainMenu)
         {
@@ -111,7 +113,10 @@ public class ScreenFading : MonoBehaviour
             SceneManager.LoadScene("BasicEnemyVic");
         if (back2Map)
         {
-            SceneManager.LoadScene("Zone1Map");
+            if (GlobalPlayerVars.playerAct == 1)
+                SceneManager.LoadScene("Zone1Map");
+            else if (GlobalPlayerVars.playerAct == 2)
+                SceneManager.LoadScene("Zone2Map");
         }
         if (toMainMenu)
         {

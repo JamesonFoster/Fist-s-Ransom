@@ -33,10 +33,10 @@ public class PlayerMovement : MonoBehaviour
     private float colorLength = 0.1f;
     private Color targetColor;
     private Color originalColor;
-        //song vals
-        public bool isSong = false;
-        private float songTime = 7f;
-        private float songTimer = 0f;
+    //song vals
+    public bool isSong = false;
+    private float songTime = 7f;
+    private float songTimer = 0f;
 
     void Awake()
     {
@@ -52,11 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float regen = (GlobalPlayerVars.PlayerRegenPer / 5) * Time.deltaTime;
-        if (GlobalPlayerVars.PlayerHealth > (GlobalPlayerVars.PlayerMaxHealth - regen))
-        {
-            GlobalPlayerVars.PlayerHealth += regen;
-        }
+
     }
 
     void Update()
@@ -67,71 +63,73 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-        stunTimer += Time.deltaTime;
-        HandleEffects();
+            stunTimer += Time.deltaTime;
+            HandleEffects();
 
-        if (!isDodging)
-            dodgeAtkLock = false;
+            HandleRegen();
 
-        // Only allow dodging if player can move and dodge cooldown passed
-        if (!isDodging && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                dodgeMode = 1;
-                dodgeType = "left";
-                StartDodge(Vector2.left);
-            }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                dodgeMode = 2;
-                dodgeType = "right";
-                StartDodge(Vector2.right);
-            }
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                dodgeMode = 3;
-                dodgeType = "down";
-                StartDodge(Vector2.down);
-            }
-        }
+            if (!isDodging)
+                dodgeAtkLock = false;
 
-        // Dodge movement
-        if (isDodging)
-        {
-            if (dodgeMode == 1)
-            SpriteChange(dodgeLeftSpr);
-            if (dodgeMode == 2)
-            SpriteChange(dodgeRightSpr);
-            if (dodgeMode == 3)
-            SpriteChange(dodgeBackSpr);
-
-            if ((Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0)))
-                isDodging = false;
-            if ((Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1)))
-                isDodging = false;
-            if ((Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == 100)
-                isDodging = false;
-
-            dodgeTimer += Time.deltaTime;
-            float halfDodge = (GlobalPlayerVars.dodgeTime / 2f) * dodgeSlower;
-
-            if (dodgeTimer <= halfDodge)
+            // Only allow dodging if player can move and dodge cooldown passed
+            if (!isDodging && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
             {
-                transform.position = Vector2.MoveTowards(transform.position, dodgeTarget, ((GlobalPlayerVars.dodgeDistance * dodgeSlower) / halfDodge) * Time.deltaTime);
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    dodgeMode = 1;
+                    dodgeType = "left";
+                    StartDodge(Vector2.left);
+                }
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    dodgeMode = 2;
+                    dodgeType = "right";
+                    StartDodge(Vector2.right);
+                }
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    dodgeMode = 3;
+                    dodgeType = "down";
+                    StartDodge(Vector2.down);
+                }
             }
-            else if (dodgeTimer <= (GlobalPlayerVars.dodgeTime * dodgeSlower))
+
+            // Dodge movement
+            if (isDodging)
             {
-                transform.position = Vector2.MoveTowards(transform.position, startPos, ((GlobalPlayerVars.dodgeDistance * dodgeSlower) / halfDodge) * Time.deltaTime);
+                if (dodgeMode == 1)
+                    SpriteChange(dodgeLeftSpr);
+                if (dodgeMode == 2)
+                    SpriteChange(dodgeRightSpr);
+                if (dodgeMode == 3)
+                    SpriteChange(dodgeBackSpr);
+
+                if ((Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0)))
+                    isDodging = false;
+                if ((Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1)))
+                    isDodging = false;
+                if ((Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == 100)
+                    isDodging = false;
+
+                dodgeTimer += Time.deltaTime;
+                float halfDodge = (GlobalPlayerVars.dodgeTime / 2f) * dodgeSlower;
+
+                if (dodgeTimer <= halfDodge)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, dodgeTarget, ((GlobalPlayerVars.dodgeDistance * dodgeSlower) / halfDodge) * Time.deltaTime);
+                }
+                else if (dodgeTimer <= (GlobalPlayerVars.dodgeTime * dodgeSlower))
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, startPos, ((GlobalPlayerVars.dodgeDistance * dodgeSlower) / halfDodge) * Time.deltaTime);
+                }
+                else
+                {
+                    isDodging = false;
+                    dodgeSlower = 1f;
+                    SpriteChange(standingStill);
+                    transform.position = startPos;
+                }
             }
-            else
-            {
-                isDodging = false;
-                dodgeSlower = 1f;
-                SpriteChange(standingStill);
-                transform.position = startPos;
-            }
-        }
         }
     }
 
@@ -221,6 +219,16 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+    public void HandleRegen()
+    {
+        float regen = (GlobalPlayerVars.PlayerRegenPer / 5) * Time.deltaTime;
+        if (GlobalPlayerVars.PlayerHealth < (GlobalPlayerVars.PlayerMaxHealth - regen))
+        {
+            GlobalPlayerVars.PlayerHealth += regen;
+        }
+    }
+
 
     public void HandleEffects()
     {

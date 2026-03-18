@@ -58,11 +58,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6375819186370086168, guid: f367dcf6df3cbec4cbcc4eb4c7f4b201, type: 3}
       propertyPath: miniRooms.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6375819186370086168, guid: f367dcf6df3cbec4cbcc4eb4c7f4b201, type: 3}
       propertyPath: enemyRooms.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6375819186370086168, guid: f367dcf6df3cbec4cbcc4eb4c7f4b201, type: 3}
+      propertyPath: 'miniRooms.Array.data[0]'
+      value: SirenFight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

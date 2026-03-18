@@ -22,7 +22,7 @@ MonoBehaviour:
   headRageIncrease: 0
   bodyRageIncrease: 0
   maxHealthIncrease: 0
-  regenPer5SecondsInc: 5
+  regenPer5SecondsInc: 1
   dodgeTimeIncrease: 0
   goldMultiplyier: 0
   rageDodgeNullIncre: 0

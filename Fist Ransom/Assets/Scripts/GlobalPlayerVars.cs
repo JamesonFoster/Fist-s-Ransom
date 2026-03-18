@@ -4,6 +4,7 @@ public class GlobalPlayerVars : MonoBehaviour
 {
     //PlayerMapInfo
     public static int playerLocationID = 0;
+    public static int playerAct = 1;
 
     //PlayerValues
     public static int HealCount = 3;
