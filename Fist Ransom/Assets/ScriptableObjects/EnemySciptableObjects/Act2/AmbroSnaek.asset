@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7ae26faaeed745b9b18bcf4c40155, type: 3}
+  m_Name: AmbroSnaek
+  m_EditorClassIdentifier: 
+  name: noName
+  baseGoldWorth: 100
+  atkRedyPercent: 0.5
+  atkRageRedyPercent: 0.5
+  dodgeDistance: 5
+  dodgeTime: 0.4
+  dodgeStun: 0.1
+  atkAgro: 0
+  maxHealth: 25
+  postAtkStunTime: 0.6
+  stunnedTime: 2
+  headDamageMultiplier: 1
+  bodyDamageMultiplier: 1
+  soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
+  soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
+  soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
+  soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
+  soundStunned: {fileID: 0}
+  soundCele1: {fileID: 0}
+  soundCele2: {fileID: 0}
+  idlespeed: 0.25
+  sprStandingStill: {fileID: 21300000, guid: 908d29f99ced5db4ab3537b9bd4f261a, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: 95d78d738cf0a8848893df65d1880b55, type: 3}
+  sprStunned1: {fileID: 0}
+  sprStunned2: {fileID: 0}
+  sprDead: {fileID: 0}
+  sprDodge: {fileID: 0}
+  sprHeadHitL: {fileID: 0}
+  sprHeadHitR: {fileID: 0}
+  sprBodyHitL: {fileID: 0}
+  sprBodyHitR: {fileID: 0}
+  sprPlayerDeath1: {fileID: 0}
+  sprPlayerDeath2: {fileID: 0}
+  postHitAtker: 0
+  postDodgeAtker: 0
+  isSlippery: 0
+  unharmableVoidStun: 0
+  modeShiftSpeed: 0
+  modeShift: {fileID: 0}
