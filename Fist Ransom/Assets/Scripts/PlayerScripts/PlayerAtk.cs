@@ -20,7 +20,7 @@ public class PlayerAtk : MonoBehaviour
     private SpriteRenderer sprrend;
     public float hitStunnedTimer;
     private bool upSprites = false;
-    private bool rageSprites = false;
+    public bool rageSprites = false;
     [Header("Sprites")]
     public Sprite standingStill;
     public Sprite upAtkPart1;

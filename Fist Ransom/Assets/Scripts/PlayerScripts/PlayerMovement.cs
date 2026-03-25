@@ -37,6 +37,12 @@ public class PlayerMovement : MonoBehaviour
     public bool isSong = false;
     private float songTime = 7f;
     private float songTimer = 0f;
+    //poison vals
+    public bool isPoisoned = false;
+    private float poisonTimer = 10f;
+    private float poisonHitTimer = 0f;
+    public Sprite posionVisual;
+    public AudioClip soundPoisonHit;
 
     void Awake()
     {
@@ -198,27 +204,37 @@ public class PlayerMovement : MonoBehaviour
     {
         foreach (var eff in effects)
         {
-            if (eff == "forDodgeL")
+            switch (eff)
             {
-                StartDodge(Vector2.left);
-                dodgeSlower = 2f;
-                dodgeAtkLock = true;
-            }
-            if (eff == "forDodgeR")
-            {
-                StartDodge(Vector2.right);
-                dodgeSlower = 2f;
-                dodgeAtkLock = true;
-            }
-            if (eff == "song")
-            {
-                isSong = true;
-                colorLength = 7f;
-                targetColor = new Color(1f, 0.4f, 0.7f);
-                StartCoroutine(EffectFlicker());
+                case "forDodgeL":
+                    StartDodge(Vector2.left);
+                    dodgeSlower = 2f;
+                    dodgeAtkLock = true;
+                    break;
+                
+                case "forDodgeR":
+                    StartDodge(Vector2.right);
+                    dodgeSlower = 2f;
+                    dodgeAtkLock = true;
+                    break;
+                
+                case "song":
+                    isSong = true;
+                    colorLength = 7f;
+                    targetColor = new Color(1f, 0.4f, 0.7f);
+                    StartCoroutine(EffectFlicker());
+                    break;
+                
+                case "poison":
+                    isPoisoned = true;
+                    colorLength = .32f;
+                    targetColor = Color.green;
+                    StartCoroutine(EffectFlicker());
+                    break;
             }
         }
     }
+    
 
     public void HandleRegen()
     {
@@ -229,11 +245,27 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void CancelAll()
+    {
+        //Dodging Stops
+        isDodging = false;
+        dodgeSlower = 1f;
+        SpriteChange(standingStill);
+        transform.position = startPos;
+        //Atk Stops
+        plAtk.attackTimer = 0f;
+        plAtk.isAtking = false;
+        canMove = true;
+        sprrend.flipX = false;
+        plAtk.rageSprites = false;
+    }
 
     public void HandleEffects()
     {
         if (isSong)
             Song();
+        if (isPoisoned)
+            Poison();
     }
 
     IEnumerator EffectFlicker()
@@ -253,6 +285,29 @@ public class PlayerMovement : MonoBehaviour
             dodgeAtkLock = false;
             dodgeSlower = 1f;
             isSong = false;
+        }
+    }
+    
+    public void Poison()
+    {
+        poisonHitTimer += Time.deltaTime;
+        poisonTimer -= Time.deltaTime;
+
+        if (poisonTimer <= 0f)
+        {
+            poisonTimer = 10f;
+            isPoisoned = false;
+        }
+        if (poisonHitTimer >= GlobalPlayerVars.poisonPlayerHitTimer)
+        {
+            Instantiate(posionVisual);
+            plAtk.aS.PlayOneShot(soundPoisonHit);
+            colorLength = .16f;
+            targetColor = Color.green;
+            StartCoroutine(EffectFlicker());
+            GlobalPlayerVars.PlayerHealth -= 4f;
+            CancelAll();
+            poisonHitTimer = 0f;
         }
     }
 }
