@@ -80,7 +80,7 @@ public class PlayerAtk : MonoBehaviour
                 AttackL();
             if (!isAtking && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1)))
                 AttackR();
-            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == 100)
+            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == GlobalPlayerVars.PlayerRageMax)
                 AttackRage();
             if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Q))
                 useHeal();
@@ -243,14 +243,7 @@ public class PlayerAtk : MonoBehaviour
         if (GlobalPlayerVars.RageCount > 0)
         {
             GlobalPlayerVars.RageCount--;
-            if (GlobalPlayerVars.PlayerRage <= 75)
-            {
-                GlobalPlayerVars.PlayerRage += 25;
-            }
-            else
-            {
-                GlobalPlayerVars.PlayerRage = 100;
-            }
+            GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + GlobalPlayerVars.AleRageAmount, GlobalPlayerVars.PlayerRageMax);
         }
     }
 

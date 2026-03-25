@@ -396,14 +396,14 @@ public class EnemyMovement : MonoBehaviour
                 GlobalPlayerVars.EnemyHealth -= dama;
                 SpawnHit(((int)dama));
                 GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
-                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + GlobalPlayerVars.PlayerRagePerAtk, GlobalPlayerVars.PlayerRageMax);
             }
             else if (stunned)
             {
                 GlobalPlayerVars.EnemyHealth -= dama;
                 SpawnHit(((int)dama));
                 GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
-                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + GlobalPlayerVars.PlayerRagePerAtk, GlobalPlayerVars.PlayerRageMax);
             }
             else
             {
@@ -420,14 +420,14 @@ public class EnemyMovement : MonoBehaviour
                 GlobalPlayerVars.EnemyHealth -= dama;
                 SpawnHit(((int)dama));
                 GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
-                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + GlobalPlayerVars.PlayerRagePerAtk, GlobalPlayerVars.PlayerRageMax);
             }
             else if (stunned)
             {
                 GlobalPlayerVars.EnemyHealth -= dama;
                 SpawnHit(((int)dama));
                 GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
-                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + GlobalPlayerVars.PlayerRagePerAtk, GlobalPlayerVars.PlayerRageMax);
             }
             else
             {
@@ -444,14 +444,14 @@ public class EnemyMovement : MonoBehaviour
                 GlobalPlayerVars.EnemyHealth -= dama;
                 SpawnHit(((int)dama));
                 GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
-                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + GlobalPlayerVars.PlayerRagePerAtk, GlobalPlayerVars.PlayerRageMax);
             }
             else if (stunned)
             {
                 GlobalPlayerVars.EnemyHealth -= dama;
                 SpawnHit(((int)dama));
                 GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
-                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + GlobalPlayerVars.PlayerRagePerAtk, GlobalPlayerVars.PlayerRageMax);
             }
             else
             {
@@ -468,14 +468,14 @@ public class EnemyMovement : MonoBehaviour
                 GlobalPlayerVars.EnemyHealth -= dama;
                 SpawnHit(((int)dama));
                 GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
-                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + GlobalPlayerVars.PlayerRagePerAtk, GlobalPlayerVars.PlayerRageMax);
             }
             else if (stunned)
             {
                 GlobalPlayerVars.EnemyHealth -= dama;
                 SpawnHit(((int)dama));
                 GlobalPlayerVars.goldvalue += 2f * GlobalPlayerVars.coinMultiplay;
-                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + 10, 100);
+                GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + GlobalPlayerVars.PlayerRagePerAtk, GlobalPlayerVars.PlayerRageMax);
             }
             else
             {
