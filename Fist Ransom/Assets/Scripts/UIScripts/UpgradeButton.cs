@@ -104,11 +104,13 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             descriptionText.text = upgrade.description;
         if (sound != null)
             aS.PlayOneShot(sound);
+        transform.localScale = new Vector3(3f, 3f, 1f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         if (descriptionText != null)
             descriptionText.text = "";
+        transform.localScale = new Vector3(2.1844f, 2.1844f, 1f);
     }
 }

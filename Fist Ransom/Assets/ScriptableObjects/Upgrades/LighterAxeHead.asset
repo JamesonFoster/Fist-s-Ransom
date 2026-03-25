@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Lighter Axe Head
   rarity: 0
   icon: {fileID: -2941440302134862869, guid: a946d1ae61e18504aa2b95faf3b109ab, type: 3}
+  sound: {fileID: 8300000, guid: 81652a91f96fab14b958403f3cee7ea9, type: 3}
   Value: 75
   description: 'Yur''s Lighter Axe Head
 
@@ -32,6 +33,7 @@ MonoBehaviour:
   headRageIncrease: -2
   bodyRageIncrease: -2
   maxHealthIncrease: 0
+  regenPer5SecondsInc: 0
   dodgeTimeIncrease: 0
   goldMultiplyier: 0
   rageDodgeNullIncre: 0.05

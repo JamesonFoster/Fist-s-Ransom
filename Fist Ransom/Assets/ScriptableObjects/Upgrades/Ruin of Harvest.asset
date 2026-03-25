@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Rune of Jera
   rarity: 0
   icon: {fileID: -42836555644134576, guid: bbd266c753052a24d9144de353f3a196, type: 3}
+  sound: {fileID: 8300000, guid: a7654214683706840b56555fc2f8803d, type: 3}
   Value: 100
   description: 'Saga''s Rune of Jera
 
@@ -28,6 +29,7 @@ MonoBehaviour:
   headRageIncrease: 0
   bodyRageIncrease: 0
   maxHealthIncrease: 0
+  regenPer5SecondsInc: 0
   dodgeTimeIncrease: 0
   goldMultiplyier: 0.05
   rageDodgeNullIncre: 0

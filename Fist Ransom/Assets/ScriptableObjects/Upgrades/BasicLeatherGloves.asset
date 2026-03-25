@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Ragnar's Leather Gloves
   rarity: 0
   icon: {fileID: -5429056220715076523, guid: d22c1013be03cd64db6f1701d793e289, type: 3}
+  sound: {fileID: 8300000, guid: 396b8273c1a1aff45ba53629f3a7853a, type: 3}
   Value: 65
   description: 'Ragnar''s Leather Gloves
 
@@ -27,6 +28,7 @@ MonoBehaviour:
   headRageIncrease: 0
   bodyRageIncrease: 0
   maxHealthIncrease: 0
+  regenPer5SecondsInc: 0
   dodgeTimeIncrease: 0
   goldMultiplyier: 0
   rageDodgeNullIncre: 0

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: AmulatOfRegen
   m_EditorClassIdentifier: 
   upgradeName: Aulate of Regen
-  rarity: 0
+  rarity: 1
   icon: {fileID: 9183752787575964214, guid: 584151e7bf77ed042860e947c01a7d3c, type: 3}
-  Value: 0
+  sound: {fileID: 8300000, guid: e58336a86b4ff1947b5c4b712c7a5c74, type: 3}
+  Value: 175
   description: 
   headDamageIncrease: 0
   bodyDamageIncrease: 0

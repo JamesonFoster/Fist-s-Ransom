@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Rune of Sol
   rarity: 1
   icon: {fileID: 1088661938785845639, guid: eeefb139acc54e94ea101c5e36483888, type: 3}
+  sound: {fileID: 8300000, guid: a7654214683706840b56555fc2f8803d, type: 3}
   Value: 125
   description: 'Saga''s Rune of Sol
 
