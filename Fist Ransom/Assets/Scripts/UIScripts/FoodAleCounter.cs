@@ -27,6 +27,14 @@ public class FoodAleCounter : MonoBehaviour
         else if (isAle == true)
             textMeshPro.text = GlobalPlayerVars.RageCount.ToString();
         else
+        {
             textMeshPro.text = GlobalPlayerVars.gold.ToString();
+            #if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                GlobalPlayerVars.gold += 100;
+            }
+            #endif
+        }
     }
 }
