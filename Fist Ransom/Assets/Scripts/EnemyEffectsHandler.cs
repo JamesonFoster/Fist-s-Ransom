@@ -61,13 +61,13 @@ public class EnemyEffectsHandler : MonoBehaviour
 
     public void EffectCheck()
     {
-        if (isPoisoned == true)
+        if (isPoisoned)
             Poison();
-        if (isBurning == true)
+        if (isBurning)
             Burn();
     }
 
-    public void Poison()
+    private void Poison()
     {
         poisonHitTimer += Time.deltaTime;
         poisonTimer -= Time.deltaTime;
@@ -89,7 +89,7 @@ public class EnemyEffectsHandler : MonoBehaviour
         }
     }
 
-    public void Burn()
+    private void Burn()
     {
         burningHitTimer += Time.deltaTime;
         burningTimer -= Time.deltaTime;

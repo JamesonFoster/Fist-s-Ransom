@@ -12,14 +12,14 @@ public class PlayerHeathBar : MonoBehaviour
     void Start()
     {
         _slider = GetComponent<Slider>();
-        if (isRageMeter == false)
+        if (!isRageMeter)
         {
             float healpercent = (GlobalPlayerVars.PlayerHealth / GlobalPlayerVars.PlayerMaxHealth) * 100;
             _slider.value = healpercent;
         }
         else
         {
-            float rage = GlobalPlayerVars.PlayerRage;
+            float rage = ((float)GlobalPlayerVars.PlayerRage / (float)GlobalPlayerVars.PlayerRageMax) * 100;
             _slider.value = rage;
         }
     }
@@ -27,14 +27,14 @@ public class PlayerHeathBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isRageMeter == false)
+        if (!isRageMeter)
         {
             float healpercent = (GlobalPlayerVars.PlayerHealth / GlobalPlayerVars.PlayerMaxHealth) * 100;
             _slider.value = healpercent;
         }
         else
         {
-            float rage = GlobalPlayerVars.PlayerRage;
+            float rage = ((float)GlobalPlayerVars.PlayerRage / (float)GlobalPlayerVars.PlayerRageMax) * 100;
             _slider.value = rage;
         }
     }

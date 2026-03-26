@@ -56,11 +56,6 @@ public class PlayerMovement : MonoBehaviour
         startPos = transform.position;
     }
 
-    private void FixedUpdate()
-    {
-
-    }
-
     void Update()
     {
         if (GlobalPlayerVars.PlayerHealth <= 0f)
@@ -80,19 +75,19 @@ public class PlayerMovement : MonoBehaviour
             // Only allow dodging if player can move and dodge cooldown passed
             if (!isDodging && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
             {
-                if (Input.GetKeyDown(KeyCode.A))
+                if (Input.GetKeyDown(KeyCode.A) && plAtk.hitStunnedTimer < 0f)
                 {
                     dodgeMode = 1;
                     dodgeType = "left";
                     StartDodge(Vector2.left);
                 }
-                if (Input.GetKeyDown(KeyCode.D))
+                if (Input.GetKeyDown(KeyCode.D) && plAtk.hitStunnedTimer < 0f)
                 {
                     dodgeMode = 2;
                     dodgeType = "right";
                     StartDodge(Vector2.right);
                 }
-                if (Input.GetKeyDown(KeyCode.S))
+                if (Input.GetKeyDown(KeyCode.S) && plAtk.hitStunnedTimer < 0f)
                 {
                     dodgeMode = 3;
                     dodgeType = "down";
@@ -114,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
                     isDodging = false;
                 if ((Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1)))
                     isDodging = false;
-                if ((Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == 100)
+                if ((Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == GlobalPlayerVars.PlayerRageMax)
                     isDodging = false;
 
                 dodgeTimer += Time.deltaTime;

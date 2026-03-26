@@ -62,13 +62,15 @@ public class PlayerAtk : MonoBehaviour
 
         if (hitStunnedTimer <= 0)
         {
-            SpriteChange(standingStill);
             hitStunned = false;
+            if (!plMove.isDodging)
+                SpriteChange(standingStill);
         }
         else
         {
             hitStunned = true;
-            SpriteChange(sprhitStunned);
+            if (!plMove.isDodging)
+                SpriteChange(sprhitStunned);
         }
         // Aim up check
         aimUp = Input.GetKey(KeyCode.W);
@@ -97,6 +99,10 @@ public class PlayerAtk : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.P))
             {
                 GlobalPlayerVars.PlayerHealth -= 999;
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                GlobalPlayerVars.PlayerRage = GlobalPlayerVars.PlayerRageMax;
             }
             #endif
         }
@@ -203,7 +209,6 @@ public class PlayerAtk : MonoBehaviour
 }
     public void AttackRage()
     {
-        currentDir = "rage";
         isAtking = true;
         plMove.canMove = false;
         damageApplied = false;
@@ -211,12 +216,14 @@ public class PlayerAtk : MonoBehaviour
 
         if (aimUp) 
         { 
+            currentDir = "rageUp";
             attackTimer -= GlobalPlayerVars.PlayerRageSpeed; 
             currentDamage = GlobalPlayerVars.rageHeadAtk;
             rageSprites = true; 
         } 
         else 
         { 
+            currentDir = "rageDown";
             attackTimer -= GlobalPlayerVars.PlayerRageSpeed; 
             currentDamage = GlobalPlayerVars.rageBodyAtk;
             rageSprites = true;

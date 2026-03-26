@@ -56,4 +56,5 @@ public class BaseEnemyScript : ScriptableObject
     public bool unharmableVoidStun = false;
     public float modeShiftSpeed = 0f;
     public BaseEnemyScript modeShift;
+    public float atkSpeedMultiplier = 1f;
 }
