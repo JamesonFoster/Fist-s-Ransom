@@ -1,13 +1,18 @@
 # Fist's Ransom (In Development)
 
-A 2D roguelike created in unity focused on timing-based combat inspired by Punch-Out!!, featuring modular enemy design and scalable gameplay systems
+A 2D roguelike created in unity focused on timing-based combat inspired by Punch-Out, featuring modular enemy design and scalable gameplay systems
 
 Features:
 Combat System – Timing-based player attacks, hit detection, and enemy response logic
+
 Enemy AI – State-driven behavior system with configurable attack patterns
+
 Upgrade System – Modular upgrades affecting player stats and abilities
+
 World Map System – Traversable level map with node-based progression
+
 UI Systems – Dynamic UI for combat feedback and player progression
+
 Content Pipeline – Designed for scalability (currently 1 act complete, 2 in development)
 
 Tech:
