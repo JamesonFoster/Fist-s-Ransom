@@ -3,6 +3,7 @@
 A 2D roguelike created in unity focused on timing-based combat inspired by Punch-Out, featuring modular enemy design and scalable gameplay systems
 
 Features:
+
 Combat System – Timing-based player attacks, hit detection, and enemy response logic
 
 Enemy AI – State-driven behavior system with configurable attack patterns
