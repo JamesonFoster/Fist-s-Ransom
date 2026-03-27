@@ -101,6 +101,8 @@ public class EnemyMovement : MonoBehaviour
 
     // Misc
     private float dT;
+    private bool playerHasItem = false;
+    private UpgradeManager upMan;
 
 
     private void Awake()
@@ -114,22 +116,34 @@ public class EnemyMovement : MonoBehaviour
         sprrend = GetComponent<SpriteRenderer>();
         enemyEff = GetComponent<EnemyEffectsHandler>();
         aS = GetComponent<AudioSource>();
+        upMan = FindObjectOfType<UpgradeManager>();
     }
     void Start()
     {
         corePos = transform.position;
-        if (enemyData.isSlippery)
+        if (enemyData.atkNHitSettings.isSlippery)
         {
         HandleSlip();
         }
         Vector2 newVec = new Vector2(xChanger, yChanger);
         startPos = corePos + newVec;
-        if (enemyData.isSlippery)
+        if (enemyData.atkNHitSettings.isSlippery)
         {
             if (xChanger == -0.282f)
+            {
+                sprFlip = true;
                 StartDodge(Vector2.left);
+            }
             else
                 StartDodge(Vector2.right);
+        }
+        if (enemyData.itemTestingSettings.ifPlayerHas != null)
+        {
+            if (upMan.HasUpgrade(enemyData.itemTestingSettings.ifPlayerHas))
+            playerHasItem = true;
+
+            if (enemyData.itemTestingSettings.isModeShift && playerHasItem) //Mode Shifting
+            enemyData = enemyData.itemTestingSettings.modeToShift2;
         }
     }
 
@@ -164,11 +178,12 @@ public class EnemyMovement : MonoBehaviour
         else
         {
         dT = Time.deltaTime;
-        HandleIdle();
-            if (enemyData.modeShift != null)
-                HandleModeShift();
+        if (!isAtk && !isDodging && !stunned)
+            HandleIdle();
+        if (enemyData.modeShiftSettings.modeShift != null)
+            HandleModeShift();
         if (isDead != true)
-            {
+        {
             enemyEff.EffectCheck();
             if (GlobalPlayerVars.EnemyHealth <= 0)
             {
@@ -176,14 +191,10 @@ public class EnemyMovement : MonoBehaviour
                 GlobalPlayerVars.gold += Mathf.RoundToInt(GlobalPlayerVars.goldvalue);
                 aS.PlayOneShot(enemyData.soundDeath);
             }
-            if (sprFlip)
-                sprrend.flipX = true;
-            else
-                sprrend.flipX = false;
             HandleHit();
-            HandleAttack();
             HandleDodge();
             HandleStun();
+            HandleAttack();
         }
         else
         {
@@ -267,13 +278,23 @@ public class EnemyMovement : MonoBehaviour
             if (dodgeTimer <= enemyData.dodgeTime / 2f)
             {
                 if (!isAtk)
-                SpriteChange(enemyData.sprDodge);
+                {
+                    if (!sprFlip)
+                    SpriteChange(enemyData.sprDodge);
+                    else
+                    SpriteChange(enemyData.sprDodgeL);
+                }
                 transform.position = Vector2.MoveTowards(transform.position, dodgeTarget, (enemyData.dodgeDistance / (enemyData.dodgeTime / 2f)) * dT);
             }
             else if (dodgeTimer <= enemyData.dodgeTime)
             {
                 if (!isAtk)
-                SpriteChange(enemyData.sprDodge);
+                {
+                    if (!sprFlip)
+                    SpriteChange(enemyData.sprDodge);
+                    else
+                    SpriteChange(enemyData.sprDodgeL);
+                }
                 transform.position = Vector2.MoveTowards(transform.position, startPos, (enemyData.dodgeDistance / (enemyData.dodgeTime / 2f)) * dT);
             }
             else
@@ -355,7 +376,7 @@ public class EnemyMovement : MonoBehaviour
                     StartDodge(Vector2.left);
                 }
 
-                if (enemyData.postDodgeAtker)
+                if (enemyData.atkNHitSettings.postDodgeAtker)
                 {
                     Attack();
                 }
@@ -364,7 +385,7 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
-        if (enemyData.isSlippery)
+        if (enemyData.atkNHitSettings.isSlippery)
         {
             if ((yChanger == 0.282f && xChanger == -0.282f) && (score != "headL" && score != "rage"))
                 return;
@@ -388,12 +409,12 @@ public class EnemyMovement : MonoBehaviour
         //Handles all damage calc
         HandleDamage(score, damage, effectlist);
 
-        if (enemyData.postHitAtker)
+        if (enemyData.atkNHitSettings.postHitAtker)
         {
             Attack();
         }
         
-        if (!enemyData.unharmableVoidStun)
+        if (!enemyData.atkNHitSettings.unharmableVoidStun)
         hitSprChanger = .16f;
         else if (stunned)
         hitSprChanger = .16f;
@@ -403,13 +424,16 @@ public class EnemyMovement : MonoBehaviour
         else
             aS.PlayOneShot(enemyData.soundHit2);
 
-        if (enemyData.isSlippery && !stunned)
+        if (enemyData.atkNHitSettings.isSlippery && !stunned)
         {
             HandleSlip();
             Vector2 newVec = new Vector2(xChanger, yChanger);
             startPos = corePos + newVec;
             if (xChanger == -0.282f)
+            {
+                sprFlip = true;
                 StartDodge(Vector2.left);
+            }
             else
                 StartDodge(Vector2.right);
         }
@@ -557,6 +581,7 @@ public class EnemyMovement : MonoBehaviour
             }
             if (hitSprChanger <= 0f && hitSprChanger >= -.04)
             {
+                if (!isAtk)
                 SpriteChange(curstandspr);
             }
     }
@@ -641,10 +666,10 @@ public class EnemyMovement : MonoBehaviour
     public void HandleModeShift()
     {
         modeShiftTimer += dT;
-        if (modeShiftTimer >= enemyData.modeShiftSpeed)
+        if (modeShiftTimer >= enemyData.modeShiftSettings.modeShiftSpeed)
         {
             modeShiftTimer = 0f;
-            enemyData = enemyData.modeShift;
+            enemyData = enemyData.modeShiftSettings.modeShift;
         }
     }
 
@@ -654,7 +679,7 @@ public class EnemyMovement : MonoBehaviour
         {
             enemyEff.ApplyEffectsBasic(effectlist);
             float dama = damage * enemyData.headDamageMultiplier;
-            if (!enemyData.unharmableVoidStun)
+            if (!enemyData.atkNHitSettings.unharmableVoidStun)
             {
                 GlobalPlayerVars.EnemyHealth -= dama;
                 SpawnHit(((int)dama));
@@ -678,7 +703,7 @@ public class EnemyMovement : MonoBehaviour
         {
             enemyEff.ApplyEffectsBasic(effectlist);
             float dama = damage * enemyData.headDamageMultiplier;
-            if (!enemyData.unharmableVoidStun)
+            if (!enemyData.atkNHitSettings.unharmableVoidStun)
             {
                 GlobalPlayerVars.EnemyHealth -= dama;
                 SpawnHit(((int)dama));
@@ -702,7 +727,7 @@ public class EnemyMovement : MonoBehaviour
         {
             enemyEff.ApplyEffectsBasic(effectlist);
             float dama = damage * enemyData.bodyDamageMultiplier;
-            if (!enemyData.unharmableVoidStun)
+            if (!enemyData.atkNHitSettings.unharmableVoidStun)
             {
                 GlobalPlayerVars.EnemyHealth -= dama;
                 SpawnHit(((int)dama));
@@ -726,7 +751,7 @@ public class EnemyMovement : MonoBehaviour
         {
             enemyEff.ApplyEffectsBasic(effectlist);
             float dama = damage * enemyData.bodyDamageMultiplier;
-            if (!enemyData.unharmableVoidStun)
+            if (!enemyData.atkNHitSettings.unharmableVoidStun)
             {
                 GlobalPlayerVars.EnemyHealth -= dama;
                 SpawnHit(((int)dama));
@@ -749,7 +774,7 @@ public class EnemyMovement : MonoBehaviour
         else if (score == "rageUp") // Rage Up Hit
         {
             enemyEff.ApplyEffectsBasic(effectlist);
-            if (!enemyData.unharmableVoidStun)
+            if (!enemyData.atkNHitSettings.unharmableVoidStun)
             {
                 float dama = damage * enemyData.headDamageMultiplier;
                 GlobalPlayerVars.EnemyHealth -= dama;
@@ -778,7 +803,7 @@ public class EnemyMovement : MonoBehaviour
         else if (score == "rageDown") // Rage Down Hit
         {
             enemyEff.ApplyEffectsBasic(effectlist);
-            if (!enemyData.unharmableVoidStun)
+            if (!enemyData.atkNHitSettings.unharmableVoidStun)
             {
                 float dama = damage * enemyData.bodyDamageMultiplier;
                 GlobalPlayerVars.EnemyHealth -= dama;

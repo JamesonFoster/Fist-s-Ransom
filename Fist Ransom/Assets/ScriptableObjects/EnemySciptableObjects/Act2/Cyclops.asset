@@ -20,6 +20,7 @@ MonoBehaviour:
   dodgeTime: 0.4
   dodgeStun: 0.1
   atkAgro: 0.6
+  atkSpeedMultiplier: 1
   maxHealth: 145
   postAtkStunTime: 0.6
   stunnedTime: 5
@@ -45,7 +46,12 @@ MonoBehaviour:
   sprBodyHitR: {fileID: 21300000, guid: 1bf277cad3a693147b1799b6ea9902e4, type: 3}
   sprPlayerDeath1: {fileID: 21300000, guid: a0fe5505ebcbaa04cbdab8566fd2c4d9, type: 3}
   sprPlayerDeath2: {fileID: 21300000, guid: 5c4e77fd55a8412468b46e4797426315, type: 3}
-  postHitAtker: 0
-  postDodgeAtker: 0
-  isSlippery: 0
-  unharmableVoidStun: 1
+  holdOn: 0
+  atkNHitSettings:
+    postHitAtker: 0
+    postDodgeAtker: 0
+    isSlippery: 0
+    unharmableVoidStun: 1
+  modeShiftSettings:
+    modeShiftSpeed: 0
+    modeShift: {fileID: 0}

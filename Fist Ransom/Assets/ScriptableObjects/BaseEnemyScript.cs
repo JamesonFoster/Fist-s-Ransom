@@ -14,8 +14,9 @@ public class BaseEnemyScript : ScriptableObject
     public float dodgeTime = 0.4f;
     public float dodgeStun = 0.1f;
 
-    [Header("Attack Chances")]
+    [Header("Attack Settings")]
     public float atkAgro = 0.02f;
+    public float atkSpeedMultiplier = 1f;
 
     [Header("Health Stats")]
     public float maxHealth = 25f;
@@ -41,6 +42,7 @@ public class BaseEnemyScript : ScriptableObject
     public Sprite sprStunned2;
     public Sprite sprDead;
     public Sprite sprDodge;
+    public Sprite sprDodgeL;
     public Sprite sprHeadHitL;
     public Sprite sprHeadHitR;
     public Sprite sprBodyHitL;
@@ -48,13 +50,30 @@ public class BaseEnemyScript : ScriptableObject
     public Sprite sprPlayerDeath1;
     public Sprite sprPlayerDeath2;
 
-
     [Header("Personality Values")]
+    public bool holdOn = false;
+    [System.Serializable]
+    public class AtkNHittableSettings
+    {
     public bool postHitAtker = false;
     public bool postDodgeAtker = false;
     public bool isSlippery = false;
     public bool unharmableVoidStun = false;
-    public float modeShiftSpeed = 0f;
-    public BaseEnemyScript modeShift;
-    public float atkSpeedMultiplier = 1f;
+    }
+    [System.Serializable]
+    public class ModeShiftSettings
+    {
+        public float modeShiftSpeed = 0f;
+        public BaseEnemyScript modeShift;
+    }
+    [System.Serializable]
+    public class ItemTestingSettings
+    {
+        public Upgrade ifPlayerHas;
+        public bool isModeShift = false;
+        public BaseEnemyScript modeToShift2;
+    }
+    public AtkNHittableSettings atkNHitSettings;
+    public ModeShiftSettings modeShiftSettings;
+    public ItemTestingSettings itemTestingSettings;
 }
