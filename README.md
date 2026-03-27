@@ -20,6 +20,7 @@ Tech:
 - Developed a lightweight animation workflow using a “paper puppet” system
 
 My Contributions Jameson:
+
 -Sole programmer on the project
 - Designed and implemented:
     - Player combat system
