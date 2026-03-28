@@ -1,23 +1,38 @@
 # Fist's Ransom (In Development)
 
-A Unity-based 2d-Rougelike game focused on combat inspired by Punch-Out.
+A 2D roguelike created in unity focused on timing-based combat inspired by Punch-Out, featuring modular enemy design and scalable gameplay systems
 
 Features:
-- Player Combat System
-- Player Upgrade System
-- UI
-- Treversable Map (level icons)
-- Enemy AI
-- 3 Planned Acts (1-Completed, 2-In Development)
+
+Combat System – Timing-based player attacks, hit detection, and enemy response logic
+
+Enemy AI – State-driven behavior system with configurable attack patterns
+
+Upgrade System – Modular upgrades affecting player stats and abilities
+
+World Map System – Traversable level map with node-based progression
+
+UI Systems – Dynamic UI for combat feedback and player progression
+
+Content Pipeline – Designed for scalability (currently 1 act complete, 2 in development)
 
 Tech:
 - Unity (C#)
+- Implemented Scriptable Objects to:
+    - Define enemy data and attack patterns
+    - Enable rapid iteration without code changes
+    - Support scalable content creation
+- Designed systems with modularity and extensibility in mind
+- Developed a lightweight animation workflow using a “paper puppet” system
 
 My Contributions Jameson:
-- Solo Programmer
-- Programmed Player Combat, Enemy AI, Upgrade Systems, and UI.
-- Used Scriptable Objects (for Enemy Data, Enemy Attacks, and Upgrades)
-for ease of adding enemies, speeding later development time, and make it
-easy to edit enemies without having to mess with code.
-- Posed the "Paper Puppet" Inspired animation
-- Created the SeaLion enemy "Paper Puppet" sprites
+
+-Sole programmer on the project
+- Designed and implemented:
+    - Player combat system
+    - Enemy AI architecture
+    - Upgrade system
+    - UI systems
+- Created custom tools using Scriptable Objects to streamline development
+- Developed and implemented 2D puppet-style animations
+- Created original sprite assets for enemies (e.g., Sea Lion enemy)
