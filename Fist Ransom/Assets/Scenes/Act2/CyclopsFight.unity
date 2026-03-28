@@ -881,7 +881,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e97df5d81bb78f94db883256eaeecd54, type: 3}
   m_Name: 
@@ -1068,12 +1068,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 5
-  isWin: 1
   fadeIn: 1
+  goTo: BasicEnemyVic
   back2Map: 0
-  toMainMenu: 0
-  toTutorial: 0
-  endDemo: 0
   dead: 0
 --- !u!1 &1151327127
 GameObject:
@@ -1161,12 +1158,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 1
-  isWin: 0
   fadeIn: 0
+  goTo: 
   back2Map: 0
-  toMainMenu: 0
-  toTutorial: 0
-  endDemo: 0
   dead: 0
 --- !u!1 &1710417234
 GameObject:
@@ -1454,12 +1448,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 5
-  isWin: 0
   fadeIn: 1
+  goTo: 
   back2Map: 0
-  toMainMenu: 0
-  toTutorial: 0
-  endDemo: 0
   dead: 1
 --- !u!1001 &3402151381823604417
 PrefabInstance:

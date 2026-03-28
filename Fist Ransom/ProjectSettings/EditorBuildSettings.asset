@@ -47,6 +47,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/URDEAD.unity
     guid: 091b50ad2ac00eb49972df2af60ec2f0
+  - enabled: 1
+    path: Assets/Scenes/Act2/Zone2Map.unity
+    guid: 3ae766e73f9ee3b449150746f43af5c6
+  - enabled: 1
+    path: Assets/Scenes/Act2/CyclopsFight.unity
+    guid: b67693e7ee4882b45899299aea1c7d71
+  - enabled: 1
+    path: Assets/Scenes/TestingBattleScene.unity
+    guid: 81480a34c240ebd4ba41dc20db5cb1ef
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

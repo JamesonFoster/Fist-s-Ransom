@@ -12,14 +12,23 @@ public class MapLoader : MonoBehaviour
     void Awake()
     {
         if (instance != null && instance != this)
+    {
+        if (map2 && instance.map1)
+        {
+            Destroy(instance.gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
         {
             Destroy(gameObject);
-            return;
         }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);
+        return;
     }
+
+    instance = this;
+    DontDestroyOnLoad(gameObject);
+    }   
 
     // Update is called once per frame
     void Update()
@@ -39,7 +48,7 @@ public class MapLoader : MonoBehaviour
             GameObject found2 = GameObject.Find("MAP2DETECTOR");
             if (found2)
             {
-                Destroy(transform);
+                Destroy(gameObject);
             }
         }
         if (map2 == true)
@@ -57,7 +66,7 @@ public class MapLoader : MonoBehaviour
             GameObject found2 = GameObject.Find("MAP3DETECTOR");
             if (found2)
             {
-                Destroy(transform);
+                Destroy(gameObject);
             }
         }
     }

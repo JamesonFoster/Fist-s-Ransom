@@ -43,6 +43,11 @@ public class MapButtons : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        transform.localScale = new Vector3(0.2916f, 0.2916f, 1f);
+    }
+
     void Start()
     {
         if (locatType == "enemy" || locatType == "firstenemy")
@@ -63,6 +68,12 @@ public class MapButtons : MonoBehaviour
             playerOn.SetActive(true);
         else
             playerOn.SetActive(false);
+        
+        if (!(GlobalPlayerVars.playerLocationID == accessablefromID1 ||
+            GlobalPlayerVars.playerLocationID == accessablefromID2))
+        {
+            transform.localScale = new Vector3(0.2216f, 0.2216f, 1f);
+        }
     }
 
     void OnMouseDown()
@@ -76,6 +87,9 @@ public class MapButtons : MonoBehaviour
         {
             interactableButton = false;
         }
+        #if UNITY_EDITOR
+            interactableButton = true;
+        #endif
 
         if (!interactableButton)
             return;
@@ -129,5 +143,21 @@ public class MapButtons : MonoBehaviour
                 break;
             }
         }
+    }
+
+    void OnMouseEnter()
+    {
+        if (GlobalPlayerVars.playerLocationID == accessablefromID1 ||
+        GlobalPlayerVars.playerLocationID == accessablefromID2)
+            transform.localScale = new Vector3(0.416f, 0.416f, 1f);
+    }
+
+    void OnMouseExit()
+    {
+        if (GlobalPlayerVars.playerLocationID == accessablefromID1 ||
+            GlobalPlayerVars.playerLocationID == accessablefromID2)
+            transform.localScale = new Vector3(0.2916f, 0.2916f, 1f);
+        else
+            transform.localScale = new Vector3(0.2216f, 0.2216f, 1f);
     }
 }
