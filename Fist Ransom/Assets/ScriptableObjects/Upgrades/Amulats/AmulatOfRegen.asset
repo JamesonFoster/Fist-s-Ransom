@@ -10,25 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cda97052843aee48ab7e15cb26d89e4, type: 3}
-  m_Name: AleHornBasic
+  m_Name: AmulatOfRegen
   m_EditorClassIdentifier: 
-  upgradeName: BasicAleHorn
-  rarity: 0
-  icon: {fileID: -1495252020048487956, guid: d17c9392f3fe38348911629628f88a77, type: 3}
-  sound: {fileID: 8300000, guid: 6b53c2737620f6b4084b9aeec73e2d84, type: 3}
-  Value: 65
-  description: '+25 Max Rage
+  upgradeName: Amulet of Regen
+  rarity: 1
+  icon: {fileID: 9183752787575964214, guid: 584151e7bf77ed042860e947c01a7d3c, type: 3}
+  sound: {fileID: 8300000, guid: e58336a86b4ff1947b5c4b712c7a5c74, type: 3}
+  Value: 175
+  description: 'Glendr''s Amulet of Regen
 
-    +15 Rage From Ale'
+    Glendr held onto this amulet when
+    hurt or sick. Yur never understood why, but now Yur may wield his strength.
+
+    +0.6
+    Regen Per Second'
   headDamageIncrease: 0
   bodyDamageIncrease: 0
   headRageIncrease: 0
   bodyRageIncrease: 0
   maxHealthIncrease: 0
-  regenPer5SecondsInc: 0
-  rageMaxInc: 25
+  regenPer5SecondsInc: 3
+  rageMaxInc: 0
   ragePerHitInc: 0
-  aleRageInc: 15
+  aleRageInc: 0
   dodgeTimeIncrease: 0
   goldMultiplyier: 0
   rageDodgeNullIncre: 0

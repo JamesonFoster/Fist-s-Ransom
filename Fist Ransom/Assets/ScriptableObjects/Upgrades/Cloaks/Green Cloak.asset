@@ -17,7 +17,12 @@ MonoBehaviour:
   icon: {fileID: -7247176917661107111, guid: a6a33b158bf2193478fa5d9313e135e3, type: 3}
   sound: {fileID: 8300000, guid: 508dc32873d701648975c37e127b1e6e, type: 3}
   Value: 145
-  description: '+0.1 Dodge Time
+  description: 'Tod''s Green Cloak
+
+    This is Tod''s every day wear. It''s quite
+    a bit thicker than his other cloak.
+
+    +0.1 Dodge Time
 
     +20 Max Health'
   headDamageIncrease: 0
@@ -26,6 +31,9 @@ MonoBehaviour:
   bodyRageIncrease: 0
   maxHealthIncrease: 20
   regenPer5SecondsInc: 0
+  rageMaxInc: 0
+  ragePerHitInc: 0
+  aleRageInc: 0
   dodgeTimeIncrease: 0.1
   goldMultiplyier: 0
   rageDodgeNullIncre: 0

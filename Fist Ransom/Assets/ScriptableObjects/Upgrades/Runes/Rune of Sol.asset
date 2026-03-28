@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Rune of Sol
   rarity: 1
-  icon: {fileID: 1088661938785845639, guid: eeefb139acc54e94ea101c5e36483888, type: 3}
+  icon: {fileID: -7847449466564311255, guid: 6045cdc1352e3484ca7b415ed51c43fe, type: 3}
   sound: {fileID: 8300000, guid: a7654214683706840b56555fc2f8803d, type: 3}
-  Value: 125
-  description: 'Saga''s Rune of Sol
-
-    +5% Chance to burn on basic hits'
+  Value: 100
+  description: "Saga's Rune of Sol\nSaga once threw this onto an open flame and it
+    burned brighter. Now Yur may wield her strength. \n+5% Chance to burn on basic
+    hits"
   ragePoison: 0
   basicHitPoisonChanceIncre: 0
   poisonLengthIncre: 0

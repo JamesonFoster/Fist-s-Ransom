@@ -10,25 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cda97052843aee48ab7e15cb26d89e4, type: 3}
-  m_Name: RedCloak
+  m_Name: Ruin of Harvest
   m_EditorClassIdentifier: 
-  upgradeName: Red Cloak
+  upgradeName: Rune of Jera
   rarity: 0
-  icon: {fileID: 8069935078515631087, guid: bdaa707cfd00dbb48b6dda694ff51230, type: 3}
-  sound: {fileID: 8300000, guid: 508dc32873d701648975c37e127b1e6e, type: 3}
-  Value: 80
-  description: '+0.05 Dodge Time
+  icon: {fileID: -42836555644134576, guid: bbd266c753052a24d9144de353f3a196, type: 3}
+  sound: {fileID: 8300000, guid: a7654214683706840b56555fc2f8803d, type: 3}
+  Value: 85
+  description: 'Saga''s Rune of Jera
 
-    -15% dodging chance for Axe attacks'
+    Saga once placed these around our village
+    to ensure a successful harvest. Now they harvest gold from Yur''s enemies.
+
+    +5%
+    more gold gained from enemies'
   headDamageIncrease: 0
   bodyDamageIncrease: 0
   headRageIncrease: 0
   bodyRageIncrease: 0
   maxHealthIncrease: 0
   regenPer5SecondsInc: 0
-  dodgeTimeIncrease: 0.05
-  goldMultiplyier: 0
-  rageDodgeNullIncre: 0.1
+  rageMaxInc: 0
+  ragePerHitInc: 0
+  aleRageInc: 0
+  dodgeTimeIncrease: 0
+  goldMultiplyier: 0.05
+  rageDodgeNullIncre: 0
   attackCoolDec: 0
   dodgeStunDec: 0
   rageAtkSpeedInc: 0

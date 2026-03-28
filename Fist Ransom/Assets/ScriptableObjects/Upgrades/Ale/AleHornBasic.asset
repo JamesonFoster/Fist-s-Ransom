@@ -10,27 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cda97052843aee48ab7e15cb26d89e4, type: 3}
-  m_Name: AleHornGodly
+  m_Name: AleHornBasic
   m_EditorClassIdentifier: 
-  upgradeName: AmazingAleHorn
-  rarity: 2
-  icon: {fileID: 8197598879788003318, guid: e6ea3f79b0da6e74e9e25cc87bbf529b, type: 3}
+  upgradeName: BasicAleHorn
+  rarity: 0
+  icon: {fileID: -1495252020048487956, guid: d17c9392f3fe38348911629628f88a77, type: 3}
   sound: {fileID: 8300000, guid: 6b53c2737620f6b4084b9aeec73e2d84, type: 3}
-  Value: 250
-  description: '-35 Max Rage
+  Value: 65
+  description: 'Yur''s Bad Homemade Ale
 
-    +30 Rage From Ale
+    Yur made this ale only once. It was
+    so horrible that he had tried to forget about it.
 
-    +10 Rage Per Hit'
+    +25 Max Rage
+
+    +15
+    Rage From Ale'
   headDamageIncrease: 0
   bodyDamageIncrease: 0
   headRageIncrease: 0
   bodyRageIncrease: 0
   maxHealthIncrease: 0
   regenPer5SecondsInc: 0
-  rageMaxInc: -35
-  ragePerHitInc: 10
-  aleRageInc: 30
+  rageMaxInc: 25
+  ragePerHitInc: 0
+  aleRageInc: 15
   dodgeTimeIncrease: 0
   goldMultiplyier: 0
   rageDodgeNullIncre: 0
