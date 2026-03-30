@@ -216,8 +216,12 @@ public class EnemyMovement : MonoBehaviour
                     aS.PlayOneShot(atkChoose.warnAttack);
                     soundcheck2 = true;
                 }
-                if (!atkChoose.unparryable || atkChoose.noMoveBackWarning)
-                    transform.position = Vector2.MoveTowards(transform.position, new Vector2(startPos.x, startPos.y + 0.1f), atkWARN * dT);
+                if (!atkChoose.unparryable || !atkChoose.noMoveBackWarning)
+                {
+                    Vector2 tTarget = new Vector2(startPos.x, startPos.y + 0.1f);
+                    float t = timerAtk / atkWARN;
+                    transform.position = Vector2.Lerp(startPos, tTarget, t);
+                }
                 SpriteChange(sprATKWARN);
             }
             else
@@ -228,8 +232,11 @@ public class EnemyMovement : MonoBehaviour
                     aS.PlayOneShot(atkChoose.soundAttack);
                     atkSoundCheck = true;
                 }
-                if (!atkChoose.unparryable || atkChoose.noMoveBackWarning)
-                    transform.position = Vector2.MoveTowards(transform.position, startPos, parTime * dT);
+                if (!atkChoose.unparryable || !atkChoose.noMoveBackWarning)
+                {
+                    float t = timerAtk / atkWARN;
+                    transform.position = Vector2.Lerp(transform.position, startPos, t);
+                }
                 if (!atkChoose.unparryable)
                     isparryable = true;
                 else
