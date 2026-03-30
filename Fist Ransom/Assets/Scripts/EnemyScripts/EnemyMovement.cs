@@ -103,6 +103,9 @@ public class EnemyMovement : MonoBehaviour
     private float dT;
     private bool playerHasItem = false;
     private UpgradeManager upMan;
+    private Vector2 attackOffset = Vector2.zero;
+    private Vector2 dodgeOffset = Vector2.zero;
+    private float dodgeRotation = 0f;
 
 
     private void Awake()
@@ -195,6 +198,10 @@ public class EnemyMovement : MonoBehaviour
             HandleDodge();
             HandleStun();
             HandleAttack();
+
+            // Handle All movement & Rotation
+            transform.position = startPos + attackOffset + dodgeOffset;
+            transform.rotation = Quaternion.Euler(0f, 0f, dodgeRotation);
         }
         else
         {
@@ -216,11 +223,10 @@ public class EnemyMovement : MonoBehaviour
                     aS.PlayOneShot(atkChoose.warnAttack);
                     soundcheck2 = true;
                 }
-                if (!atkChoose.unparryable || !atkChoose.noMoveBackWarning)
+                if (!atkChoose.unparryable && !atkChoose.noMoveBackWarning)
                 {
-                    Vector2 tTarget = new Vector2(startPos.x, startPos.y + 0.1f);
                     float t = timerAtk / atkWARN;
-                    transform.position = Vector2.Lerp(startPos, tTarget, t);
+                    attackOffset = Vector2.Lerp(Vector2.zero, new Vector2(0, 0.1f), t);
                 }
                 SpriteChange(sprATKWARN);
             }
@@ -232,10 +238,10 @@ public class EnemyMovement : MonoBehaviour
                     aS.PlayOneShot(atkChoose.soundAttack);
                     atkSoundCheck = true;
                 }
-                if (!atkChoose.unparryable || !atkChoose.noMoveBackWarning)
+                if (!atkChoose.unparryable && !atkChoose.noMoveBackWarning)
                 {
                     float t = timerAtk / atkWARN;
-                    transform.position = Vector2.Lerp(transform.position, startPos, t);
+                    attackOffset = Vector2.Lerp(attackOffset, Vector2.zero, t);
                 }
                 if (!atkChoose.unparryable)
                     isparryable = true;
@@ -249,33 +255,36 @@ public class EnemyMovement : MonoBehaviour
                 stunTimer += atkChoose.postAtkDodgeStun;
                 timerAtk = 0;
                 SpriteChange(curstandspr);
-                transform.position = startPos;
+                attackOffset = Vector2.zero;
                 if (!atkChoose.unstunable)
                     stunable = true;
                 if (!atkChoose.isntAtker)
                     SendScore(target2, atkChoose.atkType, atkDAMA);
+                dodgeRotation = 0f;
             }
             else if (timerAtk >= atkWARN && countdownAtk != 0)
             {
                 countdownAtk -= 1;
                 timerAtk = 0;
                 stunTimer += atkChoose.postAtkDodgeStun;
-                transform.position = startPos;
+                attackOffset = Vector2.zero;
                 if (!atkChoose.unstunable)
                     stunable = true;
                 if (!atkChoose.isntAtker)
                     SendScore(target2, atkChoose.atkType, atkDAMA);
+                dodgeRotation = 0f;
             }
             else if (timerAtk >= atkWARN && countdownAtk == 0 && nextAtk != null)
             {
                 timerAtk = 0;
                 stunTimer += atkChoose.postAtkDodgeStun;
-                transform.position = startPos;
+                attackOffset = Vector2.zero;
                 if (!atkChoose.unstunable)
                     stunable = true;
                 if (!atkChoose.isntAtker)
                     SendScore(target2, atkChoose.atkType, atkDAMA);
                 AttackDictate(nextAtk);
+                dodgeRotation = 0f;
             }
         }
     }
@@ -287,6 +296,7 @@ public class EnemyMovement : MonoBehaviour
         if (isDodging)
         {
             dodgeTimer += dT;
+            float tiltDirection = -1f * Mathf.Sign(dodgeTarget.x - startPos.x);
 
             if (dodgeTimer <= enemyData.dodgeTime / 2f)
             {
@@ -297,7 +307,11 @@ public class EnemyMovement : MonoBehaviour
                     else
                     SpriteChange(enemyData.sprDodgeL);
                 }
-                transform.position = Vector2.MoveTowards(transform.position, dodgeTarget, (enemyData.dodgeDistance / (enemyData.dodgeTime / 2f)) * dT);
+                else
+                {
+                    dodgeRotation = Mathf.Lerp(0f, enemyData.dodgeAtkAngleIntence * tiltDirection, dodgeTimer / (enemyData.dodgeTime / 2f));
+                }
+                dodgeOffset = Vector2.MoveTowards(dodgeOffset, dodgeTarget - startPos, (enemyData.dodgeDistance / (enemyData.dodgeTime / 2f)) * dT);
             }
             else if (dodgeTimer <= enemyData.dodgeTime)
             {
@@ -308,14 +322,19 @@ public class EnemyMovement : MonoBehaviour
                     else
                     SpriteChange(enemyData.sprDodgeL);
                 }
-                transform.position = Vector2.MoveTowards(transform.position, startPos, (enemyData.dodgeDistance / (enemyData.dodgeTime / 2f)) * dT);
+                else
+                {
+                    dodgeRotation = Mathf.Lerp(enemyData.dodgeAtkAngleIntence * tiltDirection, 0f, (dodgeTimer - (enemyData.dodgeTime / 2f)) / (enemyData.dodgeTime / 2f));
+                }
+                dodgeOffset = Vector2.MoveTowards(dodgeOffset, Vector2.zero, (enemyData.dodgeDistance / (enemyData.dodgeTime / 2f)) * dT);
             }
             else
             {
                 sprFlip = false;
                 SpriteChange(curstandspr);
                 isDodging = false;
-                transform.position = startPos;
+                dodgeOffset = Vector2.zero;
+                dodgeRotation = 0f;
             }
         }
     }

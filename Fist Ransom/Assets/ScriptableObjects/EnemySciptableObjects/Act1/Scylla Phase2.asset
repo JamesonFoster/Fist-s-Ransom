@@ -19,6 +19,7 @@ MonoBehaviour:
   dodgeDistance: 0.2
   dodgeTime: 0.4
   dodgeStun: 0.05
+  dodgeAtkAngleIntence: 0
   atkAgro: 0.8
   atkSpeedMultiplier: 1.2
   maxHealth: 150
@@ -56,3 +57,7 @@ MonoBehaviour:
   modeShiftSettings:
     modeShiftSpeed: 0
     modeShift: {fileID: 0}
+  itemTestingSettings:
+    ifPlayerHas: {fileID: 0}
+    isModeShift: 0
+    modeToShift2: {fileID: 0}

@@ -13,6 +13,7 @@ public class BaseEnemyScript : ScriptableObject
     public float dodgeDistance = 5f;
     public float dodgeTime = 0.4f;
     public float dodgeStun = 0.1f;
+    public float dodgeAtkAngleIntence = 10f;
 
     [Header("Attack Settings")]
     public float atkAgro = 0.02f;
