@@ -21,6 +21,8 @@ MonoBehaviour:
   sprAttackWarning: {fileID: 21300000, guid: 810763bb52a24c04ca647c88fe146b37, type: 3}
   sprAttack: {fileID: 21300000, guid: b56f64c0eb33263409fed9a03ecd741c, type: 3}
   soundAttack: {fileID: 8300000, guid: d514d1a7b84f83e4980684f160ebeabf, type: 3}
+  warnAttack: {fileID: 0}
+  playWarning: 0
   parryableUpL: 0
   parryableUpR: 0
   parryableR: 1
@@ -28,6 +30,7 @@ MonoBehaviour:
   unstunable: 0
   unparryable: 1
   isntAtker: 0
+  noMoveBackWarning: 1
   atkChaining: 0
   howManyTime: 0
   nextAtk: {fileID: 0}

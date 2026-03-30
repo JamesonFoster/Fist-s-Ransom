@@ -30,6 +30,7 @@ MonoBehaviour:
   unstunable: 0
   unparryable: 0
   isntAtker: 0
+  noMoveBackWarning: 1
   atkChaining: 0
   howManyTime: 0
   nextAtk: {fileID: 0}

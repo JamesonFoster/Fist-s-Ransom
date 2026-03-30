@@ -205,7 +205,6 @@ public class EnemyMovement : MonoBehaviour
 
     void HandleAttack()
     {
-
         if (isAtk)
         {
             timerAtk += dT;
@@ -217,6 +216,8 @@ public class EnemyMovement : MonoBehaviour
                     aS.PlayOneShot(atkChoose.warnAttack);
                     soundcheck2 = true;
                 }
+                if (!atkChoose.unparryable || atkChoose.noMoveBackWarning)
+                    transform.position = Vector2.MoveTowards(transform.position, new Vector2(startPos.x, startPos.y + 0.1f), atkWARN * dT);
                 SpriteChange(sprATKWARN);
             }
             else
@@ -227,6 +228,8 @@ public class EnemyMovement : MonoBehaviour
                     aS.PlayOneShot(atkChoose.soundAttack);
                     atkSoundCheck = true;
                 }
+                if (!atkChoose.unparryable || atkChoose.noMoveBackWarning)
+                    transform.position = Vector2.MoveTowards(transform.position, startPos, parTime * dT);
                 if (!atkChoose.unparryable)
                     isparryable = true;
                 else
@@ -239,6 +242,7 @@ public class EnemyMovement : MonoBehaviour
                 stunTimer += atkChoose.postAtkDodgeStun;
                 timerAtk = 0;
                 SpriteChange(curstandspr);
+                transform.position = startPos;
                 if (!atkChoose.unstunable)
                     stunable = true;
                 if (!atkChoose.isntAtker)
@@ -249,6 +253,7 @@ public class EnemyMovement : MonoBehaviour
                 countdownAtk -= 1;
                 timerAtk = 0;
                 stunTimer += atkChoose.postAtkDodgeStun;
+                transform.position = startPos;
                 if (!atkChoose.unstunable)
                     stunable = true;
                 if (!atkChoose.isntAtker)
@@ -258,6 +263,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 timerAtk = 0;
                 stunTimer += atkChoose.postAtkDodgeStun;
+                transform.position = startPos;
                 if (!atkChoose.unstunable)
                     stunable = true;
                 if (!atkChoose.isntAtker)
@@ -444,6 +450,7 @@ public class EnemyMovement : MonoBehaviour
         isAtk = false;
         timerAtk = 0f;
         stunned = true;
+        transform.position = startPos;
         aS.PlayOneShot(enemyData.soundStunned);
         stunnedTimer = 0f;
     }
