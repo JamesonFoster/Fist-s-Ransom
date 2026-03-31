@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e01610c1d498c8844adaf5974383f63c
+guid: 2cd119a64a64cbd4098f55250225d7ff
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 247374113646078762
-    second: CharonStunn1_0
+      213: 4774748525646567482
+    second: CharonATK3-2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CharonStunn1_0
+      name: CharonATK3-2_0
       rect:
         serializedVersion: 2
-        x: 33
+        x: 25
         y: 0
-        width: 195
-        height: 170
+        width: 179
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a2b608a1279de6300800000000000000
-      internalID: 247374113646078762
+      spriteID: a38dbf28c70534240800000000000000
+      internalID: 4774748525646567482
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CharonStunn1_0: 247374113646078762
+      CharonATK3-2_0: 4774748525646567482
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

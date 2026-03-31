@@ -106,6 +106,10 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 attackOffset = Vector2.zero;
     private Vector2 dodgeOffset = Vector2.zero;
     private float dodgeRotation = 0f;
+    private float shakeDuration = 0f;
+    private float shakeMagnitude = 0f;
+    private float shakeStart = 0f;
+    private Vector2 shakeOffset = Vector2.zero;
 
 
     private void Awake()
@@ -198,9 +202,10 @@ public class EnemyMovement : MonoBehaviour
             HandleDodge();
             HandleStun();
             HandleAttack();
+            HandleShake();
 
             // Handle All movement & Rotation
-            transform.position = startPos + attackOffset + dodgeOffset;
+            transform.position = startPos + attackOffset + dodgeOffset + shakeOffset;
             transform.rotation = Quaternion.Euler(0f, 0f, dodgeRotation);
         }
         else
@@ -387,6 +392,37 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
+        if (atkChoose != null)
+        {
+            //Handling Taughting Atks
+            if ((score == "headL" || score == "bodyL" || score == "rageUp" || score == "rageDown") && atkChoose.leftAtkResponse != null && isAtk)
+            {
+                timerAtk = 0;
+                stunTimer += atkChoose.postAtkDodgeStun;
+                attackOffset = Vector2.zero;
+                if (!atkChoose.unstunable)
+                    stunable = true;
+                if (!atkChoose.isntAtker)
+                    SendScore(target2, atkChoose.atkType, atkDAMA);
+                dodgeRotation = 0f;
+                AttackDictate(atkChoose.leftAtkResponse);
+                return;
+            }
+            if ((score == "headR" || score == "bodyR") && atkChoose.rightAtkResponse != null && isAtk)
+            {
+                timerAtk = 0;
+                stunTimer += atkChoose.postAtkDodgeStun;
+                attackOffset = Vector2.zero;
+                if (!atkChoose.unstunable)
+                    stunable = true;
+                if (!atkChoose.isntAtker)
+                    SendScore(target2, atkChoose.atkType, atkDAMA);
+                dodgeRotation = 0f;
+                AttackDictate(atkChoose.rightAtkResponse);
+                return;
+            }
+        }
+
         if (canDodge)
         {
             bool dodgeSuccess = false;
@@ -416,6 +452,7 @@ public class EnemyMovement : MonoBehaviour
                 return;
             }
         }
+
 
         if (enemyData.atkNHitSettings.isSlippery)
         {
@@ -483,10 +520,24 @@ public class EnemyMovement : MonoBehaviour
 
     public void Attack()
     {
-        //Get Atk Data
-        int atkIndex = Random.Range( 0, listOfAttacks.Count);
-        atkChoose = listOfAttacks[atkIndex];
+        //Get Atk Data if Not Empty
+        if (listOfAttacks.Count != 0)
+        {
+            int atkIndex = Random.Range( 0, listOfAttacks.Count);
+            atkChoose = listOfAttacks[atkIndex];
+        }
+        else if (enemyData.listOfSpAtks.Count != 0)
+        {
+            int atkIndex = Random.Range( 0, enemyData.listOfSpAtks.Count);
+            atkChoose = enemyData.listOfSpAtks[atkIndex];
+        }
+        else
+        {
+            atkChoose = null;
+        }
 
+        if (atkChoose != null)
+        {
         sprATKWARN = atkChoose.sprAttackWarning;
         sprATK = atkChoose.sprAttack;
         atkDAMA = atkChoose.atkDamage;
@@ -494,7 +545,12 @@ public class EnemyMovement : MonoBehaviour
         atkWARN = atkChoose.atkWarning / enemyData.atkSpeedMultiplier;
         countdownAtk = atkChoose.howManyTime;
         nextAtk = atkChoose.nextAtk;
+        if (atkChoose.isShake)
+        {
+            Quake(atkChoose.atkWarning, atkChoose.shakeMagna);
+        }
         isAtk = true;
+        }
     }
     public void AttackDictate(AtkScriptable diAtk)
     {
@@ -595,21 +651,29 @@ public class EnemyMovement : MonoBehaviour
                 {
                     if (!isAtk)
                     SpriteChange(enemyData.sprHeadHitL);
+                    if (shakeDuration <= 0)
+                    Quake(0.1f,0.15f);
                 }
                 else if (hitDir == "HR")
                 {
                     if (!isAtk)
                     SpriteChange(enemyData.sprHeadHitR);
+                    if (shakeDuration <= 0)
+                    Quake(0.1f,0.15f);
                 }
                 else if (hitDir == "BL")
                 {
                     if (!isAtk)
                     SpriteChange(enemyData.sprBodyHitL);
+                    if (shakeDuration <= 0)
+                    Quake(0.1f,0.15f);
                 }
                 else
                 {
                     if (!isAtk)
                     SpriteChange(enemyData.sprBodyHitR);
+                    if (shakeDuration <= 0)
+                    Quake(0.1f,0.15f);
                 }
             }
             if (hitSprChanger <= 0f && hitSprChanger >= -.04)
@@ -699,7 +763,7 @@ public class EnemyMovement : MonoBehaviour
     public void HandleModeShift()
     {
         modeShiftTimer += dT;
-        if (modeShiftTimer >= enemyData.modeShiftSettings.modeShiftSpeed)
+        if (modeShiftTimer >= enemyData.modeShiftSettings.modeShiftSpeed && (!isAtk && !isDodging && !stunned))
         {
             modeShiftTimer = 0f;
             enemyData = enemyData.modeShiftSettings.modeShift;
@@ -862,5 +926,24 @@ public class EnemyMovement : MonoBehaviour
             }
             hitDir = "BL";
         }
+    }
+    void HandleShake()
+    {
+        if (shakeDuration > 0)
+        {
+            float damper = shakeStart - shakeDuration;
+            shakeOffset = Random.insideUnitCircle * shakeMagnitude * damper;
+            shakeDuration -= Time.deltaTime;
+        }
+        else
+        {
+            shakeOffset = Vector2.zero;
+        }
+    }
+    public void Quake(float duration, float magnitude)
+    {
+        shakeDuration = duration;
+        shakeStart = duration;
+        shakeMagnitude = magnitude;
     }
 }
