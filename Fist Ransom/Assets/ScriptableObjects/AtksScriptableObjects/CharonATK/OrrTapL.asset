@@ -20,7 +20,7 @@ MonoBehaviour:
   atkDamage: 4
   sprAttackWarning: {fileID: 21300000, guid: 6e7552fb3f06dd643b093b3c3f6a81d1, type: 3}
   sprAttack: {fileID: 21300000, guid: 62f820d60ad41ba4a9e4bfd1cd2a22dc, type: 3}
-  soundAttack: {fileID: 0}
+  soundAttack: {fileID: 8300000, guid: d514d1a7b84f83e4980684f160ebeabf, type: 3}
   warnAttack: {fileID: 0}
   playWarning: 0
   parryableUpL: 1
@@ -31,6 +31,10 @@ MonoBehaviour:
   unparryable: 1
   isntAtker: 0
   noMoveBackWarning: 1
+  isShake: 0
+  shakeMagna: 0
+  leftAtkResponse: {fileID: 0}
+  rightAtkResponse: {fileID: 0}
   atkChaining: 0
   howManyTime: 0
   nextAtk: {fileID: 0}

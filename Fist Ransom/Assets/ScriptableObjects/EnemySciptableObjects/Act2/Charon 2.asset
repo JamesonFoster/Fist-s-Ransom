@@ -31,27 +31,27 @@ MonoBehaviour:
   stunnedTime: 2
   headDamageMultiplier: 1
   bodyDamageMultiplier: 0.4
-  soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
-  soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
-  soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
-  soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
-  soundStunned: {fileID: 0}
-  soundCele1: {fileID: 0}
-  soundCele2: {fileID: 0}
+  soundHit1: {fileID: 8300000, guid: 78c615e852077f74d94b1ca488e79dc4, type: 3}
+  soundHit2: {fileID: 8300000, guid: aa8d9f7e3379b1d419077b124a3146b3, type: 3}
+  soundDeath: {fileID: 8300000, guid: 5ef2873f2d7b83d41927ce48e5647741, type: 3}
+  soundDodge: {fileID: 8300000, guid: 3360ada0f8bb24c46a270e785efc7a99, type: 3}
+  soundStunned: {fileID: 8300000, guid: b9efec1cf6f74e54e81dc3ab21c5700d, type: 3}
+  soundCele1: {fileID: 8300000, guid: fdc97527c2cf1314ab9c66a98748e1e2, type: 3}
+  soundCele2: {fileID: 8300000, guid: 76d6749b7867bf347b4a43b6cfcfaa8e, type: 3}
   idlespeed: 0.8
   sprStandingStill: {fileID: 21300000, guid: ce5a2999aeb7ae6419110c6e6889e5ca, type: 3}
   sprStandingStill2: {fileID: 21300000, guid: 8a94f48cd6e00f649ac35ca7b7baa7af, type: 3}
   sprStunned1: {fileID: 21300000, guid: e01610c1d498c8844adaf5974383f63c, type: 3}
   sprStunned2: {fileID: 21300000, guid: f93c8649ed1a4094a9a23e86cca8fdf9, type: 3}
-  sprDead: {fileID: 0}
+  sprDead: {fileID: 21300000, guid: bc3d22e3aa9483547af6e62ea9be335a, type: 3}
   sprDodge: {fileID: 21300000, guid: d8d11187b32306d419db7a6a3ecee3c2, type: 3}
   sprDodgeL: {fileID: 21300000, guid: ec166cafacb2929498cbe46be512bb3b, type: 3}
   sprHeadHitL: {fileID: 21300000, guid: 5ad2764bfb67158409ec2b40411933ea, type: 3}
   sprHeadHitR: {fileID: 21300000, guid: fd3ebb65d946a8345b54777d73ee0208, type: 3}
   sprBodyHitL: {fileID: 21300000, guid: 8f840ae24a97fee479d82c757659f24c, type: 3}
   sprBodyHitR: {fileID: 21300000, guid: 44f76afa56f9920479adfa96b3f64870, type: 3}
-  sprPlayerDeath1: {fileID: 0}
-  sprPlayerDeath2: {fileID: 0}
+  sprPlayerDeath1: {fileID: 21300000, guid: 75a1dd99ce8d4df41830d400f025cc22, type: 3}
+  sprPlayerDeath2: {fileID: 21300000, guid: b9e447c742c05904688b1f6ba1fc20e0, type: 3}
   holdOn: 0
   atkNHitSettings:
     postHitAtker: 0
