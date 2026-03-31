@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cda97052843aee48ab7e15cb26d89e4, type: 3}
+  m_Name: Golden Apple
+  m_EditorClassIdentifier: 
+  upgradeName: Golden Apple
+  rarity: 0
+  icon: {fileID: 1201277382348029773, guid: 8aaaff38a03f6204a976c5efae3a1749, type: 3}
+  sound: {fileID: 8300000, guid: 7eefa8f83cebe33499f02ef343551e69, type: 3}
+  Value: 60
+  description: 'Glendr''s Golden Apple
+
+    Glendr knew how to heal even plants,
+    but he could do far more than just heal them. He could improve them. Now Yur
+    may use his strength.
+
+    +15 Max Health
+
+'
+  headDamageIncrease: 0
+  bodyDamageIncrease: 0
+  headRageIncrease: 0
+  bodyRageIncrease: 0
+  maxHealthIncrease: 15
+  regenPer5SecondsInc: 0
+  dodgeTimeIncrease: 0
+  goldMultiplyier: 0
+  rageDodgeNullIncre: 0
+  attackCoolDec: 0
+  dodgeStunDec: 0
+  rageAtkSpeedInc: 0

@@ -20,7 +20,7 @@ public class PlayerAtk : MonoBehaviour
     private SpriteRenderer sprrend;
     public float hitStunnedTimer;
     private bool upSprites = false;
-    private bool rageSprites = false;
+    public bool rageSprites = false;
     [Header("Sprites")]
     public Sprite standingStill;
     public Sprite upAtkPart1;
@@ -62,13 +62,15 @@ public class PlayerAtk : MonoBehaviour
 
         if (hitStunnedTimer <= 0)
         {
-            SpriteChange(standingStill);
             hitStunned = false;
+            if (!plMove.isDodging)
+                SpriteChange(standingStill);
         }
         else
         {
             hitStunned = true;
-            SpriteChange(sprhitStunned);
+            if (!plMove.isDodging)
+                SpriteChange(sprhitStunned);
         }
         // Aim up check
         aimUp = Input.GetKey(KeyCode.W);
@@ -80,7 +82,7 @@ public class PlayerAtk : MonoBehaviour
                 AttackL();
             if (!isAtking && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1)))
                 AttackR();
-            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == 100)
+            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == GlobalPlayerVars.PlayerRageMax)
                 AttackRage();
             if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Q))
                 useHeal();
@@ -97,6 +99,10 @@ public class PlayerAtk : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.P))
             {
                 GlobalPlayerVars.PlayerHealth -= 999;
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                GlobalPlayerVars.PlayerRage = GlobalPlayerVars.PlayerRageMax;
             }
             #endif
         }
@@ -203,7 +209,6 @@ public class PlayerAtk : MonoBehaviour
 }
     public void AttackRage()
     {
-        currentDir = "rage";
         isAtking = true;
         plMove.canMove = false;
         damageApplied = false;
@@ -211,12 +216,14 @@ public class PlayerAtk : MonoBehaviour
 
         if (aimUp) 
         { 
+            currentDir = "rageUp";
             attackTimer -= GlobalPlayerVars.PlayerRageSpeed; 
             currentDamage = GlobalPlayerVars.rageHeadAtk;
             rageSprites = true; 
         } 
         else 
         { 
+            currentDir = "rageDown";
             attackTimer -= GlobalPlayerVars.PlayerRageSpeed; 
             currentDamage = GlobalPlayerVars.rageBodyAtk;
             rageSprites = true;
@@ -243,14 +250,7 @@ public class PlayerAtk : MonoBehaviour
         if (GlobalPlayerVars.RageCount > 0)
         {
             GlobalPlayerVars.RageCount--;
-            if (GlobalPlayerVars.PlayerRage <= 75)
-            {
-                GlobalPlayerVars.PlayerRage += 25;
-            }
-            else
-            {
-                GlobalPlayerVars.PlayerRage = 100;
-            }
+            GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + GlobalPlayerVars.AleRageAmount, GlobalPlayerVars.PlayerRageMax);
         }
     }
 

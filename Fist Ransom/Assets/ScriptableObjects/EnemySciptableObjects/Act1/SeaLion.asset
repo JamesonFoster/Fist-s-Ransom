@@ -20,6 +20,7 @@ MonoBehaviour:
   dodgeTime: 0.3
   dodgeStun: 0.2
   atkAgro: 0.9
+  atkSpeedMultiplier: 1
   maxHealth: 57
   postAtkStunTime: 0.6
   stunnedTime: 2
@@ -39,15 +40,19 @@ MonoBehaviour:
   sprStunned2: {fileID: 21300000, guid: ac189a0fce8f4884b8a5556bd6bd806f, type: 3}
   sprDead: {fileID: 21300000, guid: 1bc3188985793254bb7ae41ccd32ae0a, type: 3}
   sprDodge: {fileID: 21300000, guid: 35165ed4d04f9074e8f5daebef207b76, type: 3}
+  sprDodgeL: {fileID: 21300000, guid: 4d203815bc50b204ba01bc87f7c1b264, type: 3}
   sprHeadHitL: {fileID: 21300000, guid: 77af7bed10f2454489fea3be58d58ac4, type: 3}
   sprHeadHitR: {fileID: 21300000, guid: be2811defbf5c4b4a820df2116eec130, type: 3}
   sprBodyHitL: {fileID: 21300000, guid: eb33b12cf508ed24fa240edcb090f1b7, type: 3}
   sprBodyHitR: {fileID: 21300000, guid: 8b5878adf67b94342a63b28b32159222, type: 3}
   sprPlayerDeath1: {fileID: 21300000, guid: 8d0a0bf11a64f0f41866f3e9f54cb7fd, type: 3}
   sprPlayerDeath2: {fileID: 21300000, guid: 8aeba9b439e65744d8ec5c86dd42873e, type: 3}
-  postHitAtker: 0
-  postDodgeAtker: 0
-  isSlippery: 1
-  unharmableVoidStun: 0
-  modeShiftSpeed: 0
-  modeShift: {fileID: 0}
+  holdOn: 0
+  atkNHitSettings:
+    postHitAtker: 0
+    postDodgeAtker: 0
+    isSlippery: 1
+    unharmableVoidStun: 0
+  modeShiftSettings:
+    modeShiftSpeed: 0
+    modeShift: {fileID: 0}

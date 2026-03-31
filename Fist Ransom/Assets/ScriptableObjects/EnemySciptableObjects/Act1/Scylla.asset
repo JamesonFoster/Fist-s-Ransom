@@ -19,10 +19,14 @@ MonoBehaviour:
   dodgeDistance: 0.2
   dodgeTime: 0.4
   dodgeStun: 0.05
+  dodgeAtkAngleIntence: 0
   atkAgro: 0.6
-  maxHealth: 250
+  atkSpeedMultiplier: 1
+  maxHealth: 175
   postAtkStunTime: 1
   stunnedTime: 0.8
+  headDamageMultiplier: 1
+  bodyDamageMultiplier: 1
   soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
   soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
   soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
@@ -37,12 +41,23 @@ MonoBehaviour:
   sprStunned2: {fileID: 21300000, guid: 257a918d5a7ffe84ca298189800f72a7, type: 3}
   sprDead: {fileID: 21300000, guid: 7a65b2f12cb00a84f84c82b577565188, type: 3}
   sprDodge: {fileID: 21300000, guid: 19e3a193f62ee3e4da088008bda73fd4, type: 3}
+  sprDodgeL: {fileID: 21300000, guid: 3ebe4535673d61a459c29e87379e6b10, type: 3}
   sprHeadHitL: {fileID: 21300000, guid: dd9c5cb609ec31b41ab57e2d802c40ff, type: 3}
   sprHeadHitR: {fileID: 21300000, guid: 778caaf1e35f2704f9988a0a994afe77, type: 3}
   sprBodyHitL: {fileID: 21300000, guid: ada0cd50571060c42941c0d3cc09f4c4, type: 3}
   sprBodyHitR: {fileID: 21300000, guid: 0eb761ca8e61f4e4f8fb59fd7e7c509b, type: 3}
   sprPlayerDeath1: {fileID: 21300000, guid: 77489210378ad3245b4ca7548db7caa3, type: 3}
   sprPlayerDeath2: {fileID: 21300000, guid: 97339535182a71b4b9ef20a91033de2b, type: 3}
-  postHitAtker: 0
-  postDodgeAtker: 0
-  isSlippery: 0
+  holdOn: 0
+  atkNHitSettings:
+    postHitAtker: 0
+    postDodgeAtker: 0
+    isSlippery: 0
+    unharmableVoidStun: 0
+  modeShiftSettings:
+    modeShiftSpeed: 0
+    modeShift: {fileID: 0}
+  itemTestingSettings:
+    ifPlayerHas: {fileID: 0}
+    isModeShift: 0
+    modeToShift2: {fileID: 0}

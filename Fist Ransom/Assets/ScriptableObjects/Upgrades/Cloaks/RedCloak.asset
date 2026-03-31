@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cda97052843aee48ab7e15cb26d89e4, type: 3}
+  m_Name: RedCloak
+  m_EditorClassIdentifier: 
+  upgradeName: Red Cloak
+  rarity: 0
+  icon: {fileID: 8069935078515631087, guid: bdaa707cfd00dbb48b6dda694ff51230, type: 3}
+  sound: {fileID: 8300000, guid: 508dc32873d701648975c37e127b1e6e, type: 3}
+  Value: 80
+  description: 'Tod''s Red Cloak
+
+    Before the slaughter of the bull, Tod would
+    wear this cloak. They alway ran right into his hidden blade.
+
+    +0.05 Dodge
+    Time
+
+    -15% dodging chance for Axe attacks'
+  headDamageIncrease: 0
+  bodyDamageIncrease: 0
+  headRageIncrease: 0
+  bodyRageIncrease: 0
+  maxHealthIncrease: 0
+  regenPer5SecondsInc: 0
+  rageMaxInc: 0
+  ragePerHitInc: 0
+  aleRageInc: 0
+  dodgeTimeIncrease: 0.05
+  goldMultiplyier: 0
+  rageDodgeNullIncre: 0.1
+  attackCoolDec: 0
+  dodgeStunDec: 0
+  rageAtkSpeedInc: 0

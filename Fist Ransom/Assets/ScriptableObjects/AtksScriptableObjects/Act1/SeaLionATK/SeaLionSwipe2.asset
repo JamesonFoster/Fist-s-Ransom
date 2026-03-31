@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
+  m_Name: SeaLionSwipe2
+  m_EditorClassIdentifier: 
+  atkWarning: 1.25
+  parryTime: 0.2
+  postAtkDodgeStun: 0
+  atkType: 
+  attackEffects: []
+  atkDamage: 4
+  sprAttackWarning: {fileID: 21300000, guid: 52aa38f14c8ebfb43ab9ffda653991dd, type: 3}
+  sprAttack: {fileID: 21300000, guid: c090c4d8fb399ee4497c210257e9888d, type: 3}
+  soundAttack: {fileID: 8300000, guid: d514d1a7b84f83e4980684f160ebeabf, type: 3}
+  warnAttack: {fileID: 8300000, guid: 641428f11c57a1041892a07f0fbd254c, type: 3}
+  playWarning: 1
+  parryableUpL: 1
+  parryableUpR: 1
+  parryableR: 1
+  parryableL: 1
+  unstunable: 0
+  unparryable: 0
+  isntAtker: 0
+  noMoveBackWarning: 1
+  atkChaining: 0
+  howManyTime: 0
+  nextAtk: {fileID: 0}

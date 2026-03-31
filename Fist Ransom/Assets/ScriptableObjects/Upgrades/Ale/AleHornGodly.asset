@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cda97052843aee48ab7e15cb26d89e4, type: 3}
+  m_Name: AleHornGodly
+  m_EditorClassIdentifier: 
+  upgradeName: AmazingAleHorn
+  rarity: 2
+  icon: {fileID: 8197598879788003318, guid: e6ea3f79b0da6e74e9e25cc87bbf529b, type: 3}
+  sound: {fileID: 8300000, guid: 6b53c2737620f6b4084b9aeec73e2d84, type: 3}
+  Value: 250
+  description: 'Yur''s Favorite Wine
+
+    A rarity imported from afar. This drink
+    brings a smile to Yur''s face.
+
+    -35 Max Rage
+
+    +30 Rage From Ale
+
+    +10
+    Rage Per Hit'
+  headDamageIncrease: 0
+  bodyDamageIncrease: 0
+  headRageIncrease: 0
+  bodyRageIncrease: 0
+  maxHealthIncrease: 0
+  regenPer5SecondsInc: 0
+  rageMaxInc: -35
+  ragePerHitInc: 10
+  aleRageInc: 30
+  dodgeTimeIncrease: 0
+  goldMultiplyier: 0
+  rageDodgeNullIncre: 0
+  attackCoolDec: 0
+  dodgeStunDec: 0
+  rageAtkSpeedInc: 0

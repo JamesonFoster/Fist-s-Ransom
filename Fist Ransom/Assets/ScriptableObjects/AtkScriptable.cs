@@ -40,6 +40,7 @@ public class AtkScriptable : ScriptableObject
     public bool unstunable = false;
     public bool unparryable = false;
     public bool isntAtker = false;
+    public bool noMoveBackWarning = false;
 
     public AtkChaining atkChaining;
 

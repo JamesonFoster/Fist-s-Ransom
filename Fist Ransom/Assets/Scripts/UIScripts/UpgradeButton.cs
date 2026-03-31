@@ -16,10 +16,13 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private Upgrade upgrade;
     private Button button;
     private Image buttonImage;
+    private AudioClip sound;
+    private AudioSource aS;
     public GameObject winScreen;
 
     private void Awake()
     {
+        aS = GetComponent<AudioSource>();
         button = GetComponent<Button>();
         buttonImage = GetComponent<Image>();
 
@@ -68,6 +71,8 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
         if (upgrade != null && buttonImage != null)
             buttonImage.sprite = upgrade.icon;
+        if (upgrade.sound != null)
+            sound = upgrade.sound;
     }
 
     public void OnClick()
@@ -97,11 +102,15 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (upgrade != null && descriptionText != null)
             descriptionText.text = upgrade.description;
+        if (sound != null)
+            aS.PlayOneShot(sound);
+        transform.localScale = new Vector3(3f, 3f, 1f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         if (descriptionText != null)
             descriptionText.text = "";
+        transform.localScale = new Vector3(2.1844f, 2.1844f, 1f);
     }
 }
