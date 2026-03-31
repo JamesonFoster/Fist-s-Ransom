@@ -4,15 +4,21 @@ public class GlobalPlayerVars : MonoBehaviour
 {
     //PlayerMapInfo
     public static int playerLocationID = 0;
+    public static int playerAct = 1;
 
     //PlayerValues
     public static int HealCount = 3;
     public static int RageCount = 1;
     public static float PlayerHealth = 100;
     public static float PlayerMaxHealth = 100;
-    public static int PlayerRage = 0;
+    public static float PlayerRegenPer = 0f;
     public static float PlayerRageSpeed = 1f;
 
+    //Rage Bar Stats
+    public static int PlayerRage = 0;
+    public static int PlayerRagePerAtk = 5;
+    public static int PlayerRageMax = 100;
+    public static int AleRageAmount = 25;
 
     //Attacking Stats
     public static float atkCooldown = 0.4f;

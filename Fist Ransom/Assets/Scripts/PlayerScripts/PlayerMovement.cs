@@ -33,10 +33,16 @@ public class PlayerMovement : MonoBehaviour
     private float colorLength = 0.1f;
     private Color targetColor;
     private Color originalColor;
-        //song vals
-        public bool isSong = false;
-        private float songTime = 7f;
-        private float songTimer = 0f;
+    //song vals
+    public bool isSong = false;
+    private float songTime = 7f;
+    private float songTimer = 0f;
+    //poison vals
+    public bool isPoisoned = false;
+    private float poisonTimer = 10f;
+    private float poisonHitTimer = 0f;
+    public Sprite posionVisual;
+    public AudioClip soundPoisonHit;
 
     void Awake()
     {
@@ -58,71 +64,73 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-        stunTimer += Time.deltaTime;
-        HandleEffects();
+            stunTimer += Time.deltaTime;
+            HandleEffects();
 
-        if (!isDodging)
-            dodgeAtkLock = false;
+            HandleRegen();
 
-        // Only allow dodging if player can move and dodge cooldown passed
-        if (!isDodging && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                dodgeMode = 1;
-                dodgeType = "left";
-                StartDodge(Vector2.left);
-            }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                dodgeMode = 2;
-                dodgeType = "right";
-                StartDodge(Vector2.right);
-            }
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                dodgeMode = 3;
-                dodgeType = "down";
-                StartDodge(Vector2.down);
-            }
-        }
+            if (!isDodging)
+                dodgeAtkLock = false;
 
-        // Dodge movement
-        if (isDodging)
-        {
-            if (dodgeMode == 1)
-            SpriteChange(dodgeLeftSpr);
-            if (dodgeMode == 2)
-            SpriteChange(dodgeRightSpr);
-            if (dodgeMode == 3)
-            SpriteChange(dodgeBackSpr);
-
-            if ((Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0)))
-                isDodging = false;
-            if ((Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1)))
-                isDodging = false;
-            if ((Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == 100)
-                isDodging = false;
-
-            dodgeTimer += Time.deltaTime;
-            float halfDodge = (GlobalPlayerVars.dodgeTime / 2f) * dodgeSlower;
-
-            if (dodgeTimer <= halfDodge)
+            // Only allow dodging if player can move and dodge cooldown passed
+            if (!isDodging && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
             {
-                transform.position = Vector2.MoveTowards(transform.position, dodgeTarget, ((GlobalPlayerVars.dodgeDistance * dodgeSlower) / halfDodge) * Time.deltaTime);
+                if (Input.GetKeyDown(KeyCode.A) && plAtk.hitStunnedTimer < 0f)
+                {
+                    dodgeMode = 1;
+                    dodgeType = "left";
+                    StartDodge(Vector2.left);
+                }
+                if (Input.GetKeyDown(KeyCode.D) && plAtk.hitStunnedTimer < 0f)
+                {
+                    dodgeMode = 2;
+                    dodgeType = "right";
+                    StartDodge(Vector2.right);
+                }
+                if (Input.GetKeyDown(KeyCode.S) && plAtk.hitStunnedTimer < 0f)
+                {
+                    dodgeMode = 3;
+                    dodgeType = "down";
+                    StartDodge(Vector2.down);
+                }
             }
-            else if (dodgeTimer <= (GlobalPlayerVars.dodgeTime * dodgeSlower))
+
+            // Dodge movement
+            if (isDodging)
             {
-                transform.position = Vector2.MoveTowards(transform.position, startPos, ((GlobalPlayerVars.dodgeDistance * dodgeSlower) / halfDodge) * Time.deltaTime);
+                if (dodgeMode == 1)
+                    SpriteChange(dodgeLeftSpr);
+                if (dodgeMode == 2)
+                    SpriteChange(dodgeRightSpr);
+                if (dodgeMode == 3)
+                    SpriteChange(dodgeBackSpr);
+
+                if ((Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0)))
+                    isDodging = false;
+                if ((Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1)))
+                    isDodging = false;
+                if ((Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == GlobalPlayerVars.PlayerRageMax)
+                    isDodging = false;
+
+                dodgeTimer += Time.deltaTime;
+                float halfDodge = (GlobalPlayerVars.dodgeTime / 2f) * dodgeSlower;
+
+                if (dodgeTimer <= halfDodge)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, dodgeTarget, ((GlobalPlayerVars.dodgeDistance * dodgeSlower) / halfDodge) * Time.deltaTime);
+                }
+                else if (dodgeTimer <= (GlobalPlayerVars.dodgeTime * dodgeSlower))
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, startPos, ((GlobalPlayerVars.dodgeDistance * dodgeSlower) / halfDodge) * Time.deltaTime);
+                }
+                else
+                {
+                    isDodging = false;
+                    dodgeSlower = 1f;
+                    SpriteChange(standingStill);
+                    transform.position = startPos;
+                }
             }
-            else
-            {
-                isDodging = false;
-                dodgeSlower = 1f;
-                SpriteChange(standingStill);
-                transform.position = startPos;
-            }
-        }
         }
     }
 
@@ -191,32 +199,68 @@ public class PlayerMovement : MonoBehaviour
     {
         foreach (var eff in effects)
         {
-            if (eff == "forDodgeL")
+            switch (eff)
             {
-                StartDodge(Vector2.left);
-                dodgeSlower = 2f;
-                dodgeAtkLock = true;
-            }
-            if (eff == "forDodgeR")
-            {
-                StartDodge(Vector2.right);
-                dodgeSlower = 2f;
-                dodgeAtkLock = true;
-            }
-            if (eff == "song")
-            {
-                isSong = true;
-                colorLength = 7f;
-                targetColor = new Color(1f, 0.4f, 0.7f);
-                StartCoroutine(EffectFlicker());
+                case "forDodgeL":
+                    StartDodge(Vector2.left);
+                    dodgeSlower = 2f;
+                    dodgeAtkLock = true;
+                    break;
+                
+                case "forDodgeR":
+                    StartDodge(Vector2.right);
+                    dodgeSlower = 2f;
+                    dodgeAtkLock = true;
+                    break;
+                
+                case "song":
+                    isSong = true;
+                    colorLength = 7f;
+                    targetColor = new Color(1f, 0.4f, 0.7f);
+                    StartCoroutine(EffectFlicker());
+                    break;
+                
+                case "poison":
+                    isPoisoned = true;
+                    colorLength = .32f;
+                    targetColor = Color.green;
+                    StartCoroutine(EffectFlicker());
+                    break;
             }
         }
+    }
+    
+
+    public void HandleRegen()
+    {
+        float regen = (GlobalPlayerVars.PlayerRegenPer / 5) * Time.deltaTime;
+        if (GlobalPlayerVars.PlayerHealth < (GlobalPlayerVars.PlayerMaxHealth - regen))
+        {
+            GlobalPlayerVars.PlayerHealth += regen;
+        }
+    }
+
+    public void CancelAll()
+    {
+        //Dodging Stops
+        isDodging = false;
+        dodgeSlower = 1f;
+        SpriteChange(standingStill);
+        transform.position = startPos;
+        //Atk Stops
+        plAtk.attackTimer = 0f;
+        plAtk.isAtking = false;
+        canMove = true;
+        sprrend.flipX = false;
+        plAtk.rageSprites = false;
     }
 
     public void HandleEffects()
     {
         if (isSong)
             Song();
+        if (isPoisoned)
+            Poison();
     }
 
     IEnumerator EffectFlicker()
@@ -236,6 +280,29 @@ public class PlayerMovement : MonoBehaviour
             dodgeAtkLock = false;
             dodgeSlower = 1f;
             isSong = false;
+        }
+    }
+    
+    public void Poison()
+    {
+        poisonHitTimer += Time.deltaTime;
+        poisonTimer -= Time.deltaTime;
+
+        if (poisonTimer <= 0f)
+        {
+            poisonTimer = 10f;
+            isPoisoned = false;
+        }
+        if (poisonHitTimer >= GlobalPlayerVars.poisonPlayerHitTimer)
+        {
+            Instantiate(posionVisual);
+            plAtk.aS.PlayOneShot(soundPoisonHit);
+            colorLength = .16f;
+            targetColor = Color.green;
+            StartCoroutine(EffectFlicker());
+            GlobalPlayerVars.PlayerHealth -= 4f;
+            CancelAll();
+            poisonHitTimer = 0f;
         }
     }
 }

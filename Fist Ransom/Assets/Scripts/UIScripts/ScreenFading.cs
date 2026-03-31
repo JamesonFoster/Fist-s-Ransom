@@ -8,12 +8,9 @@ public class ScreenFading : MonoBehaviour
 {
     private RawImage screen;
     public float fadeDuration = 5f;
-    public bool isWin = true;
     public bool fadeIn = true;
+    public string goTo;
     public bool back2Map = false;
-    public bool toMainMenu = false;
-    public bool toTutorial = false;
-    public bool endDemo = false;
     public bool dead = false;
     private GameObject onJe;
     private MusicPlayer musplay;
@@ -60,25 +57,16 @@ public class ScreenFading : MonoBehaviour
         c.a = 1f;
         screen.color = c;
 
-        if (isWin)
-            SceneManager.LoadScene("BasicEnemyVic");
+        if (!string.IsNullOrEmpty(goTo))
+        {
+            SceneManager.LoadScene(goTo);
+        }
         if (back2Map)
         {
-            Debug.Log("LoadingBattle");
-            SceneManager.LoadScene("Zone1Map");
-        }
-        if (toMainMenu)
-        {
-            Debug.Log("Going There");
-            SceneManager.LoadScene("TitleScrene");
-        }
-        if (toTutorial)
-        {
-            SceneManager.LoadScene("Tutorial");
-        }
-        if (endDemo)
-        {
-            SceneManager.LoadScene("EndDemo");
+            if (GlobalPlayerVars.playerAct == 1)
+                SceneManager.LoadScene("Zone1Map");
+            else if (GlobalPlayerVars.playerAct == 2)
+                SceneManager.LoadScene("Zone2Map");
         }
         if (dead)
         {
@@ -107,24 +95,16 @@ public class ScreenFading : MonoBehaviour
         screen.color = c;
         musplay.SetVolume(1f - c.a);
 
-        if (isWin && !back2Map)
-            SceneManager.LoadScene("BasicEnemyVic");
+        if (!string.IsNullOrEmpty(goTo))
+        {
+            SceneManager.LoadScene(goTo);
+        }
         if (back2Map)
         {
-            SceneManager.LoadScene("Zone1Map");
-        }
-        if (toMainMenu)
-        {
-            Debug.Log("Going There");
-            SceneManager.LoadScene("TitleScrene");
-        }
-        if (toTutorial)
-        {
-            SceneManager.LoadScene("Tutorial");
-        }
-        if (endDemo)
-        {
-            SceneManager.LoadScene("EndDemo");
+            if (GlobalPlayerVars.playerAct == 1)
+                SceneManager.LoadScene("Zone1Map");
+            else if (GlobalPlayerVars.playerAct == 2)
+                SceneManager.LoadScene("Zone2Map");
         }
         if (dead)
         {

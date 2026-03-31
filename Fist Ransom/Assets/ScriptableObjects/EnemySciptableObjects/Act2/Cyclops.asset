@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7ae26faaeed745b9b18bcf4c40155, type: 3}
+  m_Name: Cyclops
+  m_EditorClassIdentifier: 
+  name: Cyclops
+  baseGoldWorth: 125
+  atkRedyPercent: 0
+  atkRageRedyPercent: 0
+  dodgeDistance: 0.5
+  dodgeTime: 0.4
+  dodgeStun: 0.1
+  atkAgro: 0.6
+  atkSpeedMultiplier: 1
+  maxHealth: 145
+  postAtkStunTime: 0.6
+  stunnedTime: 5
+  headDamageMultiplier: 2.5
+  bodyDamageMultiplier: 0.75
+  soundHit1: {fileID: 8300000, guid: 29f620f6adb3bac4ba00127fa5bd080a, type: 3}
+  soundHit2: {fileID: 8300000, guid: e64ae215381feb04781928887c4198ea, type: 3}
+  soundDeath: {fileID: 8300000, guid: e174d047b904cf142b6d849cc07386c8, type: 3}
+  soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
+  soundStunned: {fileID: 8300000, guid: 9295b53eb6ccc2b47a537eaa199640da, type: 3}
+  soundCele1: {fileID: 8300000, guid: 29f620f6adb3bac4ba00127fa5bd080a, type: 3}
+  soundCele2: {fileID: 8300000, guid: e64ae215381feb04781928887c4198ea, type: 3}
+  idlespeed: 1
+  sprStandingStill: {fileID: 21300000, guid: a8ddf4424e2a07c4b885183f1e380eb4, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: e67bc419131c8314e84b5b0fb932bfb4, type: 3}
+  sprStunned1: {fileID: 21300000, guid: ad23ddfb9fc02d74a81ab099f07fba13, type: 3}
+  sprStunned2: {fileID: 21300000, guid: 3094140b13869d346912ef0619eaddc5, type: 3}
+  sprDead: {fileID: 21300000, guid: e5100ae76835e044f980382dd9e7ff78, type: 3}
+  sprDodge: {fileID: 21300000, guid: 0048f1fa1c091f9439f465bf5d6ecd0b, type: 3}
+  sprHeadHitL: {fileID: 21300000, guid: 1f6ce7541b9265042a34f90db7375fc4, type: 3}
+  sprHeadHitR: {fileID: 21300000, guid: a284149354c322e44891eaee3e62ce5f, type: 3}
+  sprBodyHitL: {fileID: 21300000, guid: 4b5fccc14c27aeb4890589abb14bc46f, type: 3}
+  sprBodyHitR: {fileID: 21300000, guid: 1bf277cad3a693147b1799b6ea9902e4, type: 3}
+  sprPlayerDeath1: {fileID: 21300000, guid: a0fe5505ebcbaa04cbdab8566fd2c4d9, type: 3}
+  sprPlayerDeath2: {fileID: 21300000, guid: 5c4e77fd55a8412468b46e4797426315, type: 3}
+  holdOn: 0
+  atkNHitSettings:
+    postHitAtker: 0
+    postDodgeAtker: 0
+    isSlippery: 0
+    unharmableVoidStun: 1
+  modeShiftSettings:
+    modeShiftSpeed: 0
+    modeShift: {fileID: 0}

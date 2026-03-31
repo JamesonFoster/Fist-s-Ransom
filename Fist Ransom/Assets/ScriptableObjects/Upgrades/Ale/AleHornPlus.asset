@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cda97052843aee48ab7e15cb26d89e4, type: 3}
+  m_Name: AleHornPlus
+  m_EditorClassIdentifier: 
+  upgradeName: NiceAleHorn
+  rarity: 1
+  icon: {fileID: 7880410173871172634, guid: ff8fd01cb5cb7b949b34c7c8c42cec5d, type: 3}
+  sound: {fileID: 8300000, guid: 6b53c2737620f6b4084b9aeec73e2d84, type: 3}
+  Value: 120
+  description: 'Yur''s Homemade Mead
+
+    Yur brews this mead all the time back home.
+    It is his own blend, his masterpiece, but still it could be improved.
+
+    +10
+    Max Rage
+
+    +3 Rage Per Hit'
+  headDamageIncrease: 0
+  bodyDamageIncrease: 0
+  headRageIncrease: 0
+  bodyRageIncrease: 0
+  maxHealthIncrease: 0
+  regenPer5SecondsInc: 0
+  rageMaxInc: 10
+  ragePerHitInc: 3
+  aleRageInc: 0
+  dodgeTimeIncrease: 0
+  goldMultiplyier: 0
+  rageDodgeNullIncre: 0
+  attackCoolDec: 0
+  dodgeStunDec: 0
+  rageAtkSpeedInc: 0

@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7ae26faaeed745b9b18bcf4c40155, type: 3}
+  m_Name: CharonBetweenDown 1
+  m_EditorClassIdentifier: 
+  name: Charon
+  baseGoldWorth: 205
+  atkRedyPercent: 0
+  atkRageRedyPercent: 0
+  dodgeDistance: 5
+  dodgeTime: 0.9
+  dodgeStun: 0
+  dodgeAtkAngleIntence: 2
+  atkAgro: 0
+  atkSpeedMultiplier: 1
+  listOfSpAtks: []
+  maxHealth: 200
+  postAtkStunTime: 0.6
+  stunnedTime: 2
+  headDamageMultiplier: 2
+  bodyDamageMultiplier: 2
+  soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
+  soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
+  soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
+  soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
+  soundStunned: {fileID: 0}
+  soundCele1: {fileID: 0}
+  soundCele2: {fileID: 0}
+  idlespeed: 0.5
+  sprStandingStill: {fileID: 21300000, guid: ac21221fb84d0584b9195081c0040db7, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: ac21221fb84d0584b9195081c0040db7, type: 3}
+  sprStunned1: {fileID: 21300000, guid: e01610c1d498c8844adaf5974383f63c, type: 3}
+  sprStunned2: {fileID: 21300000, guid: f93c8649ed1a4094a9a23e86cca8fdf9, type: 3}
+  sprDead: {fileID: 0}
+  sprDodge: {fileID: 21300000, guid: d8d11187b32306d419db7a6a3ecee3c2, type: 3}
+  sprDodgeL: {fileID: 21300000, guid: ec166cafacb2929498cbe46be512bb3b, type: 3}
+  sprHeadHitL: {fileID: 21300000, guid: 5ad2764bfb67158409ec2b40411933ea, type: 3}
+  sprHeadHitR: {fileID: 21300000, guid: fd3ebb65d946a8345b54777d73ee0208, type: 3}
+  sprBodyHitL: {fileID: 21300000, guid: d2613b32ab0ea3c408898682922c09c2, type: 3}
+  sprBodyHitR: {fileID: 21300000, guid: 7b80274a428e36a4cb5f1c46afb4a372, type: 3}
+  sprPlayerDeath1: {fileID: 0}
+  sprPlayerDeath2: {fileID: 0}
+  holdOn: 0
+  atkNHitSettings:
+    postHitAtker: 0
+    postDodgeAtker: 0
+    isSlippery: 0
+    unharmableVoidStun: 0
+  modeShiftSettings:
+    modeShiftSpeed: 0.5
+    modeShift: {fileID: 11400000, guid: 9d6025609baf83d49947ca797b8532ef, type: 2}
+  itemTestingSettings:
+    ifPlayerHas: {fileID: 0}
+    isModeShift: 0
+    modeToShift2: {fileID: 0}

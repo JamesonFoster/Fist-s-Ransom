@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6266085478362107476}
   m_Layer: 0
   m_Name: PlayerSpot
-  m_TagString: Untagged
+  m_TagString: PlayerMarker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
