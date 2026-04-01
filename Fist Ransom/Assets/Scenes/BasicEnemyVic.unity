@@ -749,6 +749,8 @@ MonoBehaviour:
     weight: 30
   - rarity: 2
     weight: 0
+  - rarity: 3
+    weight: 0
 --- !u!4 &739475531
 Transform:
   m_ObjectHideFlags: 0
@@ -2100,6 +2102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8c702d7605a24449715c91029be9fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setUpgrade: {fileID: 0}
   upgradeManager: {fileID: 739475532}
   descriptionText: {fileID: 1304817942}
   buttonEnableDelay: 1
@@ -2347,6 +2350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8c702d7605a24449715c91029be9fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setUpgrade: {fileID: 0}
   upgradeManager: {fileID: 739475532}
   descriptionText: {fileID: 1304817942}
   buttonEnableDelay: 1
@@ -2466,7 +2470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1981135376
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2758,6 +2762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8c702d7605a24449715c91029be9fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setUpgrade: {fileID: 0}
   upgradeManager: {fileID: 739475532}
   descriptionText: {fileID: 1304817942}
   buttonEnableDelay: 1

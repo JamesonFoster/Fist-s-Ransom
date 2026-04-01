@@ -1467,6 +1467,8 @@ MonoBehaviour:
     weight: 30
   - rarity: 2
     weight: 20
+  - rarity: 3
+    weight: 0
 --- !u!4 &739475531
 Transform:
   m_ObjectHideFlags: 0
@@ -3990,7 +3992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1981135376
 RectTransform:
   m_ObjectHideFlags: 0

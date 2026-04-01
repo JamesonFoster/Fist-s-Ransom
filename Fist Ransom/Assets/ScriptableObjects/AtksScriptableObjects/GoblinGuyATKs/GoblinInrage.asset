@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
   m_Name: GoblinInrage
   m_EditorClassIdentifier: 
-  atkWarning: 3
+  atkWarning: 2
   parryTime: 0.2
   postAtkDodgeStun: 0
   atkType: 
@@ -21,9 +21,9 @@ MonoBehaviour:
   atkDamage: 4
   sprAttackWarning: {fileID: 21300000, guid: d44809e4d29f28940b600ac5ce83a1c3, type: 3}
   sprAttack: {fileID: 21300000, guid: f4deb8d84aa53664f928cbdd95642c34, type: 3}
-  soundAttack: {fileID: 0}
-  warnAttack: {fileID: 0}
-  playWarning: 0
+  soundAttack: {fileID: 8300000, guid: a7654214683706840b56555fc2f8803d, type: 3}
+  warnAttack: {fileID: 8300000, guid: a7654214683706840b56555fc2f8803d, type: 3}
+  playWarning: 1
   parryableUpL: 1
   parryableUpR: 1
   parryableR: 1

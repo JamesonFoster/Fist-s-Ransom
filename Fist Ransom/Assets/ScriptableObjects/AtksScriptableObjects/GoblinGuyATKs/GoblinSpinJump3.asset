@@ -20,9 +20,9 @@ MonoBehaviour:
   atkDamage: 12
   sprAttackWarning: {fileID: 21300000, guid: 58a752cadbfaeab42bbc7c71d68b4c91, type: 3}
   sprAttack: {fileID: 21300000, guid: bfbce0938e0b84a4a8584acbdbeea966, type: 3}
-  soundAttack: {fileID: 0}
-  warnAttack: {fileID: 0}
-  playWarning: 0
+  soundAttack: {fileID: 8300000, guid: 98cb143348a88de448dc337a22f55184, type: 3}
+  warnAttack: {fileID: 8300000, guid: 94f2b349519c7d04b9a8784a63fdb1b1, type: 3}
+  playWarning: 1
   parryableUpL: 1
   parryableUpR: 1
   parryableR: 1

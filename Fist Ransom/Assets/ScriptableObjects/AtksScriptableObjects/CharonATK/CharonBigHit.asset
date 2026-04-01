@@ -17,7 +17,7 @@ MonoBehaviour:
   postAtkDodgeStun: 0
   atkType: 
   attackEffects: []
-  atkDamage: 16
+  atkDamage: 33
   sprAttackWarning: {fileID: 21300000, guid: 71db7e7343fdac74c9cd832b871dd582, type: 3}
   sprAttack: {fileID: 21300000, guid: ba227d2a7daa6314a87a25be543e4b37, type: 3}
   soundAttack: {fileID: 0}

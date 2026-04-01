@@ -68,6 +68,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Act1/ScyllaWin.unity
     guid: c2abd5b24f886ae43842b20e83c68275
+  - enabled: 1
+    path: Assets/Scenes/Act2/TheRedSkele.unity
+    guid: 50a7036868d15dd40b9d861cb48eda1e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

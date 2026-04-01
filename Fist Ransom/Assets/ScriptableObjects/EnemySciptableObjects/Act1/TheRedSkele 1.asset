@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7ae26faaeed745b9b18bcf4c40155, type: 3}
+  m_Name: TheRedSkele 1
+  m_EditorClassIdentifier: 
+  name: PlaceHolder
+  baseGoldWorth: 130
+  atkRedyPercent: 0.5
+  atkRageRedyPercent: 0.9
+  dodgeDistance: 0.5
+  dodgeTime: 0.4
+  dodgeStun: 0.1
+  dodgeAtkAngleIntence: 10
+  atkAgro: 4
+  atkSpeedMultiplier: 4
+  listOfSpAtks:
+  - {fileID: 11400000, guid: d766118c490b21743aa415abc0b58499, type: 2}
+  - {fileID: 11400000, guid: 7fb0e29b6ceca964db4db92e3a1d8c14, type: 2}
+  maxHealth: 50
+  postAtkStunTime: 0.6
+  stunnedTime: 2
+  headDamageMultiplier: 1
+  bodyDamageMultiplier: 1
+  soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
+  soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
+  soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
+  soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
+  soundStunned: {fileID: 8300000, guid: d5ed4282adebbcd44a79da24058c8b75, type: 3}
+  soundCele1: {fileID: 8300000, guid: 2fd1c61611973bf4da8581a2cf6e8866, type: 3}
+  soundCele2: {fileID: 8300000, guid: 98cb143348a88de448dc337a22f55184, type: 3}
+  idlespeed: 0.05
+  sprStandingStill: {fileID: 21300000, guid: 354d1cd310982df4284c10245b68726e, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: 8199d00d92472b04398b4d4b42a0f165, type: 3}
+  sprStunned1: {fileID: 21300000, guid: e11a6d5e8b5c1ee40b12496e1794d704, type: 3}
+  sprStunned2: {fileID: 21300000, guid: 4deced1e1211cc54b858479cc7100880, type: 3}
+  sprDead: {fileID: 21300000, guid: 254c2417dea757b45a6574b164efe9a5, type: 3}
+  sprDodge: {fileID: 21300000, guid: f4a1e7cc5e3f7494590dbeb8bc4f6c3f, type: 3}
+  sprDodgeL: {fileID: 21300000, guid: 6b2e3420fccd8994db706fbac7f631e7, type: 3}
+  sprHeadHitL: {fileID: 21300000, guid: 2d2857587e1c01846855da665d9d8ed8, type: 3}
+  sprHeadHitR: {fileID: 21300000, guid: e461beba7046d8b43a8f7cd7c12913be, type: 3}
+  sprBodyHitL: {fileID: 21300000, guid: 46161a74988e7124fb40fff87d1b5906, type: 3}
+  sprBodyHitR: {fileID: 21300000, guid: 8d64084342e507e41b49c9981fdf1f00, type: 3}
+  sprPlayerDeath1: {fileID: 21300000, guid: b2f8bcc73db50124a946ac9e84b8efe9, type: 3}
+  sprPlayerDeath2: {fileID: 21300000, guid: 88c0f83c282fe134caedaacbe05515f6, type: 3}
+  holdOn: 0
+  atkNHitSettings:
+    postHitAtker: 1
+    postDodgeAtker: 0
+    isSlippery: 0
+    unharmableVoidStun: 0
+  modeShiftSettings:
+    modeShiftSpeed: 0
+    modeShift: {fileID: 0}
+  itemTestingSettings:
+    ifPlayerHas: {fileID: 0}
+    isModeShift: 0
+    modeToShift2: {fileID: 0}
