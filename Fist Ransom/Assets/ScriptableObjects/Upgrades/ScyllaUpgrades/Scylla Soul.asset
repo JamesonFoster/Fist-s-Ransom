@@ -17,7 +17,9 @@ MonoBehaviour:
   icon: {fileID: 6141283166788947590, guid: 6e6f2587385f4e04b86c3cde63fcd575, type: 3}
   sound: {fileID: 8300000, guid: a7654214683706840b56555fc2f8803d, type: 3}
   Value: 999
-  description: 
+  description: "Scylla\u2019s Soul\nYur remembers taking the beast\u2019s soul, using
+    a technique Saga taught him to guard a new hope..\n+ 50% change to not be inflicted
+    by effects from attacks\n+ 30 Max Health\n+ 0.2 Health Regen per second"
   scyllaCoat: 0
   scyllaAxe: 0
   scyllaSoul: 1

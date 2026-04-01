@@ -14120,6 +14120,10 @@ PrefabInstance:
       value: MapLocoAct2 (19)
       objectReference: {fileID: 0}
     - target: {fileID: 1754745219561778805, guid: c82e91e0fd396fa41bd55fa6c51de425, type: 3}
+      propertyPath: locatType
+      value: boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754745219561778805, guid: c82e91e0fd396fa41bd55fa6c51de425, type: 3}
       propertyPath: mapLocationID
       value: 6666
       objectReference: {fileID: 0}

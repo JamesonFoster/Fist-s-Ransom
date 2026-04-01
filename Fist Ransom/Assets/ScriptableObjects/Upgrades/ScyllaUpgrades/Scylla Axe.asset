@@ -17,7 +17,9 @@ MonoBehaviour:
   icon: {fileID: -3946073620087560417, guid: 214999950f3f4f9448bb20fa8d5ae96f, type: 3}
   sound: {fileID: 8300000, guid: 81652a91f96fab14b958403f3cee7ea9, type: 3}
   Value: 999
-  description: 
+  description: "Scylla Skull Axe\nYur remembers taking the beast\u2019s skull and
+    using it to forge a new future.\n+ When you miss an axe cut instantly go for
+    another faster axe cut\n+ 4 axe damage\n- 5% chance of axe attacks being dodged"
   scyllaCoat: 0
   scyllaAxe: 1
   scyllaSoul: 0

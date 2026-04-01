@@ -25,7 +25,7 @@ MonoBehaviour:
   listOfSpAtks:
   - {fileID: 11400000, guid: 5a30c46651bb12d459c613cd59bfbd3e, type: 2}
   - {fileID: 11400000, guid: 1be4ac201cdd9f345b7857132af7478d, type: 2}
-  maxHealth: 300
+  maxHealth: 500
   postAtkStunTime: 0.6
   stunnedTime: 2
   headDamageMultiplier: 0.25

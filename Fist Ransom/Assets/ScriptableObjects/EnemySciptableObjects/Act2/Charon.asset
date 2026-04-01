@@ -26,7 +26,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 96ce776c852e3b24896681f77f073c60, type: 2}
   - {fileID: 11400000, guid: 0b02a9602d244384e972f95f54b7a31f, type: 2}
   - {fileID: 11400000, guid: fac74f1d25aaa8e41981b4989f8dac6d, type: 2}
-  maxHealth: 300
+  maxHealth: 500
   postAtkStunTime: 0.6
   stunnedTime: 2
   headDamageMultiplier: 1

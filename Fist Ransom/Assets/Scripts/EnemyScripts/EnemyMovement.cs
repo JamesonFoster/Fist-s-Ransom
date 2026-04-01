@@ -356,7 +356,8 @@ public class EnemyMovement : MonoBehaviour
 
     public void ReceiveScore(string score, float damage, List<string> effectlist)
     {
-        Debug.Log(score);
+        bool isRage = (score == "rageUp" || score == "rageDown" || score == "rageUp2" || score == "rageDown2");
+        
         bool canDodge =
             !isDodging &&
             !stunned &&
@@ -365,7 +366,7 @@ public class EnemyMovement : MonoBehaviour
         // Only allow parry during exact parry window
         if (isAtk && isparryable && timerAtk >= atkWARN - parTime && timerAtk <= atkWARN)
         {
-            if (score == "rage")
+            if (isRage)
             {
             ParrySet();
             return;
@@ -395,7 +396,7 @@ public class EnemyMovement : MonoBehaviour
         if (atkChoose != null)
         {
             //Handling Taughting Atks
-            if ((score == "headL" || score == "bodyL" || score == "rageUp" || score == "rageDown") && atkChoose.leftAtkResponse != null && isAtk)
+            if ((score == "headL" || score == "bodyL" || isRage) && atkChoose.leftAtkResponse != null && isAtk)
             {
                 timerAtk = 0;
                 stunTimer += atkChoose.postAtkDodgeStun;
@@ -427,14 +428,14 @@ public class EnemyMovement : MonoBehaviour
         {
             bool dodgeSuccess = false;
 
-            if (score != "rageUp" && score != "rageDown")
-                dodgeSuccess = Random.value <= (enemyData.atkRedyPercent - GlobalPlayerVars.dodgingRageNullifier);
+            if (!isRage)
+                dodgeSuccess = Random.value <= enemyData.atkRedyPercent;
             else
-                dodgeSuccess = Random.value <= enemyData.atkRageRedyPercent;
+                dodgeSuccess = Random.value <= (enemyData.atkRageRedyPercent - GlobalPlayerVars.dodgingRageNullifier);
 
             if (dodgeSuccess)
             {
-                if (score == "headL" || score == "bodyL" || score == "rageUp" || score == "rageDown" || score == "rageUp2" || score == "rageDown2")
+                if (score == "headL" || score == "bodyL" || isRage)
                     StartDodge(Vector2.right);
 
                 if (score == "headR" || score == "bodyR")
@@ -461,13 +462,13 @@ public class EnemyMovement : MonoBehaviour
 
         if (enemyData.atkNHitSettings.isSlippery)
         {
-            if ((yChanger == 0.282f && xChanger == -0.282f) && (score != "headL" && score != "rage"))
+            if ((yChanger == 0.282f && xChanger == -0.282f) && (score != "headL" && !isRage))
                 return;
-            if ((yChanger == 0.282f && xChanger == 0.282f) && (score != "headR" && score != "rage"))
+            if ((yChanger == 0.282f && xChanger == 0.282f) && (score != "headR" && !isRage))
                 return;
-            if ((yChanger == 0f && xChanger == -0.282f) && (score != "bodyL" && score != "rage"))
+            if ((yChanger == 0f && xChanger == -0.282f) && (score != "bodyL" && !isRage))
                 return;
-            if ((yChanger == 0f && xChanger == 0.282f) && (score != "bodyR" && score != "rage"))
+            if ((yChanger == 0f && xChanger == 0.282f) && (score != "bodyR" && !isRage))
                 return;
         }
 
@@ -873,7 +874,7 @@ public class EnemyMovement : MonoBehaviour
             }
             hitDir = "BR";
         }
-        else if (score == "rageUp") // Rage Up Hit
+        else if (score == "rageUp" || score == "rageUp2") // Rage Up Hit
         {
             enemyEff.ApplyEffectsBasic(effectlist);
             if (!enemyData.atkNHitSettings.unharmableVoidStun)
@@ -902,7 +903,7 @@ public class EnemyMovement : MonoBehaviour
             }
             hitDir = "BL";
         }
-        else if (score == "rageDown") // Rage Down Hit
+        else if (score == "rageDown" || score == "rageDown2") // Rage Down Hit
         {
             enemyEff.ApplyEffectsBasic(effectlist);
             if (!enemyData.atkNHitSettings.unharmableVoidStun)

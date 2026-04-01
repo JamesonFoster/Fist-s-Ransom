@@ -17,7 +17,9 @@ MonoBehaviour:
   icon: {fileID: 937481637253286852, guid: 3c5b0ec3a876e1445946363c76e1aaef, type: 3}
   sound: {fileID: 8300000, guid: 508dc32873d701648975c37e127b1e6e, type: 3}
   Value: 999
-  description: 
+  description: "Scylla Spike Cloak\nYur remembers taking the beast\u2019s spikes
+    and using one of Tod\u2019s old coats to forge a new memory.\n+ Your attacker
+    takes 25% of the damage you take\n+ 0.1 second of post dodge stun"
   scyllaCoat: 1
   scyllaAxe: 0
   scyllaSoul: 0
