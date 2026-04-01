@@ -217,7 +217,7 @@ PrefabInstance:
     - target: {fileID: 988489298619690112, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ac21221fb84d0584b9195081c0040db7, type: 3}
+      objectReference: {fileID: 21300000, guid: 7ada724787131fe419a01e389c0dd8de, type: 3}
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: target
       value: 
@@ -229,7 +229,7 @@ PrefabInstance:
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: enemyData
       value: 
-      objectReference: {fileID: 11400000, guid: 4f6f3bbed248b8a4ea4b07cbe177f788, type: 2}
+      objectReference: {fileID: 11400000, guid: 87d1895f725f5954ab73b71cf129a980, type: 2}
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: winScreen
       value: 
@@ -256,11 +256,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8485331656923458115, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.13
+      value: 0.009
       objectReference: {fileID: 0}
     - target: {fileID: 8485331656923458115, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.349
+      value: 0.133
       objectReference: {fileID: 0}
     - target: {fileID: 8485331656923458115, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_LocalPosition.z

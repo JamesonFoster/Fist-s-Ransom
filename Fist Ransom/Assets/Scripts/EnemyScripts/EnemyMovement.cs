@@ -434,7 +434,7 @@ public class EnemyMovement : MonoBehaviour
 
             if (dodgeSuccess)
             {
-                if (score == "headL" || score == "bodyL" || score == "rageUp" || score == "rageDown")
+                if (score == "headL" || score == "bodyL" || score == "rageUp" || score == "rageDown" || score == "rageUp2" || score == "rageDown2")
                     StartDodge(Vector2.right);
 
                 if (score == "headR" || score == "bodyR")
@@ -442,6 +442,11 @@ public class EnemyMovement : MonoBehaviour
                     if (!isAtk)
                     sprFlip = true;
                     StartDodge(Vector2.left);
+                }
+
+                if ((score == "rageUp" || score == "rageDown") && GlobalPlayerVars.scyllaAxe)
+                {
+                    target.AttackRage(true);
                 }
 
                 if (enemyData.atkNHitSettings.postDodgeAtker)

@@ -46,6 +46,10 @@ public class GlobalPlayerVars : MonoBehaviour
     public static float goldvalue;
 
 
+    //Player Bool Upgrade Values
+    public static bool scyllaAxe = false;
+    public static bool scyllaSoul = false;
+    public static bool scyllaCoat = false;
 
 
     // Player Effect Values

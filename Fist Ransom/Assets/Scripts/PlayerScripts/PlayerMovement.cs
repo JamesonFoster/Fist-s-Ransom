@@ -187,6 +187,8 @@ public class PlayerMovement : MonoBehaviour
     {
         GlobalPlayerVars.PlayerHealth -= damage;
         GlobalPlayerVars.PlayerRage -= ((int)damage) * 2;
+        if (GlobalPlayerVars.scyllaCoat)
+            GlobalPlayerVars.EnemyHealth -= (damage * 0.25f);
         plAtk.hitStunnedTimer = GlobalPlayerVars.hitStunnedLength;
     }
 
@@ -199,6 +201,9 @@ public class PlayerMovement : MonoBehaviour
     {
         foreach (var eff in effects)
         {
+            if (GlobalPlayerVars.scyllaSoul && Random.value > 0.5f)
+                    continue;
+                    
             switch (eff)
             {
                 case "forDodgeL":
@@ -224,6 +229,14 @@ public class PlayerMovement : MonoBehaviour
                     isPoisoned = true;
                     colorLength = .32f;
                     targetColor = Color.green;
+                    StartCoroutine(EffectFlicker());
+                    break;
+
+                case "RageDrain":
+                    int rageLoss = Mathf.Max(1, GlobalPlayerVars.PlayerRage / 2);
+                    GlobalPlayerVars.PlayerRage -= rageLoss;
+                    colorLength = .32f;
+                    targetColor = new Color(1f, 0.5f, 0.5f);
                     StartCoroutine(EffectFlicker());
                     break;
             }

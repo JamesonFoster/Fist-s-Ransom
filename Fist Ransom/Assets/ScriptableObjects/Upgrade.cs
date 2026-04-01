@@ -4,7 +4,8 @@ public enum Rarity
 {
     Common,
     Rare,
-    Legendary
+    Legendary,
+    BossOnly
 }
 
 // Abstract base class for all upgrades

@@ -19,8 +19,13 @@ MonoBehaviour:
   dodgeDistance: 0.9
   dodgeTime: 0.4
   dodgeStun: 0.1
+  dodgeAtkAngleIntence: 10
   atkAgro: 0.6
   atkSpeedMultiplier: 1
+  listOfSpAtks:
+  - {fileID: 11400000, guid: bc634363a3f08df4ab267f819906e11c, type: 2}
+  - {fileID: 11400000, guid: 8bda812e2fe202746a033cac41c1aded, type: 2}
+  - {fileID: 11400000, guid: 0c5a8566defdc4f47bdfac010a75a8e4, type: 2}
   maxHealth: 85
   postAtkStunTime: 0.6
   stunnedTime: 2
@@ -56,3 +61,7 @@ MonoBehaviour:
   modeShiftSettings:
     modeShiftSpeed: 0
     modeShift: {fileID: 0}
+  itemTestingSettings:
+    ifPlayerHas: {fileID: 0}
+    isModeShift: 0
+    modeToShift2: {fileID: 0}

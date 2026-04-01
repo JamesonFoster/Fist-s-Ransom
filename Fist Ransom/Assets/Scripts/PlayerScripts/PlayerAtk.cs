@@ -83,7 +83,7 @@ public class PlayerAtk : MonoBehaviour
             if (!isAtking && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1)))
                 AttackR();
             if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == GlobalPlayerVars.PlayerRageMax)
-                AttackRage();
+                AttackRage(false);
             if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Q))
                 useHeal();
             if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.E))
@@ -207,13 +207,15 @@ public class PlayerAtk : MonoBehaviour
         upSprites = false;
     }
 }
-    public void AttackRage()
+    public void AttackRage(bool isagain)
     {
         isAtking = true;
         plMove.canMove = false;
         damageApplied = false;
         attackTimer = 0f;
 
+        if (!isagain)
+        {
         if (aimUp) 
         { 
             currentDir = "rageUp";
@@ -227,6 +229,24 @@ public class PlayerAtk : MonoBehaviour
             attackTimer -= GlobalPlayerVars.PlayerRageSpeed; 
             currentDamage = GlobalPlayerVars.rageBodyAtk;
             rageSprites = true;
+        }
+        }
+        else
+        {
+        if (aimUp) 
+        { 
+            currentDir = "rageUp2";
+            attackTimer -= GlobalPlayerVars.PlayerRageSpeed / 2f; 
+            currentDamage = GlobalPlayerVars.rageHeadAtk;
+            rageSprites = true; 
+        } 
+        else 
+        { 
+            currentDir = "rageDown2";
+            attackTimer -= GlobalPlayerVars.PlayerRageSpeed / 2f; 
+            currentDamage = GlobalPlayerVars.rageBodyAtk;
+            rageSprites = true;
+        }  
         }
     }
 
