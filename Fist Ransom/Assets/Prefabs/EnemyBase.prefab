@@ -126,11 +126,12 @@ MonoBehaviour:
   enemyData: {fileID: 0}
   phase: 0
   BPC: {fileID: 0}
-  damageTextPrefab: {fileID: 6748693807688384644, guid: c4b2884cc3be77245b04149f72a33998, type: 3}
-  canvasTransform: {fileID: 0}
+  sweatPrefab: {fileID: 7839394833284510165, guid: 2e2f03d45c9e44c428d01e7c63fcd242, type: 3}
+  winScreen: {fileID: 0}
   target: {fileID: 0}
   target2: {fileID: 0}
-  winScreen: {fileID: 0}
+  damageTextPrefab: {fileID: 6748693807688384644, guid: c4b2884cc3be77245b04149f72a33998, type: 3}
+  canvasTransform: {fileID: 0}
   listOfAttacks: []
   aS: {fileID: 0}
   stunned: 0

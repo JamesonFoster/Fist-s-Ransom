@@ -11,6 +11,11 @@ public class EnemyMovement : MonoBehaviour
 
     [Header("Boss")]
     public BossPhaseController BPC;
+    public GameObject sweatPrefab;
+    public Vector3 sweatPos1;
+    public Vector3 sweatPos2;
+    private bool sweatPos = false;
+    private float sweatTimer = 0f;
     public GameObject winScreen;
 
 
@@ -115,7 +120,8 @@ public class EnemyMovement : MonoBehaviour
     private void Awake()
     {
         // Initialize global health using ScriptableObject value
-        GlobalPlayerVars.EnemyMaxHealth = enemyData.maxHealth;
+        if ((BPC == null && phase == 0) || (phase == 2 && BPC != null))
+            GlobalPlayerVars.EnemyMaxHealth = enemyData.maxHealth;
         GlobalPlayerVars.EnemyHealth = enemyData.maxHealth;
         GlobalPlayerVars.EnemyName = enemyData.name;
         GlobalPlayerVars.goldvalue = enemyData.baseGoldWorth * GlobalPlayerVars.coinMultiplay;
@@ -203,6 +209,45 @@ public class EnemyMovement : MonoBehaviour
             HandleStun();
             HandleAttack();
             HandleShake();
+
+            if ((BPC != null && phase == 1))
+            {
+                sweatTimer += dT;
+                if (sweatTimer > 1f)
+                {
+                if (!sweatPos)
+                    {
+                        Instantiate(sweatPrefab, transform.position + sweatPos1, Quaternion.identity);
+                        sweatTimer = 0f;
+                        sweatPos = !sweatPos;    
+                    }
+                else
+                    {
+                        Instantiate(sweatPrefab, transform.position + sweatPos2, Quaternion.identity);
+                        sweatTimer = 0f;
+                        sweatPos = !sweatPos;
+                    }
+                }
+            }
+            if ((BPC != null && phase == 0))
+            {
+                sweatTimer += dT;
+                if (sweatTimer > 0.5f)
+                {
+                    if (!sweatPos)
+                    {
+                        Instantiate(sweatPrefab, transform.position + sweatPos1, Quaternion.identity);
+                        sweatTimer = 0f;
+                        sweatPos = !sweatPos;    
+                    }
+                else
+                    {
+                        Instantiate(sweatPrefab, transform.position + sweatPos2, Quaternion.identity);
+                        sweatTimer = 0f;
+                        sweatPos = !sweatPos;
+                    }
+                }
+            }
 
             // Handle All movement & Rotation
             transform.position = startPos + attackOffset + dodgeOffset + shakeOffset;
