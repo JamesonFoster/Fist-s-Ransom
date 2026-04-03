@@ -34,12 +34,24 @@ public class PlayerAtk : MonoBehaviour
     public AudioClip rageSlash;
 
 
+    [Header("Heat")]
+    public GameObject sweatPrefab;
+    public Vector3 sweatPos1;
+    public Vector3 sweatPos2;
+    private bool sweatPos = false;
+    private float sweatTimer = 0f;
 
 
     private bool damageApplied = false;
     private string currentDir;
     private float currentDamage;
+    private float heatHurt;
     
+    void FixedUpdate()
+    {
+        if (GlobalPlayerVars.heatVal > 0f)
+        GlobalPlayerVars.heatVal -= GlobalPlayerVars.heatDecreasingPer;
+    }
 
     void Awake()
     {
@@ -56,6 +68,30 @@ public class PlayerAtk : MonoBehaviour
     void Update()
     {
         hitStunnedTimer -= Time.deltaTime;
+        if (GlobalPlayerVars.heatVal >= 70f)
+        {
+            heatHurt = (GlobalPlayerVars.heatVal / 65f);
+            sweatTimer += Time.deltaTime;
+            if (sweatTimer > (1.5f - Mathf.InverseLerp(70f, 100f, GlobalPlayerVars.heatVal)))
+            {
+            if (!sweatPos)
+                {
+                    Instantiate(sweatPrefab, transform.position + sweatPos1, Quaternion.identity);
+                    sweatTimer = 0f;
+                    sweatPos = !sweatPos;    
+                }
+            else
+                {
+                    Instantiate(sweatPrefab, transform.position + sweatPos2, Quaternion.identity);
+                    sweatTimer = 0f;
+                    sweatPos = !sweatPos;
+                }
+            }
+        }
+        else
+        {
+            heatHurt = 1f;
+        }
 
         if (!isAtking)
             plMove.canMove = true;
@@ -111,7 +147,7 @@ public class PlayerAtk : MonoBehaviour
         if (isAtking)
         {
             attackTimer += Time.deltaTime;
-            float halfAtk = GlobalPlayerVars.atkCooldown / 2f;
+            float halfAtk = (GlobalPlayerVars.atkCooldown * heatHurt) / 2f;
 
             if (attackTimer <= halfAtk)
             {
@@ -124,13 +160,15 @@ public class PlayerAtk : MonoBehaviour
                 if (rageSprites)
                 SpriteChange(sprRageAtk1);
             }
-            else if (attackTimer <= GlobalPlayerVars.atkCooldown)
+            else if (attackTimer <= (GlobalPlayerVars.atkCooldown * heatHurt))
             {
                 // Apply damage ONCE when swing reaches halfway point
                 if (!damageApplied)
                 {
                     damageApplied = true;
                     SendScore(target, currentDir, currentDamage);
+                    if (GlobalPlayerVars.heatVal < 100)
+                        GlobalPlayerVars.heatVal += GlobalPlayerVars.heatPerHit;
                     if (rageSprites)
                     {
                         aS.PlayOneShot(rageSlash);
@@ -269,6 +307,7 @@ public class PlayerAtk : MonoBehaviour
     {
         if (GlobalPlayerVars.RageCount > 0)
         {
+            GlobalPlayerVars.heatVal -= GlobalPlayerVars.aleHeatDec;
             GlobalPlayerVars.RageCount--;
             GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + GlobalPlayerVars.AleRageAmount, GlobalPlayerVars.PlayerRageMax);
         }

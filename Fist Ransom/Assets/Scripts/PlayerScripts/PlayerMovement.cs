@@ -43,9 +43,11 @@ public class PlayerMovement : MonoBehaviour
     private float poisonHitTimer = 0f;
     public Sprite posionVisual;
     public AudioClip soundPoisonHit;
+    private CameraShake camShake;
 
     void Awake()
     {
+        camShake = Camera.main.GetComponent<CameraShake>();
         plAtk = GetComponent<PlayerAtk>();
         sprrend = GetComponent<SpriteRenderer>();
         originalColor = sprrend.color;
@@ -70,8 +72,14 @@ public class PlayerMovement : MonoBehaviour
             HandleRegen();
 
             if (!isDodging)
+            {
+                sprrend.color = new Color(sprrend.color.r, sprrend.color.g, sprrend.color.b, 1f);
                 dodgeAtkLock = false;
-
+            }
+            else
+            {
+                sprrend.color = new Color(sprrend.color.r, sprrend.color.g, sprrend.color.b, 0.5f);
+            }
             // Only allow dodging if player can move and dodge cooldown passed
             if (!isDodging && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
             {
@@ -142,6 +150,7 @@ public class PlayerMovement : MonoBehaviour
         dodgeTimer = 0f;
         stunTimer = 0f;
         dodgeTarget = (Vector2)transform.position + direction * GlobalPlayerVars.dodgeDistance;
+        StartCoroutine(camShake.DirectionalShake(direction, 0.15f, GlobalPlayerVars.dodgeTime));
     }
 
     public void ReceiveScore(string score, float damage, List<string> effects)
@@ -181,6 +190,11 @@ public class PlayerMovement : MonoBehaviour
             HandleEffectApply(effects);
             takeDamage(damage);
         }
+        else
+        {
+            if (GlobalPlayerVars.heatVal > 0f)
+                GlobalPlayerVars.heatVal -= GlobalPlayerVars.dodgeHeatDec;
+        }
     }
 
     public void takeDamage(float damage)
@@ -190,6 +204,7 @@ public class PlayerMovement : MonoBehaviour
         if (GlobalPlayerVars.scyllaCoat)
             GlobalPlayerVars.EnemyHealth -= (damage * 0.25f);
         plAtk.hitStunnedTimer = GlobalPlayerVars.hitStunnedLength;
+        StartCoroutine(camShake.Shake(0.1f, 0.05f));
     }
 
     public void SpriteChange(Sprite sprite)

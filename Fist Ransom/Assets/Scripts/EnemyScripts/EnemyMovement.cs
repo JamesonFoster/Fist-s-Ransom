@@ -200,6 +200,7 @@ public class EnemyMovement : MonoBehaviour
             enemyEff.EffectCheck();
             if (GlobalPlayerVars.EnemyHealth <= 0)
             {
+                GlobalPlayerVars.heatVal = 0f;
                 isDead = true;
                 GlobalPlayerVars.gold += Mathf.RoundToInt(GlobalPlayerVars.goldvalue);
                 aS.PlayOneShot(enemyData.soundDeath);
@@ -782,6 +783,7 @@ public class EnemyMovement : MonoBehaviour
         }
         if (stunned)
         {
+            GlobalPlayerVars.heatVal -= GlobalPlayerVars.heatDecreasingPer;
             isDodging = false;
             isAtk = false;
             timerAtk = 0;

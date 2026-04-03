@@ -39,6 +39,13 @@ public class GlobalPlayerVars : MonoBehaviour
     public static int gold = 0;
     public static float coinMultiplay = 1f;
 
+    //Heat
+    public static float heatVal = 0f;
+    public static float heatPerHit = 4f;
+    public static float heatDecreasingPer = 0.04f;
+    public static float aleHeatDec = 70f;
+    public static float dodgeHeatDec = 12f;
+
     //EnemyValues
     public static float EnemyHealth;
     public static float EnemyMaxHealth;
