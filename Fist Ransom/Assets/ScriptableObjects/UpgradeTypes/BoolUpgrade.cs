@@ -16,18 +16,21 @@ public class BoolUpgrade : Upgrade
         GlobalPlayerVars.scyllaSoul = scyllaSoul;
         if (scyllaAxe)
         {
+            GlobalPlayerVars.heatDecreasingPer = 0.02f;
             GlobalPlayerVars.rageBodyAtk += 4f;
             GlobalPlayerVars.rageHeadAtk += 4f;
             GlobalPlayerVars.dodgingRageNullifier += 0.05f;
         }
         if (scyllaSoul)
         {
+            GlobalPlayerVars.heatDecreasingPer = 0.02f;
             GlobalPlayerVars.PlayerMaxHealth += 30f;
             GlobalPlayerVars.PlayerHealth += 30f;
             GlobalPlayerVars.PlayerRegenPer += 1f;
         }
         if (scyllaCoat)
         {
+            GlobalPlayerVars.heatDecreasingPer = 0.02f;
             GlobalPlayerVars.dodgeStun += 0.1f;
         }
     }

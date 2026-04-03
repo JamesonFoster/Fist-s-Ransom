@@ -22,16 +22,25 @@ MonoBehaviour:
     Ragnar used to say these made his punches
     stronger. Now Yur may wield Ragnar''s strength.
 
-    +1 Punching Body Damage'
+    +1 Punching Body Damage
+
+    Less
+    heat per punch'
   headDamageIncrease: 0
   bodyDamageIncrease: 1
   headRageIncrease: 0
   bodyRageIncrease: 0
   maxHealthIncrease: 0
   regenPer5SecondsInc: 0
+  rageMaxInc: 0
+  ragePerHitInc: 0
+  aleRageInc: 0
+  aleHeatEater: 0
   dodgeTimeIncrease: 0
   goldMultiplyier: 0
   rageDodgeNullIncre: 0
   attackCoolDec: 0
   dodgeStunDec: 0
   rageAtkSpeedInc: 0
+  heatCoolingInc: 0
+  heatPerPunchDec: 0.2
