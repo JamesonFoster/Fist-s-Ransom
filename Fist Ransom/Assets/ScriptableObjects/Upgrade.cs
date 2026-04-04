@@ -22,4 +22,5 @@ public abstract class Upgrade : ScriptableObject
 
     // Each upgrade must implement this to apply its effect
     public abstract void Apply();
+    public abstract void Remove();
 }

@@ -63,4 +63,35 @@ public class StatUpgrade : Upgrade
         GlobalPlayerVars.heatDecreasingPer *= actuatkCool3;
         GlobalPlayerVars.heatPerHit *= actuatkCool4;
     }
+
+    public override void Remove()
+    {
+        // Modify your GlobalPlayerVars
+        GlobalPlayerVars.headAtkDama -= headDamageIncrease;
+        GlobalPlayerVars.bodyAtkDama -= bodyDamageIncrease;
+        GlobalPlayerVars.rageBodyAtk -= bodyRageIncrease;
+        GlobalPlayerVars.rageHeadAtk -= headRageIncrease;
+        GlobalPlayerVars.PlayerMaxHealth -= maxHealthIncrease;
+        GlobalPlayerVars.PlayerHealth -= maxHealthIncrease;
+        GlobalPlayerVars.PlayerRegenPer -= regenPer5SecondsInc;
+        GlobalPlayerVars.dodgeTime -= dodgeStunDec;
+        GlobalPlayerVars.coinMultiplay -= goldMultiplyier;
+        GlobalPlayerVars.dodgingRageNullifier -= rageDodgeNullIncre;
+        GlobalPlayerVars.PlayerRagePerAtk -= ragePerHitInc;
+        GlobalPlayerVars.PlayerRageMax -= rageMaxInc;
+        GlobalPlayerVars.AleRageAmount -= aleRageInc;
+        GlobalPlayerVars.aleHeatDec -= aleHeatEater;
+
+        //Speed Stuff
+        float actuatkCool = 1 - attackCoolDec;
+        float actudodCool1 = 1 - dodgeStunDec;
+        float actuatkCool2 = 1 - rageAtkSpeedInc;
+        float actuatkCool3 = 1 + heatCoolingInc;
+        float actuatkCool4 = 1 - heatPerPunchDec;
+        GlobalPlayerVars.atkCooldown /= actuatkCool;
+        GlobalPlayerVars.dodgeStun /= actudodCool1;
+        GlobalPlayerVars.PlayerRageSpeed /= actuatkCool2;
+        GlobalPlayerVars.heatDecreasingPer /= actuatkCool3;
+        GlobalPlayerVars.heatPerHit /= actuatkCool4;
+    }
 }
