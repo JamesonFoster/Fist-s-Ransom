@@ -56,19 +56,23 @@ public class ScreenFading : MonoBehaviour
 
         c.a = 1f;
         screen.color = c;
+        if (GlobalPlayerVars.playerAct == 0)
+        {
+            SceneManager.LoadScene("BattleSim");
+        }
 
-        if (!string.IsNullOrEmpty(goTo))
+        if (!string.IsNullOrEmpty(goTo) && GlobalPlayerVars.playerAct != 0)
         {
             SceneManager.LoadScene(goTo);
         }
-        if (back2Map)
+        if (back2Map && GlobalPlayerVars.playerAct != 0)
         {
             if (GlobalPlayerVars.playerAct == 1)
                 SceneManager.LoadScene("Zone1Map");
             else if (GlobalPlayerVars.playerAct == 2)
                 SceneManager.LoadScene("Zone2Map");
         }
-        if (dead)
+        if (dead && GlobalPlayerVars.playerAct != 0)
         {
             SceneManager.LoadScene("URDEAD");
         }

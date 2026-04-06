@@ -116,7 +116,10 @@ public class MapButtons : MonoBehaviour
             case "boss":
             {
                 GlobalPlayerVars.playerLocationID = mapLocationID;
-                SceneManager.LoadScene("Boss1");
+                if (GlobalPlayerVars.playerAct == 1)
+                    SceneManager.LoadScene("Boss1");
+                else if (GlobalPlayerVars.playerAct == 2)
+                    SceneManager.LoadScene("Boss2Talk");
                 break;
             }
             case "shop":

@@ -41,7 +41,10 @@ public class AtkScriptable : ScriptableObject
     public bool unparryable = false;
     public bool isntAtker = false;
     public bool noMoveBackWarning = false;
-
+    public bool isShake = false;
+    public float shakeMagna = 0f;
+    public AtkScriptable leftAtkResponse;
+    public AtkScriptable rightAtkResponse;
     public AtkChaining atkChaining;
 
     [HideInInspector]

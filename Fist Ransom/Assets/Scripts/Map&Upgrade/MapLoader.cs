@@ -17,6 +17,7 @@ public class MapLoader : MonoBehaviour
         {
             Destroy(instance.gameObject);
             instance = this;
+            GlobalPlayerVars.playerLocationID = 0;
             DontDestroyOnLoad(gameObject);
         }
         else

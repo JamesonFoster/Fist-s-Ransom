@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(Image))]
 public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    public Upgrade setUpgrade;
     [Header("Optional, auto-assigned if left empty")]
     public UpgradeManager upgradeManager;
     public TextMeshProUGUI descriptionText;
@@ -49,6 +50,9 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         // Make sure button can receive clicks
         button.interactable = upgrade != null;
         button.interactable = false;
+
+        if (setUpgrade != null)
+            SetUpgrade(setUpgrade);
     }
 
     void Start()
@@ -69,10 +73,13 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         upgrade = newUpgrade;
 
-        if (upgrade != null && buttonImage != null)
-            buttonImage.sprite = upgrade.icon;
-        if (upgrade.sound != null)
-            sound = upgrade.sound;
+        if (upgrade != null)
+        {
+            if (buttonImage != null)
+                buttonImage.sprite = upgrade.icon;
+            if (upgrade.sound != null)
+                sound = upgrade.sound;
+        }
     }
 
     public void OnClick()

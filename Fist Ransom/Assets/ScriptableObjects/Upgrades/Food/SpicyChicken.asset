@@ -26,9 +26,15 @@ MonoBehaviour:
   bodyRageIncrease: 0
   maxHealthIncrease: 10
   regenPer5SecondsInc: 0
+  rageMaxInc: 0
+  ragePerHitInc: 0
+  aleRageInc: 0
+  aleHeatEater: 0
   dodgeTimeIncrease: 0
   goldMultiplyier: 0
   rageDodgeNullIncre: 0
   attackCoolDec: -0.03
   dodgeStunDec: 0
   rageAtkSpeedInc: 0
+  heatCoolingInc: 0
+  heatPerPunchDec: -0.1

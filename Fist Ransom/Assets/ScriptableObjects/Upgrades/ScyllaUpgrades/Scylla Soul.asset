@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2a9241c4f16a545989dc5131637b9e, type: 3}
+  m_Name: Scylla Soul
+  m_EditorClassIdentifier: 
+  upgradeName: Scylla's Soul
+  rarity: 3
+  icon: {fileID: 6141283166788947590, guid: 6e6f2587385f4e04b86c3cde63fcd575, type: 3}
+  sound: {fileID: 8300000, guid: a7654214683706840b56555fc2f8803d, type: 3}
+  Value: 999
+  description: "Scylla\u2019s Soul\nYur remembers taking the beast\u2019s soul, using
+    a technique Saga taught him to guard a new hope..\n+ 50% change to not be inflicted
+    by effects from attacks\n+ 30 Max Health\n+ 0.2 Health Regen per second"
+  scyllaCoat: 0
+  scyllaAxe: 0
+  scyllaSoul: 1

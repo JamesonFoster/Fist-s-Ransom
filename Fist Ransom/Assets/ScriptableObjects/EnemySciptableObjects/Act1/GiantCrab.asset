@@ -19,8 +19,12 @@ MonoBehaviour:
   dodgeDistance: 0
   dodgeTime: 0
   dodgeStun: 0
+  dodgeAtkAngleIntence: 10
   atkAgro: 0.3
   atkSpeedMultiplier: 1
+  listOfSpAtks:
+  - {fileID: 11400000, guid: f7989bdf35b672748964b189b15b851c, type: 2}
+  - {fileID: 11400000, guid: 42c033434d3dab04682e45c5ddbb4206, type: 2}
   maxHealth: 100
   postAtkStunTime: 0.2
   stunnedTime: 0

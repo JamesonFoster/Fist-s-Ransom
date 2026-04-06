@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "BaseEnemyScript", menuName = "Scriptable Objects/BaseEnemyScript")]
 public class BaseEnemyScript : ScriptableObject
@@ -18,6 +19,7 @@ public class BaseEnemyScript : ScriptableObject
     [Header("Attack Settings")]
     public float atkAgro = 0.02f;
     public float atkSpeedMultiplier = 1f;
+    public List<AtkScriptable> listOfSpAtks;
 
     [Header("Health Stats")]
     public float maxHealth = 25f;

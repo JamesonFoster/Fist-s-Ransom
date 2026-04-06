@@ -551,6 +551,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 956122067}
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos1.x
+      value: -0.202
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos1.y
+      value: 0.784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos2.x
+      value: 0.071
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos2.y
+      value: 0.784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: canvasTransform
       value: 
       objectReference: {fileID: 420830528}
@@ -1058,6 +1074,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1196,6 +1213,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetAspect: 1.7777778
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4172655abca7a2f439b560c7dccdbef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,6 +1350,22 @@ PrefabInstance:
       propertyPath: winScreen
       value: 
       objectReference: {fileID: 956122067}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos1.x
+      value: -0.202
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos1.y
+      value: 0.784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos2.x
+      value: 0.071
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos2.y
+      value: 0.784
+      objectReference: {fileID: 0}
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: canvasTransform
       value: 
@@ -1481,7 +1526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeDuration: 5
   fadeIn: 1
-  goTo: Zone2Map
+  goTo: ScyllaWin
   back2Map: 0
   dead: 0
 --- !u!1 &1065946547 stripped
@@ -1620,7 +1665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1151327128
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1728,6 +1773,22 @@ PrefabInstance:
       propertyPath: winScreen
       value: 
       objectReference: {fileID: 956122067}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos1.x
+      value: -0.202
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos1.y
+      value: 0.784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos2.x
+      value: 0.071
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos2.y
+      value: 0.784
+      objectReference: {fileID: 0}
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: canvasTransform
       value: 
@@ -2597,6 +2658,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2480265563679234540, guid: 8d18a1670f0c93f4c81f50df610be64f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489780050560645560, guid: 8d18a1670f0c93f4c81f50df610be64f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489780050560645560, guid: 8d18a1670f0c93f4c81f50df610be64f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}

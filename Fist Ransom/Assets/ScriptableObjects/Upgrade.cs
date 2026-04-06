@@ -4,7 +4,8 @@ public enum Rarity
 {
     Common,
     Rare,
-    Legendary
+    Legendary,
+    BossOnly
 }
 
 // Abstract base class for all upgrades
@@ -21,4 +22,5 @@ public abstract class Upgrade : ScriptableObject
 
     // Each upgrade must implement this to apply its effect
     public abstract void Apply();
+    public abstract void Remove();
 }

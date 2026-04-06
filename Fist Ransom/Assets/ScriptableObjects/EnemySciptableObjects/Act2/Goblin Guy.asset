@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7ae26faaeed745b9b18bcf4c40155, type: 3}
+  m_Name: Goblin Guy
+  m_EditorClassIdentifier: 
+  name: Kobaloi
+  baseGoldWorth: 85
+  atkRedyPercent: 0.5
+  atkRageRedyPercent: 0.5
+  dodgeDistance: 0.9
+  dodgeTime: 0.5
+  dodgeStun: 0.1
+  dodgeAtkAngleIntence: 30
+  atkAgro: 0.6
+  atkSpeedMultiplier: 1
+  listOfSpAtks:
+  - {fileID: 11400000, guid: 84043553c77d4c541911910f33683efa, type: 2}
+  - {fileID: 11400000, guid: e74acc9a8c3143041b2c4fcd5e51af9e, type: 2}
+  - {fileID: 11400000, guid: 535098ff1da0feb40a8f40f3fd1b6bd1, type: 2}
+  maxHealth: 95
+  postAtkStunTime: 0.6
+  stunnedTime: 2
+  headDamageMultiplier: 1
+  bodyDamageMultiplier: 1
+  soundHit1: {fileID: 8300000, guid: 001d5d4fcb248494891f819993cf130d, type: 3}
+  soundHit2: {fileID: 8300000, guid: 4aa18e00f4f4e084e869ac353ccf00dd, type: 3}
+  soundDeath: {fileID: 8300000, guid: d478b508be9ff3042bf4d0740d62d4f7, type: 3}
+  soundDodge: {fileID: 8300000, guid: 4aa9b1e7d166f694c83b142d4dd2f35a, type: 3}
+  soundStunned: {fileID: 8300000, guid: 2fd1c61611973bf4da8581a2cf6e8866, type: 3}
+  soundCele1: {fileID: 8300000, guid: fdc97527c2cf1314ab9c66a98748e1e2, type: 3}
+  soundCele2: {fileID: 8300000, guid: 76d6749b7867bf347b4a43b6cfcfaa8e, type: 3}
+  idlespeed: 0.2
+  sprStandingStill: {fileID: 21300000, guid: a4df5c6bbabc9324dab71b9b942055e8, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: 7ada724787131fe419a01e389c0dd8de, type: 3}
+  sprStunned1: {fileID: 21300000, guid: 3be46c49389120744bf0c9d819e36c0c, type: 3}
+  sprStunned2: {fileID: 21300000, guid: 1e40338bcf3c0864fb99fbf3f35ca144, type: 3}
+  sprDead: {fileID: 0}
+  sprDodge: {fileID: 21300000, guid: f91eaa9095f2db541990debc39a080b1, type: 3}
+  sprDodgeL: {fileID: 21300000, guid: 4b795f3ff8201804db14338067a56d53, type: 3}
+  sprHeadHitL: {fileID: 21300000, guid: 0620b522e69cb8645a1958ace11218e1, type: 3}
+  sprHeadHitR: {fileID: 21300000, guid: 40519f3ef2b48e14c80e4b2cf35c8fdc, type: 3}
+  sprBodyHitL: {fileID: 21300000, guid: 3041d78c0862623458feeb245c3f0239, type: 3}
+  sprBodyHitR: {fileID: 21300000, guid: 59238668755a9b749b5fa81200376356, type: 3}
+  sprPlayerDeath1: {fileID: 21300000, guid: 40519f3ef2b48e14c80e4b2cf35c8fdc, type: 3}
+  sprPlayerDeath2: {fileID: 21300000, guid: 0620b522e69cb8645a1958ace11218e1, type: 3}
+  holdOn: 0
+  atkNHitSettings:
+    postHitAtker: 0
+    postDodgeAtker: 0
+    isSlippery: 0
+    unharmableVoidStun: 0
+  modeShiftSettings:
+    modeShiftSpeed: 0
+    modeShift: {fileID: 0}
+  itemTestingSettings:
+    ifPlayerHas: {fileID: 0}
+    isModeShift: 0
+    modeToShift2: {fileID: 0}

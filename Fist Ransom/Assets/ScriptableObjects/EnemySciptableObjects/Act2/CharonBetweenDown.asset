@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7ae26faaeed745b9b18bcf4c40155, type: 3}
+  m_Name: CharonBetweenDown
+  m_EditorClassIdentifier: 
+  name: Charon
+  baseGoldWorth: 205
+  atkRedyPercent: 0
+  atkRageRedyPercent: 0
+  dodgeDistance: 5
+  dodgeTime: 0.9
+  dodgeStun: 0
+  dodgeAtkAngleIntence: 2
+  atkAgro: 0
+  atkSpeedMultiplier: 1
+  listOfSpAtks: []
+  maxHealth: 300
+  postAtkStunTime: 0.6
+  stunnedTime: 2
+  headDamageMultiplier: 2
+  bodyDamageMultiplier: 2
+  soundHit1: {fileID: 8300000, guid: 78c615e852077f74d94b1ca488e79dc4, type: 3}
+  soundHit2: {fileID: 8300000, guid: aa8d9f7e3379b1d419077b124a3146b3, type: 3}
+  soundDeath: {fileID: 8300000, guid: 5ef2873f2d7b83d41927ce48e5647741, type: 3}
+  soundDodge: {fileID: 8300000, guid: 3360ada0f8bb24c46a270e785efc7a99, type: 3}
+  soundStunned: {fileID: 8300000, guid: b9efec1cf6f74e54e81dc3ab21c5700d, type: 3}
+  soundCele1: {fileID: 8300000, guid: fdc97527c2cf1314ab9c66a98748e1e2, type: 3}
+  soundCele2: {fileID: 8300000, guid: 76d6749b7867bf347b4a43b6cfcfaa8e, type: 3}
+  idlespeed: 0.5
+  sprStandingStill: {fileID: 21300000, guid: ac21221fb84d0584b9195081c0040db7, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: ac21221fb84d0584b9195081c0040db7, type: 3}
+  sprStunned1: {fileID: 21300000, guid: e01610c1d498c8844adaf5974383f63c, type: 3}
+  sprStunned2: {fileID: 21300000, guid: f93c8649ed1a4094a9a23e86cca8fdf9, type: 3}
+  sprDead: {fileID: 21300000, guid: bc3d22e3aa9483547af6e62ea9be335a, type: 3}
+  sprDodge: {fileID: 21300000, guid: d8d11187b32306d419db7a6a3ecee3c2, type: 3}
+  sprDodgeL: {fileID: 21300000, guid: ec166cafacb2929498cbe46be512bb3b, type: 3}
+  sprHeadHitL: {fileID: 21300000, guid: 5ad2764bfb67158409ec2b40411933ea, type: 3}
+  sprHeadHitR: {fileID: 21300000, guid: fd3ebb65d946a8345b54777d73ee0208, type: 3}
+  sprBodyHitL: {fileID: 21300000, guid: d2613b32ab0ea3c408898682922c09c2, type: 3}
+  sprBodyHitR: {fileID: 21300000, guid: 7b80274a428e36a4cb5f1c46afb4a372, type: 3}
+  sprPlayerDeath1: {fileID: 21300000, guid: 75a1dd99ce8d4df41830d400f025cc22, type: 3}
+  sprPlayerDeath2: {fileID: 21300000, guid: b9e447c742c05904688b1f6ba1fc20e0, type: 3}
+  holdOn: 0
+  atkNHitSettings:
+    postHitAtker: 0
+    postDodgeAtker: 0
+    isSlippery: 0
+    unharmableVoidStun: 0
+  modeShiftSettings:
+    modeShiftSpeed: 0.5
+    modeShift: {fileID: 11400000, guid: 4f6f3bbed248b8a4ea4b07cbe177f788, type: 2}
+  itemTestingSettings:
+    ifPlayerHas: {fileID: 0}
+    isModeShift: 0
+    modeToShift2: {fileID: 0}

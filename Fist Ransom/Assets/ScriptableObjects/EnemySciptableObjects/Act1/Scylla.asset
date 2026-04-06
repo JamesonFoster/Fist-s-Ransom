@@ -22,6 +22,13 @@ MonoBehaviour:
   dodgeAtkAngleIntence: 0
   atkAgro: 0.6
   atkSpeedMultiplier: 1
+  listOfSpAtks:
+  - {fileID: 11400000, guid: f212ba24a9200d643bc0b5d6ae844e86, type: 2}
+  - {fileID: 11400000, guid: 16e895b01a24b584e87077e345c034c4, type: 2}
+  - {fileID: 11400000, guid: a400b7ec54785d94b95030707933f42e, type: 2}
+  - {fileID: 11400000, guid: dd1e63ad2c2b64842a9400c4cb806fa4, type: 2}
+  - {fileID: 11400000, guid: 5a3d67cfa7220ef42ad588640944f6a7, type: 2}
+  - {fileID: 11400000, guid: 2685787875d1c794096ea767ccfadc87, type: 2}
   maxHealth: 175
   postAtkStunTime: 1
   stunnedTime: 0.8

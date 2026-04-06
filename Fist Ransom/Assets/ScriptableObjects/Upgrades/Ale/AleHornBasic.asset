@@ -25,7 +25,9 @@ MonoBehaviour:
     +25 Max Rage
 
     +15
-    Rage From Ale'
+    Rage From Ale
+
+    -10 Heat Cooling From Ale'
   headDamageIncrease: 0
   bodyDamageIncrease: 0
   headRageIncrease: 0
@@ -35,9 +37,12 @@ MonoBehaviour:
   rageMaxInc: 25
   ragePerHitInc: 0
   aleRageInc: 15
+  aleHeatEater: -10
   dodgeTimeIncrease: 0
   goldMultiplyier: 0
   rageDodgeNullIncre: 0
   attackCoolDec: 0
   dodgeStunDec: 0
   rageAtkSpeedInc: 0
+  heatCoolingInc: 0
+  heatPerPunchDec: 0

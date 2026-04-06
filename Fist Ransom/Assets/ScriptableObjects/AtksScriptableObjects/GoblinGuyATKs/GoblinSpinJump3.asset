@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
+  m_Name: GoblinSpinJump3
+  m_EditorClassIdentifier: 
+  atkWarning: 0.2
+  parryTime: 0.1
+  postAtkDodgeStun: 2
+  atkType: 
+  attackEffects: []
+  atkDamage: 12
+  sprAttackWarning: {fileID: 21300000, guid: 58a752cadbfaeab42bbc7c71d68b4c91, type: 3}
+  sprAttack: {fileID: 21300000, guid: bfbce0938e0b84a4a8584acbdbeea966, type: 3}
+  soundAttack: {fileID: 8300000, guid: 98cb143348a88de448dc337a22f55184, type: 3}
+  warnAttack: {fileID: 8300000, guid: 94f2b349519c7d04b9a8784a63fdb1b1, type: 3}
+  playWarning: 1
+  parryableUpL: 1
+  parryableUpR: 1
+  parryableR: 1
+  parryableL: 1
+  unstunable: 0
+  unparryable: 0
+  isntAtker: 0
+  noMoveBackWarning: 0
+  isShake: 1
+  shakeMagna: 0.03
+  leftAtkResponse: {fileID: 0}
+  rightAtkResponse: {fileID: 0}
+  atkChaining: 0
+  howManyTime: 0
+  nextAtk: {fileID: 0}
