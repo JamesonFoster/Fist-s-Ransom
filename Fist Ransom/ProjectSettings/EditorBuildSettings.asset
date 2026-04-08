@@ -69,7 +69,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Act1/ScyllaWin.unity
     guid: c2abd5b24f886ae43842b20e83c68275
   - enabled: 1
-    path: Assets/Scenes/Act2/TheRedSkele.unity
+    path: Assets/Scenes/Act2/MedusaFight.unity
     guid: 50a7036868d15dd40b9d861cb48eda1e
   - enabled: 1
     path: Assets/Scenes/Act2/Boss2Talk.unity

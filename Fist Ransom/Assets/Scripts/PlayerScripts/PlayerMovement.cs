@@ -44,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
     public Sprite posionVisual;
     public AudioClip soundPoisonHit;
     private CameraShake camShake;
+    //stone Vals
+    public bool Stone = false;
+    private float stoneTimer = 3f;
 
     void Awake()
     {
@@ -81,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
                 sprrend.color = new Color(sprrend.color.r, sprrend.color.g, sprrend.color.b, 0.5f);
             }
             // Only allow dodging if player can move and dodge cooldown passed
-            if (!isDodging && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
+            if (!isDodging && !Stone && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
             {
                 if ((Input.GetKeyDown(KeyCode.A) || Input.GetAxis("Horizontal") < -0.9f) && plAtk.hitStunnedTimer < 0f)
                 {
@@ -242,9 +245,12 @@ public class PlayerMovement : MonoBehaviour
                 
                 case "poison":
                     isPoisoned = true;
+                    if (!Stone)
+                    {
                     colorLength = .32f;
                     targetColor = Color.green;
                     StartCoroutine(EffectFlicker());
+                    }
                     break;
 
                 case "RageDrain":
@@ -253,6 +259,17 @@ public class PlayerMovement : MonoBehaviour
                     colorLength = .32f;
                     targetColor = new Color(1f, 0.5f, 0.5f);
                     StartCoroutine(EffectFlicker());
+                    break;
+
+                case "stone":
+                    if (!Stone)
+                    {
+                    Stone = true;
+                    CancelAll();
+                    colorLength = 3f;
+                    targetColor = Color.gray;
+                    StartCoroutine(EffectFlicker());
+                    }
                     break;
             }
         }
@@ -289,6 +306,8 @@ public class PlayerMovement : MonoBehaviour
             Song();
         if (isPoisoned)
             Poison();
+        if (Stone)
+            StoneEff();
     }
 
     IEnumerator EffectFlicker()
@@ -311,6 +330,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
+    public void StoneEff()
+    {
+        if (stoneTimer >= 0f)
+        {
+        CancelAll();
+        stoneTimer -= Time.deltaTime;
+        }
+        else
+        {
+            Stone = false;
+            stoneTimer = 3f;
+        }
+    }
     public void Poison()
     {
         poisonHitTimer += Time.deltaTime;
@@ -325,9 +357,12 @@ public class PlayerMovement : MonoBehaviour
         {
             Instantiate(posionVisual);
             plAtk.aS.PlayOneShot(soundPoisonHit);
+            if (!Stone)
+            {
             colorLength = .16f;
             targetColor = Color.green;
             StartCoroutine(EffectFlicker());
+            }
             GlobalPlayerVars.PlayerHealth -= 4f;
             CancelAll();
             poisonHitTimer = 0f;
