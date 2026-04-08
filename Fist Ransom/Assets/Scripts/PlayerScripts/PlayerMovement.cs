@@ -83,19 +83,19 @@ public class PlayerMovement : MonoBehaviour
             // Only allow dodging if player can move and dodge cooldown passed
             if (!isDodging && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
             {
-                if (Input.GetKeyDown(KeyCode.A) && plAtk.hitStunnedTimer < 0f)
+                if ((Input.GetKeyDown(KeyCode.A) || Input.GetAxis("Horizontal") < -0.9f) && plAtk.hitStunnedTimer < 0f)
                 {
                     dodgeMode = 1;
                     dodgeType = "left";
                     StartDodge(Vector2.left);
                 }
-                if (Input.GetKeyDown(KeyCode.D) && plAtk.hitStunnedTimer < 0f)
+                if ((Input.GetKeyDown(KeyCode.D) || Input.GetAxis("Horizontal") > 0.9f) && plAtk.hitStunnedTimer < 0f)
                 {
                     dodgeMode = 2;
                     dodgeType = "right";
                     StartDodge(Vector2.right);
                 }
-                if (Input.GetKeyDown(KeyCode.S) && plAtk.hitStunnedTimer < 0f)
+                if ((Input.GetKeyDown(KeyCode.S) || Input.GetAxis("Vertical") < -0.9f) && plAtk.hitStunnedTimer < 0f)
                 {
                     dodgeMode = 3;
                     dodgeType = "down";
@@ -152,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
         dodgeTarget = (Vector2)transform.position + direction * GlobalPlayerVars.dodgeDistance;
         StartCoroutine(camShake.DirectionalShake(direction, 0.15f, GlobalPlayerVars.dodgeTime));
     }
-
+    
     public void ReceiveScore(string score, float damage, List<string> effects)
     {
         if (!isDodging)

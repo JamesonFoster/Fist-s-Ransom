@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAtk : MonoBehaviour
 {
@@ -109,20 +110,20 @@ public class PlayerAtk : MonoBehaviour
                 SpriteChange(sprhitStunned);
         }
         // Aim up check
-        aimUp = Input.GetKey(KeyCode.W);
+        aimUp = (Input.GetKey(KeyCode.W) || Input.GetAxis("Vertical") > 0.8f);
 
         if (hitStunned == false)
         {
             // Attack input (only if not already attacking and player is allowed to move)
-            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0)))
+            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0) || (Input.GetButtonDown("LeftAttack") || Gamepad.current.leftTrigger.ReadValue() > 0.1f)))
                 AttackL();
-            if (!isAtking && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1)))
+            if (!isAtking && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1) || (Input.GetButtonDown("RightAttack") || Gamepad.current.rightTrigger.ReadValue() > 0.1f)))
                 AttackR();
-            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == GlobalPlayerVars.PlayerRageMax)
+            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space) || (Input.GetButtonDown("RageAttack")) && GlobalPlayerVars.PlayerRage == GlobalPlayerVars.PlayerRageMax))
                 AttackRage(false);
-            if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Q) || (Input.GetButtonDown("EatFood")))
                 useHeal();
-            if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.E) || (Input.GetButtonDown("EatAle")))
                 useRage();
             #if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.O))
