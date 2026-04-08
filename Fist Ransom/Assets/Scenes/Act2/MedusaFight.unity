@@ -130,17 +130,21 @@ PrefabInstance:
     - target: {fileID: 988489298619690112, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 88c0f83c282fe134caedaacbe05515f6, type: 3}
+      objectReference: {fileID: 21300000, guid: fffb578a3f52cef4fab1d4b6961cd48c, type: 3}
     - target: {fileID: 988489298619690112, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_Color.b
-      value: 0.27924532
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 988489298619690112, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_Color.g
-      value: 0.27924532
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 988489298619690112, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 988489298619690112, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
@@ -162,11 +166,27 @@ PrefabInstance:
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: enemyData
       value: 
-      objectReference: {fileID: 11400000, guid: 11faf961f3c3e634598a615cab38c8d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 4715abf629c1efa4097f65b568feb24c, type: 2}
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: winScreen
       value: 
       objectReference: {fileID: 956122067}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos1.x
+      value: -0.032
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos1.y
+      value: 0.688
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos2.x
+      value: 0.159
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos2.y
+      value: 0.688
+      objectReference: {fileID: 0}
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: canvasTransform
       value: 
@@ -190,6 +210,18 @@ PrefabInstance:
     - target: {fileID: 8122322208594355292, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_Name
       value: EnemyBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122322208594355292, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485331656923458115, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485331656923458115, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8485331656923458115, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2113,14 +2145,14 @@ PrefabInstance:
     - target: {fileID: 988489298619690112, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 88c0f83c282fe134caedaacbe05515f6, type: 3}
+      objectReference: {fileID: 21300000, guid: 4701459390ab8c44981e1112e51b1363, type: 3}
     - target: {fileID: 988489298619690112, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 988489298619690112, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_Color.g
-      value: 0.020722168
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 988489298619690112, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_Color.r
@@ -2141,11 +2173,27 @@ PrefabInstance:
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: enemyData
       value: 
-      objectReference: {fileID: 11400000, guid: 11faf961f3c3e634598a615cab38c8d0, type: 2}
+      objectReference: {fileID: 11400000, guid: d7ab6b88460a2d842bf088814fea5335, type: 2}
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: winScreen
       value: 
       objectReference: {fileID: 956122067}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos1.x
+      value: -0.097
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos1.y
+      value: 0.318
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos2.x
+      value: 0.117
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: sweatPos2.y
+      value: 0.318
+      objectReference: {fileID: 0}
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: canvasTransform
       value: 
@@ -2173,6 +2221,14 @@ PrefabInstance:
     - target: {fileID: 8122322208594355292, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485331656923458115, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485331656923458115, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8485331656923458115, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: m_LocalPosition.x

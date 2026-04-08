@@ -496,7 +496,7 @@ public class EnemyMovement : MonoBehaviour
                     target.AttackRage(true);
                 }
 
-                if (enemyData.atkNHitSettings.postDodgeAtker)
+                if (enemyData.atkNHitSettings.postDodgeAtker && !isAtk)
                 {
                     Attack();
                 }
@@ -530,7 +530,7 @@ public class EnemyMovement : MonoBehaviour
         //Handles all damage calc
         HandleDamage(score, damage, effectlist);
 
-        if (enemyData.atkNHitSettings.postHitAtker)
+        if (enemyData.atkNHitSettings.postHitAtker && !isAtk)
         {
             Attack();
         }

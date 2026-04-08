@@ -4837,7 +4837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1754745219561778805, guid: c82e91e0fd396fa41bd55fa6c51de425, type: 3}
       propertyPath: 'miniRooms.Array.data[0]'
-      value: TheRedSkele
+      value: MedusaFight
       objectReference: {fileID: 0}
     - target: {fileID: 8358346257137485240, guid: c82e91e0fd396fa41bd55fa6c51de425, type: 3}
       propertyPath: m_LocalPosition.x
