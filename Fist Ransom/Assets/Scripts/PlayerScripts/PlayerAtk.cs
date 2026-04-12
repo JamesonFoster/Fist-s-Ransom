@@ -114,12 +114,23 @@ public class PlayerAtk : MonoBehaviour
 
         if (hitStunned == false)
         {
+            if (Gamepad.current != null)
+            {
             // Attack input (only if not already attacking and player is allowed to move)
             if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0) || (Input.GetButtonDown("LeftAttack") || Gamepad.current.leftTrigger.ReadValue() > 0.1f)))
                 AttackL();
             if (!isAtking && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1) || (Input.GetButtonDown("RightAttack") || Gamepad.current.rightTrigger.ReadValue() > 0.1f)))
                 AttackR();
-            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space) || (Input.GetButtonDown("RageAttack")) && GlobalPlayerVars.PlayerRage == GlobalPlayerVars.PlayerRageMax))
+            }
+            else
+            {
+            // Attack input (only if not already attacking and player is allowed to move)
+            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0) || (Input.GetButtonDown("LeftAttack"))))
+                AttackL();
+            if (!isAtking && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1) || (Input.GetButtonDown("RightAttack"))))
+                AttackR();
+            }
+            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space) || (Input.GetButtonDown("RageAttack"))) && GlobalPlayerVars.PlayerRage == GlobalPlayerVars.PlayerRageMax)
                 AttackRage(false);
             if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Q) || (Input.GetButtonDown("EatFood")))
                 useHeal();

@@ -146,6 +146,13 @@ MonoBehaviour:
   isPoisoned: 0
   posionVisual: {fileID: 21300000, guid: 7950af9f813e8ac42bfdd4b6e776b4dc, type: 3}
   soundPoisonHit: {fileID: 8300000, guid: 666db8938cdb1744a998614d49a7cb0d, type: 3}
+  Stone: 0
+  soundBurningHit: {fileID: 8300000, guid: 32b9b17a38edcac42bce96d1a45a4023, type: 3}
+  soundBurningStart: {fileID: 8300000, guid: af2d824b71632ca4cb0368ba756e9eef, type: 3}
+  burningTimer: 0
+  burningHitTimer: 0
+  isBurning: 0
+  burningVisual: {fileID: 4378555738075721497, guid: 423c835e02b3fc54dbd167bdf15deea5, type: 3}
 --- !u!82 &680426271700026330
 AudioSource:
   m_ObjectHideFlags: 0

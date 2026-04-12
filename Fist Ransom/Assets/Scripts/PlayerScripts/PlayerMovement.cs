@@ -47,6 +47,13 @@ public class PlayerMovement : MonoBehaviour
     //stone Vals
     public bool Stone = false;
     private float stoneTimer = 3f;
+    //fire vals
+    public AudioClip soundBurningHit;
+    public AudioClip soundBurningStart;
+    public float burningTimer = 0f;
+    public float burningHitTimer = 0f;
+    public bool isBurning = false;
+    public GameObject burningVisual;
 
     void Awake()
     {
@@ -271,6 +278,24 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(EffectFlicker());
                     }
                     break;
+
+                case "fire":
+                    plAtk.aS.PlayOneShot(soundBurningStart);
+                    burningTimer = 3f;
+                    burningHitTimer = 0f;
+                    isBurning = true;
+                    break;
+
+                case "heal":
+                    if (GlobalPlayerVars.PlayerHealth <= (GlobalPlayerVars.PlayerMaxHealth - 33f))
+                    {
+                        GlobalPlayerVars.PlayerHealth += 33f;
+                    }
+                    else
+                    {
+                        GlobalPlayerVars.PlayerHealth = GlobalPlayerVars.PlayerMaxHealth;
+                    }
+                    break;
             }
         }
     }
@@ -308,6 +333,8 @@ public class PlayerMovement : MonoBehaviour
             Poison();
         if (Stone)
             StoneEff();
+        if (isBurning)
+            Burn();
     }
 
     IEnumerator EffectFlicker()
@@ -366,6 +393,26 @@ public class PlayerMovement : MonoBehaviour
             GlobalPlayerVars.PlayerHealth -= 4f;
             CancelAll();
             poisonHitTimer = 0f;
+        }
+    }
+
+    private void Burn()
+    {
+        burningHitTimer += Time.deltaTime;
+        burningTimer -= Time.deltaTime;
+
+        if (burningTimer <= 0f)
+        {
+            isBurning = false;
+        }
+        if (burningHitTimer >= 0.3)
+        {
+            Instantiate(burningVisual);
+            plAtk.aS.PlayOneShot(soundBurningHit);
+            targetColor = Color.red;
+            StartCoroutine(EffectFlicker());
+            GlobalPlayerVars.PlayerHealth -= 0.5f;
+            burningHitTimer = 0f;
         }
     }
 }
