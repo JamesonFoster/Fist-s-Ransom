@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     public float burningHitTimer = 0f;
     public bool isBurning = false;
     public GameObject burningVisual;
+    private float deathMulti = 1.0f;
 
     void Awake()
     {
@@ -168,37 +169,37 @@ public class PlayerMovement : MonoBehaviour
         if (!isDodging)
         {
             HandleEffectApply(effects);
-            takeDamage(damage);
+            takeDamage(damage * deathMulti);
         }
         else if (isDodging && score == "hitleft" && dodgeType == "left")
         {
             HandleEffectApply(effects);
-            takeDamage(damage);
+            takeDamage(damage * deathMulti);
         }
         else if (isDodging && score == "hitright" && dodgeType == "right")
         {
             HandleEffectApply(effects);
-            takeDamage(damage);
+            takeDamage(damage * deathMulti);
         }
         else if (isDodging && score == "hitdown" && dodgeType == "down")
         {
             HandleEffectApply(effects);
-            takeDamage(damage);
+            takeDamage(damage * deathMulti);
         }
         else if (isDodging && score == "hitfullleft" && (dodgeType == "left" || dodgeType == "down"))
         {
             HandleEffectApply(effects);
-            takeDamage(damage);
+            takeDamage(damage * deathMulti);
         }
         else if (isDodging && score == "hitfullright" && (dodgeType == "right" || dodgeType == "down"))
         {
             HandleEffectApply(effects);
-            takeDamage(damage);
+            takeDamage(damage * deathMulti);
         }
         else if (isDodging && score == "hitfullsides" && (dodgeType == "right" || dodgeType == "left"))
         {
             HandleEffectApply(effects);
-            takeDamage(damage);
+            takeDamage(damage * deathMulti);
         }
         else
         {
@@ -295,6 +296,13 @@ public class PlayerMovement : MonoBehaviour
                     {
                         GlobalPlayerVars.PlayerHealth = GlobalPlayerVars.PlayerMaxHealth;
                     }
+                    break;
+                
+                case "death":
+                    colorLength = 0.5f;
+                    targetColor = Color.magenta;
+                    StartCoroutine(EffectFlicker());
+                    deathMulti += 0.25f;
                     break;
             }
         }

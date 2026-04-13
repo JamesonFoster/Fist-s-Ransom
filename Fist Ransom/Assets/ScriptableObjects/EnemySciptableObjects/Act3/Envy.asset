@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7ae26faaeed745b9b18bcf4c40155, type: 3}
+  m_Name: Envy
+  m_EditorClassIdentifier: 
+  name: Envy
+  baseGoldWorth: 100
+  atkRedyPercent: 0.4
+  atkRageRedyPercent: 0.6
+  dodgeDistance: 0.5
+  dodgeTime: 0.4
+  dodgeStun: 0.15
+  dodgeAtkAngleIntence: 4
+  atkAgro: 2
+  atkSpeedMultiplier: 1
+  listOfSpAtks:
+  - {fileID: 11400000, guid: 4ada35a5f2a157e48a97665affb0cc9e, type: 2}
+  - {fileID: 11400000, guid: d24720881ee9edd4bbdedc2a149e4a4f, type: 2}
+  - {fileID: 11400000, guid: 0f79611bfa8c6cb4ea99302eb5d3cc01, type: 2}
+  maxHealth: 150
+  postAtkStunTime: 0.4
+  stunnedTime: 1.5
+  headDamageMultiplier: 1
+  bodyDamageMultiplier: 1
+  soundHit1: {fileID: 8300000, guid: 6c54e38fc019c12499a8e83375e833ca, type: 3}
+  soundHit2: {fileID: 8300000, guid: da5b240f366af0b44acac397fbf76b83, type: 3}
+  soundDeath: {fileID: 8300000, guid: 766df971889550243b68f9c843b96b59, type: 3}
+  soundDodge: {fileID: 8300000, guid: ff7a699fd118165469d23a0eb6cfa57f, type: 3}
+  soundStunned: {fileID: 8300000, guid: 2b3bca9d40079a147ab65b74cf4191fb, type: 3}
+  soundCele1: {fileID: 0}
+  soundCele2: {fileID: 8300000, guid: bbd719024ad8a88478e202e5d183f5c1, type: 3}
+  idlespeed: 0.5
+  sprStandingStill: {fileID: 21300000, guid: e4aaffd4908c4f247a9e7fd84a5bc897, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: 851058583d4a91347b3ca702d10bcab0, type: 3}
+  sprStunned1: {fileID: 21300000, guid: ba9ae021f22c79e4ebc2333a4882a7f8, type: 3}
+  sprStunned2: {fileID: 21300000, guid: 8eacfa5ea08253040a4215cc65d230c1, type: 3}
+  sprDead: {fileID: 21300000, guid: 73a0ab62b0801ae40aef7856f427df96, type: 3}
+  sprDodge: {fileID: 21300000, guid: e95f68b069180714b9b27d82d403cff1, type: 3}
+  sprDodgeL: {fileID: 21300000, guid: 406ec75c060a3094089d62836794bdcf, type: 3}
+  sprHeadHitL: {fileID: 21300000, guid: bdf9a0e9d4539d344986193d478d3ac8, type: 3}
+  sprHeadHitR: {fileID: 21300000, guid: 1d3b003d76020d6409867b1cfc51258b, type: 3}
+  sprBodyHitL: {fileID: 21300000, guid: 3e4cec46940a6ab43a09217a18d39595, type: 3}
+  sprBodyHitR: {fileID: 21300000, guid: 5faaddb1a7153364980d792a77817d69, type: 3}
+  sprPlayerDeath1: {fileID: 21300000, guid: f6b092aecea22d54dbc576e9e33b95a7, type: 3}
+  sprPlayerDeath2: {fileID: 21300000, guid: 5b0a44ffaa6ba4e42bc78830e6fb23c6, type: 3}
+  holdOn: 0
+  atkNHitSettings:
+    postHitAtker: 0
+    postDodgeAtker: 0
+    isSlippery: 0
+    unharmableVoidStun: 0
+  modeShiftSettings:
+    modeShiftSpeed: 0
+    modeShift: {fileID: 0}
+  itemTestingSettings:
+    ifPlayerHas: {fileID: 0}
+    isModeShift: 0
+    modeToShift2: {fileID: 0}

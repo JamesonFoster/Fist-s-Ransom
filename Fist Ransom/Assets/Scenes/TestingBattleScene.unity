@@ -241,7 +241,7 @@ PrefabInstance:
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: enemyData
       value: 
-      objectReference: {fileID: 11400000, guid: ed09ec0ed4b628a449d8fb639ac8ad7e, type: 2}
+      objectReference: {fileID: 11400000, guid: 5d4acdfa73c59de45a8b495be649a5e6, type: 2}
     - target: {fileID: 3032083952203149106, guid: 068afb26ff7b7b2458b23f2cacf20326, type: 3}
       propertyPath: winScreen
       value: 

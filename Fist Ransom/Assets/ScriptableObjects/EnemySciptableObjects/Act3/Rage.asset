@@ -47,7 +47,7 @@ MonoBehaviour:
   sprStandingStill2: {fileID: 21300000, guid: 6dde0056b7d97694f8d97a7912fea124, type: 3}
   sprStunned1: {fileID: 21300000, guid: 9b769c070efaf5a4b997f046eb7faab8, type: 3}
   sprStunned2: {fileID: 21300000, guid: 9f46160730fcefc4c8fcece4d94d8881, type: 3}
-  sprDead: {fileID: 0}
+  sprDead: {fileID: 21300000, guid: bb62ba32a8c427e42a1e7e8d33b4d666, type: 3}
   sprDodge: {fileID: 21300000, guid: 447348fbca4624b49b92153c8d306b41, type: 3}
   sprDodgeL: {fileID: 21300000, guid: 4da567a7f919e1b4495da3a1c532e723, type: 3}
   sprHeadHitL: {fileID: 21300000, guid: a2fa793a2ed28074ab74da2d8c6e8d3c, type: 3}

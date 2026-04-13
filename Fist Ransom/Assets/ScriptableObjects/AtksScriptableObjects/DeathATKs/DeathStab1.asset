@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
+  m_Name: DeathStab1
+  m_EditorClassIdentifier: 
+  atkWarning: 4
+  parryTime: 0.4
+  postAtkDodgeStun: 0
+  atkType: hitdown
+  attackEffects: []
+  atkDamage: 30
+  sprAttackWarning: {fileID: 21300000, guid: da5b643193c1a8441a9a94db458c567d, type: 3}
+  sprAttack: {fileID: 21300000, guid: 02ace920348d7ef4bbe4426048e00669, type: 3}
+  soundAttack: {fileID: 8300000, guid: 6ac9a2feed4ced6498bcbc66308b116a, type: 3}
+  warnAttack: {fileID: 8300000, guid: 6ac4550953cd8a74bba7b8596b800a06, type: 3}
+  playWarning: 1
+  parryableUpL: 1
+  parryableUpR: 1
+  parryableR: 1
+  parryableL: 1
+  unstunable: 1
+  unparryable: 0
+  isntAtker: 0
+  noMoveBackWarning: 0
+  isShake: 1
+  shakeMagna: 0.003
+  leftAtkResponse: {fileID: 0}
+  rightAtkResponse: {fileID: 0}
+  atkChaining: 2
+  howManyTime: 0
+  nextAtk: {fileID: 11400000, guid: 3eb4c1192bfb5e845ac3b8494c7f9b1a, type: 2}
