@@ -173,6 +173,7 @@ public class EnemyMovement : MonoBehaviour
             chanstandtimer += Time.deltaTime;
             if (standsprcont && chanstandtimer >= enemyData.idlespeed)
             {
+                if (enemyData.soundCele1 != null)
                 aS.PlayOneShot(enemyData.soundCele1);
                 chanstandtimer = 0f;
                 standsprcont = false;
@@ -181,6 +182,7 @@ public class EnemyMovement : MonoBehaviour
             }
             if (!standsprcont && chanstandtimer >= enemyData.idlespeed)
             {
+                if (enemyData.soundCele2 != null)
                 aS.PlayOneShot(enemyData.soundCele2);
                 chanstandtimer = 0f;
                 standsprcont = true;
@@ -271,6 +273,7 @@ public class EnemyMovement : MonoBehaviour
                 atkSoundCheck = false;
                 if (atkChoose.playWarning && !soundcheck2)
                 {
+                    if (atkChoose.warnAttack != null)
                     aS.PlayOneShot(atkChoose.warnAttack);
                     soundcheck2 = true;
                 }
@@ -286,6 +289,7 @@ public class EnemyMovement : MonoBehaviour
                 soundcheck2 = false;
                 if (!atkSoundCheck)
                 {
+                    if (atkChoose.soundAttack != null)
                     aS.PlayOneShot(atkChoose.soundAttack);
                     atkSoundCheck = true;
                 }

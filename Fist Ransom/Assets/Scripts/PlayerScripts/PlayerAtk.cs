@@ -31,6 +31,7 @@ public class PlayerAtk : MonoBehaviour
     public Sprite sprhitStunned;
     public Sprite sprRageAtk1;
     public Sprite sprRageAtk2;
+    public Sprite deadPlayer;
     [Header("Sounds")]
     public AudioClip rageSlash;
 
@@ -68,8 +69,14 @@ public class PlayerAtk : MonoBehaviour
 
     void Update()
     {
+        if (GlobalPlayerVars.PlayerHealth <= 0f)
+        {
+            SpriteChange(deadPlayer);
+        }
+        else
+        {
         hitStunnedTimer -= Time.deltaTime;
-        if (GlobalPlayerVars.heatVal >= 70f)
+        if (GlobalPlayerVars.heatVal >= 70f && GlobalPlayerVars.PlayerHealth >= 0f)
         {
             heatHurt = (GlobalPlayerVars.heatVal / 65f);
             sweatTimer += Time.deltaTime;
@@ -117,24 +124,24 @@ public class PlayerAtk : MonoBehaviour
             if (Gamepad.current != null)
             {
             // Attack input (only if not already attacking and player is allowed to move)
-            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0) || (Input.GetButtonDown("LeftAttack") || Gamepad.current.leftTrigger.ReadValue() > 0.1f)))
+            if (!isAtking && GlobalPlayerVars.PlayerHealth >= 0f && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0) || (Input.GetButtonDown("LeftAttack") || Gamepad.current.leftTrigger.ReadValue() > 0.1f)))
                 AttackL();
-            if (!isAtking && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1) || (Input.GetButtonDown("RightAttack") || Gamepad.current.rightTrigger.ReadValue() > 0.1f)))
+            if (!isAtking && GlobalPlayerVars.PlayerHealth >= 0f && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1) || (Input.GetButtonDown("RightAttack") || Gamepad.current.rightTrigger.ReadValue() > 0.1f)))
                 AttackR();
             }
             else
             {
             // Attack input (only if not already attacking and player is allowed to move)
-            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0) || (Input.GetButtonDown("LeftAttack"))))
+            if (!isAtking && GlobalPlayerVars.PlayerHealth >= 0f && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0) || (Input.GetButtonDown("LeftAttack"))))
                 AttackL();
-            if (!isAtking && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1) || (Input.GetButtonDown("RightAttack"))))
+            if (!isAtking && GlobalPlayerVars.PlayerHealth >= 0f && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1) || (Input.GetButtonDown("RightAttack"))))
                 AttackR();
             }
-            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space) || (Input.GetButtonDown("RageAttack"))) && GlobalPlayerVars.PlayerRage == GlobalPlayerVars.PlayerRageMax)
+            if (!isAtking && GlobalPlayerVars.PlayerHealth >= 0f && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space) || (Input.GetButtonDown("RageAttack"))) && GlobalPlayerVars.PlayerRage == GlobalPlayerVars.PlayerRageMax)
                 AttackRage(false);
-            if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Q) || (Input.GetButtonDown("EatFood")))
+            if ((Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Q) || (Input.GetButtonDown("EatFood"))) && GlobalPlayerVars.PlayerHealth >= 0f)
                 useHeal();
-            if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.E) || (Input.GetButtonDown("EatAle")))
+            if ((Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.E) || (Input.GetButtonDown("EatAle"))) && GlobalPlayerVars.PlayerHealth >= 0f)
                 useRage();
             #if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.O))
@@ -211,6 +218,7 @@ public class PlayerAtk : MonoBehaviour
                 sprrend.flipX = false;
                 rageSprites = false;
             }
+        }
         }
     }
 

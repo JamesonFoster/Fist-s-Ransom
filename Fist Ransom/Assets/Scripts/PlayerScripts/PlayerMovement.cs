@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
                 sprrend.color = new Color(sprrend.color.r, sprrend.color.g, sprrend.color.b, 0.5f);
             }
             // Only allow dodging if player can move and dodge cooldown passed
-            if (!isDodging && !Stone && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
+            if (!isDodging && GlobalPlayerVars.PlayerHealth >= 0f && !Stone && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
             {
                 if ((Input.GetKeyDown(KeyCode.A) || Input.GetAxis("Horizontal") < -0.9f) && plAtk.hitStunnedTimer < 0f)
                 {
