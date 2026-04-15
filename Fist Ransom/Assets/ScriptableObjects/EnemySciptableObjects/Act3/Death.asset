@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c7ae26faaeed745b9b18bcf4c40155, type: 3}
   m_Name: Death
   m_EditorClassIdentifier: 
-  name: Death
-  baseGoldWorth: 100
+  name: Tisiphone
+  baseGoldWorth: 150
   atkRedyPercent: 0.6
   atkRageRedyPercent: 0.7
   dodgeDistance: 0.5
@@ -37,7 +37,7 @@ MonoBehaviour:
   soundDodge: {fileID: 8300000, guid: 8b8bb7cffbef0ab40b432e5df83c709c, type: 3}
   soundStunned: {fileID: 8300000, guid: 7aeb4f1cb615b3449b91a6262cf1d611, type: 3}
   soundCele1: {fileID: 0}
-  soundCele2: {fileID: 8300000, guid: bbd719024ad8a88478e202e5d183f5c1, type: 3}
+  soundCele2: {fileID: 8300000, guid: d514d1a7b84f83e4980684f160ebeabf, type: 3}
   idlespeed: 2.5
   sprStandingStill: {fileID: 21300000, guid: c12ad13156f2dae40ad3a662133eb9d1, type: 3}
   sprStandingStill2: {fileID: 21300000, guid: 5ec3112b56611264197f661cce763b0c, type: 3}
@@ -50,8 +50,8 @@ MonoBehaviour:
   sprHeadHitR: {fileID: 21300000, guid: 6213b90c6ac93f24586c1e7c05aaef02, type: 3}
   sprBodyHitL: {fileID: 21300000, guid: 211f148ed05060041824efaea3c7f56a, type: 3}
   sprBodyHitR: {fileID: 21300000, guid: 53a98f1462a18d643a12cd5b557c95a9, type: 3}
-  sprPlayerDeath1: {fileID: 21300000, guid: f6b092aecea22d54dbc576e9e33b95a7, type: 3}
-  sprPlayerDeath2: {fileID: 21300000, guid: 5b0a44ffaa6ba4e42bc78830e6fb23c6, type: 3}
+  sprPlayerDeath1: {fileID: 21300000, guid: da5b643193c1a8441a9a94db458c567d, type: 3}
+  sprPlayerDeath2: {fileID: 21300000, guid: a374f13626dee1144aceb0761b45e1cf, type: 3}
   holdOn: 0
   atkNHitSettings:
     postHitAtker: 0

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c7ae26faaeed745b9b18bcf4c40155, type: 3}
   m_Name: Rage
   m_EditorClassIdentifier: 
-  name: Rage
-  baseGoldWorth: 100
+  name: Alecto
+  baseGoldWorth: 150
   atkRedyPercent: 0.2
   atkRageRedyPercent: 0.3
   dodgeDistance: 0.7

@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
         dodgeTimer = 0f;
         stunTimer = 0f;
         dodgeTarget = (Vector2)transform.position + direction * GlobalPlayerVars.dodgeDistance;
-        StartCoroutine(camShake.DirectionalShake(direction, 0.15f, GlobalPlayerVars.dodgeTime));
+        StartCoroutine(camShake.DirectionalShake(direction, 0.15f, GlobalPlayerVars.dodgeTime  * dodgeSlower));
     }
     
     public void ReceiveScore(string score, float damage, List<string> effects)

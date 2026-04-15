@@ -17,7 +17,7 @@ MonoBehaviour:
   postAtkDodgeStun: 0
   atkType: 
   attackEffects: []
-  atkDamage: 8
+  atkDamage: 15
   sprAttackWarning: {fileID: 21300000, guid: 7bbe68ef4fdad73468cc1c1a15a74772, type: 3}
   sprAttack: {fileID: 21300000, guid: 4ffa18682b80aec4b83be5099fa98888, type: 3}
   soundAttack: {fileID: 8300000, guid: 6ac9a2feed4ced6498bcbc66308b116a, type: 3}
@@ -30,6 +30,11 @@ MonoBehaviour:
   unstunable: 1
   unparryable: 1
   isntAtker: 0
+  noMoveBackWarning: 0
+  isShake: 0
+  shakeMagna: 0
+  leftAtkResponse: {fileID: 0}
+  rightAtkResponse: {fileID: 0}
   atkChaining: 0
   howManyTime: 0
   nextAtk: {fileID: 0}

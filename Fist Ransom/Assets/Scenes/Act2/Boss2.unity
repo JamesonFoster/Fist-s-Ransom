@@ -1754,7 +1754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeDuration: 5
   fadeIn: 1
-  goTo: EndDemo
+  goTo: 3sFight
   back2Map: 0
   dead: 0
 --- !u!1 &1050070067
@@ -2234,7 +2234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1151327128
 RectTransform:
   m_ObjectHideFlags: 0

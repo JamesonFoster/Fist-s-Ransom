@@ -13,5 +13,12 @@ public class EnemyTitleUI : MonoBehaviour
     {
         textMeshPro.text = GlobalPlayerVars.EnemyName;
     }
+    void Update()
+    {
+        if (textMeshPro.text != GlobalPlayerVars.EnemyName)
+        {
+            textMeshPro.text = GlobalPlayerVars.EnemyName;
+        }
+    }
 }
 
