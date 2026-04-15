@@ -439,7 +439,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1970620127}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2251,6 +2251,9 @@ MonoBehaviour:
     - m_Text: Kobaloi
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
+    - m_Text: Medusa
+      m_Image: {fileID: 0}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Charon
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2339,6 +2342,8 @@ MonoBehaviour:
     RoomString: CyclopsFight
   - enemySprite: {fileID: 21300000, guid: 7ada724787131fe419a01e389c0dd8de, type: 3}
     RoomString: GoblinGuyFight
+  - enemySprite: {fileID: 21300000, guid: 1f21b66af792f1040bac11c572f3ba4e, type: 3}
+    RoomString: MedusaFight
   - enemySprite: {fileID: 21300000, guid: ce5a2999aeb7ae6419110c6e6889e5ca, type: 3}
     RoomString: Boss2
 --- !u!1 &1391870223
@@ -3277,8 +3282,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start Fight
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ee9647d2e5bab984ab2c3ee9617a633c, type: 2}
+  m_sharedMaterial: {fileID: -941586921063194482, guid: ee9647d2e5bab984ab2c3ee9617a633c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
