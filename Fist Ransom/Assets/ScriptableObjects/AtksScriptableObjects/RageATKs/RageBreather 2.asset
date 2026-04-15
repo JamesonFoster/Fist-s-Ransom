@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
+  m_Name: RageBreather 2
+  m_EditorClassIdentifier: 
+  atkWarning: 0.6
+  parryTime: 0.3
+  postAtkDodgeStun: 0
+  atkType: 
+  attackEffects:
+  - fire
+  atkDamage: 5
+  sprAttackWarning: {fileID: 21300000, guid: e627d3eebd0beaf49a6b99ffb54acdca, type: 3}
+  sprAttack: {fileID: 21300000, guid: 7d96bdc0b536b1940baac7094fd51983, type: 3}
+  soundAttack: {fileID: 8300000, guid: e82f4824272bfb84386248141c619dd0, type: 3}
+  warnAttack: {fileID: 8300000, guid: b7e95e3105cc1084a9bacdf159413d0e, type: 3}
+  playWarning: 1
+  parryableUpL: 1
+  parryableUpR: 1
+  parryableR: 1
+  parryableL: 1
+  unstunable: 1
+  unparryable: 1
+  isntAtker: 0
+  noMoveBackWarning: 0
+  isShake: 0
+  shakeMagna: 0
+  leftAtkResponse: {fileID: 0}
+  rightAtkResponse: {fileID: 0}
+  atkChaining: 2
+  howManyTime: 7
+  nextAtk: {fileID: 11400000, guid: df59bcf4081b1824886f9b4c8e7cae6d, type: 2}

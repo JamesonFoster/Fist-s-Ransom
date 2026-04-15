@@ -47,6 +47,14 @@ public class PlayerMovement : MonoBehaviour
     //stone Vals
     public bool Stone = false;
     private float stoneTimer = 3f;
+    //fire vals
+    public AudioClip soundBurningHit;
+    public AudioClip soundBurningStart;
+    public float burningTimer = 0f;
+    public float burningHitTimer = 0f;
+    public bool isBurning = false;
+    public GameObject burningVisual;
+    private float deathMulti = 1.0f;
 
     void Awake()
     {
@@ -84,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
                 sprrend.color = new Color(sprrend.color.r, sprrend.color.g, sprrend.color.b, 0.5f);
             }
             // Only allow dodging if player can move and dodge cooldown passed
-            if (!isDodging && !Stone && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
+            if (!isDodging && GlobalPlayerVars.PlayerHealth >= 0f && !Stone && canMove && ((GlobalPlayerVars.dodgeStun + GlobalPlayerVars.dodgeTime) < stunTimer))
             {
                 if ((Input.GetKeyDown(KeyCode.A) || Input.GetAxis("Horizontal") < -0.9f) && plAtk.hitStunnedTimer < 0f)
                 {
@@ -153,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
         dodgeTimer = 0f;
         stunTimer = 0f;
         dodgeTarget = (Vector2)transform.position + direction * GlobalPlayerVars.dodgeDistance;
-        StartCoroutine(camShake.DirectionalShake(direction, 0.15f, GlobalPlayerVars.dodgeTime));
+        StartCoroutine(camShake.DirectionalShake(direction, 0.15f, GlobalPlayerVars.dodgeTime  * dodgeSlower));
     }
     
     public void ReceiveScore(string score, float damage, List<string> effects)
@@ -161,37 +169,37 @@ public class PlayerMovement : MonoBehaviour
         if (!isDodging)
         {
             HandleEffectApply(effects);
-            takeDamage(damage);
+            takeDamage(damage * deathMulti);
         }
         else if (isDodging && score == "hitleft" && dodgeType == "left")
         {
             HandleEffectApply(effects);
-            takeDamage(damage);
+            takeDamage(damage * deathMulti);
         }
         else if (isDodging && score == "hitright" && dodgeType == "right")
         {
             HandleEffectApply(effects);
-            takeDamage(damage);
+            takeDamage(damage * deathMulti);
         }
         else if (isDodging && score == "hitdown" && dodgeType == "down")
         {
             HandleEffectApply(effects);
-            takeDamage(damage);
+            takeDamage(damage * deathMulti);
         }
         else if (isDodging && score == "hitfullleft" && (dodgeType == "left" || dodgeType == "down"))
         {
             HandleEffectApply(effects);
-            takeDamage(damage);
+            takeDamage(damage * deathMulti);
         }
         else if (isDodging && score == "hitfullright" && (dodgeType == "right" || dodgeType == "down"))
         {
             HandleEffectApply(effects);
-            takeDamage(damage);
+            takeDamage(damage * deathMulti);
         }
         else if (isDodging && score == "hitfullsides" && (dodgeType == "right" || dodgeType == "left"))
         {
             HandleEffectApply(effects);
-            takeDamage(damage);
+            takeDamage(damage * deathMulti);
         }
         else
         {
@@ -271,6 +279,31 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(EffectFlicker());
                     }
                     break;
+
+                case "fire":
+                    plAtk.aS.PlayOneShot(soundBurningStart);
+                    burningTimer = 3f;
+                    burningHitTimer = 0f;
+                    isBurning = true;
+                    break;
+
+                case "heal":
+                    if (GlobalPlayerVars.PlayerHealth <= (GlobalPlayerVars.PlayerMaxHealth - 33f))
+                    {
+                        GlobalPlayerVars.PlayerHealth += 33f;
+                    }
+                    else
+                    {
+                        GlobalPlayerVars.PlayerHealth = GlobalPlayerVars.PlayerMaxHealth;
+                    }
+                    break;
+                
+                case "death":
+                    colorLength = 0.5f;
+                    targetColor = Color.magenta;
+                    StartCoroutine(EffectFlicker());
+                    deathMulti += 0.25f;
+                    break;
             }
         }
     }
@@ -308,6 +341,8 @@ public class PlayerMovement : MonoBehaviour
             Poison();
         if (Stone)
             StoneEff();
+        if (isBurning)
+            Burn();
     }
 
     IEnumerator EffectFlicker()
@@ -366,6 +401,26 @@ public class PlayerMovement : MonoBehaviour
             GlobalPlayerVars.PlayerHealth -= 4f;
             CancelAll();
             poisonHitTimer = 0f;
+        }
+    }
+
+    private void Burn()
+    {
+        burningHitTimer += Time.deltaTime;
+        burningTimer -= Time.deltaTime;
+
+        if (burningTimer <= 0f)
+        {
+            isBurning = false;
+        }
+        if (burningHitTimer >= 0.3)
+        {
+            Instantiate(burningVisual);
+            plAtk.aS.PlayOneShot(soundBurningHit);
+            targetColor = Color.red;
+            StartCoroutine(EffectFlicker());
+            GlobalPlayerVars.PlayerHealth -= 0.5f;
+            burningHitTimer = 0f;
         }
     }
 }

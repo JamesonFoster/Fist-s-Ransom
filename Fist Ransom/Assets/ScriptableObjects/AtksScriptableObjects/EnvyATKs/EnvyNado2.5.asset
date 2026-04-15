@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
+  m_Name: EnvyNado2.5
+  m_EditorClassIdentifier: 
+  atkWarning: 0.5
+  parryTime: 0.2
+  postAtkDodgeStun: 0
+  atkType: 
+  attackEffects:
+  - poison
+  atkDamage: 1
+  sprAttackWarning: {fileID: 21300000, guid: aafa95557f132c44f80ec9721bb1b01f, type: 3}
+  sprAttack: {fileID: 21300000, guid: 41c2b379eab8f4a4590390b611e8b143, type: 3}
+  soundAttack: {fileID: 8300000, guid: ae4582b1a9dc0224fb46e3b856d14f97, type: 3}
+  warnAttack: {fileID: 0}
+  playWarning: 0
+  parryableUpL: 1
+  parryableUpR: 1
+  parryableR: 1
+  parryableL: 1
+  unstunable: 1
+  unparryable: 1
+  isntAtker: 0
+  noMoveBackWarning: 0
+  isShake: 0
+  shakeMagna: 0
+  leftAtkResponse: {fileID: 0}
+  rightAtkResponse: {fileID: 0}
+  atkChaining: 1
+  howManyTime: 0
+  nextAtk: {fileID: 11400000, guid: ceed9669e2f41af4f8c45267febd0cb2, type: 2}
