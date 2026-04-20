@@ -1527,6 +1527,8 @@ MonoBehaviour:
   fadeDuration: 5
   fadeIn: 1
   goTo: ScyllaWin
+  ifGaut: 
+  isItem: 0
   back2Map: 0
   dead: 0
 --- !u!1 &1065946547 stripped
@@ -1735,6 +1737,8 @@ MonoBehaviour:
   fadeDuration: 1
   fadeIn: 0
   goTo: 
+  ifGaut: 
+  isItem: 0
   back2Map: 0
   dead: 0
 --- !u!1001 &1339056588
@@ -1961,63 +1965,6 @@ Transform:
   - {fileID: 1961320109}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1710417234
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1710417236}
-  - component: {fileID: 1710417235}
-  - component: {fileID: 1710417237}
-  m_Layer: 0
-  m_Name: GlobalHolder(VERY IMPORTANT)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1710417235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710417234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ea27f7b7537cc41b10c8960bb79467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1710417236
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710417234}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1479445, y: -0.91965276, z: 0.064542376}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1710417237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710417234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eeec2b7b35bb764394cf96e05f0bd1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1722701838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2193,6 +2140,8 @@ MonoBehaviour:
   fadeDuration: 5
   fadeIn: 1
   goTo: 
+  ifGaut: 
+  isItem: 0
   back2Map: 0
   dead: 1
 --- !u!1 &1815069683
@@ -3068,7 +3017,6 @@ SceneRoots:
   - {fileID: 1354687382}
   - {fileID: 35731002}
   - {fileID: 401496688}
-  - {fileID: 1710417236}
   - {fileID: 307317953}
   - {fileID: 1339056588}
   - {fileID: 867150454}

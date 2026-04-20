@@ -7,10 +7,10 @@ public class DizzyDetect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GlobalPlayerVars.PlayerHealth <= 0f)
+        if (GlobalPlayerVars.PlayerHealth <= 0f || GlobalPlayerVars.playerMode == 2)
         {
+            Debug.Log("MODE 2");
             dizzyEffect.SetActive(true);
-            Debug.Log("SetTrue");
         }
     }
 }

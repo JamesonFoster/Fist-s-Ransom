@@ -9,9 +9,11 @@ using UnityEditor;
 public class MainMenuButtons : MonoBehaviour
 {
     public GameObject winScreen;
-    public UpgradeManager uD; 
+    public UpgradeManager uD;
+    public int ModeNumb = 0;
     public void StartRun()
     {
+        GlobalPlayerVars.playerMode = ModeNumb;
         winScreen.SetActive(true);
     }
     public void Credits()

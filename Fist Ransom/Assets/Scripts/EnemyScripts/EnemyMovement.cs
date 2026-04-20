@@ -116,13 +116,27 @@ public class EnemyMovement : MonoBehaviour
     private float shakeStart = 0f;
     private Vector2 shakeOffset = Vector2.zero;
 
+    //
+    private float healMulti = 1f;
+    private float damaMulti = 1f;
+    private float atkRandMulti = 1f;
+    private float atkSpeedMulti = 1f;
+
 
     private void Awake()
     {
+        if (GlobalPlayerVars.playerMode == 1)
+        {
+            healMulti = 2f;
+            damaMulti = 1.5f;
+            atkRandMulti = 1.55f;
+            atkSpeedMulti = 1.5f;
+        }
+
         // Initialize global health using ScriptableObject value
         if ((BPC == null && phase == 0) || (phase == 2 && BPC != null))
-            GlobalPlayerVars.EnemyMaxHealth = enemyData.maxHealth;
-        GlobalPlayerVars.EnemyHealth = enemyData.maxHealth;
+            GlobalPlayerVars.EnemyMaxHealth = enemyData.maxHealth * healMulti;
+        GlobalPlayerVars.EnemyHealth = enemyData.maxHealth * healMulti;
         GlobalPlayerVars.EnemyName = enemyData.name;
         GlobalPlayerVars.goldvalue = enemyData.baseGoldWorth * GlobalPlayerVars.coinMultiplay;
         curstandspr = enemyData.sprStandingStill;
@@ -162,7 +176,7 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if ((enemyData.atkAgro / 100) >= Random.value && !isAtk && !stunned)
+        if (((enemyData.atkAgro / 100) * atkRandMulti) >= Random.value && !isAtk && !stunned)
             Attack();
     }
 
@@ -597,8 +611,8 @@ public class EnemyMovement : MonoBehaviour
         sprATKWARN = atkChoose.sprAttackWarning;
         sprATK = atkChoose.sprAttack;
         atkDAMA = atkChoose.atkDamage;
-        parTime = atkChoose.parryTime / enemyData.atkSpeedMultiplier;
-        atkWARN = atkChoose.atkWarning / enemyData.atkSpeedMultiplier;
+        parTime = (atkChoose.parryTime / enemyData.atkSpeedMultiplier) / atkSpeedMulti;
+        atkWARN = (atkChoose.atkWarning / enemyData.atkSpeedMultiplier) / atkSpeedMulti;
         countdownAtk = atkChoose.howManyTime;
         nextAtk = atkChoose.nextAtk;
         if (atkChoose.isShake)
@@ -627,7 +641,7 @@ public class EnemyMovement : MonoBehaviour
     public void SendScore(PlayerMovement target2, string atkType, float damage)
     {
         if (target2 != null)
-            target2.ReceiveScore(atkType, damage, atkChoose.attackEffects);
+            target2.ReceiveScore(atkType, damage * damaMulti, atkChoose.attackEffects);
         else
             Debug.LogWarning("Target is missing!");
     }

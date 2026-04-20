@@ -1014,6 +1014,7 @@ MonoBehaviour:
   fadeDuration: 5
   fadeIn: 1
   goTo: BasicEnemyVic
+  ifGaut: 
   back2Map: 0
   dead: 0
 --- !u!1 &1131369791
@@ -1278,6 +1279,7 @@ MonoBehaviour:
   fadeDuration: 1
   fadeIn: 0
   goTo: 
+  ifGaut: 
   back2Map: 0
   dead: 0
 --- !u!1 &1167868776
@@ -2211,6 +2213,7 @@ MonoBehaviour:
   fadeDuration: 5
   fadeIn: 1
   goTo: 
+  ifGaut: 
   back2Map: 0
   dead: 1
 --- !u!1001 &3402151381823604417

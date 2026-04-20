@@ -133,12 +133,29 @@ public class TutorialMasterController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            
+            if (GlobalPlayerVars.playerMode != 2)
+            {
             GlobalPlayerVars.HealCount = 3;
             GlobalPlayerVars.RageCount = 1;
             GlobalPlayerVars.PlayerHealth = GlobalPlayerVars.PlayerMaxHealth;
             GlobalPlayerVars.PlayerRage = 0;
             leaves.SetActive(true);
+            }
+            else
+            {
+            GlobalPlayerVars.HealCount = 1;
+            GlobalPlayerVars.RageCount = 30;
+            GlobalPlayerVars.PlayerHealth = GlobalPlayerVars.PlayerMaxHealth;
+            GlobalPlayerVars.PlayerRage = 0;
+            GlobalPlayerVars.hitStunnedLength = 0.8f;
+            GlobalPlayerVars.heatDecreasingPer = -0.06f;
+            GlobalPlayerVars.atkCooldown = 0.6f;
+            GlobalPlayerVars.dodgeStun = 0.4f;
+            GlobalPlayerVars.rageHeadAtk = 20f;
+            GlobalPlayerVars.rageBodyAtk = 20f;
+            GlobalPlayerVars.PlayerRageSpeed = 0.5f;
+            leaves.SetActive(true);    
+            }
         }
     }
 }

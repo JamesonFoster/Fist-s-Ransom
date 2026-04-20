@@ -330,8 +330,8 @@ MonoBehaviour:
   m_text: In the light of victory yur heard his crew's spirits chearing him on...
     pick a memory
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -468,8 +468,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Food#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -911,8 +911,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ale#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1045,8 +1045,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Coin#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1300,8 +1300,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1578,6 +1578,8 @@ MonoBehaviour:
   fadeDuration: 3
   fadeIn: 1
   goTo: 
+  ifGaut: 
+  isItem: 1
   back2Map: 1
   dead: 0
 --- !u!1 &1512883700
@@ -2540,6 +2542,8 @@ MonoBehaviour:
   fadeDuration: 3
   fadeIn: 0
   goTo: 
+  ifGaut: 
+  isItem: 0
   back2Map: 0
   dead: 0
 --- !u!1 &2000363666

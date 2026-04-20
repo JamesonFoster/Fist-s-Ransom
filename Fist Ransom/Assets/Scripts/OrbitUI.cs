@@ -14,9 +14,19 @@ public class OrbitUI : MonoBehaviour
 
     void Update()
     {
+        if (GlobalPlayerVars.playerMode != 2)
+        {
         float x = Mathf.Cos(Time.time * speed) * radius;
         float y = Mathf.Sin(Time.time * speed) * radius;
 
         transform.localPosition = center + new Vector3(x, y, 0);
+        }
+        else
+        {
+        float x = Mathf.Cos(Time.time * (speed / 2f)) * (radius / 2f);
+        float y = Mathf.Sin(Time.time * (speed / 2f)) * (radius / 2f);
+
+        transform.localPosition = center + new Vector3(x, y, 0);
+        }
     }
 }
