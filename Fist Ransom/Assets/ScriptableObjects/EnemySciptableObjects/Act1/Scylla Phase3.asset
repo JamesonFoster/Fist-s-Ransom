@@ -22,7 +22,8 @@ MonoBehaviour:
   dodgeAtkAngleIntence: 0
   atkAgro: 2
   atkSpeedMultiplier: 1.75
-  maxHealth: 125
+  listOfSpAtks: []
+  maxHealth: 95
   postAtkStunTime: 1
   stunnedTime: 0.8
   headDamageMultiplier: 1

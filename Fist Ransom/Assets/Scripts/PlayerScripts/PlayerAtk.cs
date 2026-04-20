@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAtk : MonoBehaviour
 {
@@ -30,16 +31,29 @@ public class PlayerAtk : MonoBehaviour
     public Sprite sprhitStunned;
     public Sprite sprRageAtk1;
     public Sprite sprRageAtk2;
+    public Sprite deadPlayer;
     [Header("Sounds")]
     public AudioClip rageSlash;
 
 
+    [Header("Heat")]
+    public GameObject sweatPrefab;
+    public Vector3 sweatPos1;
+    public Vector3 sweatPos2;
+    private bool sweatPos = false;
+    private float sweatTimer = 0f;
 
 
     private bool damageApplied = false;
     private string currentDir;
     private float currentDamage;
+    private float heatHurt;
     
+    void FixedUpdate()
+    {
+        if (GlobalPlayerVars.heatVal > 0f)
+        GlobalPlayerVars.heatVal -= GlobalPlayerVars.heatDecreasingPer;
+    }
 
     void Awake()
     {
@@ -55,7 +69,37 @@ public class PlayerAtk : MonoBehaviour
 
     void Update()
     {
+        if (GlobalPlayerVars.PlayerHealth <= 0f)
+        {
+            SpriteChange(deadPlayer);
+        }
+        else
+        {
         hitStunnedTimer -= Time.deltaTime;
+        if (GlobalPlayerVars.heatVal >= 70f && GlobalPlayerVars.PlayerHealth >= 0f)
+        {
+            heatHurt = (GlobalPlayerVars.heatVal / 65f);
+            sweatTimer += Time.deltaTime;
+            if (sweatTimer > (1.5f - Mathf.InverseLerp(70f, 100f, GlobalPlayerVars.heatVal)))
+            {
+            if (!sweatPos)
+                {
+                    Instantiate(sweatPrefab, transform.position + sweatPos1, Quaternion.identity);
+                    sweatTimer = 0f;
+                    sweatPos = !sweatPos;    
+                }
+            else
+                {
+                    Instantiate(sweatPrefab, transform.position + sweatPos2, Quaternion.identity);
+                    sweatTimer = 0f;
+                    sweatPos = !sweatPos;
+                }
+            }
+        }
+        else
+        {
+            heatHurt = 1f;
+        }
 
         if (!isAtking)
             plMove.canMove = true;
@@ -73,20 +117,31 @@ public class PlayerAtk : MonoBehaviour
                 SpriteChange(sprhitStunned);
         }
         // Aim up check
-        aimUp = Input.GetKey(KeyCode.W);
+        aimUp = (Input.GetKey(KeyCode.W) || Input.GetAxis("Vertical") > 0.8f);
 
         if (hitStunned == false)
         {
+            if (Gamepad.current != null)
+            {
             // Attack input (only if not already attacking and player is allowed to move)
-            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0)))
+            if (!isAtking && GlobalPlayerVars.PlayerHealth >= 0f && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0) || (Input.GetButtonDown("LeftAttack") || Gamepad.current.leftTrigger.ReadValue() > 0.1f)))
                 AttackL();
-            if (!isAtking && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1)))
+            if (!isAtking && GlobalPlayerVars.PlayerHealth >= 0f && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1) || (Input.GetButtonDown("RightAttack") || Gamepad.current.rightTrigger.ReadValue() > 0.1f)))
                 AttackR();
-            if (!isAtking && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space)) && GlobalPlayerVars.PlayerRage == GlobalPlayerVars.PlayerRageMax)
-                AttackRage();
-            if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Q))
+            }
+            else
+            {
+            // Attack input (only if not already attacking and player is allowed to move)
+            if (!isAtking && GlobalPlayerVars.PlayerHealth >= 0f && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.Mouse0) || (Input.GetButtonDown("LeftAttack"))))
+                AttackL();
+            if (!isAtking && GlobalPlayerVars.PlayerHealth >= 0f && !plMove.isSong &&  !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Mouse1) || (Input.GetButtonDown("RightAttack"))))
+                AttackR();
+            }
+            if (!isAtking && GlobalPlayerVars.PlayerHealth >= 0f && !plMove.isSong && !plMove.dodgeAtkLock && plMove.canMove && (Input.GetKeyDown(KeyCode.Slash) || Input.GetKeyDown(KeyCode.Space) || (Input.GetButtonDown("RageAttack"))) && GlobalPlayerVars.PlayerRage == GlobalPlayerVars.PlayerRageMax)
+                AttackRage(false);
+            if ((Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Q) || (Input.GetButtonDown("EatFood"))) && GlobalPlayerVars.PlayerHealth >= 0f)
                 useHeal();
-            if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.E))
+            if ((Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.E) || (Input.GetButtonDown("EatAle"))) && GlobalPlayerVars.PlayerHealth >= 0f)
                 useRage();
             #if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.O))
@@ -111,7 +166,7 @@ public class PlayerAtk : MonoBehaviour
         if (isAtking)
         {
             attackTimer += Time.deltaTime;
-            float halfAtk = GlobalPlayerVars.atkCooldown / 2f;
+            float halfAtk = (GlobalPlayerVars.atkCooldown * heatHurt) / 2f;
 
             if (attackTimer <= halfAtk)
             {
@@ -124,13 +179,15 @@ public class PlayerAtk : MonoBehaviour
                 if (rageSprites)
                 SpriteChange(sprRageAtk1);
             }
-            else if (attackTimer <= GlobalPlayerVars.atkCooldown)
+            else if (attackTimer <= (GlobalPlayerVars.atkCooldown * heatHurt))
             {
                 // Apply damage ONCE when swing reaches halfway point
                 if (!damageApplied)
                 {
                     damageApplied = true;
                     SendScore(target, currentDir, currentDamage);
+                    if (GlobalPlayerVars.heatVal < 100)
+                        GlobalPlayerVars.heatVal += GlobalPlayerVars.heatPerHit;
                     if (rageSprites)
                     {
                         aS.PlayOneShot(rageSlash);
@@ -161,6 +218,7 @@ public class PlayerAtk : MonoBehaviour
                 sprrend.flipX = false;
                 rageSprites = false;
             }
+        }
         }
     }
 
@@ -207,13 +265,15 @@ public class PlayerAtk : MonoBehaviour
         upSprites = false;
     }
 }
-    public void AttackRage()
+    public void AttackRage(bool isagain)
     {
         isAtking = true;
         plMove.canMove = false;
         damageApplied = false;
         attackTimer = 0f;
 
+        if (!isagain)
+        {
         if (aimUp) 
         { 
             currentDir = "rageUp";
@@ -227,6 +287,24 @@ public class PlayerAtk : MonoBehaviour
             attackTimer -= GlobalPlayerVars.PlayerRageSpeed; 
             currentDamage = GlobalPlayerVars.rageBodyAtk;
             rageSprites = true;
+        }
+        }
+        else
+        {
+        if (aimUp) 
+        { 
+            currentDir = "rageUp2";
+            attackTimer -= GlobalPlayerVars.PlayerRageSpeed / 2f; 
+            currentDamage = GlobalPlayerVars.rageHeadAtk;
+            rageSprites = true; 
+        } 
+        else 
+        { 
+            currentDir = "rageDown2";
+            attackTimer -= GlobalPlayerVars.PlayerRageSpeed / 2f; 
+            currentDamage = GlobalPlayerVars.rageBodyAtk;
+            rageSprites = true;
+        }  
         }
     }
 
@@ -249,6 +327,7 @@ public class PlayerAtk : MonoBehaviour
     {
         if (GlobalPlayerVars.RageCount > 0)
         {
+            GlobalPlayerVars.heatVal -= GlobalPlayerVars.aleHeatDec;
             GlobalPlayerVars.RageCount--;
             GlobalPlayerVars.PlayerRage = Mathf.Min(GlobalPlayerVars.PlayerRage + GlobalPlayerVars.AleRageAmount, GlobalPlayerVars.PlayerRageMax);
         }

@@ -56,6 +56,30 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestingBattleScene.unity
     guid: 81480a34c240ebd4ba41dc20db5cb1ef
+  - enabled: 1
+    path: Assets/Scenes/Act2/GoblinGuyFight.unity
+    guid: e03cd3f569a8bf14db30c9f4b49c73dc
+  - enabled: 1
+    path: Assets/Scenes/Act2/SnakeGuyFight.unity
+    guid: f894bb2369d2dac469251f519530a915
+  - enabled: 1
+    path: Assets/Scenes/Act2/Boss2.unity
+    guid: ac58c5cc3eb972c429a97171dae0f11c
+  - enabled: 1
+    path: Assets/Scenes/Act1/ScyllaWin.unity
+    guid: c2abd5b24f886ae43842b20e83c68275
+  - enabled: 1
+    path: Assets/Scenes/Act2/MedusaFight.unity
+    guid: 50a7036868d15dd40b9d861cb48eda1e
+  - enabled: 1
+    path: Assets/Scenes/Act2/Boss2Talk.unity
+    guid: 916699931d4c99e4e944ff4258f492f0
+  - enabled: 1
+    path: Assets/Scenes/Act3/3sFight.unity
+    guid: 61e185394d1612f4aa3dff3ce3fbd07a
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 9b8cd9dc6da67ed43b39c4ebe1fbf12b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

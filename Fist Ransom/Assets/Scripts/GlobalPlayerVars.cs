@@ -5,6 +5,8 @@ public class GlobalPlayerVars : MonoBehaviour
     //PlayerMapInfo
     public static int playerLocationID = 0;
     public static int playerAct = 1;
+    public static int playerMode = 0;
+    public static int eneKilled = 0;
 
     //PlayerValues
     public static int HealCount = 3;
@@ -39,6 +41,13 @@ public class GlobalPlayerVars : MonoBehaviour
     public static int gold = 0;
     public static float coinMultiplay = 1f;
 
+    //Heat
+    public static float heatVal = 0f;
+    public static float heatPerHit = 4f;
+    public static float heatDecreasingPer = 0.04f;
+    public static float aleHeatDec = 70f;
+    public static float dodgeHeatDec = 12f;
+
     //EnemyValues
     public static float EnemyHealth;
     public static float EnemyMaxHealth;
@@ -46,6 +55,10 @@ public class GlobalPlayerVars : MonoBehaviour
     public static float goldvalue;
 
 
+    //Player Bool Upgrade Values
+    public static bool scyllaAxe = false;
+    public static bool scyllaSoul = false;
+    public static bool scyllaCoat = false;
 
 
     // Player Effect Values

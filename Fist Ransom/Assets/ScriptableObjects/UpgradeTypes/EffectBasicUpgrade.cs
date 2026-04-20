@@ -41,4 +41,26 @@ public class EffectBasicUpgrade : Upgrade
         GlobalPlayerVars.burnPlayerBurnDamage += burnHitDamageIncre;
         GlobalPlayerVars.burnPlayerBurnLength += burnLengthIncre;
     }
+
+    public override void Remove()
+    {
+        // Poison Applys
+        if ((ragePoison == true || basicHitPoisonChanceIncre != 0f) && GlobalPlayerVars.effectsList.Contains("poison"))
+            GlobalPlayerVars.effectsList.Remove("poison");
+        if (ragePoison == true)
+            GlobalPlayerVars.poisonRageHit = false;
+        GlobalPlayerVars.poisonBasicHitPoisonChance -= basicHitPoisonChanceIncre;
+        GlobalPlayerVars.poisonPlayerHitTimer += poisonHitTimerDecre;
+        GlobalPlayerVars.poisonPlayerPoisonDamage -= poisonHitDamageIncre;
+        GlobalPlayerVars.poisonPlayerPoisonLength -= poisonLengthIncre;
+
+        // Burn Applys
+        if ((rageBurn == true || basicHitBurnChanceIncre != 0f) && GlobalPlayerVars.effectsList.Contains("burn"))
+            GlobalPlayerVars.effectsList.Remove("burn");
+        if (rageBurn == true)
+            GlobalPlayerVars.burnRageHit = false;
+        GlobalPlayerVars.burnBasicHitBurnChance -= basicHitBurnChanceIncre;
+        GlobalPlayerVars.burnPlayerBurnDamage -= burnHitDamageIncre;
+        GlobalPlayerVars.burnPlayerBurnLength -= burnLengthIncre;
+    }
 }

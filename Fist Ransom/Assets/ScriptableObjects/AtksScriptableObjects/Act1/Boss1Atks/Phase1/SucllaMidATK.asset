@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
   m_Name: SucllaMidATK
   m_EditorClassIdentifier: 
-  atkWarning: 1
+  atkWarning: 0.4
   parryTime: 0.1
   postAtkDodgeStun: 0.3
   atkType: hitdown
@@ -31,6 +31,10 @@ MonoBehaviour:
   unparryable: 1
   isntAtker: 0
   noMoveBackWarning: 1
+  isShake: 0
+  shakeMagna: 0
+  leftAtkResponse: {fileID: 0}
+  rightAtkResponse: {fileID: 0}
   atkChaining: 0
   howManyTime: 0
   nextAtk: {fileID: 0}

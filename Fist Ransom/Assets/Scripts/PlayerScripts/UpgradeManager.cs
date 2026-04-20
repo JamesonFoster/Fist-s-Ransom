@@ -1,6 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic; 
-using UnityEngine;
+using System.Collections.Generic;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -8,7 +7,6 @@ public class UpgradeManager : MonoBehaviour
 
     public void AddUpgrade(Upgrade upgrade)
     {
-        if (ownedUpgrades.Contains(upgrade)) return;
         ownedUpgrades.Add(upgrade);
         upgrade.Apply();
     }
@@ -16,5 +14,15 @@ public class UpgradeManager : MonoBehaviour
     public bool HasUpgrade(Upgrade upgrade)
     {
         return ownedUpgrades.Contains(upgrade);
+    }
+
+    public void ClearUpgrades()
+    {
+        foreach (Upgrade upgrade in ownedUpgrades)
+        {
+            upgrade.Remove(); // undo effect
+        }
+
+        ownedUpgrades.Clear();
     }
 }

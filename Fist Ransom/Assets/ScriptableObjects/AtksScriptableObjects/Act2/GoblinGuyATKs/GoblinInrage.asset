@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
+  m_Name: GoblinInrage
+  m_EditorClassIdentifier: 
+  atkWarning: 2
+  parryTime: 0.2
+  postAtkDodgeStun: 0
+  atkType: 
+  attackEffects:
+  - RageDrain
+  atkDamage: 4
+  sprAttackWarning: {fileID: 21300000, guid: d44809e4d29f28940b600ac5ce83a1c3, type: 3}
+  sprAttack: {fileID: 21300000, guid: f4deb8d84aa53664f928cbdd95642c34, type: 3}
+  soundAttack: {fileID: 8300000, guid: a7654214683706840b56555fc2f8803d, type: 3}
+  warnAttack: {fileID: 8300000, guid: a7654214683706840b56555fc2f8803d, type: 3}
+  playWarning: 1
+  parryableUpL: 1
+  parryableUpR: 1
+  parryableR: 1
+  parryableL: 1
+  unstunable: 0
+  unparryable: 0
+  isntAtker: 0
+  noMoveBackWarning: 0
+  isShake: 0
+  shakeMagna: 0
+  leftAtkResponse: {fileID: 0}
+  rightAtkResponse: {fileID: 0}
+  atkChaining: 0
+  howManyTime: 0
+  nextAtk: {fileID: 0}

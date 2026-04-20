@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7ae26faaeed745b9b18bcf4c40155, type: 3}
+  m_Name: Rage
+  m_EditorClassIdentifier: 
+  name: Alecto
+  baseGoldWorth: 150
+  atkRedyPercent: 0.2
+  atkRageRedyPercent: 0.3
+  dodgeDistance: 0.7
+  dodgeTime: 0.3
+  dodgeStun: 0.05
+  dodgeAtkAngleIntence: 4
+  atkAgro: 3
+  atkSpeedMultiplier: 1
+  listOfSpAtks:
+  - {fileID: 11400000, guid: 0fceefe205f10574fbad0e1c510661ee, type: 2}
+  - {fileID: 11400000, guid: 4bc658ad493ffa145af6d3bd7b21c040, type: 2}
+  - {fileID: 11400000, guid: 906937975edbefa4f96e1f6737ac729e, type: 2}
+  - {fileID: 11400000, guid: aac8c5258da63d64588f9c4e168c0283, type: 2}
+  - {fileID: 11400000, guid: aac8c5258da63d64588f9c4e168c0283, type: 2}
+  - {fileID: 11400000, guid: 906937975edbefa4f96e1f6737ac729e, type: 2}
+  - {fileID: 11400000, guid: 0fceefe205f10574fbad0e1c510661ee, type: 2}
+  maxHealth: 200
+  postAtkStunTime: 0.6
+  stunnedTime: 2
+  headDamageMultiplier: 1
+  bodyDamageMultiplier: 1
+  soundHit1: {fileID: 8300000, guid: 8d8d04b5fb3d85a4ca1fa55c22d97604, type: 3}
+  soundHit2: {fileID: 8300000, guid: e24ad036ac3f518418aecd827314adcb, type: 3}
+  soundDeath: {fileID: 8300000, guid: 766df971889550243b68f9c843b96b59, type: 3}
+  soundDodge: {fileID: 8300000, guid: 850bf3268df65a7419ee6c92c39b6f0c, type: 3}
+  soundStunned: {fileID: 8300000, guid: b1ab603a64edd97449b8f92c6140f83a, type: 3}
+  soundCele1: {fileID: 8300000, guid: 7516f98c3a7ced841abe5873d3ddec3e, type: 3}
+  soundCele2: {fileID: 8300000, guid: 78099acd2cbc3f647801d11e2a181eb4, type: 3}
+  idlespeed: 0.5
+  sprStandingStill: {fileID: 21300000, guid: 1d2421141a460474cb4529dec4791fbe, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: 6dde0056b7d97694f8d97a7912fea124, type: 3}
+  sprStunned1: {fileID: 21300000, guid: 9b769c070efaf5a4b997f046eb7faab8, type: 3}
+  sprStunned2: {fileID: 21300000, guid: 9f46160730fcefc4c8fcece4d94d8881, type: 3}
+  sprDead: {fileID: 21300000, guid: bb62ba32a8c427e42a1e7e8d33b4d666, type: 3}
+  sprDodge: {fileID: 21300000, guid: 447348fbca4624b49b92153c8d306b41, type: 3}
+  sprDodgeL: {fileID: 21300000, guid: 4da567a7f919e1b4495da3a1c532e723, type: 3}
+  sprHeadHitL: {fileID: 21300000, guid: a2fa793a2ed28074ab74da2d8c6e8d3c, type: 3}
+  sprHeadHitR: {fileID: 21300000, guid: b330401b8f1804b4eb12737faa011243, type: 3}
+  sprBodyHitL: {fileID: 21300000, guid: 5ed28a37484352747a6258166fe8b370, type: 3}
+  sprBodyHitR: {fileID: 21300000, guid: 991ae84450708e9478e07bca4ede3e6b, type: 3}
+  sprPlayerDeath1: {fileID: 21300000, guid: ed9dace374bfbf7458fd160ee1dfb32e, type: 3}
+  sprPlayerDeath2: {fileID: 21300000, guid: ccf084d0daef1964a89c7a5ab235c739, type: 3}
+  holdOn: 0
+  atkNHitSettings:
+    postHitAtker: 0
+    postDodgeAtker: 0
+    isSlippery: 0
+    unharmableVoidStun: 0
+  modeShiftSettings:
+    modeShiftSpeed: 0
+    modeShift: {fileID: 0}
+  itemTestingSettings:
+    ifPlayerHas: {fileID: 0}
+    isModeShift: 0
+    modeToShift2: {fileID: 0}

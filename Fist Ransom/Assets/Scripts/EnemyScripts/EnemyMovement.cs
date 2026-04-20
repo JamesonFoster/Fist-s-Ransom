@@ -11,6 +11,11 @@ public class EnemyMovement : MonoBehaviour
 
     [Header("Boss")]
     public BossPhaseController BPC;
+    public GameObject sweatPrefab;
+    public Vector3 sweatPos1;
+    public Vector3 sweatPos2;
+    private bool sweatPos = false;
+    private float sweatTimer = 0f;
     public GameObject winScreen;
 
 
@@ -111,12 +116,27 @@ public class EnemyMovement : MonoBehaviour
     private float shakeStart = 0f;
     private Vector2 shakeOffset = Vector2.zero;
 
+    //
+    private float healMulti = 1f;
+    private float damaMulti = 1f;
+    private float atkRandMulti = 1f;
+    private float atkSpeedMulti = 1f;
+
 
     private void Awake()
     {
+        if (GlobalPlayerVars.playerMode == 1)
+        {
+            healMulti = 2f;
+            damaMulti = 1.5f;
+            atkRandMulti = 1.55f;
+            atkSpeedMulti = 1.5f;
+        }
+
         // Initialize global health using ScriptableObject value
-        GlobalPlayerVars.EnemyMaxHealth = enemyData.maxHealth;
-        GlobalPlayerVars.EnemyHealth = enemyData.maxHealth;
+        if ((BPC == null && phase == 0) || (phase == 2 && BPC != null))
+            GlobalPlayerVars.EnemyMaxHealth = enemyData.maxHealth * healMulti;
+        GlobalPlayerVars.EnemyHealth = enemyData.maxHealth * healMulti;
         GlobalPlayerVars.EnemyName = enemyData.name;
         GlobalPlayerVars.goldvalue = enemyData.baseGoldWorth * GlobalPlayerVars.coinMultiplay;
         curstandspr = enemyData.sprStandingStill;
@@ -156,7 +176,7 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if ((enemyData.atkAgro / 100) >= Random.value && !isAtk && !stunned)
+        if (((enemyData.atkAgro / 100) * atkRandMulti) >= Random.value && !isAtk && !stunned)
             Attack();
     }
 
@@ -167,6 +187,7 @@ public class EnemyMovement : MonoBehaviour
             chanstandtimer += Time.deltaTime;
             if (standsprcont && chanstandtimer >= enemyData.idlespeed)
             {
+                if (enemyData.soundCele1 != null)
                 aS.PlayOneShot(enemyData.soundCele1);
                 chanstandtimer = 0f;
                 standsprcont = false;
@@ -175,6 +196,7 @@ public class EnemyMovement : MonoBehaviour
             }
             if (!standsprcont && chanstandtimer >= enemyData.idlespeed)
             {
+                if (enemyData.soundCele2 != null)
                 aS.PlayOneShot(enemyData.soundCele2);
                 chanstandtimer = 0f;
                 standsprcont = true;
@@ -194,6 +216,7 @@ public class EnemyMovement : MonoBehaviour
             enemyEff.EffectCheck();
             if (GlobalPlayerVars.EnemyHealth <= 0)
             {
+                GlobalPlayerVars.heatVal = 0f;
                 isDead = true;
                 GlobalPlayerVars.gold += Mathf.RoundToInt(GlobalPlayerVars.goldvalue);
                 aS.PlayOneShot(enemyData.soundDeath);
@@ -203,6 +226,45 @@ public class EnemyMovement : MonoBehaviour
             HandleStun();
             HandleAttack();
             HandleShake();
+
+            if ((BPC != null && phase == 1))
+            {
+                sweatTimer += dT;
+                if (sweatTimer > 1f)
+                {
+                if (!sweatPos)
+                    {
+                        Instantiate(sweatPrefab, transform.position + sweatPos1, Quaternion.identity);
+                        sweatTimer = 0f;
+                        sweatPos = !sweatPos;    
+                    }
+                else
+                    {
+                        Instantiate(sweatPrefab, transform.position + sweatPos2, Quaternion.identity);
+                        sweatTimer = 0f;
+                        sweatPos = !sweatPos;
+                    }
+                }
+            }
+            if ((BPC != null && phase == 0))
+            {
+                sweatTimer += dT;
+                if (sweatTimer > 0.5f)
+                {
+                    if (!sweatPos)
+                    {
+                        Instantiate(sweatPrefab, transform.position + sweatPos1, Quaternion.identity);
+                        sweatTimer = 0f;
+                        sweatPos = !sweatPos;    
+                    }
+                else
+                    {
+                        Instantiate(sweatPrefab, transform.position + sweatPos2, Quaternion.identity);
+                        sweatTimer = 0f;
+                        sweatPos = !sweatPos;
+                    }
+                }
+            }
 
             // Handle All movement & Rotation
             transform.position = startPos + attackOffset + dodgeOffset + shakeOffset;
@@ -225,6 +287,7 @@ public class EnemyMovement : MonoBehaviour
                 atkSoundCheck = false;
                 if (atkChoose.playWarning && !soundcheck2)
                 {
+                    if (atkChoose.warnAttack != null)
                     aS.PlayOneShot(atkChoose.warnAttack);
                     soundcheck2 = true;
                 }
@@ -240,6 +303,7 @@ public class EnemyMovement : MonoBehaviour
                 soundcheck2 = false;
                 if (!atkSoundCheck)
                 {
+                    if (atkChoose.soundAttack != null)
                     aS.PlayOneShot(atkChoose.soundAttack);
                     atkSoundCheck = true;
                 }
@@ -356,7 +420,8 @@ public class EnemyMovement : MonoBehaviour
 
     public void ReceiveScore(string score, float damage, List<string> effectlist)
     {
-        Debug.Log(score);
+        bool isRage = (score == "rageUp" || score == "rageDown" || score == "rageUp2" || score == "rageDown2");
+        
         bool canDodge =
             !isDodging &&
             !stunned &&
@@ -365,7 +430,7 @@ public class EnemyMovement : MonoBehaviour
         // Only allow parry during exact parry window
         if (isAtk && isparryable && timerAtk >= atkWARN - parTime && timerAtk <= atkWARN)
         {
-            if (score == "rage")
+            if (isRage)
             {
             ParrySet();
             return;
@@ -395,7 +460,7 @@ public class EnemyMovement : MonoBehaviour
         if (atkChoose != null)
         {
             //Handling Taughting Atks
-            if ((score == "headL" || score == "bodyL" || score == "rageUp" || score == "rageDown") && atkChoose.leftAtkResponse != null && isAtk)
+            if ((score == "headL" || score == "bodyL" || isRage) && atkChoose.leftAtkResponse != null && isAtk)
             {
                 timerAtk = 0;
                 stunTimer += atkChoose.postAtkDodgeStun;
@@ -427,14 +492,14 @@ public class EnemyMovement : MonoBehaviour
         {
             bool dodgeSuccess = false;
 
-            if (score != "rageUp" && score != "rageDown")
-                dodgeSuccess = Random.value <= (enemyData.atkRedyPercent - GlobalPlayerVars.dodgingRageNullifier);
+            if (!isRage)
+                dodgeSuccess = Random.value <= enemyData.atkRedyPercent;
             else
-                dodgeSuccess = Random.value <= enemyData.atkRageRedyPercent;
+                dodgeSuccess = Random.value <= (enemyData.atkRageRedyPercent - GlobalPlayerVars.dodgingRageNullifier);
 
             if (dodgeSuccess)
             {
-                if (score == "headL" || score == "bodyL" || score == "rageUp" || score == "rageDown")
+                if (score == "headL" || score == "bodyL" || isRage)
                     StartDodge(Vector2.right);
 
                 if (score == "headR" || score == "bodyR")
@@ -444,7 +509,12 @@ public class EnemyMovement : MonoBehaviour
                     StartDodge(Vector2.left);
                 }
 
-                if (enemyData.atkNHitSettings.postDodgeAtker)
+                if ((score == "rageUp" || score == "rageDown") && GlobalPlayerVars.scyllaAxe)
+                {
+                    target.AttackRage(true);
+                }
+
+                if (enemyData.atkNHitSettings.postDodgeAtker && !isAtk)
                 {
                     Attack();
                 }
@@ -456,13 +526,13 @@ public class EnemyMovement : MonoBehaviour
 
         if (enemyData.atkNHitSettings.isSlippery)
         {
-            if ((yChanger == 0.282f && xChanger == -0.282f) && (score != "headL" && score != "rage"))
+            if ((yChanger == 0.282f && xChanger == -0.282f) && (score != "headL" && !isRage))
                 return;
-            if ((yChanger == 0.282f && xChanger == 0.282f) && (score != "headR" && score != "rage"))
+            if ((yChanger == 0.282f && xChanger == 0.282f) && (score != "headR" && !isRage))
                 return;
-            if ((yChanger == 0f && xChanger == -0.282f) && (score != "bodyL" && score != "rage"))
+            if ((yChanger == 0f && xChanger == -0.282f) && (score != "bodyL" && !isRage))
                 return;
-            if ((yChanger == 0f && xChanger == 0.282f) && (score != "bodyR" && score != "rage"))
+            if ((yChanger == 0f && xChanger == 0.282f) && (score != "bodyR" && !isRage))
                 return;
         }
 
@@ -478,7 +548,7 @@ public class EnemyMovement : MonoBehaviour
         //Handles all damage calc
         HandleDamage(score, damage, effectlist);
 
-        if (enemyData.atkNHitSettings.postHitAtker)
+        if (enemyData.atkNHitSettings.postHitAtker && !isAtk)
         {
             Attack();
         }
@@ -541,8 +611,8 @@ public class EnemyMovement : MonoBehaviour
         sprATKWARN = atkChoose.sprAttackWarning;
         sprATK = atkChoose.sprAttack;
         atkDAMA = atkChoose.atkDamage;
-        parTime = atkChoose.parryTime / enemyData.atkSpeedMultiplier;
-        atkWARN = atkChoose.atkWarning / enemyData.atkSpeedMultiplier;
+        parTime = (atkChoose.parryTime / enemyData.atkSpeedMultiplier) / atkSpeedMulti;
+        atkWARN = (atkChoose.atkWarning / enemyData.atkSpeedMultiplier) / atkSpeedMulti;
         countdownAtk = atkChoose.howManyTime;
         nextAtk = atkChoose.nextAtk;
         if (atkChoose.isShake)
@@ -571,7 +641,7 @@ public class EnemyMovement : MonoBehaviour
     public void SendScore(PlayerMovement target2, string atkType, float damage)
     {
         if (target2 != null)
-            target2.ReceiveScore(atkType, damage, atkChoose.attackEffects);
+            target2.ReceiveScore(atkType, damage * damaMulti, atkChoose.attackEffects);
         else
             Debug.LogWarning("Target is missing!");
     }
@@ -731,6 +801,7 @@ public class EnemyMovement : MonoBehaviour
         }
         if (stunned)
         {
+            GlobalPlayerVars.heatVal -= GlobalPlayerVars.heatDecreasingPer;
             isDodging = false;
             isAtk = false;
             timerAtk = 0;
@@ -868,7 +939,7 @@ public class EnemyMovement : MonoBehaviour
             }
             hitDir = "BR";
         }
-        else if (score == "rageUp") // Rage Up Hit
+        else if (score == "rageUp" || score == "rageUp2") // Rage Up Hit
         {
             enemyEff.ApplyEffectsBasic(effectlist);
             if (!enemyData.atkNHitSettings.unharmableVoidStun)
@@ -897,7 +968,7 @@ public class EnemyMovement : MonoBehaviour
             }
             hitDir = "BL";
         }
-        else if (score == "rageDown") // Rage Down Hit
+        else if (score == "rageDown" || score == "rageDown2") // Rage Down Hit
         {
             enemyEff.ApplyEffectsBasic(effectlist);
             if (!enemyData.atkNHitSettings.unharmableVoidStun)

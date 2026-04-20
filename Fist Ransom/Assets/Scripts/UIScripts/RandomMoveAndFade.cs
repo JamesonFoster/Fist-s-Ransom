@@ -4,6 +4,7 @@ public class RandomMoveAndFade : MonoBehaviour
 {
     public float speed = 3f;
     public float fadeDuration = .5f;
+    public bool floatDown = false;
 
     private Vector2 moveDirection;
     private SpriteRenderer spriteRenderer;
@@ -20,8 +21,16 @@ public class RandomMoveAndFade : MonoBehaviour
     void Update()
     {
         // Move object
+        if (!floatDown)
+        {
         Vector2 moveDirection = Vector2.up;
         transform.Translate(moveDirection * speed * Time.deltaTime);
+        }
+        else
+        {
+        Vector2 moveDirection = Vector2.down;
+        transform.Translate(moveDirection * speed * Time.deltaTime);   
+        }
 
         // Fade out
         if (fadeTimer > 0)
