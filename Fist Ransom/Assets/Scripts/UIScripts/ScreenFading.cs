@@ -111,7 +111,7 @@ public class ScreenFading : MonoBehaviour
             SceneManager.LoadScene("Boss2");
             }
         }
-        else if (!string.IsNullOrEmpty(ifGaut) && GlobalPlayerVars.playerMode == 3)
+        else if (!string.IsNullOrEmpty(ifGaut))
         {
             SceneManager.LoadScene(ifGaut);
         }
