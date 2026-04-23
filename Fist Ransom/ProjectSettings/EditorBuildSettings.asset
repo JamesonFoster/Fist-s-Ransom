@@ -74,6 +74,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Act2/Boss2Talk.unity
     guid: 916699931d4c99e4e944ff4258f492f0
+  - enabled: 1
+    path: Assets/Scenes/Act3/3sFight.unity
+    guid: 61e185394d1612f4aa3dff3ce3fbd07a
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 9b8cd9dc6da67ed43b39c4ebe1fbf12b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

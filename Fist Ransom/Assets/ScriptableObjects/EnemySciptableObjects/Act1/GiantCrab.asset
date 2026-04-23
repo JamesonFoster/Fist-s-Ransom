@@ -20,7 +20,7 @@ MonoBehaviour:
   dodgeTime: 0
   dodgeStun: 0
   dodgeAtkAngleIntence: 10
-  atkAgro: 0.3
+  atkAgro: 0.4
   atkSpeedMultiplier: 1
   listOfSpAtks:
   - {fileID: 11400000, guid: f7989bdf35b672748964b189b15b851c, type: 2}

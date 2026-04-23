@@ -5,6 +5,8 @@ public class GlobalPlayerVars : MonoBehaviour
     //PlayerMapInfo
     public static int playerLocationID = 0;
     public static int playerAct = 1;
+    public static int playerMode = 0;
+    public static int eneKilled = 0;
 
     //PlayerValues
     public static int HealCount = 3;

@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7ae26faaeed745b9b18bcf4c40155, type: 3}
+  m_Name: Death
+  m_EditorClassIdentifier: 
+  name: Tisiphone
+  baseGoldWorth: 150
+  atkRedyPercent: 0.6
+  atkRageRedyPercent: 0.7
+  dodgeDistance: 0.5
+  dodgeTime: 0.4
+  dodgeStun: 0.15
+  dodgeAtkAngleIntence: 4
+  atkAgro: 1.5
+  atkSpeedMultiplier: 2
+  listOfSpAtks:
+  - {fileID: 11400000, guid: c90182a87337d9944863711758c7313b, type: 2}
+  - {fileID: 11400000, guid: 1dc364228a8638747a217e8209a1e19b, type: 2}
+  - {fileID: 11400000, guid: 7fa9add253776b940b361fda24035fc8, type: 2}
+  maxHealth: 125
+  postAtkStunTime: 0.2
+  stunnedTime: 1
+  headDamageMultiplier: 1
+  bodyDamageMultiplier: 1
+  soundHit1: {fileID: 8300000, guid: 85d7a177bdb95e744b76b121e2a2356f, type: 3}
+  soundHit2: {fileID: 8300000, guid: d2debe188ad7af144909d1d65c8abd3c, type: 3}
+  soundDeath: {fileID: 8300000, guid: 766df971889550243b68f9c843b96b59, type: 3}
+  soundDodge: {fileID: 8300000, guid: 8b8bb7cffbef0ab40b432e5df83c709c, type: 3}
+  soundStunned: {fileID: 8300000, guid: 7aeb4f1cb615b3449b91a6262cf1d611, type: 3}
+  soundCele1: {fileID: 0}
+  soundCele2: {fileID: 8300000, guid: d514d1a7b84f83e4980684f160ebeabf, type: 3}
+  idlespeed: 2.5
+  sprStandingStill: {fileID: 21300000, guid: c12ad13156f2dae40ad3a662133eb9d1, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: 5ec3112b56611264197f661cce763b0c, type: 3}
+  sprStunned1: {fileID: 21300000, guid: 1bbc806351ce50144be41ef326b3cfb2, type: 3}
+  sprStunned2: {fileID: 21300000, guid: 30d887573c05ca441b7a8880e733f91a, type: 3}
+  sprDead: {fileID: 21300000, guid: 98a620f309f1e2445a3cdff19b6357f5, type: 3}
+  sprDodge: {fileID: 21300000, guid: e7b1d307893d768418e0bda791a7b064, type: 3}
+  sprDodgeL: {fileID: 21300000, guid: f2a5f7d864da29c4d8362ded577baf01, type: 3}
+  sprHeadHitL: {fileID: 21300000, guid: a2294cf699ff8684699e89faa3ea7c17, type: 3}
+  sprHeadHitR: {fileID: 21300000, guid: 6213b90c6ac93f24586c1e7c05aaef02, type: 3}
+  sprBodyHitL: {fileID: 21300000, guid: 211f148ed05060041824efaea3c7f56a, type: 3}
+  sprBodyHitR: {fileID: 21300000, guid: 53a98f1462a18d643a12cd5b557c95a9, type: 3}
+  sprPlayerDeath1: {fileID: 21300000, guid: da5b643193c1a8441a9a94db458c567d, type: 3}
+  sprPlayerDeath2: {fileID: 21300000, guid: a374f13626dee1144aceb0761b45e1cf, type: 3}
+  holdOn: 0
+  atkNHitSettings:
+    postHitAtker: 0
+    postDodgeAtker: 0
+    isSlippery: 0
+    unharmableVoidStun: 0
+  modeShiftSettings:
+    modeShiftSpeed: 0
+    modeShift: {fileID: 0}
+  itemTestingSettings:
+    ifPlayerHas: {fileID: 0}
+    isModeShift: 0
+    modeToShift2: {fileID: 0}
