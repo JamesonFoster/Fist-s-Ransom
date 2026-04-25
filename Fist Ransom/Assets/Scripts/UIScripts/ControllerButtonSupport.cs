@@ -3,9 +3,11 @@ using UnityEngine.InputSystem;
 
 public class ControllerButtonSupport : MonoBehaviour
 {
+    public int activeIfIDEqual = 0;
     public MainMenuButtons buttonActivator;
     private UpgradeButton ub;
     public ButtonCodeControllerSupport bccs;
+    private ShopButtons sB;
     private MapButtons mB;
 
     public int buttonCode;
@@ -19,20 +21,38 @@ public class ControllerButtonSupport : MonoBehaviour
     public Vector3 baseScale;
     private int lastH = 0; 
     private int lastV = 0;
+    private bool wasSelected = false;
 
     void Awake()
     {
         baseScale = transform.localScale;
         ub = GetComponent<UpgradeButton>();
         mB = GetComponent<MapButtons>();
+        sB = GetComponent<ShopButtons>();
     }
 
     void Update()
     {
+        if (Gamepad.current != null)
+    {
         if (bccs == null) return;
+
+        bool isSelected = (bccs.currentButtonCode == buttonCode);
+
+        // Detect when selection moves onto this button
+        if (isSelected && !wasSelected)
+        {
+            if (sB != null)
+                sB.PlaySounds();
+            else if (ub != null)
+                ub.PlaySounds();
+        }
+
+        wasSelected = isSelected;
 
         HandleScaling();
         HandleInput();
+    }
     }
 
     void HandleScaling()
@@ -45,6 +65,8 @@ public class ControllerButtonSupport : MonoBehaviour
 
     void HandleInput()
     {
+        if (activeIfIDEqual == 0 || activeIfIDEqual == GlobalPlayerVars.playerLocationID)
+        {
         // PRESS (unchanged)
         if (Input.GetButtonDown("LeftAttack") && bccs.currentButtonCode == buttonCode)
         {
@@ -56,6 +78,7 @@ public class ControllerButtonSupport : MonoBehaviour
             {
                 if (ub != null) ub.OnClick();
                 if (mB != null) mB.OnMouseDown();
+                if (sB != null) sB.OnClick();
             }
         }
     
@@ -75,25 +98,30 @@ public class ControllerButtonSupport : MonoBehaviour
         if (h == 1 && lastH != 1 && rightButtonCode != 999)
         {
             bccs.currentButtonCode = rightButtonCode;
+            wasSelected = false;
             bccs.RegisterMove();
         }
         else if (h == -1 && lastH != -1 && leftButtonCode != 999)
         {
             bccs.currentButtonCode = leftButtonCode;
+            wasSelected = false;
             bccs.RegisterMove();
         }
         else if (v == -1 && lastV != -1 && downButtonCode != 999)
         {
             bccs.currentButtonCode = downButtonCode;
+            wasSelected = false;
             bccs.RegisterMove();
         }
         else if (v == 1 && lastV != 1 && upButtonCode != 999)
         {
             bccs.currentButtonCode = upButtonCode;
+            wasSelected = false;
             bccs.RegisterMove();
         }
     
         lastH = h;
         lastV = v;
+        }
     }
 }

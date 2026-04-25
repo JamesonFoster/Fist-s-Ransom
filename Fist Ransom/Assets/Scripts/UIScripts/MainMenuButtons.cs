@@ -13,7 +13,10 @@ public class MainMenuButtons : MonoBehaviour
     public int ModeNumb = 0;
     public void StartRun()
     {
-        GlobalPlayerVars.playerMode = ModeNumb;
+        if (ModeNumb != 999)
+        {
+            GlobalPlayerVars.playerMode = ModeNumb;
+        }
         winScreen.SetActive(true);
     }
     public void Credits()
