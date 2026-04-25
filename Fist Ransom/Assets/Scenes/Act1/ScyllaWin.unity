@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 257520359}
   - component: {fileID: 257520361}
   - component: {fileID: 257520360}
+  - component: {fileID: 257520362}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -330,8 +331,8 @@ MonoBehaviour:
   m_text: "The beast fell to Yur\u2019s feet... He remembers taking a prize from
     his foe... Pick a Memory"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -408,6 +409,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257520358}
   m_CullTransparentMesh: 1
+--- !u!114 &257520362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257520358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b6cefe667fa3945ad8888c4baf5671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentButtonCode: 0
+  isMap: 0
+  inputCooldown: 0.2
 --- !u!1 &540169079
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,8 +484,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Food#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -881,8 +897,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ale#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1015,8 +1031,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Coin#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1270,8 +1286,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1548,6 +1564,8 @@ MonoBehaviour:
   fadeDuration: 3
   fadeIn: 1
   goTo: Zone2Map
+  ifGaut: 
+  isItem: 1
   back2Map: 0
   dead: 0
 --- !u!1 &1512883700
@@ -1940,6 +1958,7 @@ GameObject:
   - component: {fileID: 1958101663}
   - component: {fileID: 1958101662}
   - component: {fileID: 1958101666}
+  - component: {fileID: 1958101667}
   m_Layer: 5
   m_Name: Button1
   m_TagString: Untagged
@@ -2174,6 +2193,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1958101667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958101660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 0}
+  bccs: {fileID: 257520362}
+  buttonCode: 0
+  leftButtonCode: 2
+  rightButtonCode: 1
+  upButtonCode: 999
+  downButtonCode: 999
+  buttonAction: 2
+  baseScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1973710101
 GameObject:
   m_ObjectHideFlags: 0
@@ -2188,6 +2229,7 @@ GameObject:
   - component: {fileID: 1973710104}
   - component: {fileID: 1973710103}
   - component: {fileID: 1973710107}
+  - component: {fileID: 1973710108}
   m_Layer: 5
   m_Name: Button2
   m_TagString: Untagged
@@ -2422,6 +2464,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1973710108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973710101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 0}
+  bccs: {fileID: 257520362}
+  buttonCode: 1
+  leftButtonCode: 0
+  rightButtonCode: 2
+  upButtonCode: 999
+  downButtonCode: 999
+  buttonAction: 2
+  baseScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1981135375
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,7 +2504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1981135376
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2510,6 +2574,8 @@ MonoBehaviour:
   fadeDuration: 3
   fadeIn: 0
   goTo: 
+  ifGaut: 
+  isItem: 0
   back2Map: 0
   dead: 0
 --- !u!1 &2000363666
@@ -2600,6 +2666,7 @@ GameObject:
   - component: {fileID: 2011901156}
   - component: {fileID: 2011901160}
   - component: {fileID: 2011901161}
+  - component: {fileID: 2011901162}
   m_Layer: 5
   m_Name: Button3
   m_TagString: Untagged
@@ -2879,6 +2946,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2011901162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011901154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 0}
+  bccs: {fileID: 257520362}
+  buttonCode: 2
+  leftButtonCode: 1
+  rightButtonCode: 0
+  upButtonCode: 999
+  downButtonCode: 999
+  buttonAction: 2
+  baseScale: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

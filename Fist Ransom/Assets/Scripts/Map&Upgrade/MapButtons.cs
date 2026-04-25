@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class MapButtons : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class MapButtons : MonoBehaviour
     public string locatType;
     public int accessablefromID1;
     public int accessablefromID2;
-    private bool interactableButton = false;
+    public bool interactableButton = false;
     public GameObject playerOn;
     private SpriteRenderer sprrend;
 
@@ -41,6 +42,12 @@ public class MapButtons : MonoBehaviour
             else
                 locatType = "miniboss";
         }
+    }
+    public void RefreshInteractable()
+    {
+        interactableButton =
+            GlobalPlayerVars.playerLocationID == accessablefromID1 ||
+            GlobalPlayerVars.playerLocationID == accessablefromID2;
     }
 
     void OnEnable()
@@ -76,17 +83,8 @@ public class MapButtons : MonoBehaviour
         }
     }
 
-    void OnMouseDown()
+    public void OnMouseDown()
     {
-        if (GlobalPlayerVars.playerLocationID == accessablefromID1 ||
-            GlobalPlayerVars.playerLocationID == accessablefromID2)
-        {
-            interactableButton = true;
-        }
-        else
-        {
-            interactableButton = false;
-        }
         #if UNITY_EDITOR
             interactableButton = true;
         #endif
@@ -150,17 +148,23 @@ public class MapButtons : MonoBehaviour
 
     void OnMouseEnter()
     {
+        if (Gamepad.current == null)
+        {
         if (GlobalPlayerVars.playerLocationID == accessablefromID1 ||
         GlobalPlayerVars.playerLocationID == accessablefromID2)
             transform.localScale = new Vector3(0.416f, 0.416f, 1f);
+        }
     }
 
     void OnMouseExit()
     {
+        if (Gamepad.current == null)
+        {
         if (GlobalPlayerVars.playerLocationID == accessablefromID1 ||
             GlobalPlayerVars.playerLocationID == accessablefromID2)
             transform.localScale = new Vector3(0.2916f, 0.2916f, 1f);
         else
             transform.localScale = new Vector3(0.2216f, 0.2216f, 1f);
+        }
     }
 }
