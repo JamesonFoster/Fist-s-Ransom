@@ -9,6 +9,7 @@ public class ControllerButtonSupport : MonoBehaviour
     public ButtonCodeControllerSupport bccs;
     private ShopButtons sB;
     private MapButtons mB;
+    private DioButton deo;
 
     public int buttonCode;
     public int leftButtonCode = 999;
@@ -29,6 +30,7 @@ public class ControllerButtonSupport : MonoBehaviour
         ub = GetComponent<UpgradeButton>();
         mB = GetComponent<MapButtons>();
         sB = GetComponent<ShopButtons>();
+        deo = GetComponent<DioButton>();
     }
 
     void Update()
@@ -70,16 +72,18 @@ public class ControllerButtonSupport : MonoBehaviour
         // PRESS (unchanged)
         if (Input.GetButtonDown("LeftAttack") && bccs.currentButtonCode == buttonCode)
         {
-            if (buttonAction == 0)
-                buttonActivator.StartRun();
-            else if (buttonAction == 1)
-                buttonActivator.QuitGame();
-            else if (buttonAction == 2)
-            {
-                if (ub != null) ub.OnClick();
-                if (mB != null) mB.OnMouseDown();
-                if (sB != null) sB.OnClick();
-            }
+                if (buttonAction == 0)
+                    buttonActivator.StartRun();
+                else if (buttonAction == 1)
+                    buttonActivator.QuitGame();
+                else if (buttonAction == 2)
+                {
+                    if (ub != null) ub.OnClick();
+                    if (mB != null) mB.OnMouseDown();
+                    if (sB != null) sB.OnClick();
+                }
+                else if (buttonAction == 3)
+                    deo.ShowDialogue();
         }
     
         // Only active button can move

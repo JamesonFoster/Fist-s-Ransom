@@ -2585,7 +2585,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 289113649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77b6cefe667fa3945ad8888c4baf5671, type: 3}
+  m_Script: {fileID: 11500000, guid: d8443726bba79d74d96b5858c285ee2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentButtonCode: 0
@@ -6283,8 +6283,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Coin#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
-  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7131,9 +7131,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 849817806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 9
@@ -8005,9 +8006,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 928107758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 16
@@ -9235,9 +9237,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1073387228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 2
@@ -9353,9 +9356,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1100267472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 17
@@ -9511,8 +9515,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Click and Drag to look across Map.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
-  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9853,9 +9857,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 614224418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 8
@@ -9984,9 +9989,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 389926631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 3
@@ -10445,9 +10451,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 214408373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 14
@@ -11677,9 +11684,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1393181963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 5
@@ -12556,9 +12564,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 191392063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 4
@@ -12582,9 +12591,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1462537173}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 18
@@ -13121,9 +13131,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 108653322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 13
@@ -13531,9 +13542,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1576852131}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 23
@@ -13731,9 +13743,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1626853557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 22
@@ -14523,9 +14536,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1700239035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 1
@@ -14628,9 +14642,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1709226171}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 15
@@ -14828,9 +14843,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1738140246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 6
@@ -15017,9 +15033,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1752958983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 7
@@ -16934,9 +16951,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 949315866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 12
@@ -16960,9 +16978,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 21658307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 77
@@ -17073,9 +17092,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 630300877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 11
@@ -17447,9 +17467,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1999468371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 19
@@ -17473,9 +17494,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2018542701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 24
@@ -17547,9 +17569,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2028829874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 21
@@ -18008,9 +18031,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2088073376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 10
@@ -18121,9 +18145,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1027331900}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 0}
   bccs: {fileID: 289113652}
   buttonCode: 20
