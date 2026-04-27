@@ -116,27 +116,41 @@ public class EnemyMovement : MonoBehaviour
     private float shakeStart = 0f;
     private Vector2 shakeOffset = Vector2.zero;
 
-    //
+    // Difficult Values
     private float healMulti = 1f;
     private float damaMulti = 1f;
     private float atkRandMulti = 1f;
     private float atkSpeedMulti = 1f;
 
+    //Loading Values
+    private float loadRandomAtkChance;
+    private float loadEnemyMaxHP;
 
     private void Awake()
     {
+        //Load Private Vars
+        loadRandomAtkChance = enemyData.atkAgro;
+        loadEnemyMaxHP = enemyData.maxHealth;
+
         if (GlobalPlayerVars.playerMode == 1)
         {
-            healMulti = 2f;
+            healMulti = 1.75f;
             damaMulti = 1.5f;
             atkRandMulti = 1.55f;
             atkSpeedMulti = 1.5f;
         }
+        else if (GlobalPlayerVars.playerMode == 5)
+        {
+            healMulti = 3f;
+            damaMulti = 2f;
+            atkRandMulti = 2.6f;
+            atkSpeedMulti = 2.15f;
+        }
 
         // Initialize global health using ScriptableObject value
         if ((BPC == null && phase == 0) || (phase == 2 && BPC != null))
-            GlobalPlayerVars.EnemyMaxHealth = enemyData.maxHealth * healMulti;
-        GlobalPlayerVars.EnemyHealth = enemyData.maxHealth * healMulti;
+            GlobalPlayerVars.EnemyMaxHealth = loadEnemyMaxHP * healMulti;
+        GlobalPlayerVars.EnemyHealth = loadEnemyMaxHP * healMulti;
         GlobalPlayerVars.EnemyName = enemyData.name;
         GlobalPlayerVars.goldvalue = enemyData.baseGoldWorth * GlobalPlayerVars.coinMultiplay;
         curstandspr = enemyData.sprStandingStill;
@@ -176,7 +190,7 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (((enemyData.atkAgro / 100) * atkRandMulti) >= Random.value && !isAtk && !stunned)
+        if (((loadRandomAtkChance / 100) * atkRandMulti) >= Random.value && !isAtk && !stunned)
             Attack();
     }
 
