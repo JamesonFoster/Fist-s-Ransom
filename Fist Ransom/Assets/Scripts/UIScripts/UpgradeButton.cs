@@ -105,6 +105,14 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         winScreen.SetActive(true);
     }
 
+    public void PlaySounds()
+    {
+        if (upgrade != null && descriptionText != null)
+            descriptionText.text = upgrade.description;
+        if (sound != null)
+            aS.PlayOneShot(sound);
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (upgrade != null && descriptionText != null)

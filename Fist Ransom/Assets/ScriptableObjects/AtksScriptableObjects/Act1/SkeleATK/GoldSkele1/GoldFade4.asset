@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e40986f1b20f1b4e82b64472651eceb, type: 3}
+  m_Name: GoldFade4
+  m_EditorClassIdentifier: 
+  atkWarning: 4
+  parryTime: 0.3
+  postAtkDodgeStun: 0
+  atkType: 
+  attackEffects: []
+  atkDamage: 3
+  sprAttackWarning: {fileID: 21300000, guid: 870a4b93435c0694c9c9affcf2836495, type: 3}
+  sprAttack: {fileID: 21300000, guid: c732b4d4963dab8408e174d8e0c814e1, type: 3}
+  soundAttack: {fileID: 8300000, guid: 2fd1c61611973bf4da8581a2cf6e8866, type: 3}
+  warnAttack: {fileID: 8300000, guid: a7654214683706840b56555fc2f8803d, type: 3}
+  playWarning: 1
+  parryableUpL: 1
+  parryableUpR: 1
+  parryableR: 1
+  parryableL: 1
+  unstunable: 1
+  unparryable: 0
+  isntAtker: 1
+  noMoveBackWarning: 0
+  isShake: 0
+  shakeMagna: 0
+  leftAtkResponse: {fileID: 0}
+  rightAtkResponse: {fileID: 0}
+  atkChaining: 2
+  howManyTime: 0
+  nextAtk: {fileID: 11400000, guid: be4a02bcde41c454da9a7b3c9d23fd16, type: 2}

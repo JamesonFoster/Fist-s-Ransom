@@ -144,6 +144,16 @@ public class ShopButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         transform.localScale = new Vector3(3f, 3f, 1f);
         }
     }
+    public void PlaySounds()
+    {
+        if (activated)
+        {
+        if (upgrade != null && descriptionText != null)
+            descriptionText.text = upgrade.description;
+        if (sound != null)
+            aS.PlayOneShot(sound);
+        }
+    }
 
     public void OnPointerExit(PointerEventData eventData)
     {

@@ -179,8 +179,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Coin#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -285,6 +285,7 @@ GameObject:
   - component: {fileID: 94393811}
   - component: {fileID: 94393810}
   - component: {fileID: 94393813}
+  - component: {fileID: 94393814}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -419,6 +420,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winScreen: {fileID: 1452238029}
+  uD: {fileID: 0}
+  ModeNumb: 999
+--- !u!114 &94393814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94393808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 94393813}
+  bccs: {fileID: 257520362}
+  buttonCode: 10
+  leftButtonCode: 0
+  rightButtonCode: 6
+  upButtonCode: 3
+  downButtonCode: 999
+  buttonAction: 0
+  baseScale: {x: 0, y: 0, z: 0}
 --- !u!1001 &96411656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -534,6 +559,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2122321914}
+    - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2122321915}
   m_SourcePrefab: {fileID: 100100000, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
 --- !u!224 &96411657 stripped
 RectTransform:
@@ -800,6 +828,7 @@ GameObject:
   - component: {fileID: 257520359}
   - component: {fileID: 257520361}
   - component: {fileID: 257520360}
+  - component: {fileID: 257520362}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -849,8 +878,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Looks like you've forgotten something... I can Help, For a Price.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -927,6 +956,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257520358}
   m_CullTransparentMesh: 1
+--- !u!114 &257520362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257520358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b6cefe667fa3945ad8888c4baf5671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentButtonCode: 0
+  isMap: 0
+  inputCooldown: 0.2
 --- !u!1001 &308141575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1042,6 +1086,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1440166626}
+    - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1440166627}
   m_SourcePrefab: {fileID: 100100000, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
 --- !u!224 &308141576 stripped
 RectTransform:
@@ -1123,8 +1170,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 50
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1555,8 +1602,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1748,6 +1795,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 854342821}
+    - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 854342822}
   m_SourcePrefab: {fileID: 100100000, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
 --- !u!224 &854342819 stripped
 RectTransform:
@@ -1862,6 +1912,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &854342822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356772782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 0}
+  bccs: {fileID: 257520362}
+  buttonCode: 4
+  leftButtonCode: 3
+  rightButtonCode: 5
+  upButtonCode: 999
+  downButtonCode: 10
+  buttonAction: 2
+  baseScale: {x: 0, y: 0, z: 0}
 --- !u!1001 &908939433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2011,6 +2083,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2140021256}
+    - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2140021257}
   m_SourcePrefab: {fileID: 100100000, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
 --- !u!1 &948976313 stripped
 GameObject:
@@ -2077,8 +2152,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ale#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2416,6 +2491,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1525106985}
+    - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1525106986}
   m_SourcePrefab: {fileID: 100100000, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
 --- !u!1 &1304817940
 GameObject:
@@ -2476,8 +2554,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2846,6 +2924,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1440166627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440166625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 0}
+  bccs: {fileID: 257520362}
+  buttonCode: 2
+  leftButtonCode: 1
+  rightButtonCode: 3
+  upButtonCode: 999
+  downButtonCode: 10
+  buttonAction: 2
+  baseScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1452238029
 GameObject:
   m_ObjectHideFlags: 0
@@ -2934,6 +3034,8 @@ MonoBehaviour:
   fadeDuration: 3
   fadeIn: 1
   goTo: 
+  ifGaut: 
+  isItem: 0
   back2Map: 1
   dead: 0
 --- !u!1 &1525106983 stripped
@@ -3043,6 +3145,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1525106986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525106983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 0}
+  bccs: {fileID: 257520362}
+  buttonCode: 7
+  leftButtonCode: 5
+  rightButtonCode: 0
+  upButtonCode: 6
+  downButtonCode: 10
+  buttonAction: 2
+  baseScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1528448616
 GameObject:
   m_ObjectHideFlags: 0
@@ -3343,6 +3467,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1690740579}
+    - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1690740580}
   m_SourcePrefab: {fileID: 100100000, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
 --- !u!224 &1690740577 stripped
 RectTransform:
@@ -3457,6 +3584,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1690740580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674832392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 0}
+  bccs: {fileID: 257520362}
+  buttonCode: 3
+  leftButtonCode: 2
+  rightButtonCode: 4
+  upButtonCode: 999
+  downButtonCode: 10
+  buttonAction: 2
+  baseScale: {x: 0, y: 0, z: 0}
 --- !u!1001 &1753215325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3572,6 +3721,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1753215328}
+    - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1753215329}
   m_SourcePrefab: {fileID: 100100000, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
 --- !u!224 &1753215326 stripped
 RectTransform:
@@ -3686,6 +3838,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1753215329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149505196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 0}
+  bccs: {fileID: 257520362}
+  buttonCode: 5
+  leftButtonCode: 4
+  rightButtonCode: 6
+  upButtonCode: 999
+  downButtonCode: 10
+  buttonAction: 2
+  baseScale: {x: 0, y: 0, z: 0}
 --- !u!224 &1958101661 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8864560857277105973, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
@@ -3799,6 +3973,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1958101667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948976313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 0}
+  bccs: {fileID: 257520362}
+  buttonCode: 0
+  leftButtonCode: 6
+  rightButtonCode: 1
+  upButtonCode: 999
+  downButtonCode: 10
+  buttonAction: 2
+  baseScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1978145656
 GameObject:
   m_ObjectHideFlags: 0
@@ -3992,7 +4188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1981135376
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4062,6 +4258,8 @@ MonoBehaviour:
   fadeDuration: 3
   fadeIn: 0
   goTo: 
+  ifGaut: 
+  isItem: 0
   back2Map: 0
   dead: 0
 --- !u!1 &2119798657
@@ -4123,8 +4321,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit Shop
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4303,6 +4501,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2122321915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122321913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 0}
+  bccs: {fileID: 257520362}
+  buttonCode: 1
+  leftButtonCode: 0
+  rightButtonCode: 2
+  upButtonCode: 999
+  downButtonCode: 10
+  buttonAction: 2
+  baseScale: {x: 0, y: 0, z: 0}
 --- !u!1 &2137101560
 GameObject:
   m_ObjectHideFlags: 0
@@ -4363,8 +4583,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Food#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4563,6 +4783,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2140021257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140021254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 0}
+  bccs: {fileID: 257520362}
+  buttonCode: 6
+  leftButtonCode: 5
+  rightButtonCode: 0
+  upButtonCode: 10
+  downButtonCode: 7
+  buttonAction: 2
+  baseScale: {x: 0, y: 0, z: 0}
 --- !u!1001 &6472933917053388656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4686,6 +4928,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1958101666}
+    - targetCorrespondingSourceObject: {fileID: 3526384859066108077, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1958101667}
   m_SourcePrefab: {fileID: 100100000, guid: 7b4452f6cd315f44596b1bef2165fa0e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
