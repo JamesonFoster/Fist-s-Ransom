@@ -331,8 +331,8 @@ MonoBehaviour:
   m_text: "The beast fell to Yur\u2019s feet... He remembers taking a prize from
     his foe... Pick a Memory"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
-  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 257520358}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77b6cefe667fa3945ad8888c4baf5671, type: 3}
+  m_Script: {fileID: 11500000, guid: d8443726bba79d74d96b5858c285ee2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentButtonCode: 0
@@ -484,8 +484,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Food#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
-  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -897,8 +897,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ale#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
-  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1031,8 +1031,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Coin#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
-  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1286,8 +1286,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
-  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2202,7 +2202,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1958101660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activeIfIDEqual: 0
@@ -2473,7 +2473,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1973710101}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activeIfIDEqual: 0
@@ -2955,7 +2955,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2011901154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activeIfIDEqual: 0

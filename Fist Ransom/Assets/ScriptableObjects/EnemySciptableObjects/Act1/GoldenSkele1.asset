@@ -23,10 +23,10 @@ MonoBehaviour:
   atkAgro: 0.4
   atkSpeedMultiplier: 1
   listOfSpAtks:
-  - {fileID: 11400000, guid: 08e00b8877adbf0438907cbb307fe065, type: 2}
-  - {fileID: 11400000, guid: 62c201be3a93b434da582222783ee4cc, type: 2}
-  - {fileID: 11400000, guid: 08e00b8877adbf0438907cbb307fe065, type: 2}
-  - {fileID: 11400000, guid: 08e00b8877adbf0438907cbb307fe065, type: 2}
+  - {fileID: 11400000, guid: 62a89feedd4b4774a9b1766cf693bf52, type: 2}
+  - {fileID: 11400000, guid: 62a89feedd4b4774a9b1766cf693bf52, type: 2}
+  - {fileID: 11400000, guid: 62a89feedd4b4774a9b1766cf693bf52, type: 2}
+  - {fileID: 11400000, guid: 12e32500b0d09984ab41a8472cc35e5e, type: 2}
   maxHealth: 40
   postAtkStunTime: 0.6
   stunnedTime: 2
@@ -40,13 +40,13 @@ MonoBehaviour:
   soundCele1: {fileID: 8300000, guid: 2fd1c61611973bf4da8581a2cf6e8866, type: 3}
   soundCele2: {fileID: 8300000, guid: 98cb143348a88de448dc337a22f55184, type: 3}
   idlespeed: 0.4
-  sprStandingStill: {fileID: 21300000, guid: cb7dc98222a8ca1428b8d6c1a9c86dc4, type: 3}
-  sprStandingStill2: {fileID: 21300000, guid: 8e5e75f414597fb4695dacb13e957957, type: 3}
-  sprStunned1: {fileID: 21300000, guid: f3e4febf69e5bc14b81ca5850538faa2, type: 3}
-  sprStunned2: {fileID: 21300000, guid: 61173457b70f098468da4054739c51f3, type: 3}
+  sprStandingStill: {fileID: 21300000, guid: 646a62d8fa674d94989a114f96f3efc3, type: 3}
+  sprStandingStill2: {fileID: 21300000, guid: d2e5744f30faa8b4592b8ce1cf674d99, type: 3}
+  sprStunned1: {fileID: 21300000, guid: 9adc9ad06fe6abc439dd53bfa9641910, type: 3}
+  sprStunned2: {fileID: 21300000, guid: d35abc09c06f48e4e8aef838ec71890f, type: 3}
   sprDead: {fileID: 21300000, guid: 254c2417dea757b45a6574b164efe9a5, type: 3}
-  sprDodge: {fileID: 21300000, guid: 33bfa03b77769b24ba3e8fb2b574e5dc, type: 3}
-  sprDodgeL: {fileID: 21300000, guid: 1b49a6c081ff39e43a0bedcd94e0d1e0, type: 3}
+  sprDodge: {fileID: 21300000, guid: 1a654f39584cc42409a2c3f5f2e83ce5, type: 3}
+  sprDodgeL: {fileID: 21300000, guid: e50e5dc9fc0470e4aa1924392ffc50de, type: 3}
   sprHeadHitL: {fileID: 21300000, guid: 2d2857587e1c01846855da665d9d8ed8, type: 3}
   sprHeadHitR: {fileID: 21300000, guid: e461beba7046d8b43a8f7cd7c12913be, type: 3}
   sprBodyHitL: {fileID: 21300000, guid: 46161a74988e7124fb40fff87d1b5906, type: 3}

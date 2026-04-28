@@ -18,8 +18,8 @@ MonoBehaviour:
   atkType: 
   attackEffects: []
   atkDamage: 3
-  sprAttackWarning: {fileID: 21300000, guid: 573e224633f626947b8b8f9633a18be5, type: 3}
-  sprAttack: {fileID: 21300000, guid: e06f6b181ee9cd84fbce11200011dfc7, type: 3}
+  sprAttackWarning: {fileID: 21300000, guid: 84cf285951f8cae4d844d7466fbe7a5e, type: 3}
+  sprAttack: {fileID: 21300000, guid: 2cf37fb175852364d857022b7f4b55d2, type: 3}
   soundAttack: {fileID: 8300000, guid: a7654214683706840b56555fc2f8803d, type: 3}
   warnAttack: {fileID: 0}
   playWarning: 0
@@ -37,4 +37,4 @@ MonoBehaviour:
   rightAtkResponse: {fileID: 0}
   atkChaining: 2
   howManyTime: 0
-  nextAtk: {fileID: 11400000, guid: b5e035b98d6cb0649921032f88e181ea, type: 2}
+  nextAtk: {fileID: 11400000, guid: 3f188fd290fd5e549aed9af788b25d19, type: 2}

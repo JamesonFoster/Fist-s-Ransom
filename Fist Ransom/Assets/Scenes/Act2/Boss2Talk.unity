@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 1712903}
   - component: {fileID: 1712905}
   - component: {fileID: 1712902}
+  - component: {fileID: 1712906}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -276,6 +277,28 @@ MonoBehaviour:
   activator: {fileID: 1729237752}
   otherButton: {fileID: 1381688933}
   cost: 1000
+--- !u!114 &1712906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 0}
+  bccs: {fileID: 1663754973}
+  buttonCode: 1
+  leftButtonCode: 0
+  rightButtonCode: 0
+  upButtonCode: 999
+  downButtonCode: 999
+  buttonAction: 3
+  baseScale: {x: 0, y: 0, z: 0}
 --- !u!1 &35730999
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,8 +841,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Coin#
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1755,8 +1778,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Nope
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1921,6 +1944,8 @@ MonoBehaviour:
   fadeDuration: 5
   fadeIn: 1
   goTo: Boss2
+  ifGaut: 
+  isItem: 0
   back2Map: 0
   dead: 0
 --- !u!1 &976633738
@@ -1982,8 +2007,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press Enter to continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2337,6 +2362,8 @@ MonoBehaviour:
   fadeDuration: 1
   fadeIn: 0
   goTo: 
+  ifGaut: 
+  isItem: 0
   back2Map: 0
   dead: 0
 --- !u!1 &1314449014
@@ -2542,6 +2569,7 @@ GameObject:
   - component: {fileID: 1381688936}
   - component: {fileID: 1381688935}
   - component: {fileID: 1381688934}
+  - component: {fileID: 1381688939}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -2686,6 +2714,28 @@ RectTransform:
   m_AnchoredPosition: {x: -523.6114, y: 7.960449}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 0}
+--- !u!114 &1381688939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381688933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 0}
+  bccs: {fileID: 1663754973}
+  buttonCode: 0
+  leftButtonCode: 1
+  rightButtonCode: 1
+  upButtonCode: 999
+  downButtonCode: 999
+  buttonAction: 3
+  baseScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1439983816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2745,8 +2795,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pay 1000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2834,6 +2884,7 @@ GameObject:
   - component: {fileID: 1663754970}
   - component: {fileID: 1663754972}
   - component: {fileID: 1663754971}
+  - component: {fileID: 1663754973}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -2900,6 +2951,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663754969}
   m_CullTransparentMesh: 1
+--- !u!114 &1663754973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663754969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8443726bba79d74d96b5858c285ee2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentButtonCode: 0
+  isMap: 0
+  inputCooldown: 0.2
 --- !u!1 &1710417234
 GameObject:
   m_ObjectHideFlags: 0
@@ -3045,6 +3111,8 @@ MonoBehaviour:
   fadeDuration: 5
   fadeIn: 1
   goTo: EndDemo
+  ifGaut: 
+  isItem: 0
   back2Map: 0
   dead: 0
 --- !u!1 &1749222750
@@ -3107,8 +3175,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '#################################'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
-  m_sharedMaterial: {fileID: -1632881343174307808, guid: 6e76525244abfa441a8c921413b81c73, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

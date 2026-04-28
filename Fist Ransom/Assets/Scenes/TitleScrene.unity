@@ -178,8 +178,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start Run
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
-  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -399,16 +399,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 206660590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 1982463210}
-  bccs: {fileID: 367821716}
+  bccs: {fileID: 367821715}
   buttonCode: 0
   leftButtonCode: 999
   rightButtonCode: 999
-  upButtonCode: 999
-  downButtonCode: 2
+  upButtonCode: 1
+  downButtonCode: 1
   buttonAction: 0
   baseScale: {x: 0, y: 0, z: 0}
 --- !u!1 &269616420
@@ -470,8 +471,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
-  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -639,7 +640,6 @@ GameObject:
   - component: {fileID: 367821714}
   - component: {fileID: 367821713}
   - component: {fileID: 367821715}
-  - component: {fileID: 367821716}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -688,8 +688,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fists Ransom
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
-  m_sharedMaterial: {fileID: -6477295303320167100, guid: 36502235f80f9374d9d6af145df1906d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
+  m_sharedMaterial: {fileID: 7810000231586195236, guid: a2e5e6e23eec41545a21244e22a62157, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -775,23 +775,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 367821711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac49bfec13e6fd43a6b2f78d3578bbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SetTrue: 0
---- !u!114 &367821716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 367821711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77b6cefe667fa3945ad8888c4baf5671, type: 3}
+  m_Script: {fileID: 11500000, guid: d8443726bba79d74d96b5858c285ee2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentButtonCode: 0
+  isMap: 0
+  inputCooldown: 0.2
 --- !u!1 &489901042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,16 +1269,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 796896430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f352998c75e5b5446a502cfee8b4c465, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
   buttonActivator: {fileID: 1982463210}
-  bccs: {fileID: 367821716}
-  buttonCode: 2
+  bccs: {fileID: 367821715}
+  buttonCode: 1
   leftButtonCode: 999
   rightButtonCode: 999
   upButtonCode: 0
-  downButtonCode: 999
+  downButtonCode: 0
   buttonAction: 1
   baseScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1092094276
