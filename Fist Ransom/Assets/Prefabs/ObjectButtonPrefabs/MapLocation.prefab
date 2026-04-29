@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 6375819186370086168}
   - component: {fileID: 168473777322044244}
   - component: {fileID: -4215227313836530271}
+  - component: {fileID: 7934535047981606293}
   m_Layer: 0
   m_Name: MapLocation
   m_TagString: Untagged
@@ -194,6 +195,7 @@ MonoBehaviour:
   locatType: Starter
   accessablefromID1: 0
   accessablefromID2: 0
+  interactableButton: 0
   playerOn: {fileID: 65631645820253154}
   enemyRooms:
   - SampleScene
@@ -308,3 +310,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7934535047981606293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296929445966680298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4e2df51fce1d1408e3561219d781d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIfIDEqual: 0
+  buttonActivator: {fileID: 0}
+  bccs: {fileID: 0}
+  buttonCode: 0
+  leftButtonCode: 999
+  rightButtonCode: 999
+  upButtonCode: 999
+  downButtonCode: 999
+  buttonAction: 0
+  baseScale: {x: 0, y: 0, z: 0}
